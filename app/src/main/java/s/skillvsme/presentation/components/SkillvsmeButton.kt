@@ -17,7 +17,7 @@ import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 
 @Composable
-fun BebaButton(
+fun SkillvsmeButton(
     modifier: Modifier = Modifier,
     label:String,
     enabled: Boolean = true,
