@@ -2,10 +2,12 @@ package s.skillvsme.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val black = Color(0xFF000000)
+val greyishBlack = Color(0xFF2E2E2E)
+val white = Color(0xFFFDFDFD)
+val purple = Color(0xFF8C0840)
+val darkGrey = Color(0xFFBFC0C2)
+val lightGrey = Color(0xFFF0F2F5)
+val red = Color(0xFFF7260C)
+val green = Color(0xFF4AB230)
