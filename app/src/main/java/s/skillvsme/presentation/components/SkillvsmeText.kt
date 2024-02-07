@@ -18,7 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SkillsmeText(
+fun SkillvsmeText(
     value: String,
     modifier: Modifier = Modifier,
     label: String? = null,
