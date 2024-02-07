@@ -84,6 +84,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
 
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
+    implementation("androidx.wear.compose:compose-foundation:1.3.0")
 
     // tests
     testImplementation("junit:junit:4.13.2")
