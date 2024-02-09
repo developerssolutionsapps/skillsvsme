@@ -10,75 +10,89 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.RadioButton
+import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun SkillvsmeRadioPrice(
+    modifier: Modifier = Modifier,
     selectedValue: String,
     label: String,
-    discount: Double,
+    discount: Double? = null,
     price: Double,
     onClick: () -> Unit = {},
 ) {
-    val primary = if(label == selectedValue) true else false
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .background(
-                color = if (primary) MaterialTheme.colors.primary else MaterialTheme.colors.onPrimary
-            )
-            .padding(20.dp)
+    val primary = selectedValue != label
+    BorderedSurface(
+        modifier = modifier,
+        borderColor = if (primary) white else black,
+        borderWidth = 1.dp,
+        cornerRadius = 24.dp
     ) {
         Row(
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier.fillMaxWidth(0.6f)
-        ){
-            RadioButton(
-                selected = selectedValue == label,
-                onClick = onClick
-            )
-            Column {
-                Text(
-                    text = label,
-                    color = if (primary) MaterialTheme.colors.onPrimary else MaterialTheme.colors.primary,
-                    modifier = Modifier.fillMaxWidth()
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(8.dp)
+        ) {
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                RadioButton(
+                    selected = selectedValue == label,
+                    onClick = onClick,
+                    colors = RadioButtonDefaults.colors(
+                        selectedColor = black,
+                        unselectedColor = white
+                    )
                 )
-                if(discount != null) Surface(
-                    shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier
-                        .background(
-                            color = if (primary) MaterialTheme.colors.primary else MaterialTheme.colors.onPrimary
-                        )
-                        .padding(all = 8.dp)
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "${discount}% off",
-                        color = if (primary) MaterialTheme.colors.onPrimary else MaterialTheme.colors.primary,
-                        modifier = Modifier.fillMaxWidth()
+                        text = label,
+                        color = if (primary) white else black,
+                        modifier = Modifier.padding(8.dp)
                     )
+                    if (discount != null) Card(
+                        shape = RoundedCornerShape(12.dp),
+                        colors = CardDefaults.cardColors(
+                            containerColor = lightGrey,
+                        ),
+                    ) {
+                        Text(
+                            text = "${discount}% off",
+                            color = if (primary) white else black,
+                            modifier = Modifier
+                                .padding(all = 4.dp)
+                        )
+                    }
                 }
             }
-        }
-        Row(
-            horizontalArrangement = Arrangement.Start,
-            modifier = Modifier.fillMaxWidth(0.3f)
-        ){
-            Text(
-                text = "${price}$",
-                color = if (primary) purple else MaterialTheme.colors.onPrimary,
-                modifier = Modifier.fillMaxWidth()
-            )
-            Text(
-                text = "/mo",
-                color = if (primary) MaterialTheme.colors.onPrimary else MaterialTheme.colors.primary,
-                modifier = Modifier.fillMaxWidth()
-            )
+            Row(
+                horizontalArrangement = Arrangement.Start,
+                modifier = Modifier.padding(end = 24.dp)
+            ) {
+                Text(
+                    text = "${price}$",
+                    color = if (primary) purple else black
+                )
+                Text(
+                    text = "/mo",
+                    color = if (primary) white else black
+                )
+            }
         }
     }
 }
