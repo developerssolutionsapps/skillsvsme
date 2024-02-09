@@ -3,19 +3,41 @@ package s.skillvsme
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import s.skillvsme.presentation.onboarding.CodeVerification
-import s.skillvsme.presentation.onboarding.JoinAs
-import s.skillvsme.presentation.onboarding.Onboarding1
-import s.skillvsme.presentation.onboarding.Onboarding2
-import s.skillvsme.presentation.onboarding.Onboarding3
-import s.skillvsme.presentation.onboarding.Signup
-import s.skillvsme.presentation.payment.PaymentPlan
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import s.skillvsme.common.Route
+import s.skillvsme.presentation.homeScreen.HomePage
+import s.skillvsme.ui.theme.SkillVsMeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PaymentPlan()
+            val navController = rememberNavController()
+            androidx.compose.material.Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.background
+            ) {
+                SkillVsMeTheme {
+                    androidx.compose.material.Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        NavHost(
+                            navController = navController,
+                            startDestination = Route.Home.Home
+                        ) {
+                            composable(Route.Home.Home) {
+                                    HomePage(navController=navController)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
-}
