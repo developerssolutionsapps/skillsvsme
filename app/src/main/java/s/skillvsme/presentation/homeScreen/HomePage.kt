@@ -95,7 +95,8 @@ fun HomePage(
                             Text(
                                 text = "Invite a Friend and get \n$20 for free",
                                 color = Color.White,
-                                fontSize = 16.sp
+                                fontSize = 20.sp,
+                                style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
                             )
                             Spacer(modifier = Modifier.height(20.dp))
                             Button(
@@ -288,7 +289,7 @@ fun HomePage(
                             modifier = Modifier.padding(end = 16.dp)
                         )
                     }
-                    Spacer(modifier = Modifier.weight(1f))
+                    Spacer(modifier = Modifier.height(8.dp))
                     Row(
                         modifier = Modifier.horizontalScroll(rememberScrollState())
                     ) {
