@@ -2,8 +2,6 @@ package s.skillvsme.presentation.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.material.Button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,7 +13,7 @@ import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 
 @Composable
-fun MyScreen() {
+fun Onboarding1() {
     Column(
         modifier = Modifier
             .fillMaxSize()
