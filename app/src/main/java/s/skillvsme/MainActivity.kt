@@ -6,11 +6,14 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
+import s.skillvsme.presentation.homeScreen.HomeScreen
 import s.skillvsme.ui.theme.SkillVsMeTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,6 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+//            window.statusBarColor = C
             androidx.compose.material.Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
@@ -32,8 +36,11 @@ class MainActivity : ComponentActivity() {
                             startDestination = Route.Home.Home
                         ) {
                             composable(Route.Home.Home) {
-                                    HomePage(navController=navController)
-                                }
+                                HomePage(
+                                        navController=navController
+                                )
+                            }
+
                             }
                         }
                     }
@@ -41,3 +48,5 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+

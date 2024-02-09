@@ -64,7 +64,8 @@ fun HomePage(
                             .background(Color.Gray, CircleShape)
                     ) {
                         // Image
-                        Image(painter =(painterResource(id =R.drawable.profile )) ,
+
+                        Image(painter =(painterResource(id =R.drawable.account )) ,
                             contentDescription ="",Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop )
                     }
@@ -94,8 +95,7 @@ fun HomePage(
                             Text(
                                 text = "Invite a Friend and get \n$20 for free",
                                 color = Color.White,
-                                fontSize = 20.sp,
-                                style = TextStyle(fontWeight = FontWeight.Bold, letterSpacing = 2.sp)
+                                fontSize = 16.sp
                             )
                             Spacer(modifier = Modifier.height(20.dp))
                             Button(
@@ -147,7 +147,6 @@ fun HomePage(
                                             .background(Color.White, CircleShape),
                                         contentAlignment = Alignment.BottomCenter
                                     ) {
-                                        Image(painter = painterResource(id = R.drawable.profile), contentDescription ="", contentScale = ContentScale.Crop )
                                         Box(
                                             modifier = Modifier
                                                 .graphicsLayer {
@@ -288,7 +287,7 @@ fun HomePage(
                             modifier = Modifier.padding(end = 16.dp)
                         )
                     }
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.weight(1f))
                     Row(
                         modifier = Modifier.horizontalScroll(rememberScrollState())
                     ) {
@@ -306,16 +305,15 @@ fun HomePage(
                                     Spacer(modifier = Modifier.width(10.dp))
                                     Box(
                                         modifier = Modifier
-                                            .size(50.dp)
+                                            .size(70.dp)
                                             .background(Color.White, CircleShape)
                                     ) {
                                         // Image
-                                        Image(painter = painterResource(id = R.drawable.profi), contentDescription = "", contentScale = ContentScale.Crop)
                                     }
 
                                 }
                             }
-                            Spacer(modifier = Modifier.width(10.dp))
+                            Spacer(modifier = Modifier.width(3.dp))
                         }
                     }
                 }
