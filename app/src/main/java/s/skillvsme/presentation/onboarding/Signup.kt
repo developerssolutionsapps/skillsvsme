@@ -84,30 +84,6 @@ fun Signup() {
                             }
                     )
                 }
-                Row(
-                    modifier = Modifier
-                        .padding(4.dp)
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(32.dp)
-                            .clip(RoundedCornerShape(10.dp)),
-                        contentAlignment = Alignment.Center
-                    ){
-                        Image(
-                            painter = painterResource(id = R.drawable.back_arrow_white),
-                            contentDescription = "back arrow",
-                            modifier = Modifier
-                                .size(16.dp)
-                                .graphicsLayer {
-                                    this.scaleX = 1.5f
-                                    this.scaleY = 1.5f
-                                }
-                        )
-                    }
-                }
             }
             Box(
                 modifier = Modifier
