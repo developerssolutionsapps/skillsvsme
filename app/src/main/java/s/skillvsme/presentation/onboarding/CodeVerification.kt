@@ -12,16 +12,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Surface
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
@@ -30,19 +27,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import s.skillvsme.R
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
-import s.skillvsme.presentation.components.SkillvsmeTextField
-import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.white
 
 
 @Composable
 fun CodeVerification() {
     val scrollState = rememberScrollState()
+    val onOtpTextChange: (String, Boolean) -> Unit = { otp, isComplete ->
+        println("OTP entered: $otp, isComplete: $isComplete")
+    }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -124,28 +123,39 @@ fun CodeVerification() {
                             )
                         }
                 ) {
-                    Row(
+                    Column(
                         modifier = Modifier
                             .padding(20.dp)
                             .fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
-                        SkillvsmeText(
+                        Text(
                             modifier = Modifier
-                                .padding(10.dp),
-                            label = "Verify Phone Number",
-                            value = "We have sent you a one time verification code on to +999XXXXXXX45 ",
-                            boldValue = true,
-                            valueColor = white
+                                .padding(10.dp)
+                                .fillMaxWidth(),
+                            text = "Verify Phone Number",
+                            style = MaterialTheme.typography.body1,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center
+                        )
+                        Text(
+                            modifier = Modifier
+                                .padding(10.dp)
+                                .fillMaxWidth(),
+                            text = "We have sent you a one time verification code on to +999XXXXXXX45 ",
+                            style = MaterialTheme.typography.body1,
+                            fontWeight = FontWeight.Normal,
+                            textAlign = TextAlign.Center
                         )
                     }
                     Spacer(modifier = Modifier.height(16.dp))
+                    OtpTextField(otpText = "", onOtpTextChange = onOtpTextChange, otpCount = 4)
+                    Spacer(modifier = Modifier.height(16.dp))
                     TextEndingWithLink(
-                        text = "Already have an account?",
-                        linkText = "login in",
+                        text = "Didn't receive code?",
+                        linkText = "Resend",
                         onLinkClick = {}
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(32.dp))
                     SkillvsmeButton(
                         label = "Continue",
                         modifier = Modifier

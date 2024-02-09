@@ -73,7 +73,7 @@ private fun CharView(
                 1.dp, when {
                     isFocused -> black
                     else -> greyishBlack
-                }, RoundedCornerShape(8.dp)
+                }, RoundedCornerShape(12.dp)
             )
             .padding(2.dp),
         text = char,
