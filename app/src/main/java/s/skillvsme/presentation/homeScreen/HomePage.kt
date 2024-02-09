@@ -65,7 +65,7 @@ fun HomePage(
                     ) {
                         // Image
 
-                        Image(painter =(painterResource(id =R.drawable.account )) ,
+                        Image(painter =(painterResource(id =R.drawable.profile )) ,
                             contentDescription ="",Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop )
                     }
@@ -147,6 +147,7 @@ fun HomePage(
                                             .background(Color.White, CircleShape),
                                         contentAlignment = Alignment.BottomCenter
                                     ) {
+                                        Image(painter = painterResource(id = R.drawable.profile), contentDescription ="", contentScale = ContentScale.Crop )
                                         Box(
                                             modifier = Modifier
                                                 .graphicsLayer {
@@ -305,15 +306,16 @@ fun HomePage(
                                     Spacer(modifier = Modifier.width(10.dp))
                                     Box(
                                         modifier = Modifier
-                                            .size(70.dp)
+                                            .size(50.dp)
                                             .background(Color.White, CircleShape)
                                     ) {
                                         // Image
+                                        Image(painter = painterResource(id = R.drawable.profi), contentDescription = "", contentScale = ContentScale.Crop)
                                     }
 
                                 }
                             }
-                            Spacer(modifier = Modifier.width(3.dp))
+                            Spacer(modifier = Modifier.width(10.dp))
                         }
                     }
                 }
