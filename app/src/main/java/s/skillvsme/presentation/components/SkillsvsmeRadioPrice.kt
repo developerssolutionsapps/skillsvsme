@@ -5,21 +5,20 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.RadioButton
 import androidx.compose.material.RadioButtonDefaults
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
@@ -36,14 +35,17 @@ fun SkillvsmeRadioPrice(
     val primary = selectedValue != label
     BorderedSurface(
         modifier = modifier,
-        borderColor = if (primary) white else black,
+        borderColor = if (primary) black else white,
         borderWidth = 1.dp,
-        cornerRadius = 24.dp
+        cornerRadius = 24.dp,
+        background = if (primary) white else black
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier
+                .padding(8.dp)
+                .background(color = if (primary) white else black ),
         ) {
             Row(
                 horizontalArrangement = Arrangement.Start,
@@ -53,8 +55,8 @@ fun SkillvsmeRadioPrice(
                     selected = selectedValue == label,
                     onClick = onClick,
                     colors = RadioButtonDefaults.colors(
-                        selectedColor = black,
-                        unselectedColor = white
+                        selectedColor = white,
+                        unselectedColor = black
                     )
                 )
                 Column(
@@ -62,13 +64,13 @@ fun SkillvsmeRadioPrice(
                 ) {
                     Text(
                         text = label,
-                        color = if (primary) white else black,
+                        color = if (primary) black else white,
                         modifier = Modifier.padding(8.dp)
                     )
                     if (discount != null) Card(
                         shape = RoundedCornerShape(12.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = lightGrey,
+                            containerColor = if (primary) darkGrey else lightGrey,
                         ),
                     ) {
                         Text(
@@ -86,11 +88,13 @@ fun SkillvsmeRadioPrice(
             ) {
                 Text(
                     text = "${price}$",
-                    color = if (primary) purple else black
+                    fontWeight = FontWeight.SemiBold,
+                    color = if (primary) purple else white
                 )
                 Text(
                     text = "/mo",
-                    color = if (primary) white else black
+                    fontWeight = FontWeight.SemiBold,
+                    color = if (primary) black else white
                 )
             }
         }

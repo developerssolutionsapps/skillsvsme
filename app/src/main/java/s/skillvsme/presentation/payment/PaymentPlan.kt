@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -21,6 +23,7 @@ fun PaymentPlan() {
     Column(
         modifier = Modifier
             .padding(16.dp)
+            .verticalScroll(rememberScrollState())
     ) {
         Spacer(modifier = Modifier.height(16.dp))
         // Step One
@@ -70,15 +73,33 @@ fun PaymentPlan() {
         SkillvsmeRadioPrice(
             modifier = Modifier.fillMaxWidth(),
             selectedValue = selecctedPayPlan,
+            label = "Monthly",
+            price = 30.0
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        SkillvsmeRadioPrice(
+            modifier = Modifier.fillMaxWidth(),
+            selectedValue = selecctedPayPlan,
             label = "Every 3 months",
-            discount = 27.0,
+            discount = 10.0,
             price = 27.0
         )
         Spacer(modifier = Modifier.height(8.dp))
-        SkillvsmeRadioBtn(
+        SkillvsmeRadioPrice(
             modifier = Modifier.fillMaxWidth(),
-            selectedValue = selectedValue,
-            label = "1 hr/week"
+            selectedValue = selecctedPayPlan,
+            label = "Every 6 months",
+            discount = 15.0,
+            price = 25.0
         )
+        Spacer(modifier = Modifier.height(8.dp))
+        SkillvsmeRadioPrice(
+            modifier = Modifier.fillMaxWidth(),
+            selectedValue = selecctedPayPlan,
+            label = "Annually",
+            discount = 20.0,
+            price = 22.0
+        )
+        Spacer(modifier = Modifier.height(8.dp))
     }
 }
