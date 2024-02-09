@@ -29,7 +29,9 @@ fun SkillvsmeText(
     iconBefore: Painter? = null,
     iconAfter: Painter? = null,
     valueColor: Color? = null,
+    labelColor: Color? = null,
     labelIcon: Painter? = null,
+    isValueHeading: Boolean = false,
     verticalAlign: Arrangement.HorizontalOrVertical = Arrangement.Center,
     horizontalAlign: Arrangement.Horizontal = Arrangement.SpaceBetween,
 ) {
@@ -67,6 +69,7 @@ fun SkillvsmeText(
                         }
                         Text(
                             text = label,
+                            color = if (labelColor != null) labelColor else Color.Unspecified,
                             style = MaterialTheme.typography.body1,
                             fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal
                         )
@@ -79,7 +82,7 @@ fun SkillvsmeText(
                     Text(
                         text = value,
                         color = if (valueColor != null) valueColor else Color.Unspecified,
-                        style = MaterialTheme.typography.body1,
+                        style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
                         fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
                     )
                 }
