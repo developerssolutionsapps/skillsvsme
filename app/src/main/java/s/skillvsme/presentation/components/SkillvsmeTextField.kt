@@ -110,7 +110,7 @@ fun SkillvsmeTextField(
                 onValueChange = {it ->
                     onChange(it)
                 },
-                shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(24.dp),
                 keyboardOptions = keyboardOptions,
                 placeholder = {
                     Text(

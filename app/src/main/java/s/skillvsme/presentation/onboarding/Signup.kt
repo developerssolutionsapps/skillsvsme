@@ -64,7 +64,7 @@ fun Signup() {
 
             ){
                 Image(
-                    painter = painterResource(id = R.drawable.ic_launcher_background),
+                    painter = painterResource(id = R.drawable.top_blackish_bg),
                     contentDescription = "Vehicles Image",
                     modifier    = Modifier
                         .fillMaxWidth()
@@ -122,7 +122,7 @@ fun Signup() {
                         .drawBehind {
                             drawRoundRect(
                                 white,
-                                cornerRadius = CornerRadius(24.dp.toPx())
+                                cornerRadius = CornerRadius(48.dp.toPx())
                             )
                         }
                 ) {
@@ -135,7 +135,7 @@ fun Signup() {
                         Surface(
                             modifier = Modifier
                                 .padding(top = 36.dp, end = 12.dp),
-                            shape = RoundedCornerShape(12.dp),
+                            shape = RoundedCornerShape(24.dp),
                             color = black
                         ){
                             SkillvsmeText(
@@ -164,7 +164,7 @@ fun Signup() {
                     SkillvsmeText(value = "OK")
                     Spacer(modifier = Modifier.height(16.dp))
                     Card    (
-                        shape = RoundedCornerShape(12.dp),
+                        shape = RoundedCornerShape(24.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = lightGrey,
                             ),
@@ -184,7 +184,7 @@ fun Signup() {
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     Card    (
-                        shape = RoundedCornerShape(12.dp),
+                        shape = RoundedCornerShape(24.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = lightGrey,
                         ),

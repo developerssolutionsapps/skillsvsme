@@ -33,7 +33,7 @@ fun SkillvsmeButton(
         onClick = onClick,
         modifier = modifier.testTag(label),
         enabled = enabled,
-        shape = MaterialTheme.shapes.large.copy(all = CornerSize(16.dp)),
+        shape = MaterialTheme.shapes.large.copy(all = CornerSize(24.dp)),
         colors = ButtonDefaults.buttonColors(
             contentColor = Color.White,
             backgroundColor = if (primary) black else white,
