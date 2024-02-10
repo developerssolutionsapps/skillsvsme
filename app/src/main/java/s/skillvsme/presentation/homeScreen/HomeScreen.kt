@@ -569,7 +569,6 @@ fun HomeScreen(
 
                             Box(
 
-
                                 modifier = Modifier
 
                                     .width(317.dp)

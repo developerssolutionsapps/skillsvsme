@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.homeScreen.HomeScreen
+import s.skillvsme.presentation.userprofilestudent.UserProfile
 import s.skillvsme.ui.theme.SkillVsMeTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,11 +37,8 @@ class MainActivity : ComponentActivity() {
                             startDestination = Route.Home.Home
                         ) {
                             composable(Route.Home.Home) {
-                                HomePage(
-                                        navController=navController
-                                )
+                               UserProfile()
                             }
-
                             }
                         }
                     }
