@@ -23,7 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -49,9 +48,7 @@ fun TutorsDetailsAppBar(
     backgroundImage: Painter? = null,
     profileImage: Painter? = null,
     bottomCornerRadius: Dp = 24.dp,
-
     ) {
-
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -62,11 +59,9 @@ fun TutorsDetailsAppBar(
                     bottomStart = bottomCornerRadius,
                 )
             )
-
     ) {
         Image(
             painter = if (backgroundImage == null) painterResource(id = R.drawable.top_blackish_bg) else backgroundImage,
-//            modifier = Modifier.fillMaxSize(),
             contentDescription = "Background Image",
             contentScale = ContentScale.Crop
         )
