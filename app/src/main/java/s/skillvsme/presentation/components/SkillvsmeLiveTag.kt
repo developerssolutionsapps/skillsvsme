@@ -19,22 +19,22 @@ import s.skillvsme.ui.theme.red
 
 @Composable
 fun SkillvsmeLiveTag(
+    modifier: Modifier = Modifier,
+    textModifier: Modifier = Modifier,
     isLive: Boolean = true
 ) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .graphicsLayer {
                 translationY = +10.dp.toPx()
             }
-            .width(30.dp)
-            .height(20.dp)
             .background(if (isLive) red else darkGrey , RoundedCornerShape(5.dp))
     ) {
         Text(
             text = "Live",
             color = Color.White,
             fontSize = 12.sp,
-            modifier = Modifier.padding(4.dp)
+            modifier = textModifier.padding(4.dp)
         )
     }
 }
