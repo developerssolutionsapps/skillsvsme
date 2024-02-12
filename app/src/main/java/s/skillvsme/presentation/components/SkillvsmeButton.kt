@@ -26,7 +26,7 @@ fun SkillvsmeButton(
     label:String,
     enabled: Boolean = true,
     primary: Boolean = true,
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     ) {
     Button(
         border = BorderStroke(1.dp, white),
