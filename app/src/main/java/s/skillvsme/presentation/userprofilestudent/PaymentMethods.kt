@@ -1,5 +1,7 @@
 package s.skillvsme.presentation.userprofilestudent
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,11 +10,19 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -55,17 +65,111 @@ fun paymentMethod() {
 
             Spacer(modifier = Modifier.height(20.dp))
             Text(text = "Primary")
-           BorderedSurface {
-               Column {
-                   Row() {
-                       Row() {
-                           Column() {
+            BorderedSurface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(100.dp),
+                background = Color.White,
+                cornerRadius = 12.dp,
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 25.dp),
 
-                           }
-                       }
-                   }
-               }
-           }
+                    verticalAlignment = Alignment.CenterVertically,
+
+                    ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.payment),
+                        contentDescription = "", modifier = Modifier
+                            .padding(start = 15.dp, end = 10.dp)
+                            .width(40.dp)
+                            .height(30.dp)
+                            .wrapContentSize()
+                    )
+                    Row(modifier = Modifier.wrapContentSize()) {
+                        Column() {
+                            Text(text = "XXXX-XXXX-XXXX-X456", fontWeight = FontWeight.Bold)
+                            Spacer(modifier = Modifier.height(5.dp))
+                            Text(text = "Expires 06/25", fontWeight = FontWeight.Light)
+                        }
+                        Spacer(modifier = Modifier.weight(1f))
+                        Text(
+                            text = "Remove",
+                            modifier = Modifier.padding(end = 10.dp, top = 10.dp),
+                            color = Color.Red,
+                        )
+                    }
+                }
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            Text(text = "Other")
+            BorderedSurface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(100.dp),
+                background = Color.White,
+                cornerRadius = 12.dp,
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 25.dp),
+
+                    verticalAlignment = Alignment.CenterVertically,
+
+                    ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.payment),
+                        contentDescription = "", modifier = Modifier
+                            .padding(start = 15.dp, end = 10.dp)
+                            .width(40.dp)
+                            .height(30.dp)
+                            .wrapContentSize()
+                    )
+                    Row(modifier = Modifier.wrapContentSize()) {
+                        Column() {
+                            Text(text = "XXXX-XXXX-XXXX-X456", fontWeight = FontWeight.Bold)
+                            Spacer(modifier = Modifier.height(5.dp))
+                            Text(text = "Expires 06/25", fontWeight = FontWeight.Light)
+                        }
+                        Spacer(modifier = Modifier.weight(1f))
+                        Text(
+                            text = "Remove",
+                            modifier = Modifier.padding(end = 10.dp, top = 10.dp),
+                            color = Color.Red,
+                        )
+                    }
+                }
+            }
+
+            BorderedSurface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(100.dp),
+                background = Color.White,
+                cornerRadius = 12.dp,
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 25.dp),
+
+                    verticalAlignment = Alignment.CenterVertically,
+
+                    ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.addition) ,
+                        contentDescription = "", modifier = Modifier
+                            .padding(start = 15.dp, end = 10.dp)
+                            .size(30.dp)
+                            .background(Color.Black, CircleShape)
+                            .wrapContentSize()
+                    )
+                            Text(text = "Payment Method", fontWeight = FontWeight.Normal)
+                }
+            }
         }
     }
 }
