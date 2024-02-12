@@ -171,6 +171,22 @@ fun TutorsDetails() {
                     institution = "Self-employed"
                 )
             }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SkillvsmeText(
+                    value = "Student Reviews",
+                    valueColor = purple,
+                    boldValue = true
+                )
+                SkillvsmeText(
+                    value = "See All",
+                    valueColor = purple
+                )
+            }
         }
     }
 }
