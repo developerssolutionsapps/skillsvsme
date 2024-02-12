@@ -19,6 +19,7 @@ import s.skillvsme.presentation.userprofilestudent.EditProfile
 import s.skillvsme.presentation.userprofilestudent.NotificationScreen
 import s.skillvsme.presentation.userprofilestudent.PaymentSettings
 import s.skillvsme.presentation.userprofilestudent.UserProfile
+import s.skillvsme.presentation.userprofilestudent.paymentMethod
 import s.skillvsme.ui.theme.SkillVsMeTheme
 
 class MainActivity : ComponentActivity() {
@@ -41,7 +42,7 @@ class MainActivity : ComponentActivity() {
                             startDestination = Route.Home.Home
                         ) {
                             composable(Route.Home.Home) {
-                                NotificationScreen(navController = navController)
+                                paymentMethod()
                             }
                             }
                         }
