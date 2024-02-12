@@ -26,11 +26,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
+import s.skillvsme.presentation.components.BorderedSurface
+import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun TutorsDetails() {
@@ -119,12 +122,32 @@ fun TutorsDetails() {
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
+            // Bio
             SkillvsmeText(
                 label = "Bio",
                 boldLabel = true,
                 labelColor = purple,
                 value = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language."
             )
+            Spacer(modifier = Modifier.height(16.dp))
+            // Languages
+            SkillvsmeText(
+                value = "Languages",
+                valueColor = purple,
+                boldValue = true
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.horizontalScroll(rememberScrollState())
+            ) {
+                LanguageCard(language = "English (Native)")
+                Spacer(modifier = Modifier.width(8.dp))
+                LanguageCard(language = "French (fluent)")
+                Spacer(modifier = Modifier.width(8.dp))
+                LanguageCard(language = "German (fluent)")
+                Spacer(modifier = Modifier.width(8.dp))
+                LanguageCard(language = "Spanish (Intermediate)")
+            }
         }
     }
 }
