@@ -13,10 +13,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import s.skillvsme.ui.theme.darkGrey
+import s.skillvsme.ui.theme.red
 
 
 @Composable
-fun SkillvsmeLiveTag() {
+fun SkillvsmeLiveTag(
+    isLive: Boolean = true
+) {
     Box(
         modifier = Modifier
             .graphicsLayer {
@@ -24,7 +28,7 @@ fun SkillvsmeLiveTag() {
             }
             .width(30.dp)
             .height(20.dp)
-            .background(Color.Red, RoundedCornerShape(5.dp))
+            .background(if (isLive) red else darkGrey , RoundedCornerShape(5.dp))
     ) {
         Text(
             text = "Live",
