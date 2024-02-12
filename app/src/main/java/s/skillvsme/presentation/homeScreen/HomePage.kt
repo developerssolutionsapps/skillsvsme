@@ -64,7 +64,6 @@ fun HomePage(
                             .background(Color.Gray, CircleShape)
                     ) {
                         // Image
-
                         Image(painter =(painterResource(id =R.drawable.profile )) ,
                             contentDescription ="",Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop )
