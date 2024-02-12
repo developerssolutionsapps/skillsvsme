@@ -92,28 +92,28 @@ fun PaymentSettings() {
                 }
             }
             Text(text = "Transaction history", modifier = Modifier.padding(top = 20.dp, bottom = 15.dp))
-            TransactionHistory(iconStart = painterResource(id = R.drawable.arrowback))
+            TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_downward_left))
             Divider(
                 color = Color.Gray,
                 modifier = Modifier
                     .height(1.dp)
                     .fillMaxWidth() // Adjust width as needed
             )
-            TransactionHistory(iconStart = painterResource(id = R.drawable.arrowback))
+            TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_upwardward_left), textSuccess = "failed")
             Divider(
                 color = Color.Gray,
                 modifier = Modifier
                     .height(1.dp)
                     .fillMaxWidth() // Adjust width as needed
             )
-            TransactionHistory(iconStart = painterResource(id = R.drawable.arrowback))
+            TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_upwardward_left))
             Divider(
                 color = Color.Gray,
                 modifier = Modifier
                     .height(1.dp)
                     .fillMaxWidth() // Adjust width as needed
             )
-            TransactionHistory(iconStart = painterResource(id = R.drawable.arrowback))
+            TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_upwardward_left))
             Divider(
                 color = Color.Gray,
                 modifier = Modifier

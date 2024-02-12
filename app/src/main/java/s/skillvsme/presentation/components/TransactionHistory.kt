@@ -37,8 +37,7 @@ import org.w3c.dom.Text
 fun TransactionHistory(
     modifier: Modifier = Modifier,
     iconStart: Painter,
-    color: Color?=null,
-    textSuccess: ,
+    textSuccess:String="Successfully" ,
 ) {
     Row(
         modifier = modifier
@@ -76,7 +75,7 @@ fun TransactionHistory(
                     modifier
                         .padding(top = 10.dp)
                         .size(width = 50.dp, height = 15.dp)
-                        .background(color ?: Color.Green, shape = RoundedCornerShape(5.dp)),
+                        .background(if (textSuccess=="Successfully") Color.Green else Color.Red, shape = RoundedCornerShape(5.dp)),
                     contentAlignment = androidx.compose.ui.Alignment.Center,
                 ) {
                     Text(text = textSuccess, style = TextStyle(fontSize = 8.sp))
