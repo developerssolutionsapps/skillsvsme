@@ -29,8 +29,10 @@ import s.skillvsme.R
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.presentation.components.TutorsExperience
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
@@ -147,6 +149,27 @@ fun TutorsDetails() {
                 LanguageCard(language = "German (fluent)")
                 Spacer(modifier = Modifier.width(8.dp))
                 LanguageCard(language = "Spanish (Intermediate)")
+            }
+            // Experience
+            Spacer(modifier = Modifier.height(16.dp))
+            SkillvsmeText(
+                value = "Experience",
+                valueColor = purple,
+                boldValue = true
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Column {
+                TutorsExperience(
+                    title = "English Professor",
+                    timeline = "2014 - Present",
+                    institution = "Cambridge University"
+                )
+                Spacer(modifier = Modifier.height(8.dp))
+                TutorsExperience(
+                    title = "Private English Tutor",
+                    timeline = "2012 - 2014",
+                    institution = "Self-employed"
+                )
             }
         }
     }
