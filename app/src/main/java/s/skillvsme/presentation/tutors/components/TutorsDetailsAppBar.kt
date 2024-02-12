@@ -52,19 +52,21 @@ fun TutorsDetailsAppBar(
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .background(
-                color = backgroundColor,
-                shape = RoundedCornerShape(
-                    bottomEnd = bottomCornerRadius,
-                    bottomStart = bottomCornerRadius,
-                )
-            )
     ) {
-        Image(
-            painter = if (backgroundImage == null) painterResource(id = R.drawable.top_blackish_bg) else backgroundImage,
-            contentDescription = "Background Image",
-            contentScale = ContentScale.Crop
-        )
+        Card(
+            modifier = Modifier
+                .fillMaxSize(),
+            shape = RoundedCornerShape(
+                bottomEnd = bottomCornerRadius,
+                bottomStart = bottomCornerRadius,
+            )
+        ) {
+            Image(
+                painter = if (backgroundImage == null) painterResource(id = R.drawable.top_blackish_bg) else backgroundImage,
+                contentDescription = "Background Image",
+                contentScale = ContentScale.Crop
+            )
+        }
         // Circle Image View
         Column(
             modifier = Modifier
