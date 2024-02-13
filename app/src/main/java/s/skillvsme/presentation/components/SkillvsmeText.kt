@@ -18,13 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-
+import s.skillvsme.common.Fonts
 
 @Composable
 fun SkillvsmeText(
@@ -83,9 +80,10 @@ fun SkillvsmeText(
                         }
                         Text(
                             text = label,
-
-                            style =  MaterialTheme.typography.body1,
-                            fontWeight = if (boldLabel) FontWeight.Bold else  FontWeight.Normal,
+                            fontFamily = Fonts.jostFontFamily,
+                            color = if (labelColor != null) labelColor else Color.Unspecified,
+                            style = MaterialTheme.typography.body1,
+                            fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal
                         )
                     }
                 }
@@ -96,9 +94,9 @@ fun SkillvsmeText(
                     Text(
                         text = value,
                         color = if (valueColor != null) valueColor else Color.Unspecified,
-
-                        style = MaterialTheme.typography.body1 ,
-                        fontWeight = if (boldValue) FontWeight.SemiBold else valueFont
+                        fontFamily = Fonts.jostFontFamily,
+                        style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
+                        fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
                     )
                 }
             }

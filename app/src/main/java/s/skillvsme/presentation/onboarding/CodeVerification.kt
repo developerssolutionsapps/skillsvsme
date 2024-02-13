@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.ui.theme.white
@@ -129,6 +130,7 @@ fun CodeVerification() {
                             .fillMaxWidth(),
                     ) {
                         Text(
+                            fontFamily = Fonts.jostFontFamily,
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxWidth(),
@@ -138,6 +140,7 @@ fun CodeVerification() {
                             textAlign = TextAlign.Center
                         )
                         Text(
+                            fontFamily = Fonts.jostFontFamily,
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxWidth(),

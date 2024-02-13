@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.red
 
@@ -34,7 +35,8 @@ fun SkillvsmeLiveTag(
             text = "Live",
             color = Color.White,
             fontSize = 12.sp,
-            modifier = textModifier.padding(4.dp)
+            modifier = textModifier.padding(4.dp),
+            fontFamily = Fonts.jostFontFamily
         )
     }
 }

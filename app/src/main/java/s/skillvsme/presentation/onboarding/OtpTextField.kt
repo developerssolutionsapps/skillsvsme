@@ -16,6 +16,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.greyishBlack
 
@@ -77,6 +78,7 @@ private fun CharView(
             )
             .padding(2.dp),
         text = char,
+        fontFamily = Fonts.jostFontFamily,
         style = MaterialTheme.typography.h4,
         color = if (isFocused) {
             greyishBlack

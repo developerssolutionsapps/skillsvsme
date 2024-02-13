@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -112,6 +113,7 @@ fun TutorsDetailsAppBar(
                 fontSize = 18.sp,
                 modifier = Modifier
                     .fillMaxWidth(),
+                fontFamily = Fonts.jostFontFamily,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(4.dp))

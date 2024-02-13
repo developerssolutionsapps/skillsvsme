@@ -16,6 +16,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
@@ -39,8 +40,8 @@ fun SkillvsmeButton(
         enabled = enabled,
         shape = MaterialTheme.shapes.large.copy(all = CornerSize(24.dp)),
         colors = ButtonDefaults.buttonColors(
-            contentColor = Color.White,
-            containerColor = if (primary) black else white,
+            contentColor = if(primary) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
+            containerColor = if (primary) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
             disabledContainerColor = if(primary) darkGrey else lightGrey,
             disabledContentColor = if(primary) lightGrey else darkGrey
         )
@@ -49,9 +50,10 @@ fun SkillvsmeButton(
             text = label,
             modifier = Modifier
                 .padding(8.dp),
-            color = if(primary) white else black,
+            color = if(primary) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.Bold,
-            fontSize = 16.sp
+            fontSize = 16.sp,
+            fontFamily = Fonts.jostFontFamily
         )
     }
 }

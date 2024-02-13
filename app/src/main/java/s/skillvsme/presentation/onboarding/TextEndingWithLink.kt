@@ -15,6 +15,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.purple
 
 
@@ -30,10 +31,14 @@ fun TextEndingWithLink(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        Text(text = text)
+        Text(
+            text = text,
+            fontFamily = Fonts.jostFontFamily,
+        )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = linkText,
+            fontFamily = Fonts.jostFontFamily,
             color = purple,
             modifier = Modifier
                 .clickable(onClick = onLinkClick)
