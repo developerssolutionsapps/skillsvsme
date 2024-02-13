@@ -23,6 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
+import s.skillvsme.presentation.userprofilestudent.UserProfile
 
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -33,9 +34,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             )
         }
         composable(Route.Student.Tutor.TutorsList) {
-            HomePage(
-                navController=navController
-            )
+            TutorsList()
         }
         composable(Route.Student.Streaming.LiveStream) {
             HomePage(
@@ -49,10 +48,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
 
         }
         composable(Route.Student.Profile.StudentProfile) {
-            HomePage(
-                navController=navController
-            )
-
+        UserProfile()
         }
     }
 }

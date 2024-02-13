@@ -17,6 +17,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.homeScreen.HomeScreen
+import s.skillvsme.presentation.onboarding.Onboarding1
 import s.skillvsme.presentation.userprofilestudent.EditLanguage
 import s.skillvsme.presentation.userprofilestudent.EditProfile
 import s.skillvsme.presentation.userprofilestudent.NotificationScreen
@@ -49,10 +50,10 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = Route.Home.Home
+                            startDestination = Route.Student.Onboarding.Onboarding1
                         ) {
-                            composable(Route.Home.Home) {
-                             paymentMethod()
+                            composable(Route.Student.Onboarding.Onboarding1) {
+                                Onboarding1()
                             }
                             }
                         }
