@@ -4,8 +4,9 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
+import androidx.compose.material.ButtonElevation
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,18 +27,21 @@ fun SkillvsmeButton(
     label:String,
     enabled: Boolean = true,
     primary: Boolean = true,
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
     ) {
     Button(
-        border = BorderStroke(1.dp, white),
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 0.dp
+        ),
+        border = BorderStroke(0.dp, white),
         onClick = onClick,
         modifier = modifier.testTag(label),
         enabled = enabled,
         shape = MaterialTheme.shapes.large.copy(all = CornerSize(24.dp)),
         colors = ButtonDefaults.buttonColors(
             contentColor = Color.White,
-            backgroundColor = if (primary) black else white,
-            disabledBackgroundColor = if(primary) darkGrey else lightGrey,
+            containerColor = if (primary) black else white,
+            disabledContainerColor = if(primary) darkGrey else lightGrey,
             disabledContentColor = if(primary) lightGrey else darkGrey
         )
     ){
