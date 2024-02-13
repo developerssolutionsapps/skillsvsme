@@ -32,6 +32,28 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
                 navController=navController
             )
         }
+        composable(Route.Student.Tutor.TutorsList) {
+            HomePage(
+                navController=navController
+            )
+        }
+        composable(Route.Student.Streaming.LiveStream) {
+            HomePage(
+                navController=navController
+            )
+        }
+        composable(Route.Student.Classes.UpcomingClasses) {
+            HomePage(
+                navController=navController
+            )
+
+        }
+        composable(Route.Student.Profile.StudentProfile) {
+            HomePage(
+                navController=navController
+            )
+
+        }
     }
 }
 @Composable
