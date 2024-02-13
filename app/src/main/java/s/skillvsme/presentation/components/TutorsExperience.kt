@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
 
@@ -33,16 +35,19 @@ fun TutorsExperience(
                 .padding(24.dp)
         ) {
             Text(
+                fontFamily = Fonts.jostFontFamily,
                 text = title,
                 fontWeight = FontWeight.Bold
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
+                fontFamily = Fonts.jostFontFamily,
                 text = timeline,
                 fontWeight = FontWeight.Light
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
+                fontFamily = Fonts.jostFontFamily,
                 text = institution,
                 fontWeight = FontWeight.Normal
             )

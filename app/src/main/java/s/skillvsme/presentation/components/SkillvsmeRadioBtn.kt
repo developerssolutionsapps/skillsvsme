@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
@@ -51,7 +52,8 @@ fun SkillvsmeRadioBtn(
             Text(
                 text = label,
                 color = if (primary) white else black,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                fontFamily = Fonts.jostFontFamily
             )
         }
     }

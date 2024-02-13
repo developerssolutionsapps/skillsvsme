@@ -13,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 
@@ -40,6 +41,7 @@ fun Onboarding1() {
                 contentScale = ContentScale.FillWidth
             )
             Text(
+                fontFamily = Fonts.jostFontFamily,
                 modifier = Modifier
                     .padding(10.dp)
                     .fillMaxWidth(),

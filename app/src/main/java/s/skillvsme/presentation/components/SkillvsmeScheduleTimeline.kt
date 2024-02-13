@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 
@@ -41,6 +42,7 @@ fun SkillvsmeScheduleTimeline(
             Column() {
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = day,
                     fontWeight = FontWeight.Bold,
                     color = purple,
@@ -51,6 +53,7 @@ fun SkillvsmeScheduleTimeline(
                     textAlign = TextAlign.Center
                 )
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = date,
                     fontWeight = FontWeight.Bold,
                     color = purple,
@@ -61,6 +64,7 @@ fun SkillvsmeScheduleTimeline(
                     textAlign = TextAlign.Center
                 )
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = month,
                     fontWeight = FontWeight.Bold,
                     fontSize = 16.sp,

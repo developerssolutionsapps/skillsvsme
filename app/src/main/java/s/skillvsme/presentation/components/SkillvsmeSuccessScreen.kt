@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 
 
 @Composable
@@ -52,6 +53,7 @@ fun SkillvsmeSuccessScreen(
                 text = successMessage,
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
+                fontFamily = Fonts.jostFontFamily,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -64,6 +66,7 @@ fun SkillvsmeSuccessScreen(
                         .padding(24.dp),
                     text = successInfo,
                     fontWeight = FontWeight.Normal,
+                    fontFamily = Fonts.jostFontFamily,
                     fontSize = 18.sp,
                     textAlign = TextAlign.Center
                 )

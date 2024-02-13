@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.ktor.http.ContentType
 import org.w3c.dom.Text
+import s.skillvsme.common.Fonts
 
 @Composable
 fun Notification(
@@ -59,11 +60,27 @@ fun Notification(
                 .fillMaxWidth()
         ) {
             Column {
-                Text(text = "Black Friday is Here", fontWeight = FontWeight.Bold)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "Get 50% 0f Yearly subscription in \n Black Friday for Limited time", fontWeight = FontWeight.Normal)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text(text = "30/1123 | 5:00 PM",fontWeight = FontWeight.Light)
+                Text(
+                    fontFamily = Fonts.jostFontFamily,
+                    text = "Black Friday is Here",
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+                Text(
+                    fontFamily = Fonts.jostFontFamily,
+                    text = "Get 50% 0f Yearly subscription in \n Black Friday for Limited time",
+                    fontWeight = FontWeight.Normal
+                )
+                Spacer(
+                    modifier = Modifier.height(8.dp)
+                )
+                Text(
+                    fontFamily = Fonts.jostFontFamily,
+                    text = "30/1123 | 5:00 PM",
+                    fontWeight = FontWeight.Light
+                )
             }
             Spacer(modifier = Modifier.weight(1f))
 

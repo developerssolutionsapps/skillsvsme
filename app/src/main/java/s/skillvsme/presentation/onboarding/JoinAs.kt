@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
@@ -41,6 +42,7 @@ fun JoinAs() {
 
         // Welcome text
         Text(
+            fontFamily = Fonts.jostFontFamily,
             text = "Join Skillvsme as",
             style = MaterialTheme.typography.h4
         )
@@ -113,6 +115,7 @@ fun ImageWithText(
             )
         }
         Text(
+            fontFamily = Fonts.jostFontFamily,
             text = text,
             color = MaterialTheme.colors.onSurface,
             style = MaterialTheme.typography.body2,

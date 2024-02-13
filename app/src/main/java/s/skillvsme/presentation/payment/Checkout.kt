@@ -18,6 +18,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.SkillvsmeTextField
@@ -102,12 +103,14 @@ fun Checkout() {
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = "Promotion discount",
                     color = black,
                     fontWeight = FontWeight.Bold,
                     style = TextStyle(fontSize = 20.sp)
                 )
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = "270.00 USD",
                     color = black,
                     fontWeight = FontWeight.Bold,

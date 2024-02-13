@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.ktor.http.ContentType
 import org.w3c.dom.Text
+import s.skillvsme.ui.theme.black
 
 @Composable
 fun TransactionHistory(
@@ -49,7 +50,8 @@ fun TransactionHistory(
         Surface(
             modifier = Modifier
                 .size(55.dp)
-                .padding(10.dp), shape = CircleShape, Color.Black
+                .padding(10.dp),
+            shape = CircleShape, black
         ) {
             Image(painter = iconStart, contentDescription = "", contentScale = ContentScale.Crop)
         }
@@ -60,8 +62,14 @@ fun TransactionHistory(
                 .fillMaxWidth()
         ) {
             Column {
-                Text(text = "Pay Pal", fontWeight = FontWeight.Bold)
-                Text(text = "54821236877123", fontWeight = FontWeight.Normal)
+                Text(
+                    text = "Pay Pal",
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = "54821236877123",
+                    fontWeight = FontWeight.Normal
+                )
                 Text(text = "04 Dec,2023 | 5:00 PM",fontWeight = FontWeight.Light)
             }
             Spacer(modifier = Modifier.weight(1f))

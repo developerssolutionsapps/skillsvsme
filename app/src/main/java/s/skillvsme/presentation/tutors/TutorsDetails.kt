@@ -26,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -76,7 +77,12 @@ fun TutorsDetails() {
                         painter = painterResource(id = R.drawable.rate_star),
                         contentDescription = "rate star"
                     )
-                    Text(text = "5.0", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text(
+                        text = "5.0",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 18.sp,
+                        fontFamily = Fonts.jostFontFamily,
+                        )
                 }
                 Divider(
                     modifier = Modifier
@@ -88,8 +94,8 @@ fun TutorsDetails() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text(text = "45+", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                    Text(text = "hrs", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text(text = "45+", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "hrs", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
                 }
                 Divider(
                     modifier = Modifier
@@ -101,8 +107,8 @@ fun TutorsDetails() {
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text(text = "155+", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                    Text(text = "classes", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text(text = "155+", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "classes", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
                 }
                 Divider(
                     modifier = Modifier
@@ -120,7 +126,7 @@ fun TutorsDetails() {
                         painter = painterResource(id = R.drawable.video),
                         contentDescription = "rate star"
                     )
-                    Text(text = "watch", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text(text = "watch", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))

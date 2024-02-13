@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.red
@@ -65,6 +66,7 @@ fun SkillvsmeTextField(
         modifier = modifier
     ) {
         Text(
+            fontFamily = Fonts.jostFontFamily,
             text = label,
             style = MaterialTheme.typography.body1,
             fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal
@@ -72,6 +74,7 @@ fun SkillvsmeTextField(
         if (fieldDescription.isNotEmpty()) {
             Spacer(modifier = Modifier.height(4.dp))
             Text(
+                fontFamily = Fonts.jostFontFamily,
                 text = fieldDescription,
                 color = if (isValid) Color.Unspecified else Color.Red
             )
@@ -114,6 +117,7 @@ fun SkillvsmeTextField(
                 keyboardOptions = keyboardOptions,
                 placeholder = {
                     Text(
+                        fontFamily = Fonts.jostFontFamily,
                         text = hint,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Light
@@ -137,6 +141,7 @@ fun SkillvsmeTextField(
         if (!isValid) {
             Spacer(modifier = Modifier.height(8.dp))
             Text(
+                fontFamily = Fonts.jostFontFamily,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag("${label} error"),

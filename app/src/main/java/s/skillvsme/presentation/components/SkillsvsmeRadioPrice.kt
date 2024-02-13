@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
@@ -63,6 +64,7 @@ fun SkillvsmeRadioPrice(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
+                        fontFamily = Fonts.jostFontFamily,
                         text = label,
                         color = if (primary) black else white,
                         modifier = Modifier.padding(8.dp)
@@ -74,6 +76,7 @@ fun SkillvsmeRadioPrice(
                         ),
                     ) {
                         Text(
+                            fontFamily = Fonts.jostFontFamily,
                             text = "${discount}% off",
                             color = if (primary) white else black,
                             modifier = Modifier
@@ -87,11 +90,13 @@ fun SkillvsmeRadioPrice(
                 modifier = Modifier.padding(end = 24.dp)
             ) {
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = "${price}$",
                     fontWeight = FontWeight.SemiBold,
                     color = if (primary) purple else white
                 )
                 Text(
+                    fontFamily = Fonts.jostFontFamily,
                     text = "/mo",
                     fontWeight = FontWeight.SemiBold,
                     color = if (primary) black else white
