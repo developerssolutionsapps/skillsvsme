@@ -48,14 +48,16 @@ fun EditLanguage() {
                 fontSize = 25.sp,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
-            Spacer(modifier = Modifier.height(20    .dp))
+            Spacer(modifier = Modifier.height(5.dp))
             SkillvsmeTextField(value = "English", onChange ={} , label = "User Name", hint ="", fieldDescription = "" , boldLabel = false,) {
             }
-            Spacer(modifier = Modifier.padding(top = 150.dp).height(150.dp))
+            Spacer(modifier = Modifier
+                .padding(top = 150.dp)
+                .height(150.dp))
             SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
             }
             Spacer(modifier = Modifier.height(20.dp))
-            SkillvsmeText(value = "Back", modifier = Modifier.align(Alignment.CenterHorizontally), boldLabel = false, valueFont = FontWeight.Bold)
+            SkillvsmeText(value = "Back", modifier = Modifier.align(Alignment.CenterHorizontally), boldLabel = false, valueFont = FontWeight.Bold,)
         }
     }
 }

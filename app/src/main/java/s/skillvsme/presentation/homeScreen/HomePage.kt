@@ -318,6 +318,7 @@ fun HomePage(
                             Spacer(modifier = Modifier.width(10.dp))
                         }
                     }
+
                 }
 
         },

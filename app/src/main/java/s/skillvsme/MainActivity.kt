@@ -5,12 +5,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.homeScreen.HomeScreen
@@ -32,6 +35,13 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background
             ) {
+                val systemUiController = rememberSystemUiController()
+
+                SideEffect {
+                    systemUiController.setStatusBarColor(
+                        color = Color(0xFF7A60F3),
+                    )
+                }
                 SkillVsMeTheme {
                     androidx.compose.material.Surface(
                         modifier = Modifier.fillMaxSize(),
@@ -42,7 +52,7 @@ class MainActivity : ComponentActivity() {
                             startDestination = Route.Home.Home
                         ) {
                             composable(Route.Home.Home) {
-                                paymentMethod()
+                             paymentMethod()
                             }
                             }
                         }
