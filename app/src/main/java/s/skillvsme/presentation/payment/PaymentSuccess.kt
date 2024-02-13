@@ -20,60 +20,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
 import s.skillvsme.presentation.components.SkillvsmeButton
+import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
 
 
 @Composable
 fun PaymentSuccess() {
-    Column(
-        modifier = Modifier
-            .padding(24.dp)
-            .fillMaxSize(),
-        verticalArrangement = Arrangement.SpaceBetween
-    ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-            modifier = Modifier
-                .fillMaxHeight(0.6f)
-                .fillMaxWidth()
-        ) {
-            Spacer(modifier = Modifier.height(16.dp))
-            Image(painter = painterResource(R.drawable.baseline_check_circle), contentDescription = "successful icon")
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "Payment Successful",
-                fontWeight = FontWeight.Bold,
-                fontSize = 24.sp,
-                textAlign = TextAlign.Center
-            )
-            Spacer(modifier = Modifier.height(8.dp))
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                text = "Keep the momentum going and schedule you first class",
-                fontWeight = FontWeight.Normal,
-                fontSize = 18.sp,
-                textAlign = TextAlign.Center
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-        }
-        Column {
-            SkillvsmeButton(
-                modifier = Modifier.fillMaxWidth(),
-                label = "Proceed to payment",
-                primary = true,
-                onClick = {}
-            )
-            Spacer(modifier = Modifier.height(4.dp))
-            SkillvsmeButton(
-                modifier = Modifier.fillMaxWidth(),
-                label = "Back",
-                primary = false,
-                onClick = {}
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-        }
-    }
+    SkillvsmeSuccessScreen(
+        successMessage = "Payment Successful",
+        successInfo = "Keep the momentum going and schedule you first class",
+        buttonText = "Proceed to Payment",
+        buttonOnclickAction = {},
+        backButtonText = "Back",
+        backButtonOnclickAction = {},
+    )
 }
