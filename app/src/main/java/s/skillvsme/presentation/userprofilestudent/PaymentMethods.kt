@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.userprofilestudent
 
+import android.widget.DatePicker
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
 import s.skillvsme.presentation.components.BorderedSurface
+import s.skillvsme.presentation.components.DatePicker
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -169,7 +171,10 @@ fun paymentMethod() {
                     )
                             Text(text = "Payment Method", fontWeight = FontWeight.Normal)
                 }
+
             }
+            Spacer(modifier = Modifier.height(40.dp))
+
         }
     }
 }

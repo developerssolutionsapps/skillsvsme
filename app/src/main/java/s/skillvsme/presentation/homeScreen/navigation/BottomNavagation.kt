@@ -1,12 +1,7 @@
 package s.skillvsme.presentation.homeScreen.navigation
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material3.Icon
@@ -18,34 +13,42 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Shapes
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.withTransform
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.unit.Dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
-import kotlin.math.round
+import s.skillvsme.presentation.userprofilestudent.UserProfile
 
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
-    NavHost(navController, startDestination = ScreenNavigation.Home.screen_route) {
-        composable(Route.Home.Home) {
+    NavHost(navController, startDestination = ScreenNavigation.Home.screenroute) {
+        composable(Route.Student.Home.Home) {
             HomePage(
                 navController=navController
             )
+        }
+        composable(Route.Student.Tutor.TutorsList) {
+            TutorsList()
+        }
+        composable(Route.Student.Streaming.LiveStream) {
+            HomePage(
+                navController=navController
+            )
+        }
+        composable(Route.Student.Classes.UpcomingClasses) {
+            HomePage(
+                navController=navController
+            )
+
+        }
+        composable(Route.Student.Profile.StudentProfile) {
+        UserProfile()
         }
     }
 }
@@ -90,9 +93,9 @@ fun BottomNavigation(navController: NavController) {
                     selectedContentColor = Color.DarkGray,
                     unselectedContentColor = Color.Black.copy(alpha = 0.4f),
                     alwaysShowLabel = true,
-                    selected = currentRoute == item.screen_route,
+                    selected = currentRoute == item.screenroute,
                     onClick = {
-                        navController.navigate(item.screen_route) {
+                        navController.navigate(item.screenroute) {
 
                             navController.graph.startDestinationRoute?.let { screen_route ->
                                 popUpTo(screen_route) {
