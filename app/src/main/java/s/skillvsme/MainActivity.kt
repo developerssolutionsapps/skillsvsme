@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import s.skillvsme.common.Route
+import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.onboarding.CodeVerification
 import s.skillvsme.presentation.onboarding.JoinAs
 import s.skillvsme.presentation.onboarding.Onboarding1
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         NavHost(
                             navController = navController,
-                            startDestination = Route.Student.Onboarding.Onboarding1
+                            startDestination = Route.Student.Home.Home
                         ) {
                             composable(Route.Student.Onboarding.Onboarding1) {
                                 Onboarding1(navController = navController)
@@ -56,6 +56,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable(Route.Student.Onboarding.CodeVerification) {
                                 CodeVerification(navController = navController)
+                            }
+                            composable(Route.Student.Home.Home) {
+                               HomePage(navController = navController)
                             }
                             }
                         }
