@@ -45,7 +45,7 @@ fun paymentMethod() {
     ) {
         ProfileAppBar(
             backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
-                id = R.drawable.rectangle4,
+                id = R.drawable.profile,
             ), contentSize = 130.dp, bottomCornerRadius = 30.dp
         )
         Spacer(modifier = Modifier.weight(1f))
