@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import androidx.compose.ui.text.TextStyle
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
@@ -185,21 +186,25 @@ fun HomePage(
                         ) {
                             Column(
                                 modifier = Modifier
-                                    .padding(top = 14.dp, bottom = 4.dp, start = 8.dp, end = 8.dp),
-                                horizontalAlignment = Alignment.CenterHorizontally
+                                    .padding(8.dp)
                             ) {
                                 // Rounded image view
                                 Box(
                                     modifier = Modifier
-                                        .size(65.dp),
+                                        .size(75.dp)
+                                        .padding(
+                                            top = 5.dp,
+                                            bottom = 6.dp,
+                                            start = 4.dp,
+                                            end = 4.dp,
+                                        ),
                                     contentAlignment = Alignment.BottomCenter
                                 ) {
                                     Image(
                                         painter = painterResource(id = R.drawable.rectangle4),
-                                        contentDescription = "", modifier = Modifier.background(
+                                        contentDescription = "",modifier=Modifier.background(
                                             white,
-                                            CircleShape
-                                        ),
+                                            CircleShape),
                                         contentScale = ContentScale.Crop
                                     )
                                     SkillvsmeLiveTag(
@@ -248,10 +253,9 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(
-                            horizontalArrangement = Arrangement.Start,
+                        Row(horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ) {
+                        ){
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -308,10 +312,9 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(
-                            horizontalArrangement = Arrangement.Start,
+                        Row(horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ) {
+                        ){
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -331,8 +334,7 @@ fun HomePage(
                                 )
                             }
                             Text(
-                                text = "Choose A subscription plan",
-                                fontFamily = Fonts.jostFontFamily,
+                                text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
                                 color = black,
                                 fontSize = 18.sp,
@@ -444,7 +446,7 @@ fun HomePage(
                                             painter = painterResource(id = R.drawable.verified),
                                             contentDescription = "",
                                             modifier = Modifier
-                                                .padding(start = 2.dp)
+                                                .padding(start = 10.dp)
                                                 .align(TopStart)
                                         )
                                     }
@@ -458,7 +460,6 @@ fun HomePage(
                                         textAlign = TextAlign.Center,
                                         fontSize = 18.sp,
                                     )
-                                    Spacer(modifier = Modifier.height(8.dp))
                                     Row(
                                         horizontalArrangement = Arrangement.Center,
                                         modifier = Modifier.fillMaxWidth()

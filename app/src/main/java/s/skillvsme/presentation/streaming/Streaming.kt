@@ -14,7 +14,7 @@ import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Streaming(
+fun streaming(
     navController:NavController
 ){
     Scaffold (
