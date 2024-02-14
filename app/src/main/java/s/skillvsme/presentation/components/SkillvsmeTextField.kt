@@ -12,9 +12,9 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
@@ -46,6 +47,7 @@ fun SkillvsmeTextField(
     errorMessage: String = "",
     label: String,
     hint: String,
+    hintSize: Int? = null,
     trailingIcon: (() -> Unit)? = null,
     fieldDescription: String,
     LeadingIcon: ImageVector? = null,
@@ -119,6 +121,7 @@ fun SkillvsmeTextField(
                     Text(
                         fontFamily = Fonts.jostFontFamily,
                         text = hint,
+                        fontSize = if (hintSize != null) hintSize.sp else 14.sp,
                         textAlign = TextAlign.Center,
                         fontWeight = FontWeight.Light
                     ) },
