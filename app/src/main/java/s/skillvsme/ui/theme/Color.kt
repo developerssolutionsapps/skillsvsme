@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 
 val black = Color(0xFF000000)
 val black50 = Color(0x80000000)
+val black20 = Color(0x33000000)
 val greyishBlack = Color(0xFF2E2E2E)
 val white = Color(0xFFFDFDFD)
 val purple = Color(0xFF8C0840)

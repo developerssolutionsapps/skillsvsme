@@ -20,7 +20,12 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
@@ -32,9 +37,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.SkillvsmeTextField
@@ -48,6 +57,7 @@ fun Signup(
     navController: NavController
 ) {
     val scrollState = rememberScrollState()
+    var otpCodeValue by remember { mutableStateOf("") }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -113,35 +123,54 @@ fun Signup(
                     ) {
                         Surface(
                             modifier = Modifier
-                                .padding(top = 36.dp, end = 12.dp),
+                                .padding(top = 28.dp, end = 12.dp),
                             shape = RoundedCornerShape(24.dp),
                             color = black
                         ){
-                            SkillvsmeText(
+                            Row(
                                 modifier = Modifier
-                                    .padding(10.dp),
-                                value = " +999 ",
-                                boldValue = true,
-                                valueColor = white
-                            )
+                                    .padding(horizontal = 10.dp, vertical = 16.dp),
+                            ) {
+                                Text(
+                                    text = " +999 ",
+                                    fontWeight = FontWeight.Medium,
+                                    color = white,
+                                    fontSize = 16.sp,
+                                    fontFamily = Fonts.jostFontFamily
+                                )
+                                Image(
+                                    painter = painterResource(R.drawable.arrow_down),
+                                    contentDescription = "arrow down"
+                                )
+                            }
                         }
                         SkillvsmeTextField(
-                            value = "",
-                            onChange = {},
+                            value = otpCodeValue,
+                            onChange = { it ->
+                                       otpCodeValue = it
+                            },
                             label = "",
                             hint = "Enter Your Phone Number",
                             fieldDescription = ""
-                        ) {  }
+                        )
                     }
                     SkillvsmeButton(
+                        enabled = otpCodeValue != "",
                         label = "Send Code",
                         modifier = Modifier
                             .padding(horizontal = 20.dp)
-                            .fillMaxWidth()
-                    ) {}
-                    Spacer(modifier = Modifier.height(16.dp))
-                    SkillvsmeText(value = "OK")
-                    Spacer(modifier = Modifier.height(16.dp))
+                            .fillMaxWidth(),
+                        onClick = {
+                            navController.navigate(Route.Student.Onboarding.CodeVerification)
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(32.dp))
+                    Text(
+                        text = "OR",
+                        fontSize = 20.sp,
+                        fontFamily = Fonts.headlandOneFontFamily
+                    )
+                    Spacer(modifier = Modifier.height(32.dp))
                     Card    (
                         shape = RoundedCornerShape(24.dp),
                         colors = CardDefaults.cardColors(
@@ -157,7 +186,7 @@ fun Signup(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
                                 .padding(8.dp),
-                            iconBefore = painterResource(R.drawable.google),
+                            iconBefore = painterResource(R.drawable.apple_icon),
                             value = "Sign Up With Apple"
                         )
                     }
@@ -177,7 +206,7 @@ fun Signup(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
                                 .padding(8.dp),
-                            iconBefore = painterResource(R.drawable.google),
+                            iconBefore = painterResource(R.drawable.google_icon),
                             value = "Sign Up With Google"
                         )
                     }

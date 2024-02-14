@@ -87,14 +87,14 @@ fun JoinAs(
                     ) {
                         Box(
                             modifier = Modifier
-                                .size(169.dp),
+                                .size(150.dp),
                             contentAlignment = Alignment.BottomCenter
                         ) {
                             Image(
                                 painter = painterResource(id = R.drawable.teacher),
                                 contentDescription = "Tutor",
                                 modifier = Modifier
-                                    .size(122.dp),
+                                    .size(112.dp),
                                 contentScale = ContentScale.Crop
                             )
                         }
@@ -130,14 +130,14 @@ fun JoinAs(
                     ) {
                         Box(
                             modifier = Modifier
-                                .size(169.dp),
+                                .size(150.dp),
                             contentAlignment = Alignment.BottomCenter
                         ) {
                             Image(
                                 painter = painterResource(id = R.drawable.womens_voice),
                                 contentDescription = "Student",
                                 modifier = Modifier
-                                    .size(113.dp),
+                                    .size(103.dp),
                                 contentScale = ContentScale.Crop
                             )
                         }
