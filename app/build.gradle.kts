@@ -62,9 +62,6 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material:1.6.0")
 
-    // tool bar
-    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
-
     // compose navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
 
@@ -86,14 +83,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
 
-    implementation ("com.google.accompanist:accompanist-microcontroller:0.27.0")
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
     implementation("androidx.wear.compose:compose-foundation:1.3.0")
-
-    implementation ("com.github.canalisation.picker:date-picker:2.0.7")
-    implementation ("com.github.canalisation.picker:wheel view:2.0.7")
-
-    //For view based UI's
-    implementation ("androidx.compose.material3:material3:Tag")
 
     // tests
     testImplementation("junit:junit:4.13.2")
@@ -103,6 +94,4 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-
 }

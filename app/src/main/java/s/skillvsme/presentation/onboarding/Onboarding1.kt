@@ -12,13 +12,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 
 @Composable
-fun Onboarding1() {
+fun Onboarding1(
+    navController: NavController
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -33,7 +36,7 @@ fun Onboarding1() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_onboarding_1), // Replace R.drawable.your_image with your image resource
+                painter = painterResource(id = R.drawable.ic_onboarding_1),
                 contentDescription = "Image",
                 modifier = Modifier
                     .fillMaxWidth()
@@ -57,14 +60,18 @@ fun Onboarding1() {
         ) {
             SkillvsmeButton(
                 label = "Skip",
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f),
                 primary = false,
                 onClick = { /* Handle skip button click */ }
             )
 
             SkillvsmeButton(
                 label = "Next",
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f),
+//                    .width(166.dp)
+//                    .height(49.dp),
                 onClick = { /* Handle next button click */ }
             )
         }

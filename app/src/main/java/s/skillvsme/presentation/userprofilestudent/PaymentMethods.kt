@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
 import s.skillvsme.presentation.components.BorderedSurface
-import s.skillvsme.presentation.components.DatePicker
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText

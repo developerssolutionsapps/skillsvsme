@@ -40,22 +40,22 @@ class MainActivity : ComponentActivity() {
                             startDestination = Route.Student.Onboarding.Onboarding1
                         ) {
                             composable(Route.Student.Onboarding.Onboarding1) {
-                                Onboarding1()
+                                Onboarding1(navController = navController)
                             }
                             composable(Route.Student.Onboarding.Onboarding2) {
-                                Onboarding2()
+                                Onboarding2(navController = navController)
                             }
                             composable(Route.Student.Onboarding.Onboarding3) {
-                                Onboarding3()
+                                Onboarding3(navController = navController)
                             }
                             composable(Route.Student.Onboarding.JoinAS) {
-                                JoinAs()
+                                JoinAs(navController = navController)
                             }
                             composable(Route.Student.Onboarding.SignUp) {
-                                Signup()
+                                Signup(navController = navController)
                             }
                             composable(Route.Student.Onboarding.CodeVerification) {
-                                CodeVerification()
+                                CodeVerification(navController = navController)
                             }
                             }
                         }

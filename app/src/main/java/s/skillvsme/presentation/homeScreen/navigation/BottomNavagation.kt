@@ -23,6 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
+import s.skillvsme.presentation.tutors.TutorsList
 import s.skillvsme.presentation.userprofilestudent.UserProfile
 
 @Composable

@@ -30,6 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -38,7 +39,9 @@ import s.skillvsme.ui.theme.white
 
 
 @Composable
-fun CodeVerification() {
+fun CodeVerification(
+    navController: NavController
+) {
     val scrollState = rememberScrollState()
     val onOtpTextChange: (String, Boolean) -> Unit = { otp, isComplete ->
         println("OTP entered: $otp, isComplete: $isComplete")

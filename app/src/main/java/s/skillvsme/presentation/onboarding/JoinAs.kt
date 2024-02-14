@@ -14,6 +14,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -21,7 +22,9 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
 
 @Composable
-fun JoinAs() {
+fun JoinAs(
+    navController: NavController
+) {
     Column(
         modifier = Modifier
             .padding(24.dp)

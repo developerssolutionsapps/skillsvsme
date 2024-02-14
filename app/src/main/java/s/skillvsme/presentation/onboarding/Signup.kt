@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -43,7 +44,9 @@ import s.skillvsme.ui.theme.white
 
 
 @Composable
-fun Signup() {
+fun Signup(
+    navController: NavController
+) {
     val scrollState = rememberScrollState()
     Box(
         modifier = Modifier
