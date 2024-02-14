@@ -39,8 +39,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
+import s.skillvsme.common.Route.Student.Onboarding.CodeVerification
+import s.skillvsme.common.Route.Student.Onboarding.Onboarding1
+import s.skillvsme.common.Route.Student.Onboarding.Onboarding2
 import s.skillvsme.presentation.classes.classes
 import s.skillvsme.presentation.homeScreen.HomePage
+import s.skillvsme.presentation.onboarding.CodeVerification
+import s.skillvsme.presentation.onboarding.JoinAs
+import s.skillvsme.presentation.onboarding.Onboarding1
+import s.skillvsme.presentation.onboarding.Onboarding2
+import s.skillvsme.presentation.onboarding.Onboarding3
+import s.skillvsme.presentation.onboarding.Signup
 import s.skillvsme.presentation.streaming.streaming
 import s.skillvsme.presentation.tutors.TutorsList
 import s.skillvsme.presentation.userprofilestudent.UserProfile
@@ -50,9 +59,11 @@ import s.skillvsme.ui.theme.white
 import s.skillvsme.utils.advancedShadow
 import s.skillvsme.utils.coloredShadow
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
-    NavHost(navController, startDestination = ScreenNavigation.Home.screenroute) {
+    NavHost(navController = navController,
+        startDestination = Onboarding1) {
         composable(Route.Student.Home.Home) {
             HomePage(
                 navController = navController
@@ -62,7 +73,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             TutorsList(navController = navController)
         }
         composable(Route.Student.Streaming.LiveStream) {
-            streaming()
+            streaming(navController)
         }
         composable(Route.Student.Classes.UpcomingClasses) {
             classes(navController = navController)
@@ -70,6 +81,26 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         composable(Route.Student.Profile.StudentProfile) {
             UserProfile(navController = navController)
         }
+
+            composable(Route.Student.Onboarding.Onboarding1) {
+                Onboarding1(navController = navController)
+            }
+            composable(Route.Student.Onboarding.Onboarding2) {
+                Onboarding2(navController = navController)
+            }
+            composable(Route.Student.Onboarding.Onboarding3) {
+                Onboarding3(navController = navController)
+            }
+            composable(Route.Student.Onboarding.JoinAS) {
+                JoinAs(navController = navController)
+            }
+            composable(Route.Student.Onboarding.SignUp) {
+                Signup(navController = navController)
+            }
+            composable(Route.Student.Onboarding.CodeVerification) {
+                CodeVerification(navController = navController)
+            }
+
     }
 }
 

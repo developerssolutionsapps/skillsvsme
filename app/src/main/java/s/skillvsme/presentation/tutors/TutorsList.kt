@@ -1,6 +1,8 @@
 package s.skillvsme.presentation.tutors
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,12 +22,16 @@ import s.skillvsme.presentation.components.TutorsListComponent
 import s.skillvsme.ui.theme.black
 
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun TutorsList(
     navController:NavController
 ) {
     Scaffold (
+        topBar = {
+
+        },
         content = {
             Column(
                 modifier = Modifier

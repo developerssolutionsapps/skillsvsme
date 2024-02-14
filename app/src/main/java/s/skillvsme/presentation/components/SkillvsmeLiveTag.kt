@@ -22,7 +22,8 @@ import s.skillvsme.ui.theme.red
 fun SkillvsmeLiveTag(
     modifier: Modifier = Modifier,
     textModifier: Modifier = Modifier,
-    isLive: Boolean = true
+    isLive: Boolean = true,
+    fontSize: Int = 12
 ) {
     Box(
         modifier = modifier
@@ -34,7 +35,7 @@ fun SkillvsmeLiveTag(
         Text(
             text = "Live",
             color = Color.White,
-            fontSize = 12.sp,
+            fontSize = fontSize.sp,
             modifier = textModifier.padding(4.dp),
             fontFamily = Fonts.jostFontFamily
         )

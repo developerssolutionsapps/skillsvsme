@@ -42,8 +42,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import androidx.compose.ui.text.TextStyle
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
@@ -104,37 +106,45 @@ fun HomePage(
                 Spacer(modifier = Modifier.height(15.dp))
                 Card(
                     modifier = Modifier
-                        .width(371.dp)
+                        .fillMaxWidth()
                         .height(196.dp),
                     shape = RoundedCornerShape(26.dp),
                     backgroundColor = Color.Black
                 ) {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
-                    ) {
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(
-                            text = "Invite a friend and get\n20$ for free",
-                            fontFamily = Fonts.jostFontFamily,
-                            fontWeight = FontWeight.SemiBold,
-                            color = white,
-                            fontSize = 26.sp,
+                    Box {
+                        Image(
+                            painter = painterResource(id = R.drawable.top_blackish_bg),
+                            contentDescription = "bg",
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
                         )
-                        Spacer(modifier = Modifier.height(25.dp))
-                        Button(
-                            onClick = { /* Handle Invite button click */ },
-                            shape = RoundedCornerShape(21.dp),
-                            modifier = Modifier
-                                .width(128.dp)
-                                .height(45.dp),
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Color.White)
+                        Column(
+                            modifier = Modifier.padding(16.dp)
                         ) {
+                            Spacer(modifier = Modifier.height(15.dp))
                             Text(
-                                text = "Invite", fontFamily = Fonts.jostFontFamily,
-                                fontWeight = FontWeight.Normal,
-                                color = black,
-                                fontSize = 20.sp,
+                                text = "Invite a friend and get\n20$ for free",
+                                fontFamily = Fonts.jostFontFamily,
+                                fontWeight = FontWeight.SemiBold,
+                                color = white,
+                                fontSize = 26.sp,
                             )
+                            Spacer(modifier = Modifier.height(25.dp))
+                            Button(
+                                onClick = { /* Handle Invite button click */ },
+                                shape = RoundedCornerShape(21.dp),
+                                modifier = Modifier
+                                    .width(128.dp)
+                                    .height(45.dp),
+                                colors = ButtonDefaults.buttonColors(backgroundColor = Color.White)
+                            ) {
+                                Text(
+                                    text = "Invite", fontFamily = Fonts.jostFontFamily,
+                                    fontWeight = FontWeight.Normal,
+                                    color = black,
+                                    fontSize = 20.sp,
+                                )
+                            }
                         }
                     }
                 }
@@ -167,11 +177,14 @@ fun HomePage(
                         Box(
                             modifier = Modifier
                                 .width(98.dp)
-                                .height(120.dp)
+                                .wrapContentHeight()
                                 .background(lightGrey, RoundedCornerShape(8.dp)),
                             contentAlignment = Alignment.Center
                         ) {
-                            Column {
+                            Column(
+                                modifier = Modifier
+                                    .padding(8.dp)
+                            ) {
                                 // Rounded image view
                                 Box(
                                     modifier = Modifier
@@ -181,31 +194,21 @@ fun HomePage(
                                             bottom = 6.dp,
                                             start = 4.dp,
                                             end = 4.dp,
-                                        )
-                                        .background(Color.White, CircleShape),
+                                        ),
                                     contentAlignment = Alignment.BottomCenter
                                 ) {
                                     Image(
                                         painter = painterResource(id = R.drawable.rectangle4),
-                                        contentDescription = "",
+                                        contentDescription = "",modifier=Modifier.background(
+                                            white,
+                                            CircleShape),
                                         contentScale = ContentScale.Crop
                                     )
-                                    Box(
-                                        modifier = Modifier
-                                            .graphicsLayer {
-                                                translationY = +10.dp.toPx()
-                                            }
-                                            .width(30.dp)
-                                            .height(20.dp)
-                                            .background(Color.Red, RoundedCornerShape(5.dp))
-                                    ) {
-                                        Text(
-                                            text = "Live",
-                                            color = white,
-                                            fontSize = 12.sp,
-                                            modifier = Modifier.padding(4.dp)
-                                        )
-                                    }
+                                    SkillvsmeLiveTag(
+                                        fontSize = 10,
+                                        textModifier = Modifier
+                                            .padding(horizontal = 8.dp)
+                                    )
                                     // Image
                                 }
                                 // Live tag
@@ -243,41 +246,47 @@ fun HomePage(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                            .padding(start = 10.dp, end = 20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Card(
-                            modifier = Modifier
-                                .size(60.dp)
-                                .padding(9.dp)
-                                .align(Alignment.CenterVertically)
-
-                        ) {
-                            Text(
-                                text = "1",
-                                Modifier
-                                    .background(Color.Black, CircleShape)
-                                    .padding(5.dp),
-                                fontFamily = Fonts.jostFontFamily,
-                                color = white, textAlign = TextAlign.Center,
-                                fontWeight = FontWeight.SemiBold, style = TextStyle(
-                                    fontSize = 24.sp
+                        Row(horizontalArrangement = Arrangement.Start,
+                            verticalAlignment = Alignment.CenterVertically
+                        ){
+                            Surface(
+                                modifier = Modifier
+                                    .size(60.dp)
+                                    .padding(9.dp)
+                                    .align(Alignment.CenterVertically)
+                            ) {
+                                Text(
+                                    text = "1",
+                                    Modifier
+                                        .background(Color.Black, CircleShape)
+                                        .padding(5.dp),
+                                    fontFamily = Fonts.jostFontFamily,
+                                    color = white, textAlign = TextAlign.Center,
+                                    fontWeight = FontWeight.SemiBold, style = TextStyle(
+                                        fontSize = 24.sp
+                                    )
                                 )
+                            }
+                            Text(
+                                text = "Book a Trial session", fontFamily = Fonts.jostFontFamily,
+                                fontWeight = FontWeight.Normal,
+                                color = black,
+                                fontSize = 18.sp,
                             )
                         }
-                        Text(
-                            text = "Book a trial session", fontFamily = Fonts.jostFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            color = black,
-                            fontSize = 20.sp,
-                        )
                         Spacer(modifier = Modifier.weight(1f))
                         androidx.compose.material3.Icon(
                             painter = painterResource(id = R.drawable.line1),
                             contentDescription = "",
                             tint = black,
-                            modifier = Modifier.padding(start = 4.dp)
-
+                            modifier = Modifier
+                                .padding(start = 4.dp)
+                                .width(30.dp)
+                                .height(20.dp)
                         )
                     }
                 }
@@ -296,40 +305,47 @@ fun HomePage(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(start = 20.dp, end = 20.dp),
-                        verticalAlignment = Alignment.CenterVertically
+                            .padding(start = 10.dp, end = 20.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Card(
-                            modifier = Modifier
-                                .size(60.dp)
-                                .padding(9.dp)
-                                .align(Alignment.CenterVertically)
-                        ) {
-                            Text(
-                                text = "2",
-                                Modifier
-                                    .background(Color.Black, CircleShape)
-                                    .padding(5.dp),
-                                fontFamily = Fonts.jostFontFamily,
-                                color = white, textAlign = TextAlign.Center,
-                                fontWeight = FontWeight.SemiBold, style = TextStyle(
-                                    fontSize = 24.sp
+                        Row(horizontalArrangement = Arrangement.Start,
+                            verticalAlignment = Alignment.CenterVertically
+                        ){
+                            Surface(
+                                modifier = Modifier
+                                    .size(60.dp)
+                                    .padding(9.dp)
+                                    .align(Alignment.CenterVertically)
+                            ) {
+                                Text(
+                                    text = "2",
+                                    Modifier
+                                        .background(Color.Black, CircleShape)
+                                        .padding(5.dp),
+                                    fontFamily = Fonts.jostFontFamily,
+                                    color = white, textAlign = TextAlign.Center,
+                                    fontWeight = FontWeight.SemiBold, style = TextStyle(
+                                        fontSize = 24.sp
+                                    )
                                 )
+                            }
+                            Text(
+                                text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
+                                fontWeight = FontWeight.Normal,
+                                color = black,
+                                fontSize = 18.sp,
                             )
                         }
-                        Text(
-                            text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
-                            fontWeight = FontWeight.Normal,
-                            color = black,
-                            fontSize = 18.sp,
-                        )
-
                         Spacer(modifier = Modifier.weight(1f))
                         androidx.compose.material3.Icon(
                             painter = painterResource(id = R.drawable.line1),
                             contentDescription = "",
                             tint = black,
-                            modifier = Modifier.padding(start = 4.dp)
+                            modifier = Modifier
+                                .padding(start = 4.dp)
+                                .width(30.dp)
+                                .height(20.dp)
                         )
                     }
                 }
@@ -363,7 +379,8 @@ fun HomePage(
                     repeat(3) {
                         Box(
                             modifier = Modifier
-                                .size(width = 169.dp, height = 147.dp)
+                                .width(169.dp)
+                                .wrapContentHeight()
                                 .background(lightGrey, RoundedCornerShape(8.dp))
                                 .padding(8.dp),
 
@@ -371,41 +388,55 @@ fun HomePage(
                             Row(
                                 modifier = Modifier
                                     .padding(8.dp)
-                                    .height(121.dp)
-                                    .width(142.dp)
+                                    .wrapContentHeight()
+                                    .width(142.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Center
                             ) {
                                 Column(
-                                    horizontalAlignment = Alignment.CenterHorizontally,
                                     verticalArrangement = Arrangement.Center,
                                 ) {
-                                    Row {
+                                    Box {
+                                        Row(
+                                            horizontalArrangement = Arrangement.Center,
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                        ) {
+                                            // Rounded image view
+//                                            Spacer(modifier = Modifier.width(10.dp))
+                                            Box(
+                                                modifier = Modifier
+                                                    .size(71.dp)
+                                                    .background(Color.White, CircleShape),
+                                                contentAlignment = TopEnd
+                                            ) {
+                                                // Image
+                                                Image(
+                                                    painter = painterResource(id = R.drawable.ellipse2),
+                                                    contentDescription = "",
+                                                    contentScale = ContentScale.Crop
+                                                )
+                                                Image(
+                                                    painter = painterResource(id = R.drawable.ellipse3),
+                                                    contentDescription = "",
+                                                    modifier = Modifier
+                                                        .graphicsLayer {
+                                                            translationY = +6.dp.toPx()
+                                                            translationX = -8.dp.toPx()
+                                                        }
+                                                        .size(8.dp),
+                                                )
+                                            }
+                                        }
                                         Image(
                                             painter = painterResource(id = R.drawable.verified),
-                                            contentDescription = ""
-                                        )
-                                        // Rounded image view
-                                        Spacer(modifier = Modifier.width(10.dp))
-                                        Box(
+                                            contentDescription = "",
                                             modifier = Modifier
-                                                .size(71.dp)
-                                                .background(Color.White, CircleShape),
-                                            contentAlignment = TopEnd
-                                        ) {
-                                            // Image
-                                            Image(
-                                                painter = painterResource(id = R.drawable.ellipse2),
-                                                contentDescription = "",
-                                                contentScale = ContentScale.Crop
-                                            )
-                                            Image(
-                                                painter = painterResource(id = R.drawable.ellipse3),
-                                                contentDescription = "",
-                                                modifier = Modifier.graphicsLayer {
-                                                    translationY = +12.dp.toPx()
-                                                }
-                                            )
-                                        }
+                                                .padding(start = 10.dp)
+                                                .align(TopStart)
+                                        )
                                     }
+                                    Spacer(modifier = Modifier.height(10.dp))
                                     Text(
                                         text = "Michael Swift", fontFamily = Fonts.jostFontFamily,
                                         fontWeight = FontWeight.SemiBold,
@@ -415,10 +446,14 @@ fun HomePage(
                                          textAlign = TextAlign.Center,
                                         fontSize = 18.sp,
                                     )
-                                    Row {
+                                    Row(
+                                        horizontalArrangement = Arrangement.Center,
+                                        modifier = Modifier.fillMaxWidth()
+                                    ) {
                                         Image(
                                             painter = painterResource(id = R.drawable.star1),
-                                            contentDescription = ""
+                                            contentDescription = "",
+                                            modifier = Modifier.size(16.dp)
                                         )
                                         Spacer(modifier = Modifier.width(8.dp))
                                         Text(
