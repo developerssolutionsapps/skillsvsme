@@ -35,7 +35,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             )
         }
         composable(Route.Student.Tutor.TutorsList) {
-            TutorsList()
+            TutorsList(navController=navController)
         }
         composable(Route.Student.Streaming.LiveStream) {
             HomePage(

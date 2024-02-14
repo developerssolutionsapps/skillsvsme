@@ -13,12 +13,16 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.homeScreen.HomePage
-import s.skillvsme.presentation.onboarding.CodeVerification
-import s.skillvsme.presentation.onboarding.JoinAs
+
+import s.skillvsme.presentation.homeScreen.navigation.NavigationGraph
 import s.skillvsme.presentation.onboarding.Onboarding1
-import s.skillvsme.presentation.onboarding.Onboarding2
-import s.skillvsme.presentation.onboarding.Onboarding3
-import s.skillvsme.presentation.onboarding.Signup
+import s.skillvsme.presentation.tutors.TutorsList
+import s.skillvsme.presentation.userprofilestudent.EditLanguage
+import s.skillvsme.presentation.userprofilestudent.EditProfile
+import s.skillvsme.presentation.userprofilestudent.NotificationScreen
+import s.skillvsme.presentation.userprofilestudent.PaymentSettings
+import s.skillvsme.presentation.userprofilestudent.UserProfile
+import s.skillvsme.presentation.userprofilestudent.paymentMethod
 import s.skillvsme.ui.theme.SkillVsMeTheme
 
 class MainActivity : ComponentActivity() {
@@ -35,37 +39,13 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
                     ) {
-                        NavHost(
-                            navController = navController,
-                            startDestination = Route.Student.Home.Home
-                        ) {
-                            composable(Route.Student.Onboarding.Onboarding1) {
-                                Onboarding1(navController = navController)
-                            }
-                            composable(Route.Student.Onboarding.Onboarding2) {
-                                Onboarding2(navController = navController)
-                            }
-                            composable(Route.Student.Onboarding.Onboarding3) {
-                                Onboarding3(navController = navController)
-                            }
-                            composable(Route.Student.Onboarding.JoinAS) {
-                                JoinAs(navController = navController)
-                            }
-                            composable(Route.Student.Onboarding.SignUp) {
-                                Signup(navController = navController)
-                            }
-                            composable(Route.Student.Onboarding.CodeVerification) {
-                                CodeVerification(navController = navController)
-                            }
-                            composable(Route.Student.Home.Home) {
-                               HomePage(navController = navController)
-                            }
-                            }
-                        }
+
+                        NavigationGraph(navController = navController)
                     }
                 }
             }
         }
     }
+}
 
 

@@ -18,6 +18,7 @@ import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.BottomEnd
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Alignment.Companion.TopCenter
 import androidx.compose.ui.Alignment.Companion.TopEnd
@@ -42,6 +43,7 @@ import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 
@@ -54,8 +56,9 @@ fun HomePage(
         content = {
             Column(
                 modifier = Modifier
-                    .padding(30.dp)
+                    .padding(20.dp)
                     .fillMaxSize()
+                    .background(white)
                     .verticalScroll(scrollState)
             ) {
                 // Black rounded corner shape container
@@ -95,7 +98,7 @@ fun HomePage(
                 Spacer(modifier = Modifier.height(15.dp))
                 Card(
                     modifier = Modifier
-                        .width(351.dp)
+                        .width(371.dp)
                         .height(196.dp),
                     shape = RoundedCornerShape(26.dp),
                     backgroundColor = Color.Black
@@ -108,7 +111,7 @@ fun HomePage(
                             text = "Invite a friend and get\n20$ for free",
                             fontFamily = Fonts.jostFontFamily,
                             fontWeight = FontWeight.SemiBold,
-                            color = Color.White,
+                            color = white,
                             fontSize = 26.sp,
                         )
                         Spacer(modifier = Modifier.height(25.dp))
@@ -123,7 +126,7 @@ fun HomePage(
                             Text(
                                 text = "Invite", fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
-                                color = Color.Black,
+                                color = black,
                                 fontSize = 20.sp,
                             )
                         }
@@ -138,7 +141,7 @@ fun HomePage(
                         text = "Streaming now",
                         fontFamily = Fonts.jostFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color.Black,
+                        color = black,
                         fontSize = 24.sp,
                     )
                     Spacer(modifier = Modifier.weight(1f))
@@ -148,7 +151,6 @@ fun HomePage(
                         fontWeight = FontWeight.Normal,
                         color = purple,
                         fontSize = 18.sp,
-
                         )
                 }
                 Spacer(modifier = Modifier.height(16.dp))
@@ -193,7 +195,7 @@ fun HomePage(
                                     ) {
                                         Text(
                                             text = "Live",
-                                            color = Color.White,
+                                            color = white,
                                             fontSize = 12.sp,
                                             modifier = Modifier.padding(4.dp)
                                         )
@@ -219,7 +221,7 @@ fun HomePage(
                     text = "Learning Plans",
                     fontFamily = Fonts.jostFontFamily,
                     fontWeight = FontWeight.SemiBold,
-                    color = Color.Black,
+                    color = black,
                     fontSize = 24.sp,
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -251,7 +253,7 @@ fun HomePage(
                                     .background(Color.Black, CircleShape)
                                     .padding(5.dp),
                                 fontFamily = Fonts.jostFontFamily,
-                                color = Color.White, textAlign = TextAlign.Center,
+                                color = white, textAlign = TextAlign.Center,
                                 fontWeight = FontWeight.SemiBold, style = TextStyle(
                                     fontSize = 24.sp
                                 )
@@ -282,7 +284,7 @@ fun HomePage(
                         .padding(vertical = 2.dp, horizontal = 2.dp),
                     shape = RoundedCornerShape(16.dp),
 
-                    backgroundColor = Color.White,
+                    backgroundColor = white,
                     border = BorderStroke(width = 1.dp, color = Color.Black),
                 ) {
                     Row(
@@ -303,13 +305,12 @@ fun HomePage(
                                     .background(Color.Black, CircleShape)
                                     .padding(5.dp),
                                 fontFamily = Fonts.jostFontFamily,
-                                color = Color.White, textAlign = TextAlign.Center,
+                                color = white, textAlign = TextAlign.Center,
                                 fontWeight = FontWeight.SemiBold, style = TextStyle(
                                     fontSize = 24.sp
                                 )
                             )
                         }
-
                         Text(
                             text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
                             fontWeight = FontWeight.Normal,
@@ -321,9 +322,8 @@ fun HomePage(
                         androidx.compose.material3.Icon(
                             painter = painterResource(id = R.drawable.line1),
                             contentDescription = "",
-                            tint = Color.Black,
+                            tint = black,
                             modifier = Modifier.padding(start = 4.dp)
-
                         )
                     }
                 }
@@ -337,7 +337,7 @@ fun HomePage(
                         text = "Featured tutors",
                         fontFamily = Fonts.jostFontFamily,
                         fontWeight = FontWeight.SemiBold,
-                        color = Color.Black,
+                        color = black,
                         fontSize = 24.sp,
                     )
                     Spacer(modifier = Modifier.weight(1f))
@@ -367,41 +367,60 @@ fun HomePage(
                                     .height(121.dp)
                                     .width(142.dp)
                             ) {
-                                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                                    Image(
-                                        painter = painterResource(id = R.drawable.verified),
-                                        contentDescription = ""
-                                    )
-                                    // Rounded image view
-                                    Spacer(modifier = Modifier.width(10.dp))
-                                    Box(
-                                        modifier = Modifier
-                                            .size(71.dp)
-                                            .background(Color.White, CircleShape),
-                                        contentAlignment = TopEnd
-                                    ) {
-                                        // Image
+                                Column(
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.Center,
+                                ) {
+                                    Row {
                                         Image(
-                                            painter = painterResource(id = R.drawable.ellipse2),
-                                            contentDescription = "",
-                                            contentScale = ContentScale.Crop
+                                            painter = painterResource(id = R.drawable.verified),
+                                            contentDescription = ""
                                         )
-                                        Image(
-                                            painter = painterResource(id = R.drawable.ellipse3),
-                                            contentDescription = "",
-                                            modifier = Modifier.graphicsLayer {
-                                                translationY = +12.dp.toPx()
-                                            }
-                                        )
+                                        // Rounded image view
+                                        Spacer(modifier = Modifier.width(10.dp))
+                                        Box(
+                                            modifier = Modifier
+                                                .size(71.dp)
+                                                .background(Color.White, CircleShape),
+                                            contentAlignment = TopEnd
+                                        ) {
+                                            // Image
+                                            Image(
+                                                painter = painterResource(id = R.drawable.ellipse2),
+                                                contentDescription = "",
+                                                contentScale = ContentScale.Crop
+                                            )
+                                            Image(
+                                                painter = painterResource(id = R.drawable.ellipse3),
+                                                contentDescription = "",
+                                                modifier = Modifier.graphicsLayer {
+                                                    translationY = +12.dp.toPx()
+                                                }
+                                            )
+                                        }
                                     }
                                     Text(
                                         text = "Michael Swift", fontFamily = Fonts.jostFontFamily,
                                         fontWeight = FontWeight.SemiBold,
                                         color = black,
+                                        modifier = Modifier
+                                            .fillMaxWidth(),
+                                         textAlign = TextAlign.Center,
                                         fontSize = 18.sp,
                                     )
+                                    Row {
+                                        Image(
+                                            painter = painterResource(id = R.drawable.star1),
+                                            contentDescription = ""
+                                        )
+                                        Spacer(modifier = Modifier.width(8.dp))
+                                        Text(
+                                            text = "4.5", fontFamily = Fonts.jostFontFamily,
+                                            fontWeight = FontWeight.Normal,
+                                            color = black, fontSize = 14.sp
+                                        )
+                                    }
                                 }
-
                             }
                         }
                         Spacer(modifier = Modifier.width(10.dp))
@@ -409,7 +428,6 @@ fun HomePage(
                 }
                 Spacer(modifier = Modifier.height(20.dp))
             }
-
         },
         bottomBar = {
             s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController)
