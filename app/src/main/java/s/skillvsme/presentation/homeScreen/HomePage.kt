@@ -1,7 +1,9 @@
 package s.skillvsme.presentation.homeScreen
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.widget.ImageView.ScaleType
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -46,7 +48,9 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
+import s.skillvsme.utils.coloredShadow
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 
 @Composable
@@ -171,10 +175,10 @@ fun HomePage(
                                 // Rounded image view
                                 Box(
                                     modifier = Modifier
-                                        .size(79.dp)
+                                        .size(75.dp)
                                         .padding(
-                                            top = 3.dp,
-                                            bottom = 8.dp,
+                                            top = 5.dp,
+                                            bottom = 6.dp,
                                             start = 4.dp,
                                             end = 4.dp,
                                         )
@@ -205,7 +209,7 @@ fun HomePage(
                                     // Image
                                 }
                                 // Live tag
-                                Spacer(modifier = Modifier.height(10.dp))
+                                Spacer(modifier = Modifier.height(7.dp))
                                 Text(
                                     text = "John Wills", color = Color.Black,
                                     fontSize = 15.sp,
@@ -429,7 +433,7 @@ fun HomePage(
                         Spacer(modifier = Modifier.width(10.dp))
                     }
                 }
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(80.dp))
             }
         },
         bottomBar = {
