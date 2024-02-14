@@ -5,6 +5,7 @@ import android.widget.ImageView.ScaleType
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.*
@@ -40,6 +41,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import androidx.compose.ui.text.TextStyle
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
@@ -180,7 +182,7 @@ fun HomePage(
                                     contentAlignment = Alignment.BottomCenter
                                 ) {
                                     Image(
-                                        painter = painterResource(id = R.drawable.profile),
+                                        painter = painterResource(id = R.drawable.rectangle4),
                                         contentDescription = "",
                                         contentScale = ContentScale.Crop
                                     )
@@ -347,6 +349,7 @@ fun HomePage(
                         fontWeight = FontWeight.Normal,
                         color = purple,
                         fontSize = 18.sp,
+                        modifier = Modifier.clickable { navController.navigate(Route.Student.Tutor.TutorsList)}
                     )
                 }
                 Spacer(modifier = Modifier.height(6.dp))

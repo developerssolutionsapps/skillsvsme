@@ -22,7 +22,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
+import s.skillvsme.presentation.classes.classes
 import s.skillvsme.presentation.homeScreen.HomePage
+import s.skillvsme.presentation.streaming.streaming
 import s.skillvsme.presentation.tutors.TutorsList
 import s.skillvsme.presentation.userprofilestudent.UserProfile
 
@@ -38,18 +40,13 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             TutorsList(navController=navController)
         }
         composable(Route.Student.Streaming.LiveStream) {
-            HomePage(
-                navController=navController
-            )
+            streaming()
         }
         composable(Route.Student.Classes.UpcomingClasses) {
-            HomePage(
-                navController=navController
-            )
-
+            classes(navController=navController)
         }
         composable(Route.Student.Profile.StudentProfile) {
-        UserProfile()
+        UserProfile(navController=navController)
         }
     }
 }
