@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -109,7 +110,7 @@ fun SkillvsmeTextField(
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     placeholderColor = darkGrey,
                     unfocusedBorderColor = darkGrey,
-                    focusedBorderColor = MaterialTheme.colors.primary
+                    focusedBorderColor = black
                 ),
                 value = value,
                 onValueChange = {it ->
@@ -119,11 +120,13 @@ fun SkillvsmeTextField(
                 keyboardOptions = keyboardOptions,
                 placeholder = {
                     Text(
+                        modifier = Modifier
+                            .scale(1.6f),
                         fontFamily = Fonts.jostFontFamily,
                         text = hint,
-                        fontSize = if (hintSize != null) hintSize.sp else 14.sp,
+                        fontSize = if (hintSize != null) hintSize.sp else 10.sp,
                         textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.Light
+                        color = darkGrey
                     ) },
                 isError = !isValid,
                 keyboardActions = keyboardActions ?: KeyboardActions(
