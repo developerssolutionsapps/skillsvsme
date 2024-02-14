@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.black50
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.greyishBlack
 import s.skillvsme.ui.theme.lightGrey
@@ -43,8 +44,8 @@ fun SkillvsmeButton(
         colors = ButtonDefaults.buttonColors(
             contentColor = if(primary) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
             containerColor = if (primary) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
-            disabledContainerColor = if(primary) greyishBlack else white,
-            disabledContentColor = if(primary) white else greyishBlack
+            disabledContainerColor = if(primary) black50 else white,
+            disabledContentColor = if(primary) white else black50
         )
     ){
         Text(
