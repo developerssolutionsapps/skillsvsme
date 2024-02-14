@@ -12,14 +12,15 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -30,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
@@ -46,6 +48,7 @@ fun SkillvsmeTextField(
     errorMessage: String = "",
     label: String,
     hint: String,
+    hintSize: Int? = null,
     trailingIcon: (() -> Unit)? = null,
     fieldDescription: String,
     LeadingIcon: ImageVector? = null,
@@ -107,7 +110,7 @@ fun SkillvsmeTextField(
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     placeholderColor = darkGrey,
                     unfocusedBorderColor = darkGrey,
-                    focusedBorderColor = MaterialTheme.colors.primary
+                    focusedBorderColor = black
                 ),
                 value = value,
                 onValueChange = {it ->
@@ -117,10 +120,13 @@ fun SkillvsmeTextField(
                 keyboardOptions = keyboardOptions,
                 placeholder = {
                     Text(
+                        modifier = Modifier
+                            .scale(1.6f),
                         fontFamily = Fonts.jostFontFamily,
                         text = hint,
+                        fontSize = if (hintSize != null) hintSize.sp else 10.sp,
                         textAlign = TextAlign.Center,
-                        fontWeight = FontWeight.Light
+                        color = darkGrey
                     ) },
                 isError = !isValid,
                 keyboardActions = keyboardActions ?: KeyboardActions(

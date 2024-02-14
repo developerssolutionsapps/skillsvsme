@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.black20
 import s.skillvsme.ui.theme.greyishBlack
 
 @Composable
@@ -69,11 +70,12 @@ private fun CharView(
     }
     Text(
         modifier = Modifier
-            .width(40.dp)
+            .width(65.dp)
+            .height(65.dp)
             .border(
                 1.dp, when {
                     isFocused -> black
-                    else -> greyishBlack
+                    else -> black20
                 }, RoundedCornerShape(12.dp)
             )
             .padding(2.dp),

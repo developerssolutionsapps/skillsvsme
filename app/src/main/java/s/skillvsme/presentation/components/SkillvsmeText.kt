@@ -61,7 +61,6 @@ fun SkillvsmeText(
                 ) {
                     Icon(
                         iconBefore,
-                        modifier = Modifier.background(Color.White),
                         contentDescription = "icon"
                     )
                 }
