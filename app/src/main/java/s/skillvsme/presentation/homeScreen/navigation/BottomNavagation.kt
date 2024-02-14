@@ -1,7 +1,13 @@
 package s.skillvsme.presentation.homeScreen.navigation
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material3.Icon
@@ -13,11 +19,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.Card
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,29 +36,32 @@ import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.streaming.streaming
 import s.skillvsme.presentation.tutors.TutorsList
 import s.skillvsme.presentation.userprofilestudent.UserProfile
+import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(navController, startDestination = ScreenNavigation.Home.screenroute) {
         composable(Route.Student.Home.Home) {
             HomePage(
-                navController=navController
+                navController = navController
             )
         }
         composable(Route.Student.Tutor.TutorsList) {
-            TutorsList(navController=navController)
+            TutorsList(navController = navController)
         }
         composable(Route.Student.Streaming.LiveStream) {
             streaming()
         }
         composable(Route.Student.Classes.UpcomingClasses) {
-            classes(navController=navController)
+            classes(navController = navController)
         }
         composable(Route.Student.Profile.StudentProfile) {
-        UserProfile(navController=navController)
+            UserProfile(navController = navController)
         }
     }
 }
+
 @Composable
 fun BottomNavigation(navController: NavController) {
     val items = listOf(
@@ -59,37 +71,56 @@ fun BottomNavigation(navController: NavController) {
         ScreenNavigation.Classes,
         ScreenNavigation.Account,
     )
-    Box(
+    Card(
         modifier = Modifier
             .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
-            .shadow(elevation = 10.dp)
+            .background(white)
+            .wrapContentHeight(),
+        shape = RectangleShape,
+        elevation = (-5).dp
     ) {
         BottomNavigation(
-            elevation = 10.dp,
-            backgroundColor = Color.White
-
+            backgroundColor = white
         ) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
             items.forEach { item ->
                 BottomNavigationItem(
                     icon = {
-                        Icon(
-                            painterResource(id = item.icon),
-                            contentDescription = item.title,
-                            modifier = Modifier.size(25.dp),
-                            tint = Color.Black
-                        )
+                        Box {
+                            Icon(
+                                painterResource(id = item.icon),
+                                contentDescription = item.title,
+                                modifier = Modifier.size(25.dp),
+                                tint = black
+                            )
+
+                        }
                     },
                     label = {
-                        Text(
-                            text = item.title,
-                            fontSize = 12.sp,
-                            color = Color.Black
-                        )
+                        Column(
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                        ) {
+                            Text(
+                                text = item.title,
+                                fontSize = 12.sp,
+                                color = black
+                            )
+                            Spacer(modifier = Modifier.height(4.dp))
+                            if (currentRoute == item.screenroute) {
+                                Box(
+                                    modifier = Modifier
+                                        .size(8.dp)
+                                        .clip(RoundedCornerShape(50))
+                                        .background(Color.Red)
+                                )
+                            }
+                        }
+
                     },
-                    selectedContentColor = Color.DarkGray,
-                    unselectedContentColor = Color.Black.copy(alpha = 0.4f),
+                    selectedContentColor = black,
+                    unselectedContentColor = black,
                     alwaysShowLabel = true,
                     selected = currentRoute == item.screenroute,
                     onClick = {
@@ -109,3 +140,4 @@ fun BottomNavigation(navController: NavController) {
         }
     }
 }
+
