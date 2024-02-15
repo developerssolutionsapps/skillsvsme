@@ -2,7 +2,6 @@ package s.skillvsme.presentation.homeScreen
 
 import android.annotation.SuppressLint
 import android.os.Build
-import android.widget.ImageView.ScaleType
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -15,34 +14,22 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.BottomEnd
-import androidx.compose.ui.Alignment.Companion.CenterHorizontally
-import androidx.compose.ui.Alignment.Companion.CenterVertically
-import androidx.compose.ui.Alignment.Companion.TopCenter
 import androidx.compose.ui.Alignment.Companion.TopEnd
 import androidx.compose.ui.Alignment.Companion.TopStart
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import androidx.compose.ui.text.TextStyle
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
@@ -50,7 +37,6 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
-import s.skillvsme.utils.coloredShadow
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
