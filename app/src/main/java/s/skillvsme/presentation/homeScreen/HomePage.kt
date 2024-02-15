@@ -169,18 +169,13 @@ fun HomePage(
                         ) {
                             Column(
                                 modifier = Modifier
-                                    .padding(8.dp)
+                                    .padding(top = 14.dp, bottom = 4.dp, start = 8.dp, end = 8.dp),
+                                horizontalAlignment = Alignment.CenterHorizontally
                             ) {
                                 // Rounded image view
                                 Box(
                                     modifier = Modifier
-                                        .size(75.dp)
-                                        .padding(
-                                            top = 5.dp,
-                                            bottom = 6.dp,
-                                            start = 4.dp,
-                                            end = 4.dp,
-                                        ),
+                                        .size(65.dp),
                                     contentAlignment = Alignment.BottomCenter
                                 ) {
                                     Image(
@@ -418,7 +413,7 @@ fun HomePage(
                                             painter = painterResource(id = R.drawable.verified),
                                             contentDescription = "",
                                             modifier = Modifier
-                                                .padding(start = 10.dp)
+                                                .padding(start = 2.dp)
                                                 .align(TopStart)
                                         )
                                     }
@@ -432,6 +427,7 @@ fun HomePage(
                                          textAlign = TextAlign.Center,
                                         fontSize = 18.sp,
                                     )
+                                    Spacer(modifier = Modifier.height(8.dp))
                                     Row(
                                         horizontalArrangement = Arrangement.Center,
                                         modifier = Modifier.fillMaxWidth()
