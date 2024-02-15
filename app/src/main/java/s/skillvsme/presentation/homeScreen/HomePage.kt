@@ -30,7 +30,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import androidx.compose.ui.text.TextStyle
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
