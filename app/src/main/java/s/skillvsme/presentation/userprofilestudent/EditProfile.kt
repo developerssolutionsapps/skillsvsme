@@ -59,7 +59,7 @@ fun EditProfile(
                     backgroundColor = Color.Black,
                     modifier = Modifier,
                     backgroundImage = painterResource(
-                        id = R.drawable.profile,
+                        id = R.drawable.rectangle5  ,
                     ),
                     contentSize = 130.dp,
                     bottomCornerRadius = 30.dp
