@@ -64,7 +64,7 @@ fun ProfileAppBar(
             Card(
                 modifier = Modifier
                     .fillMaxSize()
-                    .border(border = BorderStroke(4.dp, Color.Black), shape = CircleShape),
+                    .border(border = BorderStroke(8.dp, Color.Black), shape = CircleShape),
                 shape = CircleShape
             ) {
                 if (backgroundImage != null) {
