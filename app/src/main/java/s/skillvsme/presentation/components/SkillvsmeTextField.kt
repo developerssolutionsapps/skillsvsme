@@ -83,7 +83,6 @@ fun SkillvsmeTextField(
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically

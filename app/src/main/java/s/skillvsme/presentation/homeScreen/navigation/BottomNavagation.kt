@@ -85,7 +85,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             Onboarding3(navController = navController)
         }
         composable(Route.Student.Profile.EditProfile) {
-            EditProfile()
+            EditProfile(navController)
         }
         composable(Route.Student.Onboarding.JoinAS) {
             JoinAs(navController = navController)
