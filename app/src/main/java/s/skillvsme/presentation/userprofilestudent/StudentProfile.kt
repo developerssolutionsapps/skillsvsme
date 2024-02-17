@@ -2,6 +2,7 @@ package s.skillvsme.presentation.userprofilestudent
 
 import android.annotation.SuppressLint
 import android.os.Build
+import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -51,6 +52,18 @@ fun StudentProfile(navController: NavController) {
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(initialValue = BottomSheetValue.Collapsed, density = density)
     )
+    BackHandler {
+        if (bottomSheetScaffoldState.bottomSheetState.isExpanded){
+            scope.launch {
+                bottomSheetScaffoldState.bottomSheetState.collapse()
+            }
+        } else {
+            // Navigate back or handle back button press in another way
+            navController.popBackStack()
+        }
+        }
+
+
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = 0.dp,
