@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.components
 
+import android.telecom.CallAudioState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,6 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.BottomSheetScaffoldState
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,8 +27,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import s.skillvsme.R
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ProfileAppBar(
     modifier: Modifier = Modifier,
@@ -33,6 +39,9 @@ fun ProfileAppBar(
     backgroundImage: Painter? = null,
     contentSize: Dp = 180.dp,
     bottomCornerRadius: Dp = 30.dp,
+    onClick: (() -> Unit)? =null,
+    scope:CoroutineScope?=null,
+    bottomSheetScaffoldState:BottomSheetScaffoldState?=null
 
     ) {
 
@@ -85,6 +94,11 @@ fun ProfileAppBar(
                     }
                     .align(Alignment.BottomEnd)
                     .background(color = Color.Black, CircleShape)
+                    .clickable {
+                        scope?.launch {
+                            bottomSheetScaffoldState?.bottomSheetState?.expand()
+                        }
+                    }
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.camera),
@@ -93,7 +107,6 @@ fun ProfileAppBar(
                         .background(Color.Black, CircleShape)
                         .size(30.dp)
                         .align(Alignment.Center)
-
                 )
             }
 

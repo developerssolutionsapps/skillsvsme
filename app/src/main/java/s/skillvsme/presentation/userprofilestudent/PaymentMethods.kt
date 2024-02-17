@@ -1,6 +1,5 @@
 package s.skillvsme.presentation.userprofilestudent
 
-import android.widget.DatePicker
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,15 +14,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.Surface
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -31,10 +27,8 @@ import androidx.compose.ui.unit.sp
 import s.skillvsme.R
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
-import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.components.SkillvsmeText
-import s.skillvsme.presentation.components.SkillvsmeTextField
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun paymentMethod() {
     Column(
