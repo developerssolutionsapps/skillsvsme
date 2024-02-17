@@ -119,7 +119,11 @@ fun ProfileAppBar(
                 .padding(start = 16.dp)
                 .size(25.dp)
                 .clickable {
-                    navController?.popBackStack()
+                    if (navController != null) {
+                        if (navController.popBackStack()){
+                            navController?.popBackStack()
+                        } else{}
+                    }
                 }
         )
     }

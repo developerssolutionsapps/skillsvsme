@@ -70,9 +70,9 @@ fun StudentProfile(navController: NavController) {
         sheetContent = {
             BottomSheet(
                 iconAvatar = R.drawable.camera,
-                iconCamera = R.drawable.camera,
+                iconCamera = R.drawable.delete,
                 iconDelete = R.drawable.camera,
-                iconGallery = R.drawable.camera,
+                iconGallery = R.drawable.delete,
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
