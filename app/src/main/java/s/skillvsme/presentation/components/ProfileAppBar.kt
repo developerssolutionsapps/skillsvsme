@@ -1,6 +1,5 @@
 package s.skillvsme.presentation.components
 
-import android.telecom.CallAudioState
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -27,6 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import s.skillvsme.R
@@ -39,9 +39,9 @@ fun ProfileAppBar(
     backgroundImage: Painter? = null,
     contentSize: Dp = 180.dp,
     bottomCornerRadius: Dp = 30.dp,
-    onClick: (() -> Unit)? =null,
     scope:CoroutineScope?=null,
-    bottomSheetScaffoldState:BottomSheetScaffoldState?=null
+    bottomSheetScaffoldState:BottomSheetScaffoldState?=null,
+    navController:NavController?=null,
 
     ) {
 
@@ -118,7 +118,9 @@ fun ProfileAppBar(
                 .align(Alignment.CenterStart)
                 .padding(start = 16.dp)
                 .size(25.dp)
-                .clickable { /* Handle back button click */ }
+                .clickable {
+                    navController?.popBackStack()
+                }
         )
     }
 }
