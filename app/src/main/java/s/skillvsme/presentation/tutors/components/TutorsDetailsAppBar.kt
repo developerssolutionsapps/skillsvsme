@@ -34,6 +34,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -131,7 +132,10 @@ fun TutorsDetailsAppBar(
                 modifier = Modifier
                     .fillMaxWidth(),
                 label = "Schedule a class",
-                primary = false
+                primary = false,
+                onClick = {
+                    navController.navigate(Route.Student.Tutor.Schedule)
+                }
             )
             Spacer(modifier = Modifier.height(16.dp))
         }

@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import io.ktor.util.date.WeekDay
 import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeScheduleTimeline
@@ -32,7 +33,9 @@ import s.skillvsme.ui.theme.purple
 
 
 @Composable
-fun Schedule() {
+fun Schedule(
+    navController: NavController
+) {
     val timeline1 = "10:00 - 11:00 AM"
     val timeline2 = "11:00 - 11:30 AM"
     val timeline3 = "6:00 - 8:50 PM"
