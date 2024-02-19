@@ -1,6 +1,7 @@
 package s.skillvsme.presentation.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,7 +20,9 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Route
 
 
 @Composable
@@ -29,8 +32,14 @@ fun TutorsListComponent(
     rating: Double,
     profile: Painter,
     isLive: Boolean = true,
+    navController: NavController
 ) {
-    Row(){
+    Row(
+        modifier = Modifier
+            .clickable {
+                navController.navigate(Route.Student.Tutor.TutorProfile)
+            }
+    ){
         Column {
             Spacer(modifier = Modifier.height(12.dp))
             Box(
@@ -69,18 +78,21 @@ fun TutorsListComponent(
                 SkillvsmeText(
                     value = name,
                     boldValue = true,
+                    valueSize = 24
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(painter = painterResource(R.drawable.rate_star), contentDescription = "rate star")
                     SkillvsmeText(
-                        value = "${rating}"
+                        value = "${rating}",
+                        valueSize = 16
                     )
                 }
             }
             SkillvsmeText(
                 value = bio,
+                valueSize = 16
             )
         }
     }
