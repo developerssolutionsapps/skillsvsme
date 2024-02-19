@@ -105,7 +105,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         composable(Route.Student.Profile.PaymentMethods) {
             paymentMethod(navController)
         }
-        composable(Route.Student.Profile.PaymentMethods) {
+        composable(Route.Student.Profile.Notifications) {
             NotificationScreen(navController)
         }
     }

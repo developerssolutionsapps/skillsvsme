@@ -53,6 +53,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.presentation.components.Notification
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
+import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -67,29 +68,27 @@ fun NotificationScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-
                 backgroundColor = Color.White,
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle notification icon click */ }) {
-                        Icon(Icons.Default.KeyboardArrowLeft, contentDescription = null)
+                    IconButton(onClick = { navController.popBackStack() },modifier = Modifier.size(30.dp)) {
+                        Icon(Icons.Default.KeyboardArrowLeft, contentDescription = null, )
                     }
                 },
                 title = {
-                    Text("Notifaction")
+                    Text("Notification", fontSize = 24.sp, fontWeight = FontWeight.Normal)
                 },
             )
         },
-
         content = {
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(start = 16.dp, end = 16.dp,top=50.dp)
                     .fillMaxSize()
                     .verticalScroll(scrollState)
             ) {repeat(16){
-                Notification(iconStart = painterResource(id = R.drawable.notification))
+                Notification(iconStart = painterResource(id = R.drawable.notification_1))
                 Divider(
-                    color = Color.Gray,
+                    color = darkGrey,
                     modifier = Modifier
                         .height(1.dp)
                         .fillMaxWidth() // Adjust width as needed
