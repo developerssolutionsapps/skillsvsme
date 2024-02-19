@@ -36,6 +36,7 @@ import androidx.navigation.NavController
 import io.ktor.util.date.WeekDay
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeScheduleTimeline
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -55,41 +56,7 @@ fun Schedule(
 ) {
     Scaffold(
         topBar = {
-            androidx.compose.material3.Surface(
-                shadowElevation = 3.dp,
-                modifier = Modifier
-                    .fillMaxWidth(),
-                color = white
-            ) {
-                TopAppBar(
-                    title = {
-                        Text(
-                            "Schedule",
-                            fontFamily = Fonts.headlandOneFontFamily,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(end = 28.dp),
-                            textAlign = TextAlign.Center,
-                        )
-                    },
-                    navigationIcon = {
-                        Image(
-                            painter = painterResource(id = R.drawable.right_arrow),
-                            contentDescription = "right arrow",
-                            modifier = Modifier
-                                .clickable {
-                                    navController.popBackStack()
-                                }
-                        )
-                    },
-                    colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = white),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 16.dp, end = 16.dp)
-                )
-            }
+           SimpleAppBar(navController = navController, text = "Schedule")
         },
         content = {
             val timeline1 = "10:00 - 11:00 AM"
@@ -101,6 +68,7 @@ fun Schedule(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
+                Spacer(modifier = Modifier.height(60.dp))
                 SkillvsmeText(value = "Available Slots", valueColor = purple)
                 SkillvsmeScheduleTimeline(
                     day = "Wed",
@@ -137,7 +105,7 @@ fun Schedule(
                     timelineList = listOf(timeline1, timeline2, timeline3),
                     selectedTime = "selectedTime"
                 )
-                Spacer(modifier = Modifier.height(40.dp))
+                Spacer(modifier = Modifier.height(60.dp))
             }
         },
         bottomBar = {

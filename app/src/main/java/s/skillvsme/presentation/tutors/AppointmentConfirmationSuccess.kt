@@ -5,7 +5,9 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 import s.skillvsme.ui.theme.white
@@ -36,43 +39,10 @@ fun AppointmentConfirmationSuccess(
 ) {
     Scaffold(
         topBar = {
-            androidx.compose.material3.Surface(
-                shadowElevation = 3.dp,
-                modifier = Modifier
-                    .fillMaxWidth(),
-                color = white
-            ) {
-                TopAppBar(
-                    title = {
-                        Text(
-                            "Schedule",
-                            fontFamily = Fonts.headlandOneFontFamily,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(end = 28.dp),
-                            textAlign = TextAlign.Center,
-                        )
-                    },
-                    navigationIcon = {
-                        Image(
-                            painter = painterResource(id = R.drawable.right_arrow),
-                            contentDescription = "right arrow",
-                            modifier = Modifier
-                                .clickable {
-                                    navController.popBackStack()
-                                }
-                        )
-                    },
-                    colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = white),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 16.dp, end = 16.dp)
-                )
-            }
+            SimpleAppBar(navController = navController, text = "Confirmation")
         },
         content = {
+            Spacer(modifier = Modifier.height(40.dp))
             SkillvsmeSuccessScreen(
                 successMessage = "Appointment Confirmed",
                 buttonText = "View all classes",
@@ -80,6 +50,7 @@ fun AppointmentConfirmationSuccess(
                 backButtonText = "Back to home",
                 backButtonOnclickAction = {},
             )
+            Spacer(modifier = Modifier.height(40.dp))
         },
         bottomBar = {
             BottomNavigation(navController = navController)

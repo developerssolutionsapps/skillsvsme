@@ -43,6 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.TutorsListComponent
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
@@ -57,41 +58,7 @@ fun TutorsList(
 ) {
     Scaffold (
         topBar = {
-            Surface(
-                shadowElevation = 3.dp,
-                modifier = Modifier
-                    .fillMaxWidth(),
-                color = white
-            ) {
-                TopAppBar(
-                    title = {
-                        Text(
-                            "Tutors",
-                            fontFamily = Fonts.headlandOneFontFamily,
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(end = 28.dp),
-                            textAlign = TextAlign.Center,
-                        )
-                    },
-                    navigationIcon = {
-                        Image(
-                            painter = painterResource(id = R.drawable.right_arrow),
-                            contentDescription = "right arrow",
-                            modifier = Modifier
-                                .clickable {
-                                    navController.popBackStack()
-                                }
-                        )
-                    },
-                    colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = white),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 16.dp, end = 16.dp)
-                )
-            }
+            SimpleAppBar(navController = navController, text = "Tutors")
         },
         content = {
             Column(
