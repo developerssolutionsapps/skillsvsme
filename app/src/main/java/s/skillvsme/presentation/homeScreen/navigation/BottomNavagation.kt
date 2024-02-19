@@ -33,7 +33,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
+import s.skillvsme.common.Route.Student.Onboarding.CodeVerification
 import s.skillvsme.common.Route.Student.Onboarding.Onboarding1
+import s.skillvsme.common.Route.Student.Onboarding.Onboarding2
 import s.skillvsme.presentation.classes.Classes
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.onboarding.CodeVerification
@@ -42,8 +44,12 @@ import s.skillvsme.presentation.onboarding.Onboarding1
 import s.skillvsme.presentation.onboarding.Onboarding2
 import s.skillvsme.presentation.onboarding.Onboarding3
 import s.skillvsme.presentation.onboarding.Signup
-import s.skillvsme.presentation.streaming.Streaming
+import s.skillvsme.presentation.streaming.streaming
+import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
+import s.skillvsme.presentation.tutors.Schedule
+import s.skillvsme.presentation.tutors.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsList
+import s.skillvsme.presentation.tutors.TutorsVideo
 import s.skillvsme.presentation.userprofilestudent.EditLanguage
 import s.skillvsme.presentation.userprofilestudent.EditProfile
 import s.skillvsme.presentation.userprofilestudent.NotificationScreen
@@ -58,9 +64,11 @@ import s.skillvsme.utils.coloredShadow
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
-fun NavigationGraph(navController: NavHostController) {
-    NavHost(navController = navController,
-        startDestination = Onboarding1) {
+fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
+    NavHost(
+        navController = navController,
+        startDestination = Route.Student.Onboarding.Onboarding1
+        ) {
         composable(Route.Student.Home.Home) {
             HomePage(
                 navController = navController
@@ -69,8 +77,20 @@ fun NavigationGraph(navController: NavHostController) {
         composable(Route.Student.Tutor.TutorsList) {
             TutorsList(navController = navController)
         }
+        composable(Route.Student.Tutor.TutorProfile){
+            TutorsDetails(navController = navController)
+        }
+        composable(Route.Student.Tutor.TutorVideo){
+            TutorsVideo(navController = navController)
+        }
+        composable(Route.Student.Tutor.Schedule){
+            Schedule(navController = navController)
+        }
+        composable(Route.Student.Tutor.AppointmentConfirmation){
+            AppointmentConfirmationSuccess(navController = navController)
+        }
         composable(Route.Student.Streaming.LiveStream) {
-            Streaming(navController)
+            streaming(navController)
         }
         composable(Route.Student.Classes.UpcomingClasses) {
             Classes(navController = navController)
@@ -78,7 +98,6 @@ fun NavigationGraph(navController: NavHostController) {
         composable(Route.Student.Profile.StudentProfile) {
             StudentProfile(navController = navController)
         }
-
         composable(Route.Student.Onboarding.Onboarding1) {
             Onboarding1(navController = navController)
         }
@@ -112,6 +131,25 @@ fun NavigationGraph(navController: NavHostController) {
         composable(Route.Student.Profile.EditLanguage) {
             EditLanguage(navController)
         }
+        composable(Route.Student.Onboarding.Onboarding1) {
+            Onboarding1(navController = navController)
+        }
+        composable(Route.Student.Onboarding.Onboarding2) {
+            Onboarding2(navController = navController)
+        }
+        composable(Route.Student.Onboarding.Onboarding3) {
+            Onboarding3(navController = navController)
+        }
+        composable(Route.Student.Onboarding.JoinAS) {
+            JoinAs(navController = navController)
+        }
+        composable(Route.Student.Onboarding.SignUp) {
+            Signup(navController = navController)
+        }
+        composable(Route.Student.Onboarding.CodeVerification) {
+            CodeVerification(navController = navController)
+        }
+
     }
 }
 
@@ -138,12 +176,12 @@ fun BottomNavigation(navController: NavController) {
         BottomNavigation(
             backgroundColor = white, modifier = Modifier
                 .coloredShadow(
-                    color = darkGrey,
-                    borderRadius = 1.dp,
-                    blurRadius = 1.dp,
+                    color = Color.Gray,
+                    borderRadius = 4.dp,
+                    blurRadius = 4.dp,
                     offsetY = (-4).dp,
                     offsetX = 0.dp,
-                    spread = 1f
+                    spread = 4f
                 )
                 .padding(top = 1.dp)
                 .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
@@ -206,4 +244,3 @@ fun BottomNavigation(navController: NavController) {
         }
     }
 }
-

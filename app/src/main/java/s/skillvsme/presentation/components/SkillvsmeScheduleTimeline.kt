@@ -44,22 +44,22 @@ fun SkillvsmeScheduleTimeline(
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = day,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.SemiBold,
                     color = purple,
-                    fontSize = 16.sp,
+                    fontSize = 18.sp,
                     modifier = Modifier
-                        .padding(8.dp)
+                        .padding(horizontal = 8.dp)
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center
                 )
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = date,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.SemiBold,
                     color = purple,
-                    fontSize = 16.sp,
+                    fontSize = 18.sp,
                     modifier = Modifier
-                        .padding(8.dp)
+                        .padding(horizontal = 8.dp)
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center
                 )
@@ -67,9 +67,9 @@ fun SkillvsmeScheduleTimeline(
                     fontFamily = Fonts.jostFontFamily,
                     text = month,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 16.sp,
+                    fontSize = 18.sp,
                     modifier = Modifier
-                        .padding(8.dp)
+                        .padding(horizontal = 8.dp)
                         .fillMaxWidth(),
                     textAlign = TextAlign.Center
                 )

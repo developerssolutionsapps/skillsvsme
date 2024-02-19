@@ -40,7 +40,6 @@ import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-
 @Composable
 fun HomePage(
     navController: NavController
@@ -196,10 +195,9 @@ fun HomePage(
                                 ) {
                                     Image(
                                         painter = painterResource(id = R.drawable.rectangle4),
-                                        contentDescription = "", modifier = Modifier.background(
+                                        contentDescription = "",modifier=Modifier.background(
                                             white,
-                                            CircleShape
-                                        ),
+                                            CircleShape),
                                         contentScale = ContentScale.Crop
                                     )
                                     SkillvsmeLiveTag(
@@ -248,10 +246,9 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(
-                            horizontalArrangement = Arrangement.Start,
+                        Row(horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ) {
+                        ){
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -308,10 +305,9 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(
-                            horizontalArrangement = Arrangement.Start,
+                        Row(horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ) {
+                        ){
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -331,8 +327,7 @@ fun HomePage(
                                 )
                             }
                             Text(
-                                text = "Choose A subscription plan",
-                                fontFamily = Fonts.jostFontFamily,
+                                text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
                                 color = black,
                                 fontSize = 18.sp,
@@ -371,6 +366,7 @@ fun HomePage(
                         color = purple,
                         fontSize = 18.sp,
                         modifier = Modifier.clickable {
+//                            navController.navigate(Route.Student.Tutor.TutorsList)
                             navController.navigate(Route.Student.Tutor.TutorsList) {
 
                                 navController.graph.startDestinationRoute?.let { screen_route ->
@@ -464,7 +460,7 @@ fun HomePage(
                                         modifier = Modifier.fillMaxWidth()
                                     ) {
                                         Image(
-                                            painter = painterResource(id = R.drawable.star1),
+                                            painter = painterResource(id = R.drawable.star_full),
                                             contentDescription = "",
                                             modifier = Modifier.size(16.dp)
                                         )
@@ -489,4 +485,3 @@ fun HomePage(
         }
     )
 }
-

@@ -31,11 +31,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 @Composable
@@ -49,6 +52,7 @@ fun TutorsDetailsAppBar(
     backgroundImage: Painter? = null,
     profileImage: Painter? = null,
     bottomCornerRadius: Dp = 24.dp,
+    navController: NavController
     ) {
     Box(
         modifier = Modifier
@@ -56,14 +60,16 @@ fun TutorsDetailsAppBar(
     ) {
         Card(
             modifier = Modifier
-                .fillMaxSize(),
+                .matchParentSize(),
             shape = RoundedCornerShape(
                 bottomEnd = bottomCornerRadius,
                 bottomStart = bottomCornerRadius,
             )
         ) {
             Image(
-                painter = if (backgroundImage == null) painterResource(id = R.drawable.top_blackish_bg) else backgroundImage,
+                modifier = Modifier
+                    .fillMaxSize(),
+                painter = backgroundImage ?: painterResource(id = R.drawable.top_blackish_bg),
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop
             )
@@ -105,12 +111,12 @@ fun TutorsDetailsAppBar(
                         .padding(horizontal = 12.dp)
                 )
             }
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = name,
                 color = white,
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
+                fontSize = 24.sp,
                 modifier = Modifier
                     .fillMaxWidth(),
                 fontFamily = Fonts.jostFontFamily,
@@ -119,16 +125,20 @@ fun TutorsDetailsAppBar(
             Spacer(modifier = Modifier.height(4.dp))
             SkillvsmeText(
                 value = "${location} | ${time}",
-                iconBefore = painterResource(id = R.drawable.location_white),
+                iconBefore = painterResource(id = R.drawable.location),
                 boldValue = true,
+                valueSize = 16,
                 valueColor = white
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
             SkillvsmeButton(
                 modifier = Modifier
                     .fillMaxWidth(),
                 label = "Schedule a class",
-                primary = false
+                primary = false,
+                onClick = {
+                    navController.navigate(Route.Student.Tutor.Schedule)
+                }
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
@@ -139,7 +149,9 @@ fun TutorsDetailsAppBar(
                 .align(Alignment.TopStart)
                 .padding(start = 16.dp, top = 48.dp)
                 .size(25.dp)
-                .clickable { /* Handle back button click */ }
+                .clickable {
+                    navController.popBackStack()
+                }
         )
     }
 }
