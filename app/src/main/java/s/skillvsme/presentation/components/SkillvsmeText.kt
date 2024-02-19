@@ -36,10 +36,10 @@ fun SkillvsmeText(
     boldLabel: Boolean = true,
     fontSize: Int? = null,
     boldValue: Boolean = false,
-    iconBeforeSize: Dp = 16.dp,
-    valueSize: TextStyle? = null,
-    iconBeforeSpacer: Dp = 0.dp,
-    iconAfterSize: Dp = 16.dp,
+    iconBeforeSize: Dp =16.dp,
+    valueSize: Int? = null,
+    iconBeforeSpacer: Dp =16.dp,
+    iconAfterSize: Dp =16.dp,
     iconBefore: Painter? = null,
     valueFont: FontWeight = FontWeight.Normal,
     iconAfter: Painter? = null,
@@ -100,7 +100,7 @@ fun SkillvsmeText(
                         text = value,
                         color = valueColor ?: Color.Unspecified,
                         fontFamily = Fonts.jostFontFamily,
-                        fontSize = fontSize?.sp ?: TextUnit.Unspecified,
+                        fontSize = if(valueSize != null) valueSize.sp else TextUnit.Unspecified,
                         style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
                         fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
                     )
