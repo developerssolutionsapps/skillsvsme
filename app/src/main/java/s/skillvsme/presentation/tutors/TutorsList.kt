@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -22,21 +23,31 @@ import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TopAppBarColors
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.TutorsListComponent
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.white
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
@@ -45,15 +56,37 @@ fun TutorsList(
 ) {
     Scaffold (
         topBar = {
-            TopAppBar(
-                title = {
-                    Text("Tutors!")
-                },
-                navigationIcon = {
-                    Image(painter = painterResource(id = R.drawable.right_arrow), contentDescription = "right arrow")
-                },
-                backgroundColor = Color.White
-            )
+            Surface(
+                shadowElevation = 3.dp,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                color = white
+            ) {
+                TopAppBar(
+                    title = {
+                        Text(
+                            "Tutors",
+                            fontFamily = Fonts.headlandOneFontFamily,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(end = 28.dp),
+                            textAlign = TextAlign.Center,
+                        )
+                    },
+                    navigationIcon = {
+                        Image(
+                            painter = painterResource(id = R.drawable.right_arrow),
+                            contentDescription = "right arrow"
+                        )
+                    },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = white),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp)
+                )
+            }
         },
         content = {
             Column(
@@ -62,7 +95,6 @@ fun TutorsList(
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.Center,
             ) {
-                Spacer(modifier = Modifier.height(48.dp))
                 TutorsListComponent(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
