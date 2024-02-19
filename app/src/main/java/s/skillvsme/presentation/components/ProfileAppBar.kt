@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.BottomSheetScaffoldState
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,8 +26,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import s.skillvsme.R
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ProfileAppBar(
     modifier: Modifier = Modifier,
@@ -33,6 +39,10 @@ fun ProfileAppBar(
     backgroundImage: Painter? = null,
     contentSize: Dp = 180.dp,
     bottomCornerRadius: Dp = 30.dp,
+    scope:CoroutineScope?=null,
+    bottomSheetScaffoldState:BottomSheetScaffoldState?=null,
+    navController:NavController?=null,
+    cameraIconAvailable:Boolean=false
 
     ) {
 
@@ -64,7 +74,7 @@ fun ProfileAppBar(
             Card(
                 modifier = Modifier
                     .fillMaxSize()
-                    .border(border = BorderStroke(4.dp, Color.Black), shape = CircleShape),
+                    .border(border = BorderStroke(8.dp, Color.Black), shape = CircleShape),
                 shape = CircleShape
             ) {
                 if (backgroundImage != null) {
@@ -76,26 +86,32 @@ fun ProfileAppBar(
                     )
                 }
             }
-
-            Box(
-                modifier = Modifier
-                    .size(40.dp)
-                    .graphicsLayer {
-                        translationY = -4.dp.toPx()
-                    }
-                    .align(Alignment.BottomEnd)
-                    .background(color = Color.Black, CircleShape)
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.camera),
-                    contentDescription = "",
+            if(cameraIconAvailable){
+                Box(
                     modifier = Modifier
-                        .background(Color.Black, CircleShape)
-                        .size(30.dp)
-                        .align(Alignment.Center)
-
-                )
+                        .size(40.dp)
+                        .graphicsLayer {
+                            translationY = -4.dp.toPx()
+                        }
+                        .align(Alignment.BottomEnd)
+                        .background(color = Color.Black, CircleShape)
+                        .clickable {
+                            scope?.launch {
+                                bottomSheetScaffoldState?.bottomSheetState?.expand()
+                            }
+                        }
+                ) {
+                    Image(
+                            painter = painterResource(id = R.drawable.camera),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .background(Color.Black, CircleShape)
+                            .size(30.dp)
+                            .align(Alignment.Center)
+                    )
+                }
             }
+
 
         }
         Image(
@@ -105,7 +121,9 @@ fun ProfileAppBar(
                 .align(Alignment.CenterStart)
                 .padding(start = 16.dp)
                 .size(25.dp)
-                .clickable { /* Handle back button click */ }
+                .clickable {
+                    navController?.popBackStack()
+                }
         )
     }
 }

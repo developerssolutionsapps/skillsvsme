@@ -34,12 +34,13 @@ import androidx.compose.ui.unit.sp
 import io.ktor.http.ContentType
 import org.w3c.dom.Text
 import s.skillvsme.common.Fonts
+import s.skillvsme.ui.theme.darkGrey
 
 @Composable
 fun Notification(
     modifier: Modifier = Modifier,
     iconStart: Painter,
-    textSuccess:String="Successfully" ,
+
 ) {
     Row(
         modifier = modifier
@@ -51,7 +52,7 @@ fun Notification(
                 .size(55.dp)
                 .padding(10.dp), shape = CircleShape,
         ) {
-            Image(painter = iconStart, contentDescription = "", contentScale = ContentScale.Crop)
+            Image(painter = iconStart, contentDescription = "",modifier=Modifier.padding(5.dp))
         }
         Spacer(modifier = modifier.height(-10.dp))
         Row(
@@ -63,27 +64,29 @@ fun Notification(
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "Black Friday is Here",
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 20.sp
                 )
                 Spacer(
-                    modifier = Modifier.height(8.dp)
+                    modifier = Modifier.height(4.dp)
                 )
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "Get 50% 0f Yearly subscription in \n Black Friday for Limited time",
-                    fontWeight = FontWeight.Normal
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 18.sp
                 )
                 Spacer(
-                    modifier = Modifier.height(8.dp)
+                    modifier = Modifier.height(10.dp)
                 )
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "30/1123 | 5:00 PM",
-                    fontWeight = FontWeight.Light
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 14.sp,
+                    color = darkGrey
                 )
             }
-            Spacer(modifier = Modifier.weight(1f))
-
         }
     }
 }

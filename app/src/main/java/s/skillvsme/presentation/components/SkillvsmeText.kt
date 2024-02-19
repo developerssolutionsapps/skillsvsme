@@ -20,23 +20,28 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
+import s.skillvsme.ui.theme.darkGrey
 
 @Composable
 fun SkillvsmeText(
     value: String,
+    value1: String?=null,
     modifier: Modifier = Modifier,
     label: String? = null,
-    color:Color=Color.White,
+    color: Color = Color.White,
     boldLabel: Boolean = true,
+    fontSize: Int? = null,
     boldValue: Boolean = false,
-    iconBeforeSize: Dp =16.dp,
-    valueSize:TextStyle?=null,
-    iconBeforeSpacer: Dp =16.dp,
-    iconAfterSize: Dp =16.dp,
+    iconBeforeSize: Dp = 16.dp,
+    valueSize: TextStyle? = null,
+    iconBeforeSpacer: Dp = 0.dp,
+    iconAfterSize: Dp = 16.dp,
     iconBefore: Painter? = null,
-    valueFont:FontWeight=FontWeight.Normal,
+    valueFont: FontWeight = FontWeight.Normal,
     iconAfter: Painter? = null,
     valueColor: Color? = null,
     labelColor: Color? = null,
@@ -80,30 +85,48 @@ fun SkillvsmeText(
                         Text(
                             text = label,
                             fontFamily = Fonts.jostFontFamily,
-                            color = if (labelColor != null) labelColor else Color.Unspecified,
+                            color = labelColor ?: Color.Unspecified,
                             style = MaterialTheme.typography.body1,
-                            fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal
-                        )
+                            fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal,
+                            )
                     }
+                    Spacer(modifier = Modifier.height(8.dp))
                 }
-                Spacer(modifier = Modifier.height(8.dp))
+
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = value,
-                        color = if (valueColor != null) valueColor else Color.Unspecified,
+                        color = valueColor ?: Color.Unspecified,
                         fontFamily = Fonts.jostFontFamily,
+                        fontSize = fontSize?.sp ?: TextUnit.Unspecified,
                         style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
                         fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
                     )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    if (value1 !=null){
+                        Text(
+                            text = value1,
+                            color = darkGrey ?: Color.Unspecified,
+                            fontFamily = Fonts.jostFontFamily,
+                            fontSize = fontSize?.sp ?: TextUnit.Unspecified,
+                            style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
+                            fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
+                        )
+                    }
                 }
             }
         }
-
         if (iconAfter != null) {
-            Spacer(modifier = Modifier.width(iconAfterSize).background(color))
-            Icon(iconAfter, contentDescription = "icon")
+            Icon(
+                iconAfter,
+                contentDescription = "icon",
+                modifier = Modifier
+                    .size(iconAfterSize)
+                    .background(color),
+                darkGrey
+            )
         }
     }
 }

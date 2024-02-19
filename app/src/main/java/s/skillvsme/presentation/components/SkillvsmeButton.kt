@@ -42,8 +42,8 @@ fun SkillvsmeButton(
         enabled = enabled,
         shape = MaterialTheme.shapes.large.copy(all = CornerSize(24.dp)),
         colors = ButtonDefaults.buttonColors(
-            contentColor = if(primary) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
-            containerColor = if (primary) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onPrimary,
+            contentColor = if(primary) white else black,
+            containerColor = if (primary) black else white,
             disabledContainerColor = if(primary) black50 else white,
             disabledContentColor = if(primary) white else black50
         )
@@ -52,7 +52,7 @@ fun SkillvsmeButton(
             text = label,
             modifier = Modifier
                 .padding(8.dp),
-            color = if(primary) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.primary,
+            color = if(primary) white else black,
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
             fontFamily = Fonts.jostFontFamily

@@ -73,7 +73,9 @@ fun HomePage(
                     IconButton(onClick = { /* Handle notification icon click */ }) {
                         Image(
                             painter = painterResource(id = R.drawable.notification),
-                            contentDescription = null
+                            contentDescription = null, modifier = Modifier.clickable {
+                                navController.navigate(Route.Student.Profile.Notifications)
+                            }
                         )
                     }
                     Box(
@@ -84,8 +86,22 @@ fun HomePage(
                         // Image
                         Image(
                             painter = (painterResource(id = R.drawable.ellipse1)),
-                            contentDescription = "", Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Crop
+                            contentDescription = "",
+                            Modifier
+                                .fillMaxSize()
+                                .clickable {
+                                    navController.navigate(Route.Student.Profile.StudentProfile) {
+
+                                        navController.graph.startDestinationRoute?.let { screen_route ->
+                                            popUpTo(screen_route) {
+                                                saveState = true
+                                            }
+                                        }
+                                        launchSingleTop = true
+                                        restoreState = true
+                                    }
+                                },
+                            contentScale = ContentScale.Crop,
                         )
                     }
                 }
@@ -180,9 +196,10 @@ fun HomePage(
                                 ) {
                                     Image(
                                         painter = painterResource(id = R.drawable.rectangle4),
-                                        contentDescription = "",modifier=Modifier.background(
+                                        contentDescription = "", modifier = Modifier.background(
                                             white,
-                                            CircleShape),
+                                            CircleShape
+                                        ),
                                         contentScale = ContentScale.Crop
                                     )
                                     SkillvsmeLiveTag(
@@ -231,9 +248,10 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(horizontalArrangement = Arrangement.Start,
+                        Row(
+                            horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ){
+                        ) {
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -290,9 +308,10 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(horizontalArrangement = Arrangement.Start,
+                        Row(
+                            horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ){
+                        ) {
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -312,7 +331,8 @@ fun HomePage(
                                 )
                             }
                             Text(
-                                text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
+                                text = "Choose A subscription plan",
+                                fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
                                 color = black,
                                 fontSize = 18.sp,
@@ -350,7 +370,18 @@ fun HomePage(
                         fontWeight = FontWeight.Normal,
                         color = purple,
                         fontSize = 18.sp,
-                        modifier = Modifier.clickable { navController.navigate(Route.Student.Tutor.TutorsList)}
+                        modifier = Modifier.clickable {
+                            navController.navigate(Route.Student.Tutor.TutorsList) {
+
+                                navController.graph.startDestinationRoute?.let { screen_route ->
+                                    popUpTo(screen_route) {
+                                        saveState = true
+                                    }
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
                     )
                 }
                 Spacer(modifier = Modifier.height(6.dp))
