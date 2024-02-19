@@ -48,7 +48,7 @@ fun TutorsListComponent(
                     .width(80.dp),
             ) {
                 Surface(
-                    shape = RoundedCornerShape(16.dp)
+                    shape = RoundedCornerShape(24.dp)
                 ) {
                     Image(
                         painter = profile,

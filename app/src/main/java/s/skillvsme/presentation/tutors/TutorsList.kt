@@ -107,7 +107,7 @@ fun TutorsList(
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile1)
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(
                     thickness = 1.dp,
                     color = black
@@ -121,7 +121,7 @@ fun TutorsList(
                     profile = painterResource(id = R.drawable.profile2),
                     isLive = false
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(
                     thickness = 1.dp,
                     color = black
@@ -135,7 +135,7 @@ fun TutorsList(
                     profile = painterResource(id = R.drawable.profile3),
                     isLive = false
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(
                     thickness = 1.dp,
                     color = black
@@ -148,7 +148,7 @@ fun TutorsList(
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile1)
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(
                     thickness = 1.dp,
                     color = black
@@ -161,7 +161,7 @@ fun TutorsList(
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile3)
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(
                     thickness = 1.dp,
                     color = black
@@ -175,7 +175,7 @@ fun TutorsList(
                     profile = painterResource(id = R.drawable.profile2),
                     isLive = false
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(16.dp))
                 Divider(
                     thickness = 1.dp,
                     color = black

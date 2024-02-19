@@ -30,6 +30,7 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.LanguageCard
+import s.skillvsme.presentation.components.ReviewItem
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.TutorsExperience
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
@@ -203,6 +204,11 @@ fun TutorsDetails(
                     valueSize = 20,
                     valueColor = purple
                 )
+            }
+            Column() {
+                repeat(4) {
+                    ReviewItem()
+                }
             }
         }
     }

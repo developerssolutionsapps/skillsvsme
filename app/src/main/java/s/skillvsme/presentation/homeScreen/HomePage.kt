@@ -461,7 +461,7 @@ fun HomePage(
                                         modifier = Modifier.fillMaxWidth()
                                     ) {
                                         Image(
-                                            painter = painterResource(id = R.drawable.star1),
+                                            painter = painterResource(id = R.drawable.star_full),
                                             contentDescription = "",
                                             modifier = Modifier.size(16.dp)
                                         )
