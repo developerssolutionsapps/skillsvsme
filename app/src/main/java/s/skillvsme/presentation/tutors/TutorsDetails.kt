@@ -57,8 +57,9 @@ fun TutorsDetails(
                 time = "6:30 PM",
                 backgroundColor = black,
                 backgroundImage = painterResource(id = R.drawable.top_blackish_bg),
-                profileImage = painterResource(id = R.drawable.teacher),
-                onClick = {}
+                profileImage = painterResource(id = R.drawable.profile2),
+                onClick = {},
+                navController = navController
             )
         }
         Column (
@@ -83,7 +84,7 @@ fun TutorsDetails(
                     Text(
                         text = "5.0",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 18.sp,
+                        fontSize = 20.sp,
                         fontFamily = Fonts.jostFontFamily,
                         )
                 }
@@ -97,8 +98,8 @@ fun TutorsDetails(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text(text = "45+", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
-                    Text(text = "hrs", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "45+", fontWeight = FontWeight.Bold, fontSize = 24.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "hrs", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = Fonts.jostFontFamily)
                 }
                 Divider(
                     modifier = Modifier
@@ -110,8 +111,8 @@ fun TutorsDetails(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
                 ) {
-                    Text(text = "155+", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
-                    Text(text = "classes", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "155+", fontWeight = FontWeight.Bold, fontSize = 24.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "classes", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = Fonts.jostFontFamily)
                 }
                 Divider(
                     modifier = Modifier
@@ -129,7 +130,7 @@ fun TutorsDetails(
                         painter = painterResource(id = R.drawable.video),
                         contentDescription = "rate star"
                     )
-                    Text(text = "watch", fontWeight = FontWeight.Bold, fontSize = 18.sp, fontFamily = Fonts.jostFontFamily)
+                    Text(text = "watch", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = Fonts.jostFontFamily)
                 }
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -138,6 +139,8 @@ fun TutorsDetails(
                 label = "Bio",
                 boldLabel = true,
                 labelColor = purple,
+                valueSize = 18,
+                labelSize = 20,
                 value = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language."
             )
             Spacer(modifier = Modifier.height(16.dp))
@@ -145,6 +148,7 @@ fun TutorsDetails(
             SkillvsmeText(
                 value = "Languages",
                 valueColor = purple,
+                valueSize = 20,
                 boldValue = true
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -164,8 +168,9 @@ fun TutorsDetails(
             SkillvsmeText(
                 value = "Experience",
                 valueColor = purple,
-                boldValue = true
-            )
+                boldValue = true,
+                valueSize = 20
+                )
             Spacer(modifier = Modifier.height(8.dp))
             Column {
                 TutorsExperience(
@@ -179,6 +184,7 @@ fun TutorsDetails(
                     timeline = "2012 - 2014",
                     institution = "Self-employed"
                 )
+                Spacer(modifier = Modifier.height(8.dp))
             }
             Row(
                 modifier = Modifier
@@ -189,10 +195,12 @@ fun TutorsDetails(
                 SkillvsmeText(
                     value = "Student Reviews",
                     valueColor = purple,
+                    valueSize = 20,
                     boldValue = true
                 )
                 SkillvsmeText(
                     value = "See All",
+                    valueSize = 20,
                     valueColor = purple
                 )
             }

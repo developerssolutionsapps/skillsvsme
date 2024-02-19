@@ -95,7 +95,6 @@ fun SkillvsmeText(
                     }
                     Spacer(modifier = Modifier.height(8.dp))
                 }
-
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {

@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -49,6 +50,7 @@ fun TutorsDetailsAppBar(
     backgroundImage: Painter? = null,
     profileImage: Painter? = null,
     bottomCornerRadius: Dp = 24.dp,
+    navController: NavController
     ) {
     Box(
         modifier = Modifier
@@ -63,7 +65,7 @@ fun TutorsDetailsAppBar(
             )
         ) {
             Image(
-                painter = if (backgroundImage == null) painterResource(id = R.drawable.top_blackish_bg) else backgroundImage,
+                painter = backgroundImage ?: painterResource(id = R.drawable.top_blackish_bg),
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop
             )
@@ -105,12 +107,12 @@ fun TutorsDetailsAppBar(
                         .padding(horizontal = 12.dp)
                 )
             }
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = name,
                 color = white,
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
+                fontSize = 24.sp,
                 modifier = Modifier
                     .fillMaxWidth(),
                 fontFamily = Fonts.jostFontFamily,
@@ -121,9 +123,10 @@ fun TutorsDetailsAppBar(
                 value = "${location} | ${time}",
                 iconBefore = painterResource(id = R.drawable.location_white),
                 boldValue = true,
+                valueSize = 16,
                 valueColor = white
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
             SkillvsmeButton(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -139,7 +142,9 @@ fun TutorsDetailsAppBar(
                 .align(Alignment.TopStart)
                 .padding(start = 16.dp, top = 48.dp)
                 .size(25.dp)
-                .clickable { /* Handle back button click */ }
+                .clickable {
+                    navController.popBackStack()
+                }
         )
     }
 }
