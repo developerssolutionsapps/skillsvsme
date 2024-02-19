@@ -1,6 +1,8 @@
 package s.skillvsme.presentation.userprofilestudent
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -53,6 +55,7 @@ import s.skillvsme.presentation.components.Notification
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 import s.skillvsme.ui.theme.lightGrey
 
+@RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
