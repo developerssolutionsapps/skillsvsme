@@ -36,7 +36,9 @@ import androidx.navigation.NavController
 import io.ktor.util.date.WeekDay
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SimpleAppBar
+import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeScheduleTimeline
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -104,6 +106,24 @@ fun Schedule(
                     month = "Dec",
                     timelineList = listOf(timeline1, timeline2, timeline3),
                     selectedTime = "selectedTime"
+                )
+                Spacer(modifier = Modifier.height(48.dp))
+                SkillvsmeButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    label = "Confirm Appointment",
+                    primary = true,
+                    onClick = {
+                        navController.navigate(Route.Student.Tutor.AppointmentConfirmation)
+                    }
+                )
+                Spacer(modifier = Modifier.height(4.dp))
+                SkillvsmeButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    label = "Back",
+                    primary = false,
+                    onClick = {
+                        navController.popBackStack()
+                    }
                 )
                 Spacer(modifier = Modifier.height(60.dp))
             }
