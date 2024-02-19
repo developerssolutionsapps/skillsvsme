@@ -102,7 +102,7 @@ fun ProfileAppBar(
                         }
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.camera),
+                            painter = painterResource(id = R.drawable.camera),
                         contentDescription = "",
                         modifier = Modifier
                             .background(Color.Black, CircleShape)

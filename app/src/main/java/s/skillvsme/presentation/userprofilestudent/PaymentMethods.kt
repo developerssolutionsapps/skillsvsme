@@ -141,7 +141,7 @@ fun paymentMethod(navController: NavController) {
                             verticalAlignment = Alignment.CenterVertically,
                         ) {
                             Image(
-                                painter = painterResource(id = R.drawable.payment),
+                                painter = painterResource(id = R.drawable.payment_1),
                                 contentDescription = "", modifier = Modifier
                                     .padding(start = 15.dp, end = 10.dp)
                                     .width(34.dp)

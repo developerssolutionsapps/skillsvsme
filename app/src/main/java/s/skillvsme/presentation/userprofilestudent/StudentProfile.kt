@@ -104,7 +104,7 @@ fun StudentProfile(navController: NavController) {
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         contentSize = 130.dp,
                         bottomCornerRadius = 30.dp,
-                        navController = navController
+
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     Column(
