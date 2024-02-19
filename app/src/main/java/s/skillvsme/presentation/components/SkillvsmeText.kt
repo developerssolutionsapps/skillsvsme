@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.darkGrey
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun SkillvsmeText(
@@ -32,16 +33,16 @@ fun SkillvsmeText(
     value1: String?=null,
     modifier: Modifier = Modifier,
     label: String? = null,
-    color: Color = Color.White,
+    color: Color = white,
     boldLabel: Boolean = true,
     fontSize: Int? = null,
     boldValue: Boolean = false,
     iconBeforeSize: Dp =16.dp,
     valueSize: Int? = null,
+    labelSize: Int? = null,
     iconBeforeSpacer: Dp =16.dp,
     iconAfterSize: Dp =16.dp,
     iconBefore: Painter? = null,
-    valueFont: FontWeight = FontWeight.Normal,
     iconAfter: Painter? = null,
     valueColor: Color? = null,
     labelColor: Color? = null,
@@ -84,6 +85,7 @@ fun SkillvsmeText(
                         }
                         Text(
                             text = label,
+                            fontSize = labelSize?.sp ?: TextUnit.Unspecified,
                             fontFamily = Fonts.jostFontFamily,
                             color = labelColor ?: Color.Unspecified,
                             style = MaterialTheme.typography.body1,
