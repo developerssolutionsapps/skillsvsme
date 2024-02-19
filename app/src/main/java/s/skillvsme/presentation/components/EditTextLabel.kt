@@ -6,15 +6,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
@@ -24,7 +27,9 @@ import s.skillvsme.ui.theme.darkGrey
 @Composable
 fun EditTextLabel(
     value:String,
-    text:String
+    text:String,
+    spacer: Dp? =null,
+    trailinicon:Painter?=null
 ){
     Column(modifier = Modifier.fillMaxWidth()) {
         Spacer(modifier = Modifier.height(5.dp))
@@ -34,6 +39,7 @@ fun EditTextLabel(
             fontSize = 18.sp,
             fontWeight = FontWeight.Normal,
         )
+        spacer?.let { Modifier.height(it) }?.let { Spacer(modifier = it) }
         OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
@@ -57,7 +63,12 @@ fun EditTextLabel(
                 fontFamily = Fonts.jostFontFamily,
                 fontWeight = FontWeight.Normal,
             )
-
+        , trailingIcon = {
+                if (trailinicon != null) {
+                    Icon(painter = trailinicon, contentDescription = "")
+                }
+            }
         )
+
     }
 }
