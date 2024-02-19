@@ -52,10 +52,13 @@ fun StudentProfile(navController: NavController) {
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
-        bottomSheetState = BottomSheetState(initialValue = BottomSheetValue.Collapsed, density = density)
+        bottomSheetState = BottomSheetState(
+            initialValue = BottomSheetValue.Collapsed,
+            density = density
+        )
     )
     BackHandler {
-        if (bottomSheetScaffoldState.bottomSheetState.isExpanded){
+        if (bottomSheetScaffoldState.bottomSheetState.isExpanded) {
             scope.launch {
                 bottomSheetScaffoldState.bottomSheetState.collapse()
             }
@@ -63,9 +66,7 @@ fun StudentProfile(navController: NavController) {
             // Navigate back or handle back button press in another way
             navController.popBackStack()
         }
-        }
-
-
+    }
     BottomSheetScaffold(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = 0.dp,
@@ -83,7 +84,7 @@ fun StudentProfile(navController: NavController) {
             }
         }, sheetBackgroundColor = Color.Gray.copy(alpha = 0.5f), // Set sheet background color
         modifier = Modifier.background(Color.Gray.copy(alpha = 0.5f))
-    ){
+    ) {
         Scaffold(
             content = {
                 Column(
@@ -98,14 +99,14 @@ fun StudentProfile(navController: NavController) {
                         backgroundImage = painterResource(
                             id = R.drawable.rectangle5,
 
-                        ),
+                            ),
                         cameraIconAvailable = true,
-                        scope=scope,
+                        scope = scope,
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         contentSize = 130.dp,
                         bottomCornerRadius = 30.dp,
 
-                    )
+                        )
                     Spacer(modifier = Modifier.weight(1f))
                     Column(
                         modifier = Modifier
@@ -122,9 +123,11 @@ fun StudentProfile(navController: NavController) {
                         )
                         Spacer(modifier = Modifier.height(15.dp))
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth().clickable {
-                             navController.navigate(Route.Student.Profile.EditProfile)
-                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    navController.navigate(Route.Student.Profile.EditProfile)
+                                },
                             value = "Edit Profile",
                             iconBeforeSize = 23.dp,
                             iconAfterSize = 20.dp,
@@ -149,9 +152,11 @@ fun StudentProfile(navController: NavController) {
                             )
                         }
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth().clickable {
-                                navController.navigate(Route.Student.Profile.EditLanguage)
-                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    navController.navigate(Route.Student.Profile.EditLanguage)
+                                },
                             value = "Language",
                             value1 = "English",
                             iconBeforeSize = 20.dp,
@@ -177,9 +182,11 @@ fun StudentProfile(navController: NavController) {
                             )
                         }
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth().clickable {
-                                navController.navigate(Route.Student.Profile.SubscriptionPlan)
-                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    navController.navigate(Route.Student.Profile.SubscriptionPlan)
+                                },
                             value = "Subscription plan",
                             iconBeforeSize = 20.dp,
                             iconAfterSize = 20.dp,
@@ -204,9 +211,11 @@ fun StudentProfile(navController: NavController) {
                             )
                         }
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth().clickable {
-                                navController.navigate(Route.Student.Profile.PaymentMethods)
-                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .clickable {
+                                    navController.navigate(Route.Student.Profile.PaymentMethods)
+                                },
                             value = "Payment setting",
                             iconBeforeSize = 20.dp,
                             iconAfterSize = 20.dp,
@@ -233,7 +242,11 @@ fun StudentProfile(navController: NavController) {
                     }
                 }
             },
-            bottomBar = { s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController) }
+            bottomBar = {
+                s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(
+                    navController = navController
+                )
+            }
         )
     }
 

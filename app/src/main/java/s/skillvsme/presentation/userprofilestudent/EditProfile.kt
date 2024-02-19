@@ -87,10 +87,10 @@ fun EditProfile(
                     )
                 }
             }
-},
-bottomBar = {
-    s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController)
-}
-)
+        },
+        bottomBar = {
+            s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController)
+        }
+    )
 }
 

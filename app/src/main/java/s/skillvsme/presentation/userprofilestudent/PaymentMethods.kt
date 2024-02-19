@@ -37,7 +37,6 @@ import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.purple
-import s.skillvsme.ui.theme.red
 import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)

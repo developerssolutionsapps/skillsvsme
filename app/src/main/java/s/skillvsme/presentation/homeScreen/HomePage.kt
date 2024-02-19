@@ -86,18 +86,21 @@ fun HomePage(
                         // Image
                         Image(
                             painter = (painterResource(id = R.drawable.ellipse1)),
-                            contentDescription = "", Modifier.fillMaxSize().clickable {
-                                navController.navigate(Route.Student.Profile.StudentProfile) {
+                            contentDescription = "",
+                            Modifier
+                                .fillMaxSize()
+                                .clickable {
+                                    navController.navigate(Route.Student.Profile.StudentProfile) {
 
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
+                                        navController.graph.startDestinationRoute?.let { screen_route ->
+                                            popUpTo(screen_route) {
+                                                saveState = true
+                                            }
                                         }
+                                        launchSingleTop = true
+                                        restoreState = true
                                     }
-                                    launchSingleTop = true
-                                    restoreState = true
-                                }
-                            },
+                                },
                             contentScale = ContentScale.Crop,
                         )
                     }
@@ -193,9 +196,10 @@ fun HomePage(
                                 ) {
                                     Image(
                                         painter = painterResource(id = R.drawable.rectangle4),
-                                        contentDescription = "",modifier=Modifier.background(
+                                        contentDescription = "", modifier = Modifier.background(
                                             white,
-                                            CircleShape),
+                                            CircleShape
+                                        ),
                                         contentScale = ContentScale.Crop
                                     )
                                     SkillvsmeLiveTag(
@@ -244,9 +248,10 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(horizontalArrangement = Arrangement.Start,
+                        Row(
+                            horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ){
+                        ) {
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -303,9 +308,10 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(horizontalArrangement = Arrangement.Start,
+                        Row(
+                            horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
-                        ){
+                        ) {
                             Surface(
                                 modifier = Modifier
                                     .size(60.dp)
@@ -325,7 +331,8 @@ fun HomePage(
                                 )
                             }
                             Text(
-                                text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
+                                text = "Choose A subscription plan",
+                                fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
                                 color = black,
                                 fontSize = 18.sp,

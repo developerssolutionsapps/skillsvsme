@@ -28,9 +28,7 @@ import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
-import s.skillvsme.presentation.components.SkillvsmeTextField
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
-
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)

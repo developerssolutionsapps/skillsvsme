@@ -118,7 +118,6 @@ fun SkillvsmeText(
                 }
             }
         }
-
         if (iconAfter != null) {
             Icon(
                 iconAfter,

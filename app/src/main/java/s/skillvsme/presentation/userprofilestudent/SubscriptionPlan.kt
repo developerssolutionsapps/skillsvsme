@@ -21,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -33,7 +32,6 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
-import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.TransactionHistory
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
