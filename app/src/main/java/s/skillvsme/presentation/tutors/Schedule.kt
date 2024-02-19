@@ -3,7 +3,9 @@ package s.skillvsme.presentation.tutors
 import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,15 +22,20 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import io.ktor.util.date.WeekDay
+import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeScheduleTimeline
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -36,6 +43,7 @@ import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -46,6 +54,43 @@ fun Schedule(
     navController: NavController
 ) {
     Scaffold(
+        topBar = {
+            androidx.compose.material3.Surface(
+                shadowElevation = 3.dp,
+                modifier = Modifier
+                    .fillMaxWidth(),
+                color = white
+            ) {
+                TopAppBar(
+                    title = {
+                        Text(
+                            "Schedule",
+                            fontFamily = Fonts.headlandOneFontFamily,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(end = 28.dp),
+                            textAlign = TextAlign.Center,
+                        )
+                    },
+                    navigationIcon = {
+                        Image(
+                            painter = painterResource(id = R.drawable.right_arrow),
+                            contentDescription = "right arrow",
+                            modifier = Modifier
+                                .clickable {
+                                    navController.popBackStack()
+                                }
+                        )
+                    },
+                    colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = white),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 16.dp, end = 16.dp)
+                )
+            }
+        },
         content = {
             val timeline1 = "10:00 - 11:00 AM"
             val timeline2 = "11:00 - 11:30 AM"
