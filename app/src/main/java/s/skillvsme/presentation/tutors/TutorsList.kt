@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -78,7 +79,11 @@ fun TutorsList(
                     navigationIcon = {
                         Image(
                             painter = painterResource(id = R.drawable.right_arrow),
-                            contentDescription = "right arrow"
+                            contentDescription = "right arrow",
+                            modifier = Modifier
+                                .clickable {
+                                    navController.popBackStack()
+                                }
                         )
                     },
                     colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = white),

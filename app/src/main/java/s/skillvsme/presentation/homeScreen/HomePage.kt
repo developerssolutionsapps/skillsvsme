@@ -367,6 +367,7 @@ fun HomePage(
                         color = purple,
                         fontSize = 18.sp,
                         modifier = Modifier.clickable {
+//                            navController.navigate(Route.Student.Tutor.TutorsList)
                             navController.navigate(Route.Student.Tutor.TutorsList) {
 
                                 navController.graph.startDestinationRoute?.let { screen_route ->
@@ -485,4 +486,3 @@ fun HomePage(
         }
     )
 }
-
