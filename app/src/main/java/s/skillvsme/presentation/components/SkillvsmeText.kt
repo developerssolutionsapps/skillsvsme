@@ -43,6 +43,7 @@ fun SkillvsmeText(
     iconBeforeSpacer: Dp =16.dp,
     iconAfterSize: Dp =16.dp,
     iconBefore: Painter? = null,
+    valueFont:FontWeight=FontWeight.Normal,
     iconAfter: Painter? = null,
     valueColor: Color? = null,
     labelColor: Color? = null,
