@@ -99,6 +99,7 @@ fun TutorsList(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
                     rating = 5.0,
+                    navController = navController,
                     profile = painterResource(id = R.drawable.profile1)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -111,6 +112,7 @@ fun TutorsList(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
                     rating = 4.8,
+                    navController = navController,
                     profile = painterResource(id = R.drawable.profile2),
                     isLive = false
                 )
@@ -124,6 +126,7 @@ fun TutorsList(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
                     rating = 2.9,
+                    navController = navController,
                     profile = painterResource(id = R.drawable.profile3),
                     isLive = false
                 )
@@ -137,6 +140,7 @@ fun TutorsList(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
                     rating = 4.5,
+                    navController = navController,
                     profile = painterResource(id = R.drawable.profile1)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -149,6 +153,7 @@ fun TutorsList(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
                     rating = 5.0,
+                    navController = navController,
                     profile = painterResource(id = R.drawable.profile3)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -161,6 +166,7 @@ fun TutorsList(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
                     rating = 4.2,
+                    navController = navController,
                     profile = painterResource(id = R.drawable.profile2),
                     isLive = false
                 )
@@ -170,6 +176,7 @@ fun TutorsList(
                     color = black
                 )
                 Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(40.dp))
             }
         },
         bottomBar = {
