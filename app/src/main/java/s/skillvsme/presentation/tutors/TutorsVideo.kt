@@ -24,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -33,7 +34,9 @@ import s.skillvsme.ui.theme.purple
 
 
 @Composable
-fun TutorsVideo() {
+fun TutorsVideo(
+    navController: NavController
+) {
     Column(
         modifier = Modifier
             .verticalScroll(rememberScrollState())

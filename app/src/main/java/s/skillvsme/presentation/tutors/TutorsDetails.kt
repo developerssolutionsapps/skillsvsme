@@ -1,6 +1,7 @@
 package s.skillvsme.presentation.tutors
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.ReviewItem
@@ -127,9 +129,12 @@ fun TutorsDetails(
                 ) {
                     Image(
                         modifier = Modifier
-                            .size(30.dp),
+                            .size(30.dp)
+                            .clickable {
+                                       navController.navigate(Route.Student.Tutor.TutorVideo)
+                            },
                         painter = painterResource(id = R.drawable.video),
-                        contentDescription = "rate star"
+                        contentDescription = "rate star",
                     )
                     Text(text = "watch", fontWeight = FontWeight.Bold, fontSize = 20.sp, fontFamily = Fonts.jostFontFamily)
                 }
