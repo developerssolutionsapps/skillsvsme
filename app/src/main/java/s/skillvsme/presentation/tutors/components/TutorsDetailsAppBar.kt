@@ -38,6 +38,7 @@ import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 @Composable
@@ -59,13 +60,15 @@ fun TutorsDetailsAppBar(
     ) {
         Card(
             modifier = Modifier
-                .fillMaxSize(),
+                .matchParentSize(),
             shape = RoundedCornerShape(
                 bottomEnd = bottomCornerRadius,
                 bottomStart = bottomCornerRadius,
             )
         ) {
             Image(
+                modifier = Modifier
+                    .fillMaxSize(),
                 painter = backgroundImage ?: painterResource(id = R.drawable.top_blackish_bg),
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop
@@ -122,7 +125,7 @@ fun TutorsDetailsAppBar(
             Spacer(modifier = Modifier.height(4.dp))
             SkillvsmeText(
                 value = "${location} | ${time}",
-                iconBefore = painterResource(id = R.drawable.location_white),
+                iconBefore = painterResource(id = R.drawable.location),
                 boldValue = true,
                 valueSize = 16,
                 valueColor = white
