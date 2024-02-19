@@ -3,10 +3,7 @@ package s.skillvsme.presentation.userprofilestudent
 import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,10 +15,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
-import s.skillvsme.presentation.components.BottomSheet
 import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -44,7 +36,6 @@ import s.skillvsme.presentation.components.SkillvsmeText
 fun EditProfile(
     navController: NavController
 ) {
-
     Scaffold(
         content = {
             Column(
@@ -61,9 +52,8 @@ fun EditProfile(
                     ),
                     contentSize = 130.dp,
                     bottomCornerRadius = 30.dp,
-
+                    navController = navController
                 )
-
                 Spacer(modifier = Modifier.weight(1f))
                 Column(
                     modifier = Modifier

@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -37,6 +38,7 @@ import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BottomSheet
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -120,7 +122,9 @@ fun StudentProfile(navController: NavController) {
                         )
                         Spacer(modifier = Modifier.height(15.dp))
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().clickable {
+                             navController.navigate(Route.Student.Profile.EditProfile)
+                            },
                             value = "Edit Profile",
                             iconBeforeSize = 23.dp,
                             iconAfterSize = 20.dp,
@@ -145,7 +149,9 @@ fun StudentProfile(navController: NavController) {
                             )
                         }
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().clickable {
+                                navController.navigate(Route.Student.Profile.EditLanguage)
+                            },
                             value = "Language",
                             value1 = "English",
                             iconBeforeSize = 20.dp,
@@ -171,7 +177,9 @@ fun StudentProfile(navController: NavController) {
                             )
                         }
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().clickable {
+                                navController.navigate(Route.Student.Profile.SubscriptionPlan)
+                            },
                             value = "Subscription plan",
                             iconBeforeSize = 20.dp,
                             iconAfterSize = 20.dp,
@@ -196,7 +204,9 @@ fun StudentProfile(navController: NavController) {
                             )
                         }
                         SkillvsmeText(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().clickable {
+                                navController.navigate(Route.Student.Profile.PaymentMethods)
+                            },
                             value = "Payment setting",
                             iconBeforeSize = 20.dp,
                             iconAfterSize = 20.dp,

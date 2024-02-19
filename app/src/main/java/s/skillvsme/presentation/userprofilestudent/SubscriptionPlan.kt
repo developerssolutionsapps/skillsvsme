@@ -42,9 +42,9 @@ import s.skillvsme.ui.theme.white
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun SubscriptionPlan(navController:NavController) {
+fun SubscriptionPlan(navController: NavController) {
     val scrollState = rememberScrollState()
-    Scaffold (
+    Scaffold(
         content = {
             Column(
                 modifier = Modifier
@@ -54,9 +54,15 @@ fun SubscriptionPlan(navController:NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 ProfileAppBar(
-                    backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
+                    backgroundColor = Color.Black,
+                    modifier = Modifier,
+                    backgroundImage = painterResource(
                         id = R.drawable.rectangle5,
-                        ), contentSize = 130.dp, bottomCornerRadius = 30.dp, cameraIconAvailable = true
+                    ),
+                    contentSize = 130.dp,
+                    bottomCornerRadius = 30.dp,
+                    cameraIconAvailable = true,
+                    navController = navController
                 )
                 Column(
                     modifier = Modifier
@@ -155,6 +161,6 @@ fun SubscriptionPlan(navController:NavController) {
                 }
             }
         },
-        bottomBar = {s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController)}
+        bottomBar = { s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController) }
     )
 }

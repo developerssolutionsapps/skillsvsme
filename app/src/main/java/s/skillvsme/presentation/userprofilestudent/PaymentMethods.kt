@@ -56,7 +56,7 @@ fun paymentMethod(navController: NavController) {
                 ProfileAppBar(
                     backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
                         id = R.drawable.rectangle5,
-                    ), contentSize = 130.dp, bottomCornerRadius = 30.dp
+                    ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController = navController
                 )
                 Column(
                     modifier = Modifier
