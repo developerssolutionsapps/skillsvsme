@@ -40,7 +40,6 @@ import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-
 @Composable
 fun HomePage(
     navController: NavController
