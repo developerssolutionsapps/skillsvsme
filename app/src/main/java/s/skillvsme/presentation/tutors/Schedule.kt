@@ -107,7 +107,7 @@ fun Schedule(
                     timelineList = listOf(timeline1, timeline2, timeline3),
                     selectedTime = "selectedTime"
                 )
-                Spacer(modifier = Modifier.height(48.dp))
+                Spacer(modifier = Modifier.height(24.dp))
                 SkillvsmeButton(
                     modifier = Modifier.fillMaxWidth(),
                     label = "Confirm Appointment",

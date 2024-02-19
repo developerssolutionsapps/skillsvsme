@@ -43,9 +43,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
-import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SimpleAppBar
-import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.TutorsListComponent
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
@@ -150,25 +148,7 @@ fun TutorsList(
                     color = black
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Spacer(modifier = Modifier.height(8.dp))
-                SkillvsmeButton(
-                    modifier = Modifier.fillMaxWidth(),
-                    label = "Schedule a class",
-                    primary = true,
-                    onClick = {
-                        navController.navigate(Route.Student.Tutor.Schedule)
-                    }
-                )
-                Spacer(modifier = Modifier.height(4.dp))
-                SkillvsmeButton(
-                    modifier = Modifier.fillMaxWidth(),
-                    label = "Back",
-                    primary = false,
-                    onClick = {
-                        navController.popBackStack()
-                    }
-                )
-                Spacer(modifier = Modifier.height(48.dp))
+                Spacer(modifier = Modifier.height(40.dp))
             }
         },
         bottomBar = {

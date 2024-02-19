@@ -38,6 +38,7 @@ import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.ReviewItem
+import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.TutorsExperience
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
@@ -225,6 +226,25 @@ fun TutorsDetails(
                             ReviewItem()
                         }
                     }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    SkillvsmeButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        label = "Schedule a class",
+                        primary = true,
+                        onClick = {
+                            navController.navigate(Route.Student.Tutor.Schedule)
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    SkillvsmeButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        label = "Back",
+                        primary = false,
+                        onClick = {
+                            navController.popBackStack()
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(48.dp))
                 }
             }
         },
