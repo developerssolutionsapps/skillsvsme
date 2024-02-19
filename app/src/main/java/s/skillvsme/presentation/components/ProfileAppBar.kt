@@ -42,6 +42,7 @@ fun ProfileAppBar(
     scope:CoroutineScope?=null,
     bottomSheetScaffoldState:BottomSheetScaffoldState?=null,
     navController:NavController?=null,
+    cameraIconAvailable:Boolean=false
 
     ) {
 
@@ -85,30 +86,32 @@ fun ProfileAppBar(
                     )
                 }
             }
-
-            Box(
-                modifier = Modifier
-                    .size(40.dp)
-                    .graphicsLayer {
-                        translationY = -4.dp.toPx()
-                    }
-                    .align(Alignment.BottomEnd)
-                    .background(color = Color.Black, CircleShape)
-                    .clickable {
-                        scope?.launch {
-                            bottomSheetScaffoldState?.bottomSheetState?.expand()
-                        }
-                    }
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.camera),
-                    contentDescription = "",
+            if(cameraIconAvailable){
+                Box(
                     modifier = Modifier
-                        .background(Color.Black, CircleShape)
-                        .size(30.dp)
-                        .align(Alignment.Center)
-                )
+                        .size(40.dp)
+                        .graphicsLayer {
+                            translationY = -4.dp.toPx()
+                        }
+                        .align(Alignment.BottomEnd)
+                        .background(color = Color.Black, CircleShape)
+                        .clickable {
+                            scope?.launch {
+                                bottomSheetScaffoldState?.bottomSheetState?.expand()
+                            }
+                        }
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.camera),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .background(Color.Black, CircleShape)
+                            .size(30.dp)
+                            .align(Alignment.Center)
+                    )
+                }
             }
+
 
         }
         Image(
@@ -119,11 +122,7 @@ fun ProfileAppBar(
                 .padding(start = 16.dp)
                 .size(25.dp)
                 .clickable {
-                    if (navController != null) {
-                        if (navController.popBackStack()){
-                            navController?.popBackStack()
-                        } else{}
-                    }
+                    navController?.popBackStack()
                 }
         )
     }

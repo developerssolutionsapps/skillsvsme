@@ -32,13 +32,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.ktor.http.ContentType
 import org.w3c.dom.Text
+import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.darkGrey
+import s.skillvsme.ui.theme.green
+import s.skillvsme.ui.theme.greyishBlack
+import s.skillvsme.ui.theme.red
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun TransactionHistory(
     modifier: Modifier = Modifier,
     iconStart: Painter,
-    textSuccess:String="Successfully" ,
+    textSuccess: String = "Successfully",
 ) {
     Row(
         modifier = modifier
@@ -55,7 +61,7 @@ fun TransactionHistory(
         ) {
             Image(painter = iconStart, contentDescription = "", contentScale = ContentScale.Crop)
         }
-        Spacer(modifier = modifier.height(-10.dp))
+        Spacer(modifier = modifier.height((-10).dp))
         Row(
             modifier
                 .padding(10.dp)
@@ -64,29 +70,43 @@ fun TransactionHistory(
             Column {
                 Text(
                     text = "Pay Pal",
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 18.sp,
+                    fontFamily = Fonts.jostFontFamily
                 )
                 Text(
                     text = "54821236877123",
-                    fontWeight = FontWeight.Normal
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 14.sp,
+                    color = black,
+                    fontFamily = Fonts.jostFontFamily
                 )
-                Text(text = "04 Dec,2023 | 5:00 PM",fontWeight = FontWeight.Light)
+                Text(
+                    text = "04 Dec,2023 | 5:00 PM", fontWeight = FontWeight.Normal,
+                    fontSize = 14.sp,
+                    fontFamily = Fonts.jostFontFamily, color = darkGrey
+                )
             }
             Spacer(modifier = Modifier.weight(1f))
             Column {
                 Text(
                     text = "150 $",
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 22.sp,
+                    fontFamily = Fonts.jostFontFamily
                 )
 
                 Box(
                     modifier
-                        .padding(top = 10.dp)
-                        .size(width = 50.dp, height = 15.dp)
-                        .background(if (textSuccess=="Successfully") Color.Green else Color.Red, shape = RoundedCornerShape(5.dp)),
+                        .padding(top = 5.dp)
+                        .size(width = 65.dp, height = 17.dp)
+                        .background(
+                            if (textSuccess == "Successfully") green else red,
+                            shape = RoundedCornerShape(5.dp)
+                        ),
                     contentAlignment = androidx.compose.ui.Alignment.Center,
                 ) {
-                    Text(text = textSuccess, style = TextStyle(fontSize = 8.sp))
+                    Text(text = textSuccess, style = TextStyle(fontSize = 10.sp), color = white,fontFamily = Fonts.jostFontFamily)
                 }
             }
         }

@@ -95,7 +95,9 @@ fun StudentProfile(navController: NavController) {
                         modifier = Modifier,
                         backgroundImage = painterResource(
                             id = R.drawable.rectangle5,
+
                         ),
+                        cameraIconAvailable = true,
                         scope=scope,
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         contentSize = 130.dp,
