@@ -58,8 +58,14 @@ fun TransactionHistory(
                 .size(55.dp)
                 .padding(10.dp),
             shape = CircleShape, black
+
         ) {
-            Image(painter = iconStart, contentDescription = "", contentScale = ContentScale.Crop)
+            Image(
+                modifier=Modifier.padding(10.dp),
+                painter = iconStart,
+                contentDescription = "",
+
+            )
         }
         Spacer(modifier = modifier.height((-10).dp))
         Row(
@@ -106,7 +112,12 @@ fun TransactionHistory(
                         ),
                     contentAlignment = androidx.compose.ui.Alignment.Center,
                 ) {
-                    Text(text = textSuccess, style = TextStyle(fontSize = 10.sp), color = white,fontFamily = Fonts.jostFontFamily)
+                    Text(
+                        text = textSuccess,
+                        style = TextStyle(fontSize = 10.sp),
+                        color = white,
+                        fontFamily = Fonts.jostFontFamily
+                    )
                 }
             }
         }

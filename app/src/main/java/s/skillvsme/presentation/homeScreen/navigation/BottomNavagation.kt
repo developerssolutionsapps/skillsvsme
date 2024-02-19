@@ -47,6 +47,7 @@ import s.skillvsme.presentation.tutors.TutorsList
 import s.skillvsme.presentation.userprofilestudent.EditProfile
 import s.skillvsme.presentation.userprofilestudent.StudentProfile
 import s.skillvsme.presentation.userprofilestudent.SubscriptionPlan
+import s.skillvsme.presentation.userprofilestudent.paymentMethod
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.green
@@ -57,7 +58,7 @@ import s.skillvsme.utils.coloredShadow
 @Composable
 fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(navController = navController,
-        startDestination = Route.Student.Profile.SubscriptionPlan) {
+        startDestination = Route.Student.Profile.PaymentMethods) {
         composable(Route.Student.Home.Home) {
             HomePage(
                 navController = navController
@@ -99,6 +100,9 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         }
         composable(Route.Student.Profile.SubscriptionPlan) {
             SubscriptionPlan(navController)
+        }
+        composable(Route.Student.Profile.PaymentMethods) {
+            paymentMethod()
         }
 
     }

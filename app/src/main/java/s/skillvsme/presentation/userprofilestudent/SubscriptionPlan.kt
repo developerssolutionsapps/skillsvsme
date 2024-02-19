@@ -122,7 +122,7 @@ fun SubscriptionPlan(navController:NavController) {
                         fontSize = 18.sp,
                         fontFamily = Fonts.jostFontFamily
                     )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_downward_left))
+                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
                     Divider(
                         color = Color.Gray,
                         modifier = Modifier
@@ -130,7 +130,7 @@ fun SubscriptionPlan(navController:NavController) {
                             .fillMaxWidth() // Adjust width as needed
                     )
                     TransactionHistory(
-                        iconStart = painterResource(id = R.drawable.arrow_upwardward_left),
+                        iconStart = painterResource(id = R.drawable.line_2),
                         textSuccess = "failed"
                     )
                     Divider(
@@ -139,14 +139,14 @@ fun SubscriptionPlan(navController:NavController) {
                             .height(1.dp)
                             .fillMaxWidth() // Adjust width as needed
                     )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_upwardward_left))
+                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_2))
                     Divider(
                         color = Color.Gray,
                         modifier = Modifier
                             .height(1.dp)
                             .fillMaxWidth() // Adjust width as needed
                     )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.arrow_upwardward_left))
+                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
                     Divider(
                         color = Color.Gray,
                         modifier = Modifier

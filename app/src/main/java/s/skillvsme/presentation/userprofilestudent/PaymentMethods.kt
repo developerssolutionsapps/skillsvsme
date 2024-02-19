@@ -25,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
 
@@ -39,20 +40,20 @@ fun paymentMethod() {
     ) {
         ProfileAppBar(
             backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
-                id = R.drawable.profile,
+                id = R.drawable.rectangle5,
             ), contentSize = 130.dp, bottomCornerRadius = 30.dp
         )
-        Spacer(modifier = Modifier.weight(1f))
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 40.dp, start = 16.dp, end = 16.dp),
+                .padding(top = 0.dp, start = 16.dp, end = 16.dp),
         ) {
-            Spacer(modifier = Modifier.height(25.dp))
+
             Text(
                 text = "Kamal Tyagi",
                 fontWeight = FontWeight.Bold,
-                fontSize = 25.sp,
+                fontSize = 24.sp,
+                fontFamily = Fonts.jostFontFamily,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
             )
             Spacer(modifier = Modifier.height(20.dp))
