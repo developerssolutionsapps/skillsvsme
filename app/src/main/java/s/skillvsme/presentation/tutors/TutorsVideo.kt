@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
@@ -99,7 +100,10 @@ fun TutorsVideo(
                             modifier = Modifier
                                 .fillMaxWidth(),
                             label = "Schedule",
-                            primary = true
+                            primary = true,
+                            onClick = {
+                                navController.navigate(Route.Student.Tutor.Schedule)
+                            }
                         )
                     }
                     Spacer(modifier = Modifier.height(16.dp))
