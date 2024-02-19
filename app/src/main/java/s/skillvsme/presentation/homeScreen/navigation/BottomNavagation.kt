@@ -45,6 +45,7 @@ import s.skillvsme.presentation.onboarding.Onboarding2
 import s.skillvsme.presentation.onboarding.Onboarding3
 import s.skillvsme.presentation.onboarding.Signup
 import s.skillvsme.presentation.streaming.streaming
+import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
 import s.skillvsme.presentation.tutors.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsList
@@ -84,6 +85,9 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         }
         composable(Route.Student.Tutor.Schedule){
             Schedule(navController = navController)
+        }
+        composable(Route.Student.Tutor.AppointmentConfirmation){
+            AppointmentConfirmationSuccess(navController = navController)
         }
         composable(Route.Student.Streaming.LiveStream) {
             streaming(navController)

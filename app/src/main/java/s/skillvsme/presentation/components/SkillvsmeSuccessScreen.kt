@@ -44,7 +44,7 @@ fun SkillvsmeSuccessScreen(
                 .fillMaxHeight(0.6f)
                 .fillMaxWidth()
         ) {
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(60.dp))
             Image(painter = painterResource(R.drawable.baseline_check_circle), contentDescription = "successful icon")
             Spacer(modifier = Modifier.height(8.dp))
             Text(
@@ -88,6 +88,7 @@ fun SkillvsmeSuccessScreen(
                 onClick = backButtonOnclickAction
             )
             Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(40.dp))
         }
     }
 }
