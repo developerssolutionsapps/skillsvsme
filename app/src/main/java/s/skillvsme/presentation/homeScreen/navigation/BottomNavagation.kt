@@ -44,6 +44,11 @@ import s.skillvsme.presentation.onboarding.Onboarding1
 import s.skillvsme.presentation.onboarding.Onboarding2
 import s.skillvsme.presentation.onboarding.Onboarding3
 import s.skillvsme.presentation.onboarding.Signup
+import s.skillvsme.presentation.payment.BookTrial
+import s.skillvsme.presentation.payment.Checkout
+import s.skillvsme.presentation.payment.Payment
+import s.skillvsme.presentation.payment.PaymentPlan
+import s.skillvsme.presentation.payment.PaymentSuccess
 import s.skillvsme.presentation.streaming.streaming
 import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
@@ -73,6 +78,21 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             HomePage(
                 navController = navController
             )
+        }
+        composable(Route.Student.Payment.BookTrial) {
+            BookTrial(navController = navController)
+        }
+        composable(Route.Student.Payment.CheckOut) {
+            Checkout(navController = navController)
+        }
+        composable(Route.Student.Payment.Payment) {
+            Payment(navController = navController)
+        }
+        composable(Route.Student.Payment.PaymentPlan) {
+            PaymentPlan(navController = navController)
+        }
+        composable(Route.Student.Payment.PaymentSuccess) {
+            PaymentSuccess(navController = navController)
         }
         composable(Route.Student.Tutor.TutorsList) {
             TutorsList(navController = navController)
