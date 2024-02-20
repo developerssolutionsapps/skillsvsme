@@ -48,7 +48,7 @@ fun PaymentSuccess(
             SkillvsmeSuccessScreen(
                 successMessage = "Payment Successful",
                 successInfo = "Keep the momentum going and schedule you first class",
-                buttonText = "Proceed to Payment",
+                buttonText = "Schedule a Class",
                 buttonOnclickAction = {
                     navController.navigate(Route.Student.Tutor.Schedule)
                 },
