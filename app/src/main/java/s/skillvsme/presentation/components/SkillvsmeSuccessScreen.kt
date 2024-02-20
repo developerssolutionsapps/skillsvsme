@@ -52,7 +52,7 @@ fun SkillvsmeSuccessScreen(
                     .fillMaxWidth(),
                 text = successMessage,
                 fontWeight = FontWeight.Bold,
-                fontSize = 24.sp,
+                fontSize = 26.sp,
                 fontFamily = Fonts.jostFontFamily,
                 textAlign = TextAlign.Center
             )
@@ -63,7 +63,7 @@ fun SkillvsmeSuccessScreen(
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(24.dp),
+                        .padding(22.dp),
                     text = successInfo,
                     fontWeight = FontWeight.Normal,
                     fontFamily = Fonts.jostFontFamily,

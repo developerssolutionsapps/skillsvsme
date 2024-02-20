@@ -246,7 +246,12 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(horizontalArrangement = Arrangement.Start,
+                        Row(
+                            modifier = Modifier
+                                .clickable {
+                                    navController.navigate(Route.Student.Payment.BookTrial)
+                                },
+                            horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
                         ){
                             Surface(
@@ -305,7 +310,12 @@ fun HomePage(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(horizontalArrangement = Arrangement.Start,
+                        Row(
+                            modifier = Modifier
+                                .clickable {
+                                    navController.navigate(Route.Student.Payment.PaymentPlan)
+                                },
+                            horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
                         ){
                             Surface(

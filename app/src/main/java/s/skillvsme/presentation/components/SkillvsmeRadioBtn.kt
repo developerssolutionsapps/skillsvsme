@@ -55,7 +55,7 @@ fun SkillvsmeRadioBtn(
                 color = if (primary) white else black,
                 modifier = Modifier.fillMaxWidth(),
                 fontFamily = Fonts.jostFontFamily,
-                fontSize = 18.sp
+                fontSize = 20.sp
             )
         }
     }
