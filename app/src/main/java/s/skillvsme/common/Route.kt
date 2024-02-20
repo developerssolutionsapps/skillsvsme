@@ -20,6 +20,7 @@ object Route {
             const val Payment = "/student/payment/payment"
             const val PaymentPlan = "/student/payment/paymentplan"
             const val PaymentSuccess = "/student/payment/paymentSuccess"
+            const val BookTrial = "/student/payment/booktrial"
         }
 
         object Tutor {
