@@ -5,6 +5,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.RadioButton
@@ -17,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
@@ -46,7 +49,7 @@ fun SkillvsmeRadioPrice(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
                 .padding(8.dp)
-                .background(color = if (primary) white else black ),
+                .background(color = if (primary) white else black),
         ) {
             Row(
                 horizontalArrangement = Arrangement.Start,
@@ -61,23 +64,25 @@ fun SkillvsmeRadioPrice(
                     )
                 )
                 Column(
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.Start,
                 ) {
                     Text(
                         fontFamily = Fonts.jostFontFamily,
                         text = label,
+                        fontSize = 20.sp,
                         color = if (primary) black else white,
-                        modifier = Modifier.padding(8.dp)
+                        modifier = Modifier.padding(horizontal = 8.dp)
                     )
                     if (discount != null) Card(
-                        shape = RoundedCornerShape(12.dp),
+                        shape = RoundedCornerShape(8.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = if (primary) darkGrey else lightGrey,
+                            containerColor = if (primary) black else white,
                         ),
                     ) {
                         Text(
                             fontFamily = Fonts.jostFontFamily,
                             text = "${discount}% off",
+                            fontSize = 10.sp,
                             color = if (primary) white else black,
                             modifier = Modifier
                                 .padding(all = 4.dp)
@@ -92,12 +97,14 @@ fun SkillvsmeRadioPrice(
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "${price}$",
+                    fontSize = 30.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = if (primary) purple else white
                 )
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "/mo",
+                    fontSize = 24.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = if (primary) black else white
                 )
