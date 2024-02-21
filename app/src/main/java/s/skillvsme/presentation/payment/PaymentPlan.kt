@@ -1,6 +1,5 @@
 package s.skillvsme.presentation.payment
 
-import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
@@ -12,7 +11,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -20,9 +18,8 @@ import androidx.navigation.NavController
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.components.SkillvsmeRadioBtn
+import s.skillvsme.presentation.components.SkillvsmeBorderRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeRadioPrice
-import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 import s.skillvsme.ui.theme.purple
@@ -57,25 +54,25 @@ fun PaymentPlan(
                     boldValue = true,
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                SkillvsmeRadioBtn(
+                SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
                     label = "30 mins/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                SkillvsmeRadioBtn(
+                SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
                     label = "1 hr/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                SkillvsmeRadioBtn(
+                SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
                     label = "1.5 hr/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                SkillvsmeRadioBtn(
+                SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
                     label = "2.5 hr/week"

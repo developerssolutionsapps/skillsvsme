@@ -38,7 +38,6 @@ import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.components.SkillvsmeText
-import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 @Composable
@@ -69,7 +68,7 @@ fun TutorsDetailsAppBar(
             Image(
                 modifier = Modifier
                     .fillMaxSize(),
-                painter = backgroundImage ?: painterResource(id = R.drawable.top_blackish_bg),
+                painter = backgroundImage ?: painterResource(id = R.drawable.background_lines),
                 contentDescription = "Background Image",
                 contentScale = ContentScale.Crop
             )
