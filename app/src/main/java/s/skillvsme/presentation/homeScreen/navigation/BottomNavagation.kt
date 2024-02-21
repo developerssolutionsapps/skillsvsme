@@ -69,10 +69,10 @@ import s.skillvsme.utils.coloredShadow
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
-fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
+fun NavigationGraph(navController: NavHostController, ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Onboarding.Onboarding1
+        startDestination = Route.Student.Streaming.LiveStream
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(

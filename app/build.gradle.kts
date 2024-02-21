@@ -64,6 +64,10 @@ dependencies {
 
     // compose navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
+    implementation ("androidx.compose.material:material:1.6.1")
+
+//datepicker
+    implementation ("com.github.commandiron:WheelPickerCompose:1.1.11")
 
 
     // koin dependency
@@ -86,6 +90,8 @@ dependencies {
 
     implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
     implementation("androidx.wear.compose:compose-foundation:1.3.0")
+    implementation("androidx.wear.compose:compose-material:1.3.0")
+
 
     // tests
     testImplementation("junit:junit:4.13.2")
