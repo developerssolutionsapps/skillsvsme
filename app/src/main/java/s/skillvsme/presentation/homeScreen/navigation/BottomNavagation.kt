@@ -37,6 +37,7 @@ import s.skillvsme.common.Route.Student.Onboarding.CodeVerification
 import s.skillvsme.common.Route.Student.Onboarding.Onboarding1
 import s.skillvsme.common.Route.Student.Onboarding.Onboarding2
 import s.skillvsme.presentation.classes.Classes
+import s.skillvsme.presentation.classes.VideoScreen
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.onboarding.CodeVerification
 import s.skillvsme.presentation.onboarding.JoinAs
@@ -72,7 +73,7 @@ import s.skillvsme.utils.coloredShadow
 fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Onboarding.Onboarding1
+        startDestination = Route.Student.Classes.UpcomingClasses
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -114,6 +115,9 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         }
         composable(Route.Student.Classes.UpcomingClasses) {
             Classes(navController = navController)
+        }
+        composable(Route.Student.Classes.ClassRoom) {
+            VideoScreen()
         }
         composable(Route.Student.Profile.StudentProfile) {
             StudentProfile(navController = navController)
