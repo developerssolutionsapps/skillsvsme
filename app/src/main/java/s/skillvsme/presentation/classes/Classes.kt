@@ -8,6 +8,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -35,6 +36,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
@@ -54,6 +56,7 @@ import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.UpComingClassesItem
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.red
 
@@ -173,7 +176,8 @@ fun Classes(
                                     scope.launch {
                                         bottomSheetScaffoldState.bottomSheetState.expand()
                                     }
-                                }
+                                },
+                                navController = navController
                             )
                         } else {
                             PastClassesItem(
@@ -186,7 +190,7 @@ fun Classes(
                                 rating = 5.0,
                                 time = "10:00 - 11:00 AM",
                                 watchClicked = {
-                                    navController.navigate(Route.Student.Classes.ClassRoom)
+                                    navController.navigate(Route.Student.Classes.VideoScreen)
                                 }
                             )
                         }
@@ -206,68 +210,88 @@ fun Classes(
 
 @Composable
 fun CancelBottomSheet(navController: NavController) {
-    Surface(
-        shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
-    ){
-        Column(
-            modifier = Modifier
-                .padding(20.dp)
-                .fillMaxWidth()
-        ){
-            Row(
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(darkGrey.copy(alpha = 0.2f)),
+        contentAlignment = Alignment.BottomCenter
+    ) {
+        Surface(
+            shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
+        ) {
+            Column(
                 modifier = Modifier
-                    .padding(4.dp)
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.End
-            ){
-                Image(
+                    .padding(20.dp)
+                    .fillMaxWidth()
+            ) {
+                Row(
                     modifier = Modifier
-                        .clickable {
-                            navController.popBackStack()
-                        },
-                    painter = painterResource(id = R.drawable.cancel),
-                    contentDescription = null
+                        .padding(4.dp)
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .clickable {
+                                navController.popBackStack()
+                            },
+                        painter = painterResource(id = R.drawable.cancel),
+                        contentDescription = null
+                    )
+                }
+                Row {
+                    Image(
+                        modifier = Modifier
+                            .clickable {
+                                navController.popBackStack()
+                            },
+                        painter = painterResource(id = R.drawable.warning),
+                        contentDescription = null
+                    )
+                    Spacer(modifier = Modifier.width(20.dp))
+                    SkillvsmeText(
+                        valueColor = red,
+                        valueSize = 14,
+                        value = "Please note that your maximum limit is 2 classes/month. If you cancel this class you will remain with only 1 cancelation left"
+                    )
+                }
+                SkillvsmeRadioBtn(
+                    modifier = Modifier,
+                    selectedValue = "I booked by mistake",
+                    label = "I booked by mistake"
+                )
+                SkillvsmeRadioBtn(
+                    modifier = Modifier,
+                    selectedValue = "I booked by mistake",
+                    label = "I have change of plan"
+                )
+                SkillvsmeRadioBtn(
+                    modifier = Modifier,
+                    selectedValue = "I booked by mistake",
+                    label = "I have change of plan"
+                )
+                SkillvsmeRadioBtn(
+                    modifier = Modifier,
+                    selectedValue = "I booked by mistake",
+                    label = "I have change of plan"
+                )
+                SkillvsmeRadioBtn(
+                    modifier = Modifier,
+                    selectedValue = "I booked by mistake",
+                    label = "I have change of plan"
+                )
+                SkillvsmeRadioBtn(
+                    modifier = Modifier,
+                    selectedValue = "I booked by mistake",
+                    label = "I have change of plan"
+                )
+                SkillvsmeButton(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    label = "Cancel class",
+                    onClick = {}
                 )
             }
-            SkillvsmeText(
-                iconBefore = painterResource(id = R.drawable.warning),
-                valueColor = red,
-                value = "Please note that your maximum limit is 2 classes/month. If you cancel this class you will remain with only 1 cancelation left"
-            )
-            SkillvsmeRadioBtn(
-                modifier = Modifier,
-                selectedValue = "I booked by mistake",
-                label = "I booked by mistake"
-            )
-            SkillvsmeRadioBtn(
-                modifier = Modifier,
-                selectedValue = "I booked by mistake",
-                label = "I have change of plan"
-            )
-            SkillvsmeRadioBtn(
-                modifier = Modifier,
-                selectedValue = "I booked by mistake",
-                label = "I have change of plan"
-            )
-            SkillvsmeRadioBtn(
-                modifier = Modifier,
-                selectedValue = "I booked by mistake",
-                label = "I have change of plan"
-            )
-            SkillvsmeRadioBtn(
-                modifier = Modifier,
-                selectedValue = "I booked by mistake",
-                label = "I have change of plan"
-            )
-            SkillvsmeRadioBtn(
-                modifier = Modifier,
-                selectedValue = "I booked by mistake",
-                label = "I have change of plan"
-            )
-            SkillvsmeButton(
-                label = "Cancel",
-                onClick = {}
-            )
         }
     }
 }
