@@ -33,9 +33,9 @@ object Route {
 
         object Classes {
             const val UpcomingClasses = "/student/classes/upcomingclasses"
-            const val PastClasses = "/student/classes/pastclasses"
             const val ClassCanceled = "/student/classes/classcanceled"
             const val ClassDetails = "/student/classes/classdetails"
+            const val VideoScreen = "/student/classes/classroom"
             const val ClassRoom = "/student/classes/classroom"
         }
 

@@ -33,9 +33,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
-import s.skillvsme.common.Route.Student.Onboarding.CodeVerification
-import s.skillvsme.common.Route.Student.Onboarding.Onboarding1
-import s.skillvsme.common.Route.Student.Onboarding.Onboarding2
+import s.skillvsme.presentation.classes.ClassDetails
+import s.skillvsme.presentation.classes.ClassRoom
 import s.skillvsme.presentation.classes.Classes
 import s.skillvsme.presentation.classes.VideoScreen
 import s.skillvsme.presentation.homeScreen.HomePage
@@ -63,7 +62,6 @@ import s.skillvsme.presentation.userprofilestudent.StudentProfile
 import s.skillvsme.presentation.userprofilestudent.SubscriptionPlan
 import s.skillvsme.presentation.userprofilestudent.paymentMethod
 import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.green
 import s.skillvsme.ui.theme.white
 import s.skillvsme.utils.coloredShadow
@@ -117,6 +115,12 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
             Classes(navController = navController)
         }
         composable(Route.Student.Classes.ClassRoom) {
+            ClassRoom(navController = navController)
+        }
+        composable(Route.Student.Classes.ClassDetails) {
+            ClassDetails(navController = navController)
+        }
+        composable(Route.Student.Classes.VideoScreen) {
             VideoScreen()
         }
         composable(Route.Student.Profile.StudentProfile) {
