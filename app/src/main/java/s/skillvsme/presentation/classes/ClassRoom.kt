@@ -45,6 +45,13 @@ fun ClassRoom(
                 contentDescription = null,
                 contentScale = ContentScale.Crop
             )
+            Image(
+                modifier = Modifier
+                    .size(24.dp)
+                    .padding(end = 20.dp, top = 20.dp),
+                painter = painterResource(id = R.drawable.minimize),
+                contentDescription = null,
+            )
         }
         Box(
             modifier = Modifier
