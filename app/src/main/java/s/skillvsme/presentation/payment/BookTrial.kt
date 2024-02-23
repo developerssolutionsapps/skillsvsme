@@ -1,11 +1,8 @@
 package s.skillvsme.presentation.payment
 
-import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,17 +12,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
-import androidx.compose.material.IconButton
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -47,7 +37,6 @@ import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.SkillvsmeTextField
 import s.skillvsme.presentation.homeScreen.navigation.BottomNavigation
@@ -85,7 +74,7 @@ fun BookTrial(
                     ) {
                         Box {
                             Image(
-                                painter = painterResource(id = R.drawable.top_blackish_bg),
+                                painter = painterResource(id = R.drawable.background_lines),
                                 contentDescription = "bg",
                                 modifier = Modifier.fillMaxSize(),
                                 contentScale = ContentScale.Crop

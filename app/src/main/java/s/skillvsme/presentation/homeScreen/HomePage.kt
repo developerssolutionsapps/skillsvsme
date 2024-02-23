@@ -114,7 +114,7 @@ fun HomePage(
                 ) {
                     Box {
                         Image(
-                            painter = painterResource(id = R.drawable.top_blackish_bg),
+                            painter = painterResource(id = R.drawable.background_lines),
                             contentDescription = "bg",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
@@ -281,7 +281,7 @@ fun HomePage(
                         }
                         Spacer(modifier = Modifier.weight(1f))
                         androidx.compose.material3.Icon(
-                            painter = painterResource(id = R.drawable.line1),
+                            painter = painterResource(id = R.drawable.line_1),
                             contentDescription = "",
                             tint = black,
                             modifier = Modifier
@@ -345,7 +345,7 @@ fun HomePage(
                         }
                         Spacer(modifier = Modifier.weight(1f))
                         androidx.compose.material3.Icon(
-                            painter = painterResource(id = R.drawable.line1),
+                            painter = painterResource(id = R.drawable.line_1),
                             contentDescription = "",
                             tint = black,
                             modifier = Modifier

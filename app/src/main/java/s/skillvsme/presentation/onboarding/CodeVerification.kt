@@ -39,7 +39,6 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.ui.theme.white
 
 
@@ -71,7 +70,7 @@ fun CodeVerification(
 
             ){
                 Image(
-                    painter = painterResource(id = R.drawable.top_blackish_bg),
+                    painter = painterResource(id = R.drawable.background_lines),
                     contentDescription = "Vehicles Image",
                     modifier    = Modifier
                         .fillMaxWidth()

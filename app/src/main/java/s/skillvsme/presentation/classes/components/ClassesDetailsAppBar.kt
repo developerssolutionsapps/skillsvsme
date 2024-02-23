@@ -1,4 +1,4 @@
-package s.skillvsme.presentation.tutors.components
+package s.skillvsme.presentation.classes.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -8,6 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -31,31 +33,33 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
-import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
+
 @Composable
-fun TutorsDetailsAppBar(
-    name: String,
-    location: String,
-    time: String,
+fun ClassesDetailsAppBar(
+    tutorsName: String,
+    timeLine: String,
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier,
     backgroundColor: Color,
     backgroundImage: Painter? = null,
-    profileImage: Painter? = null,
+    tutorsProfileImage: Painter? = null,
+    myProfileImage: Painter? = null,
     bottomCornerRadius: Dp = 24.dp,
     navController: NavController
-    ) {
+) {
+    var tutorsFirstName = tutorsName
+    if(tutorsName.contains(" ")) tutorsFirstName = tutorsName.split(" ")[1]
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
     ) {
         Card(
@@ -85,47 +89,65 @@ fun TutorsDetailsAppBar(
         ){
             Box(
                 modifier = Modifier
-                    .width(130.dp)
+//                    .width(130.dp)
                     .height(146.dp)
-                    .padding(top = 16.dp)
+                    .fillMaxWidth()
+                    .padding(top = 16.dp, start = 76.dp, end = 40.dp)
                     .background(Color.Transparent, CircleShape)
             ) {
-                Card(
+                Row(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .border(border = BorderStroke(8.dp, white), shape = CircleShape),
-                    shape = CircleShape
+                        .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(-30.dp),
                 ) {
-                    if (profileImage != null) {
-                        Image(
-                            painter = profileImage,
-                            contentDescription = "",
-                            modifier = Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Crop
-                        )
+                    Card(
+                        modifier = Modifier
+                            .size(130.dp)
+                            .zIndex(5f)
+                            .border(border = BorderStroke(8.dp, white), shape = CircleShape),
+                        shape = CircleShape
+                    ) {
+                        if (myProfileImage != null) {
+                            Image(
+                                painter = myProfileImage,
+                                contentDescription = "",
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
+                    }
+                    Card(
+                        modifier = Modifier
+                            .size(130.dp)
+                            .border(border = BorderStroke(8.dp, white), shape = CircleShape),
+                        shape = CircleShape
+                    ) {
+                        if (tutorsProfileImage != null) {
+                            Image(
+                                painter = tutorsProfileImage,
+                                contentDescription = "",
+                                modifier = Modifier.fillMaxSize(),
+                                contentScale = ContentScale.Crop
+                            )
+                        }
                     }
                 }
-                SkillvsmeLiveTag(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter),
-                    textModifier = Modifier
-                        .padding(horizontal = 12.dp)
-                )
             }
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = name,
+                text = "You and ${tutorsFirstName}",
                 color = white,
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
                 modifier = Modifier
+                    .padding(horizontal = 20.dp)
                     .fillMaxWidth(),
                 fontFamily = Fonts.jostFontFamily,
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(4.dp))
             SkillvsmeText(
-                value = "${location} | ${time}",
+                value = timeLine,
                 iconBefore = painterResource(id = R.drawable.location),
                 boldValue = true,
                 valueSize = 16,
@@ -135,11 +157,9 @@ fun TutorsDetailsAppBar(
             SkillvsmeButton(
                 modifier = Modifier
                     .fillMaxWidth(),
-                label = "Schedule a class",
+                label = "Join Class",
                 primary = false,
-                onClick = {
-                    navController.navigate(Route.Student.Tutor.Schedule)
-                }
+                onClick = onClick
             )
             Spacer(modifier = Modifier.height(16.dp))
         }
