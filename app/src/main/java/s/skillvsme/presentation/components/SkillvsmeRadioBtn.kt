@@ -23,24 +23,24 @@ fun SkillvsmeRadioBtn(
     selectedValue: String,
     label: String,
     onClick: () -> Unit = {}
-) {Row(
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(8.dp),
-        ){
-            RadioButton(
-                selected = selectedValue == label,
-                onClick = onClick,
-                colors = RadioButtonDefaults.colors(
-                    selectedColor = white,
-                    unselectedColor = black
-                )
+) {
+    Row(
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically,
+    ){
+        RadioButton(
+            selected = selectedValue == label,
+            onClick = onClick,
+            colors = RadioButtonDefaults.colors(
+                selectedColor = black,
+                unselectedColor = black
             )
-            Text(
-                text = label,
-                modifier = Modifier.fillMaxWidth(),
-                fontFamily = Fonts.jostFontFamily,
-                fontSize = 20.sp
-            )
-        }
+        )
+        Text(
+            text = label,
+            modifier = Modifier.fillMaxWidth(),
+            fontFamily = Fonts.jostFontFamily,
+            fontSize = 20.sp
+        )
+    }
 }
