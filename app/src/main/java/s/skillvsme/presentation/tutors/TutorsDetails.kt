@@ -10,19 +10,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -35,7 +32,6 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
-import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.ReviewItem
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -43,10 +39,7 @@ import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.TutorsExperience
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
 import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.darkGrey
-import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
-import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -70,7 +63,7 @@ fun TutorsDetails(
                         location = "California, USA",
                         time = "6:30 PM",
                         backgroundColor = black,
-                        backgroundImage = painterResource(id = R.drawable.top_blackish_bg),
+                        backgroundImage = painterResource(id = R.drawable.background_lines),
                         profileImage = painterResource(id = R.drawable.profile2),
                         onClick = {},
                         navController = navController

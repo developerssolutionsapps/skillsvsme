@@ -41,7 +41,6 @@ fun TutorsListComponent(
             }
     ){
         Column {
-            Spacer(modifier = Modifier.height(12.dp))
             Box(
                 modifier = Modifier
                     .height(100.dp)
