@@ -2,6 +2,7 @@ package s.skillvsme.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,8 +22,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.ui.theme.black60
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
@@ -38,7 +41,9 @@ fun UpComingClassesItem(
     image: String,
     rating: Double,
     time: String,
-    cancelClicked: () -> Unit = {}
+    cancelClicked: () -> Unit = {},
+    nextClicked: () -> Unit = {},
+    navController: NavController
 ) {
     Row {
         DateCard(day = day, date = date, month = month)
@@ -130,7 +135,10 @@ fun UpComingClassesItem(
                     Image(
                         modifier = Modifier
                             .weight(1f)
-                            .padding(horizontal = 8.dp),
+                            .padding(horizontal = 8.dp)
+                            .clickable {
+                                navController.navigate(Route.Student.Classes.ClassDetails)
+                            },
                         painter = painterResource(R.drawable.line_1),
                         contentDescription = "rate star"
                     )
