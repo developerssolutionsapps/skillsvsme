@@ -54,6 +54,7 @@ import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
 import s.skillvsme.presentation.tutors.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsList
+import s.skillvsme.presentation.tutors.TutorsProfile.TutorProfile
 import s.skillvsme.presentation.tutors.TutorsVideo
 import s.skillvsme.presentation.userprofilestudent.EditLanguage
 import s.skillvsme.presentation.userprofilestudent.EditProfile
@@ -72,7 +73,7 @@ import s.skillvsme.utils.coloredShadow
 fun NavigationGraph(navController: NavHostController, ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Tutor.Home.Home
+        startDestination = Route.Tutor.Profile.TutorProfile
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -171,6 +172,9 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Tutor.Home.Home) {
             s.skillvsme.presentation.tutors.homePage.TutorHomePage(navController = navController)
+        }
+        composable(Route.Tutor.Profile.TutorProfile) {
+            TutorProfile(navController = navController)
         }
 
     }

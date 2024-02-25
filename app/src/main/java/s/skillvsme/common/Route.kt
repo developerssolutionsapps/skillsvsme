@@ -58,6 +58,21 @@ object Route {
         object Home {
             const val Home = "/tutor/home"
         }
+        object Profile {
+            const val TutorProfile = "/tutor/profile/tutorprofile"
+            const val EditProfile = "/tutor/profile/editprofile"
+            const val EditLanguage = "/tutor/profile/editlanguage"
+            const val SubscriptionPlan = "/tutor/profile/subscriptionplan"
+            const val PaymentMethods = "/tutor/profile/paymentmethods"
+            const val Notifications = "/tutor/profile/notification"
+        }
+        object Classes {
+            const val UpcomingClasses = "/tutor/classes/upcomingclasses"
+        }
+        object Streaming {
+            const val LiveStream = "/tutor/streaming/livestream"
+
+        }
     }
 
 }

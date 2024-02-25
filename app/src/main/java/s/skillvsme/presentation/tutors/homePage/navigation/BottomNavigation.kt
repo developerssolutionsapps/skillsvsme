@@ -42,7 +42,7 @@ import s.skillvsme.utils.coloredShadow
 fun BottomNavigation(navController: NavController) {
     val items = listOf(
         ScreenNavigation.Home,
-        ScreenNavigation.Streamm,
+        ScreenNavigation.Stream,
         ScreenNavigation.Classess,
         ScreenNavigation.Accounts,
     )
@@ -148,7 +148,6 @@ fun BottomNavigation(navController: NavController) {
                 backgroundColor = black,
             shape = CircleShape
 
-        // Adjust the position as needed
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.addition),
