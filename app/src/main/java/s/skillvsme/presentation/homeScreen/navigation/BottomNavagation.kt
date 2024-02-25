@@ -176,6 +176,9 @@ fun NavigationGraph(navController: NavHostController, ) {
         composable(Route.Tutor.Profile.TutorProfile) {
             TutorProfile(navController = navController)
         }
+        composable(Route.Tutor.Profile.EditLanguage) {
+            TutorProfile(navController = navController)
+        }
 
     }
 }
