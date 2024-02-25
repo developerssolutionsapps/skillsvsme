@@ -127,7 +127,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Student.Profile.EditProfile)
+                                    navController.navigate(Route.Tutor.Profile.EditProfile)
                                 },
                             value = "Edit Profile",
                             iconBeforeSize = 23.dp,
@@ -156,7 +156,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Student.Profile.EditLanguage)
+                                    navController.navigate(Route.Tutor.Profile.EditLanguage)
                                 },
                             value = "Language",
                             value1 = "English",
@@ -186,7 +186,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Student.Profile.SubscriptionPlan)
+                                    navController.navigate(Route.Tutor.Profile.SubscriptionPlan)
                                 },
                             value = "Subscription plan",
                             iconBeforeSize = 20.dp,
