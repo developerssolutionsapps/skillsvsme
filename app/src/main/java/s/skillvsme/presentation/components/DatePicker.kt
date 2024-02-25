@@ -36,7 +36,7 @@ import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 
 @Composable
-fun streaming() {
+fun datepicker() {
     val startDate = LocalDate.now()
     val endDate = startDate.withDayOfYear(31).withMonth(12)
     val Year=endDate.format(DateTimeFormatter.ofPattern("yyyy")).toInt()

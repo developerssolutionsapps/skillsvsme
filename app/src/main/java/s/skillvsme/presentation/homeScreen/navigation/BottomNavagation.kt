@@ -72,7 +72,7 @@ import s.skillvsme.utils.coloredShadow
 fun NavigationGraph(navController: NavHostController, ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Streaming.LiveStream
+        startDestination = Route.Tutor.Home.Home
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -168,6 +168,9 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Student.Onboarding.CodeVerification) {
             CodeVerification(navController = navController)
+        }
+        composable(Route.Tutor.Home.Home) {
+            s.skillvsme.presentation.tutors.homePage.TutorHomePage(navController = navController)
         }
 
     }

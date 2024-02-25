@@ -55,7 +55,9 @@ object Route {
     }
 
     object Tutor {
-
+        object Home {
+            const val Home = "/tutor/home"
+        }
     }
 
 }
