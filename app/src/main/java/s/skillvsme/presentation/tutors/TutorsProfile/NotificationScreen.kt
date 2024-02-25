@@ -60,7 +60,7 @@ fun NotificationScreen(
         content = {
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp,top=50.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 50.dp)
                     .fillMaxSize()
                     .verticalScroll(scrollState)
             ) {repeat(16){
@@ -76,7 +76,7 @@ fun NotificationScreen(
             }
         },
         bottomBar = {
-            BottomNavigation(navController = navController)
+            s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation(navController = navController)
         }
     )
 
