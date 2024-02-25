@@ -28,6 +28,7 @@ import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -89,7 +90,7 @@ fun EditProfile(
             }
         },
         bottomBar = {
-            s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController)
+            BottomNavigation(navController = navController)
         }
     )
 }
