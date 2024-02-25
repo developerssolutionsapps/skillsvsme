@@ -186,9 +186,9 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Tutor.Profile.SubscriptionPlan)
+                                    navController.navigate(Route.Tutor.Profile.Earnings)
                                 },
-                            value = "Subscription plan",
+                            value = "Earnings",
                             iconBeforeSize = 20.dp,
                             iconAfterSize = 20.dp,
                             fontSize = 20,
@@ -215,7 +215,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Tutor.Profile.PaymentMethods)
+                                    navController.navigate(Route.Tutor.Profile.PaymentSettings)
                                 },
                             value = "Payment setting",
                             iconBeforeSize = 20.dp,

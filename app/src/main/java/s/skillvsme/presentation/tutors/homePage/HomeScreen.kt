@@ -83,7 +83,7 @@ fun TutorHomePage(
                         Image(
                             painter = painterResource(id = R.drawable.notification),
                             contentDescription = null, modifier = Modifier.clickable {
-                                navController.navigate(Route.Student.Profile.Notifications)
+                                navController.navigate(Route.Tutor.Profile.Notifications)
                             }
                         )
                     }
@@ -99,7 +99,7 @@ fun TutorHomePage(
                             Modifier
                                 .fillMaxSize()
                                 .clickable {
-                                    navController.navigate(Route.Student.Profile.StudentProfile) {
+                                    navController.navigate(Route.Tutor.Profile.TutorProfile) {
 
                                         navController.graph.startDestinationRoute?.let { screen_route ->
                                             popUpTo(screen_route) {
@@ -200,9 +200,7 @@ fun TutorHomePage(
                 Spacer(modifier = Modifier.height(20.dp))
                 Row(
                     Modifier.wrapContentWidth(),
-
                 ) {
-
                     Box(modifier = Modifier.size(10.dp,718.dp),
                         contentAlignment = Alignment.TopCenter // Aligning content to the top center
 

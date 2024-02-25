@@ -43,7 +43,7 @@ import s.skillvsme.ui.theme.white
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun paymentMethod(navController: NavController) {
+fun PaymentSetting(navController: NavController) {
     Scaffold (
         content = {
             Column(

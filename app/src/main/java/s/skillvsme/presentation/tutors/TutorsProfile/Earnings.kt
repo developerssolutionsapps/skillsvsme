@@ -32,7 +32,10 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
+import s.skillvsme.presentation.components.SimpleAppBar
+import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.TransactionHistory
+import s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 
@@ -40,63 +43,46 @@ import s.skillvsme.ui.theme.white
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun SubscriptionPlan(navController: NavController) {
+fun Earnings(navController: NavController) {
     val scrollState = rememberScrollState()
     Scaffold(
-        content = {
+        topBar = {
+                 SimpleAppBar(navController = navController, text = "Earnings")
+        },
+        content = {paddingValue ->
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp,)
                     .verticalScroll(scrollState),
                 verticalArrangement = Arrangement.SpaceAround,
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                ProfileAppBar(
-                    backgroundColor = Color.Black,
-                    modifier = Modifier,
-                    backgroundImage = painterResource(
-                        id = R.drawable.rectangle5,
-                    ),
-                    contentSize = 130.dp,
-                    bottomCornerRadius = 30.dp,
-                    cameraIconAvailable = true,
-                    navController = navController
-                )
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(top = 10.dp, start = 16.dp, end = 16.dp),
+                        .padding(paddingValue),
                 ) {
-                    Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(18.dp))
                     Text(
-                        text = "Kamal Tyagi",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 24.sp,
-                        fontFamily = Fonts.jostFontFamily,
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                    Spacer(modifier = Modifier.height(25.dp))
-                    Text(
-                        text = "Current Plan",
+                        text = "Available Balance",
                         fontWeight = FontWeight.Normal,
                         fontSize = 18.sp,
                         fontFamily = Fonts.jostFontFamily
                     )
-                    Spacer(modifier = Modifier.height(5.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
                     BorderedSurface(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(90.dp),
+                            .height(93.dp),
                         background = white,
                         cornerRadius = 15.dp,
                         borderWidth = 1.dp
                     ) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text(
-                                text = "1 hr/week",
+                                text = "1,500 USD",
                                 modifier = Modifier
                                     .align(alignment = Alignment.CenterHorizontally)
-                                    .padding(top = 10.dp)
+                                    .padding(top = 20.dp)
                                     .fillMaxWidth(),
                                 textAlign = TextAlign.Center,
                                 fontFamily = Fonts.jostFontFamily,
@@ -104,23 +90,14 @@ fun SubscriptionPlan(navController: NavController) {
                                 style = TextStyle(fontSize = 24.sp),
                                 color = purple
                             )
-                            Text(
-                                text = "pay every 3 mo",
-                                modifier = Modifier
-                                    .align(alignment = Alignment.CenterHorizontally)
-                                    .fillMaxWidth(),
-                                textAlign = TextAlign.Center,
-                                fontWeight = FontWeight.SemiBold,
-                                fontFamily = Fonts.jostFontFamily,
-                                style = TextStyle(fontSize = 20.sp),
-                                color = purple,
-                            )
                         }
                     }
-                    Spacer(modifier = Modifier.height(10.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
+                    SkillvsmeButton(label = "Withdraw funds", modifier = Modifier.fillMaxWidth())
+                    Spacer(modifier = Modifier.height(54.dp))
                     Text(
                         text = "Transaction history",
-                        modifier = Modifier.padding(top = 20.dp, bottom = 15.dp),
+                        modifier = Modifier.padding( bottom = 15.dp),
                         fontWeight = FontWeight.Normal,
                         fontSize = 18.sp,
                         fontFamily = Fonts.jostFontFamily
@@ -159,6 +136,6 @@ fun SubscriptionPlan(navController: NavController) {
                 }
             }
         },
-        bottomBar = { s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController) }
+        bottomBar = { BottomNavigation(navController = navController) }
     )
 }

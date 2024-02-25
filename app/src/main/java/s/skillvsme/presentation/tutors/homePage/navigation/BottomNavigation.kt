@@ -63,7 +63,7 @@ fun BottomNavigation(navController: NavController) {
                 backgroundColor = Color.White,
                 modifier = Modifier
                     .coloredShadow(
-                        color = Color.Gray,
+                        color = Color.Gray.copy(alpha = 0.2f),
                         borderRadius = 4.dp,
                         blurRadius = 4.dp,
                         offsetY = (-4).dp,

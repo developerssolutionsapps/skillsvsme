@@ -33,9 +33,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
-import s.skillvsme.common.Route.Student.Onboarding.CodeVerification
-import s.skillvsme.common.Route.Student.Onboarding.Onboarding1
-import s.skillvsme.common.Route.Student.Onboarding.Onboarding2
 import s.skillvsme.presentation.classes.Classes
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.onboarding.CodeVerification
@@ -54,6 +51,8 @@ import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
 import s.skillvsme.presentation.tutors.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsList
+import s.skillvsme.presentation.tutors.TutorsProfile.Earnings
+import s.skillvsme.presentation.tutors.TutorsProfile.PaymentSetting
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorProfile
 import s.skillvsme.presentation.tutors.TutorsVideo
 import s.skillvsme.presentation.userprofilestudent.EditLanguage
@@ -63,7 +62,6 @@ import s.skillvsme.presentation.userprofilestudent.StudentProfile
 import s.skillvsme.presentation.userprofilestudent.SubscriptionPlan
 import s.skillvsme.presentation.userprofilestudent.paymentMethod
 import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.green
 import s.skillvsme.ui.theme.white
 import s.skillvsme.utils.coloredShadow
@@ -177,7 +175,19 @@ fun NavigationGraph(navController: NavHostController, ) {
             TutorProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.EditLanguage) {
-            TutorProfile(navController = navController)
+            s.skillvsme.presentation.tutors.TutorsProfile.EditLanguage(navController = navController)
+        }
+        composable(Route.Tutor.Profile.Earnings) {
+            Earnings(navController = navController)
+        }
+        composable(Route.Tutor.Profile.EditProfile) {
+            s.skillvsme.presentation.tutors.TutorsProfile.EditProfile(navController = navController)
+        }
+        composable(Route.Tutor.Profile.Notifications) {
+            s.skillvsme.presentation.tutors.TutorsProfile.NotificationScreen(navController = navController)
+        }
+        composable(Route.Tutor.Profile.PaymentSettings) {
+            PaymentSetting(navController = navController)
         }
 
     }
@@ -206,7 +216,7 @@ fun BottomNavigation(navController: NavController) {
         BottomNavigation(
             backgroundColor = white, modifier = Modifier
                 .coloredShadow(
-                    color = Color.Gray,
+                    color = Color.Gray.copy(0.2f),
                     borderRadius = 4.dp,
                     blurRadius = 4.dp,
                     offsetY = (-4).dp,

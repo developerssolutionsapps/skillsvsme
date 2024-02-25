@@ -62,8 +62,8 @@ object Route {
             const val TutorProfile = "/tutor/profile/tutorprofile"
             const val EditProfile = "/tutor/profile/editprofile"
             const val EditLanguage = "/tutor/profile/editlanguage"
-            const val SubscriptionPlan = "/tutor/profile/subscriptionplan"
-            const val PaymentMethods = "/tutor/profile/paymentmethods"
+            const val Earnings = "/tutor/profile/subscriptionplan"
+            const val PaymentSettings = "/tutor/profile/paymentsettings"
             const val Notifications = "/tutor/profile/notification"
         }
         object Classes {
