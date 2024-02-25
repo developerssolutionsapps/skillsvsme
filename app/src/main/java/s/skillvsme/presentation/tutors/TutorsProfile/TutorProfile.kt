@@ -215,7 +215,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Student.Profile.PaymentMethods)
+                                    navController.navigate(Route.Tutor.Profile.PaymentMethods)
                                 },
                             value = "Payment setting",
                             iconBeforeSize = 20.dp,
