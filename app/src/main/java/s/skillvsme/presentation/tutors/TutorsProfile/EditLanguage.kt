@@ -84,7 +84,9 @@ fun EditLanguage(navController: NavController) {
                 }
             }
         },
-        bottomBar = { BottomNavigation(navController = navController)}
+        bottomBar = { s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation(
+            navController = navController
+        )}
     )
 
 }
