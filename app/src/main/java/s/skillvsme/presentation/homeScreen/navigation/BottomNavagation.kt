@@ -34,6 +34,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.classes.Classes
+import s.skillvsme.presentation.classes.VideoScreen
 import s.skillvsme.presentation.homeScreen.HomePage
 import s.skillvsme.presentation.onboarding.CodeVerification
 import s.skillvsme.presentation.onboarding.JoinAs
@@ -72,7 +73,7 @@ import s.skillvsme.utils.coloredShadow
 fun NavigationGraph(navController: NavHostController, ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Tutor.Profile.TransactionSuccess
+
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -114,6 +115,15 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Student.Classes.UpcomingClasses) {
             Classes(navController = navController)
+        }
+        composable(Route.Student.Classes.ClassRoom) {
+            ClassRoom(navController = navController)
+        }
+        composable(Route.Student.Classes.ClassDetails) {
+            ClassDetails(navController = navController)
+        }
+        composable(Route.Student.Classes.VideoScreen) {
+            VideoScreen()
         }
         composable(Route.Student.Profile.StudentProfile) {
             StudentProfile(navController = navController)
