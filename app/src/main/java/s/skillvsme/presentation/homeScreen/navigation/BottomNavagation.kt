@@ -33,6 +33,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
+import s.skillvsme.presentation.classes.ClassDetails
+import s.skillvsme.presentation.classes.ClassRoom
 import s.skillvsme.presentation.classes.Classes
 import s.skillvsme.presentation.classes.VideoScreen
 import s.skillvsme.presentation.homeScreen.HomePage
@@ -73,7 +75,7 @@ import s.skillvsme.utils.coloredShadow
 fun NavigationGraph(navController: NavHostController, ) {
     NavHost(
         navController = navController,
-
+        startDestination = Route.Student.Onboarding.Onboarding1
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(

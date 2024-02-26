@@ -124,7 +124,7 @@ fun TutorHomePage(
                 ) {
                     Box {
                         Image(
-                            painter = painterResource(id = R.drawable.top_blackish_bg),
+                            painter = painterResource(id = R.drawable.background_lines),
                             contentDescription = "bg",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop

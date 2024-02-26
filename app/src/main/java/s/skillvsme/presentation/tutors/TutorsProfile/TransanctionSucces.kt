@@ -82,7 +82,7 @@ fun TransactionSuccess(
 
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.top_blackish_bg),
+                            painter = painterResource(id = R.drawable.background_lines),
                             contentDescription = "Vehicles Image",
                             modifier = Modifier
                                 .fillMaxWidth()

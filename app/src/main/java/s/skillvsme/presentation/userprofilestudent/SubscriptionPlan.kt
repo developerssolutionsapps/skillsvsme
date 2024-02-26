@@ -43,7 +43,7 @@ import s.skillvsme.ui.theme.white
 fun SubscriptionPlan(navController: NavController) {
     val scrollState = rememberScrollState()
     Scaffold(
-        content = {
+        content = { paddingValues ->
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -62,101 +62,106 @@ fun SubscriptionPlan(navController: NavController) {
                     cameraIconAvailable = true,
                     navController = navController
                 )
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 10.dp, start = 16.dp, end = 16.dp),
-                ) {
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Text(
-                        text = "Kamal Tyagi",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 24.sp,
-                        fontFamily = Fonts.jostFontFamily,
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                    Spacer(modifier = Modifier.height(25.dp))
-                    Text(
-                        text = "Current Plan",
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 18.sp,
-                        fontFamily = Fonts.jostFontFamily
-                    )
-                    Spacer(modifier = Modifier.height(5.dp))
-                    BorderedSurface(
+                Column(modifier = Modifier
+                    .fillMaxSize()
+                    .padding(top = 40.dp, start = 16.dp, end = 16.dp),) {
+                    Column(
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(90.dp),
-                        background = white,
-                        cornerRadius = 15.dp,
-                        borderWidth = 1.dp
+                            .fillMaxSize()
+                            .padding(paddingValues),
                     ) {
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            Text(
-                                text = "1 hr/week",
-                                modifier = Modifier
-                                    .align(alignment = Alignment.CenterHorizontally)
-                                    .padding(top = 10.dp)
-                                    .fillMaxWidth(),
-                                textAlign = TextAlign.Center,
-                                fontFamily = Fonts.jostFontFamily,
-                                fontWeight = FontWeight.SemiBold,
-                                style = TextStyle(fontSize = 24.sp),
-                                color = purple
-                            )
-                            Text(
-                                text = "pay every 3 mo",
-                                modifier = Modifier
-                                    .align(alignment = Alignment.CenterHorizontally)
-                                    .fillMaxWidth(),
-                                textAlign = TextAlign.Center,
-                                fontWeight = FontWeight.SemiBold,
-                                fontFamily = Fonts.jostFontFamily,
-                                style = TextStyle(fontSize = 20.sp),
-                                color = purple,
-                            )
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Text(
+                            text = "Kamal Tyagi",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 24.sp,
+                            fontFamily = Fonts.jostFontFamily,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                        Spacer(modifier = Modifier.height(25.dp))
+                        Text(
+                            text = "Current Plan",
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 18.sp,
+                            fontFamily = Fonts.jostFontFamily
+                        )
+                        Spacer(modifier = Modifier.height(5.dp))
+                        BorderedSurface(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(93.dp),
+                            background = white,
+                            cornerRadius = 15.dp,
+                            borderWidth = 1.dp
+                        ) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Text(
+                                    text = "1 hr/week",
+                                    modifier = Modifier
+                                        .align(alignment = Alignment.CenterHorizontally)
+                                        .padding(top = 10.dp)
+                                        .fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    fontFamily = Fonts.jostFontFamily,
+                                    fontWeight = FontWeight.SemiBold,
+                                    style = TextStyle(fontSize = 24.sp),
+                                    color = purple
+                                )
+                                Text(
+                                    text = "pay every 3 mo",
+                                    modifier = Modifier
+                                        .align(alignment = Alignment.CenterHorizontally)
+                                        .fillMaxWidth(),
+                                    textAlign = TextAlign.Center,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontFamily = Fonts.jostFontFamily,
+                                    style = TextStyle(fontSize = 20.sp),
+                                    color = purple,
+                                )
+                            }
                         }
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Text(
+                            text = "Transaction history",
+                            modifier = Modifier.padding(top = 20.dp, bottom = 15.dp),
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 18.sp,
+                            fontFamily = Fonts.jostFontFamily
+                        )
+                        TransactionHistory(iconStart = painterResource(id = R.drawable))
+                        Divider(
+                            color = Color.Gray,
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth() // Adjust width as needed
+                        )
+                        TransactionHistory(
+                            iconStart = painterResource(id = R.drawable.line_2),
+                            textSuccess = "failed"
+                        )
+                        Divider(
+                            color = Color.Gray,
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth() // Adjust width as needed
+                        )
+                        TransactionHistory(iconStart = painterResource(id = R.drawable.line_2))
+                        Divider(
+                            color = Color.Gray,
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth() // Adjust width as needed
+                        )
+                        TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
+                        Divider(
+                            color = Color.Gray,
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth() // Adjust width as needed
+                        )
                     }
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Text(
-                        text = "Transaction history",
-                        modifier = Modifier.padding(top = 20.dp, bottom = 15.dp),
-                        fontWeight = FontWeight.Normal,
-                        fontSize = 18.sp,
-                        fontFamily = Fonts.jostFontFamily
-                    )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
-                    Divider(
-                        color = Color.Gray,
-                        modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth() // Adjust width as needed
-                    )
-                    TransactionHistory(
-                        iconStart = painterResource(id = R.drawable.line_2),
-                        textSuccess = "failed"
-                    )
-                    Divider(
-                        color = Color.Gray,
-                        modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth() // Adjust width as needed
-                    )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_2))
-                    Divider(
-                        color = Color.Gray,
-                        modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth() // Adjust width as needed
-                    )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
-                    Divider(
-                        color = Color.Gray,
-                        modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth() // Adjust width as needed
-                    )
                 }
+
             }
         },
         bottomBar = { s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController) }
