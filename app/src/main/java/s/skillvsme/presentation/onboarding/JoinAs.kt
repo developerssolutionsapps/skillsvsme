@@ -19,13 +19,15 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
+import s.skillvsme.presentation.homeScreen.navigation.LoginDetails
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 
 @Composable
 fun JoinAs(
-    navController: NavController
+    navController: NavController,
+    loginDetails: LoginDetails
 ) {
     Column(
         modifier = Modifier
@@ -71,6 +73,7 @@ fun JoinAs(
                         .clickable {
                             studentSelected = false
                             tutorSelected = true
+                            loginDetails.loginasTutor()
                         },
                 ) {
                     Surface(
@@ -114,6 +117,7 @@ fun JoinAs(
                         .clickable {
                             studentSelected = true
                             tutorSelected = false
+                            loginDetails.loginasStudents()
                         },
                 ) {
                     Surface(

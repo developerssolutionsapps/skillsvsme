@@ -35,13 +35,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import s.skillvsme.R
-import s.skillvsme.common.Fonts
-import s.skillvsme.common.Route
-import s.skillvsme.presentation.components.SimpleAppBar
-import s.skillvsme.presentation.components.SkillvsmeLiveTag
-import s.skillvsme.ui.theme.lightGrey
-import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class)
@@ -51,88 +44,8 @@ fun streaming(
     navController:NavController
 ){
     Scaffold (
-        topBar = {
-            SimpleAppBar(navController = navController, text = "Live now")
-        },
-        content = { paddingValues ->
-                  Column(
-                      modifier = Modifier
-                          .padding(paddingValues)
-                  ) {
-                      Column(
-                          modifier = Modifier
-                              .padding(20.dp)
-                              .verticalScroll(rememberScrollState())
-                      ) {
-                          repeat(4) {
-                              Row(
-                                  modifier = Modifier
-                                      .fillMaxWidth(),
-                                  horizontalArrangement = Arrangement.SpaceEvenly,
-                                  verticalAlignment = Alignment.CenterVertically
-                              ) {
-                                  repeat(3) {
-                                      Box(
-                                          modifier = Modifier
-                                              .weight(1f)
-                                              .fillMaxWidth()
-                                              .padding(6.dp)
-                                              .wrapContentHeight()
-                                              .background(lightGrey, RoundedCornerShape(8.dp))
-                                              .clickable {
-                                                  navController.navigate(Route.Student.Streaming.ViewLiveStream)
-                                              },
-                                          contentAlignment = Alignment.Center
-                                      ) {
-                                          Column(
-                                              modifier = Modifier
-                                                  .padding(
-                                                      top = 14.dp,
-                                                      bottom = 4.dp,
-                                                      start = 8.dp,
-                                                      end = 8.dp
-                                                  ),
-                                              horizontalAlignment = Alignment.CenterHorizontally
-                                          ) {
-                                              // Rounded image view
-                                              Box(
-                                                  modifier = Modifier
-                                                      .size(65.dp),
-                                                  contentAlignment = Alignment.BottomCenter
-                                              ) {
-                                                  Image(
-                                                      painter = painterResource(id = R.drawable.rectangle4),
-                                                      contentDescription = "",
-                                                      modifier = Modifier.background(
-                                                          white,
-                                                          CircleShape
-                                                      ),
-                                                      contentScale = ContentScale.Crop
-                                                  )
-                                                  SkillvsmeLiveTag(
-                                                      fontSize = 10,
-                                                      textModifier = Modifier
-                                                          .padding(horizontal = 8.dp)
-                                                  )
-                                                  // Image
-                                              }
-                                              // Live tag
-                                              Spacer(modifier = Modifier.height(7.dp))
-                                              androidx.compose.material.Text(
-                                                  text = "John Wills", color = Color.Black,
-                                                  fontSize = 15.sp,
-                                                  fontWeight = FontWeight.Normal,
-                                                  fontFamily = Fonts.jostFontFamily,
-                                                  modifier = Modifier.padding(6.dp)
-                                              )
-                                          }
-                                      }
-                                      Spacer(modifier = Modifier.width(8.dp))
-                                  }
-                              }
-                          }
-                      }
-                  }
+        content = {
+            Text(text = "Classes")
         },
         bottomBar = {
             s.skillvsme.presentation.homeScreen.navigation.BottomNavigation(navController = navController)

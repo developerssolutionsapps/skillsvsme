@@ -56,7 +56,26 @@ object Route {
     }
 
     object Tutor {
+        object Home {
+            const val Home = "/tutor/home"
+        }
+        object Profile {
+            const val TutorProfile = "/tutor/profile/tutorprofile"
+            const val EditProfile = "/tutor/profile/editprofile"
+            const val EditLanguage = "/tutor/profile/editlanguage"
+            const val Earnings = "/tutor/profile/subscriptionplan"
+            const val PaymentSettings = "/tutor/profile/paymentsettings"
+            const val Notifications = "/tutor/profile/notification"
+            const val TransactionSuccess="/tutor/profile/transactionSuccess"
+            const val TutorProfilePublicView="/tutor/profile/tutorProfilePublicView"
+        }
+        object Classes {
+            const val UpcomingClasses = "/tutor/classes/upcomingclasses"
+        }
+        object Streaming {
+            const val LiveStream = "/tutor/streaming/livestream"
 
+        }
     }
 
 }

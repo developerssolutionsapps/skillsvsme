@@ -39,7 +39,7 @@ fun SimpleAppBar(
                     text,
                     fontFamily = Fonts.headlandOneFontFamily,
                     fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = FontWeight.Normal,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(end = 28.dp),

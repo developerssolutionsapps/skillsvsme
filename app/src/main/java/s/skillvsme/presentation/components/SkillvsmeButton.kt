@@ -51,10 +51,10 @@ fun SkillvsmeButton(
         Text(
             text = label,
             modifier = Modifier
-                .padding(8.dp),
+                .padding(2.dp),
             color = if(primary) white else black,
-            fontWeight = FontWeight.Bold,
-            fontSize = 16.sp,
+            fontWeight = FontWeight.Medium,
+            fontSize = 20.sp,
             fontFamily = Fonts.jostFontFamily
         )
     }

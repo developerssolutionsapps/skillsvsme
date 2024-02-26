@@ -59,6 +59,14 @@ fun ProfileAppBar(
             )
 
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.background_lines),
+            contentDescription = "Vehicles Image",
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(contentSize),
+            contentScale = ContentScale.Crop
+        )
 
         // Circle Image View
         Box(
@@ -111,8 +119,6 @@ fun ProfileAppBar(
                     )
                 }
             }
-
-
         }
         Image(
             painter = painterResource(id = R.drawable.arrowback),

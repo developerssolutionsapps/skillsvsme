@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
         setContent {
+
             val navController = rememberNavController()
             androidx.compose.material.Surface(
                 modifier = Modifier.fillMaxSize(),

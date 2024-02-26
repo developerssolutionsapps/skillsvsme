@@ -57,6 +57,10 @@ import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
 import s.skillvsme.presentation.tutors.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsList
+import s.skillvsme.presentation.tutors.TutorsProfile.Earnings
+import s.skillvsme.presentation.tutors.TutorsProfile.PaymentSetting
+import s.skillvsme.presentation.tutors.TutorsProfile.TransactionSuccess
+import s.skillvsme.presentation.tutors.TutorsProfile.TutorProfile
 import s.skillvsme.presentation.tutors.TutorsVideo
 import s.skillvsme.presentation.userprofilestudent.EditLanguage
 import s.skillvsme.presentation.userprofilestudent.EditProfile
@@ -71,10 +75,12 @@ import s.skillvsme.utils.coloredShadow
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
-fun NavigationGraph(navController: NavHostController) {
+fun NavigationGraph(navController: NavHostController, ) {
+    var loginDetails by mutableStateOf(LoginDetails())
+
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Onboarding.Onboarding1
+        startDestination = Route.Tutor.Home.Home
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -135,6 +141,15 @@ fun NavigationGraph(navController: NavHostController) {
         composable(Route.Student.Profile.EditProfile) {
             EditProfile(navController)
         }
+        composable(Route.Student.Onboarding.JoinAS) {
+            JoinAs(navController = navController,loginDetails)
+        }
+        composable(Route.Student.Onboarding.SignUp) {
+            Signup(navController = navController)
+        }
+        composable(Route.Student.Onboarding.CodeVerification) {
+            CodeVerification(navController = navController, loginDetails = loginDetails)
+        }
         composable(Route.Student.Profile.SubscriptionPlan) {
             SubscriptionPlan(navController)
         }
@@ -157,16 +172,55 @@ fun NavigationGraph(navController: NavHostController) {
             Onboarding3(navController = navController)
         }
         composable(Route.Student.Onboarding.JoinAS) {
-            JoinAs(navController = navController)
+            JoinAs(navController = navController, loginDetails = loginDetails)
         }
         composable(Route.Student.Onboarding.SignUp) {
             Signup(navController = navController)
         }
         composable(Route.Student.Onboarding.CodeVerification) {
-            CodeVerification(navController = navController)
+            CodeVerification(navController = navController,loginDetails)
+        }
+        composable(Route.Tutor.Home.Home) {
+            s.skillvsme.presentation.tutors.homePage.TutorHomePage(navController = navController)
+        }
+        composable(Route.Tutor.Profile.TutorProfile) {
+            TutorProfile(navController = navController)
+        }
+        composable(Route.Tutor.Profile.EditLanguage) {
+            s.skillvsme.presentation.tutors.TutorsProfile.EditLanguage(navController = navController)
+        }
+        composable(Route.Tutor.Profile.Earnings) {
+            Earnings(navController = navController)
+        }
+        composable(Route.Tutor.Profile.EditProfile) {
+            s.skillvsme.presentation.tutors.TutorsProfile.EditProfile(navController = navController)
+        }
+        composable(Route.Tutor.Profile.Notifications) {
+            s.skillvsme.presentation.tutors.TutorsProfile.NotificationScreen(navController = navController)
+        }
+        composable(Route.Tutor.Profile.PaymentSettings) {
+            PaymentSetting(navController = navController)
+        }
+        composable(Route.Tutor.Profile.TransactionSuccess) {
+            TransactionSuccess(navController = navController)
+        }
+        composable(Route.Tutor.Profile.TutorProfilePublicView) {
+            s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails(navController = navController)
         }
     }
 }
+data class LoginDetails(
+    var LoginAsTutor:Boolean=false
+){
+    fun loginasTutor(){
+     LoginAsTutor=true
+    }
+    fun loginasStudents(){
+   LoginAsTutor=false
+    }
+}
+
+
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
@@ -191,7 +245,7 @@ fun BottomNavigation(navController: NavController) {
         BottomNavigation(
             backgroundColor = white, modifier = Modifier
                 .coloredShadow(
-                    color = Color.Gray,
+                    color = Color.Gray.copy(0.2f),
                     borderRadius = 4.dp,
                     blurRadius = 4.dp,
                     offsetY = (-4).dp,

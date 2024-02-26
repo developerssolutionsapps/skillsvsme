@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -29,6 +30,7 @@ fun EditTextLabel(
     value:String,
     text:String,
     spacer: Dp? =null,
+    isLongText: Boolean = false,
     trailinicon:Painter?=null
 ){
     Column(modifier = Modifier.fillMaxWidth()) {
@@ -43,7 +45,7 @@ fun EditTextLabel(
         OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(TextFieldDefaults.MinHeight),
+                .height(if (isLongText) 250.dp else TextFieldDefaults.MinHeight),
             value = value,
             onValueChange = {},
             shape = RoundedCornerShape(20.dp),
@@ -58,11 +60,13 @@ fun EditTextLabel(
                     color = darkGrey
                 )
             },
+            singleLine = !isLongText,
             textStyle = TextStyle(
                 fontSize = 18.sp,
                 fontFamily = Fonts.jostFontFamily,
                 fontWeight = FontWeight.Normal,
             )
+
         , trailingIcon = {
                 if (trailinicon != null) {
                     Icon(painter = trailinicon, contentDescription = "")
