@@ -57,23 +57,29 @@ fun NotificationScreen(
                 },
             )
         },
-        content = {
-            Column(
-                modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp, top = 50.dp)
-                    .fillMaxSize()
-                    .verticalScroll(scrollState)
-            ) {repeat(16){
-                Notification(iconStart = painterResource(id = R.drawable.notification_1))
-                Divider(
-                    color = darkGrey,
+        content = {paddingValues ->
+            Column (modifier = Modifier
+                .padding(start = 16.dp, end = 16.dp,)
+                .fillMaxSize()
+                .verticalScroll(scrollState)){
+                Column(
                     modifier = Modifier
-                        .height(1.dp)
-                        .fillMaxWidth() // Adjust width as needed
-                )
+                        .padding(paddingValues)
+                        .fillMaxSize()
+
+                ) {repeat(16){
+                    Notification(iconStart = painterResource(id = R.drawable.notification_1))
+                    Divider(
+                        color = darkGrey,
+                        modifier = Modifier
+                            .height(1.dp)
+                            .fillMaxWidth() // Adjust width as needed
+                    )
+                }
+
+                }
             }
 
-            }
         },
         bottomBar = {
             s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation(navController = navController)

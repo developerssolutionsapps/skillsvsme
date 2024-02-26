@@ -105,7 +105,7 @@ fun Earnings(navController: NavController) {
                         fontSize = 18.sp,
                         fontFamily = Fonts.jostFontFamily
                     )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
+                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_2))
                     Divider(
                         color = Color.Gray,
                         modifier = Modifier
@@ -129,7 +129,7 @@ fun Earnings(navController: NavController) {
                             .height(1.dp)
                             .fillMaxWidth() // Adjust width as needed
                     )
-                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_1))
+                    TransactionHistory(iconStart = painterResource(id = R.drawable.line_2))
                     Divider(
                         color = Color.Gray,
                         modifier = Modifier

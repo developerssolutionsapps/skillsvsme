@@ -98,7 +98,7 @@ fun TutorProfile(navController: NavController) {
                         backgroundColor = Color.Black,
                         modifier = Modifier,
                         backgroundImage = painterResource(
-                            id = R.drawable.rectangle5,
+                            id = R.drawable.rectangle6,
 
                             ),
                         cameraIconAvailable = true,

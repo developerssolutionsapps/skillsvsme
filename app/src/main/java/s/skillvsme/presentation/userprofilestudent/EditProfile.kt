@@ -37,7 +37,7 @@ fun EditProfile(
     navController: NavController
 ) {
     Scaffold(
-        content = {
+        content = { paddingValues ->
             Column(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -58,34 +58,39 @@ fun EditProfile(
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(top = 40.dp, start = 16.dp, end = 16.dp),
+                        .padding(paddingValues),
                 ) {
-                    Spacer(modifier = Modifier.height(25.dp))
-                    Text(
-                        text = "Kamal Tyagi",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 25.sp,
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                    Spacer(modifier = Modifier.height(15.dp))
-                    EditTextLabel(value = "Kamal Tyagi", text = "User Name")
-                    Spacer(modifier = Modifier.height(15.dp))
-                    EditTextLabel(value = "+999 45821365479", text = "Phone Number")
+                    Column(modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 40.dp, start = 16.dp, end = 16.dp),) {
+                        Spacer(modifier = Modifier.height(25.dp))
+                        Text(
+                            text = "Kamal Tyagi",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 25.sp,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                        Spacer(modifier = Modifier.height(15.dp))
+                        EditTextLabel(value = "Kamal Tyagi", text = "User Name")
+                        Spacer(modifier = Modifier.height(15.dp))
+                        EditTextLabel(value = "+999 45821365479", text = "Phone Number")
 
-                    Spacer(modifier = Modifier.height(15.dp))
-                    EditTextLabel(value = "Califonia, USA", text = "Location")
+                        Spacer(modifier = Modifier.height(15.dp))
+                        EditTextLabel(value = "Califonia, USA", text = "Location")
 
-                    Spacer(modifier = Modifier.height(90.dp))
-                    SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                        Spacer(modifier = Modifier.height(90.dp))
+                        SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                        }
+                        Spacer(modifier = Modifier.height(20.dp))
+                        SkillvsmeText(
+                            value = "Back",
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                            boldValue = true,
+                            valueFont = FontWeight.Bold
+                        )
                     }
-                    Spacer(modifier = Modifier.height(20.dp))
-                    SkillvsmeText(
-                        value = "Back",
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        boldLabel = false,
-                        valueFont = FontWeight.Bold
-                    )
-                }
+                    }
+
             }
         },
         bottomBar = {
