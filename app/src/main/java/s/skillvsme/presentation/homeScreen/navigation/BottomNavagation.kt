@@ -24,6 +24,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Card
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
@@ -49,6 +51,7 @@ import s.skillvsme.presentation.payment.Checkout
 import s.skillvsme.presentation.payment.Payment
 import s.skillvsme.presentation.payment.PaymentPlan
 import s.skillvsme.presentation.payment.PaymentSuccess
+import s.skillvsme.presentation.streaming.LiveStreaming
 import s.skillvsme.presentation.streaming.streaming
 import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
@@ -68,10 +71,10 @@ import s.skillvsme.utils.coloredShadow
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
-fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
+fun NavigationGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Home.Home
+        startDestination = Route.Student.Onboarding.Onboarding1
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -111,6 +114,9 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         composable(Route.Student.Streaming.LiveStream) {
             streaming(navController)
         }
+        composable(Route.Student.Streaming.ViewLiveStream) {
+            LiveStreaming(navController)
+        }
         composable(Route.Student.Classes.UpcomingClasses) {
             Classes(navController = navController)
         }
@@ -126,26 +132,8 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         composable(Route.Student.Profile.StudentProfile) {
             StudentProfile(navController = navController)
         }
-        composable(Route.Student.Onboarding.Onboarding1) {
-            Onboarding1(navController = navController)
-        }
-        composable(Route.Student.Onboarding.Onboarding2) {
-            Onboarding2(navController = navController)
-        }
-        composable(Route.Student.Onboarding.Onboarding3) {
-            Onboarding3(navController = navController)
-        }
         composable(Route.Student.Profile.EditProfile) {
             EditProfile(navController)
-        }
-        composable(Route.Student.Onboarding.JoinAS) {
-            JoinAs(navController = navController)
-        }
-        composable(Route.Student.Onboarding.SignUp) {
-            Signup(navController = navController)
-        }
-        composable(Route.Student.Onboarding.CodeVerification) {
-            CodeVerification(navController = navController)
         }
         composable(Route.Student.Profile.SubscriptionPlan) {
             SubscriptionPlan(navController)
@@ -177,7 +165,6 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         composable(Route.Student.Onboarding.CodeVerification) {
             CodeVerification(navController = navController)
         }
-
     }
 }
 

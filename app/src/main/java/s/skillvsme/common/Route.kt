@@ -50,6 +50,7 @@ object Route {
 
         object Streaming {
             const val LiveStream = "/student/streaming/livestream"
+            const val ViewLiveStream = "/student/streaming/viewlivestream"
 
         }
     }
