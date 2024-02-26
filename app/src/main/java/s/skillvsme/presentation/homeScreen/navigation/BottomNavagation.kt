@@ -33,8 +33,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import s.skillvsme.common.Route
-import s.skillvsme.presentation.classes.ClassDetails
-import s.skillvsme.presentation.classes.ClassRoom
 import s.skillvsme.presentation.classes.Classes
 import s.skillvsme.presentation.classes.VideoScreen
 import s.skillvsme.presentation.homeScreen.HomePage
@@ -54,6 +52,10 @@ import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
 import s.skillvsme.presentation.tutors.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsList
+import s.skillvsme.presentation.tutors.TutorsProfile.Earnings
+import s.skillvsme.presentation.tutors.TutorsProfile.PaymentSetting
+import s.skillvsme.presentation.tutors.TutorsProfile.TransactionSuccess
+import s.skillvsme.presentation.tutors.TutorsProfile.TutorProfile
 import s.skillvsme.presentation.tutors.TutorsVideo
 import s.skillvsme.presentation.userprofilestudent.EditLanguage
 import s.skillvsme.presentation.userprofilestudent.EditProfile
@@ -68,10 +70,10 @@ import s.skillvsme.utils.coloredShadow
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
-fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
+fun NavigationGraph(navController: NavHostController, ) {
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Home.Home
+
         ) {
         composable(Route.Student.Home.Home) {
             HomePage(
@@ -177,6 +179,30 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier = Modif
         composable(Route.Student.Onboarding.CodeVerification) {
             CodeVerification(navController = navController)
         }
+        composable(Route.Tutor.Home.Home) {
+            s.skillvsme.presentation.tutors.homePage.TutorHomePage(navController = navController)
+        }
+        composable(Route.Tutor.Profile.TutorProfile) {
+            TutorProfile(navController = navController)
+        }
+        composable(Route.Tutor.Profile.EditLanguage) {
+            s.skillvsme.presentation.tutors.TutorsProfile.EditLanguage(navController = navController)
+        }
+        composable(Route.Tutor.Profile.Earnings) {
+            Earnings(navController = navController)
+        }
+        composable(Route.Tutor.Profile.EditProfile) {
+            s.skillvsme.presentation.tutors.TutorsProfile.EditProfile(navController = navController)
+        }
+        composable(Route.Tutor.Profile.Notifications) {
+            s.skillvsme.presentation.tutors.TutorsProfile.NotificationScreen(navController = navController)
+        }
+        composable(Route.Tutor.Profile.PaymentSettings) {
+            PaymentSetting(navController = navController)
+        }
+        composable(Route.Tutor.Profile.TransactionSuccess) {
+            TransactionSuccess(navController = navController)
+        }
 
     }
 }
@@ -204,7 +230,7 @@ fun BottomNavigation(navController: NavController) {
         BottomNavigation(
             backgroundColor = white, modifier = Modifier
                 .coloredShadow(
-                    color = Color.Gray,
+                    color = Color.Gray.copy(0.2f),
                     borderRadius = 4.dp,
                     blurRadius = 4.dp,
                     offsetY = (-4).dp,
