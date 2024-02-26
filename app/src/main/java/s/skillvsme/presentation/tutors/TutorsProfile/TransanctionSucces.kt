@@ -50,6 +50,7 @@ import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.onboarding.OtpTextField
 import s.skillvsme.presentation.onboarding.TextEndingWithLink
 import s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 
@@ -77,7 +78,7 @@ fun TransactionSuccess(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(332.dp)
-                            .background(Color(0XFFF2F3F4)),
+                            .background(black),
                         contentAlignment = Alignment.TopCenter
 
                     ) {
@@ -184,7 +185,7 @@ fun TransactionSuccess(
                             }
                             Spacer(modifier = Modifier.height(43.dp))
                             SkillvsmeButton(
-                                label = "Continue",
+                                label = "Back to Home",
                                 modifier = Modifier
                                     .padding(horizontal = 20.dp)
                                     .fillMaxWidth()
