@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -94,7 +95,9 @@ fun EditProfile(
                             fontSize = 18.sp,
                             color= purple,
                             textDecoration = TextDecoration.Underline,
-                            modifier = Modifier.align(Alignment.CenterHorizontally).clickable {  }
+                            modifier = Modifier.align(Alignment.CenterHorizontally).clickable {
+                            navController.navigate(Route.Tutor.Profile.TutorProfilePublicView)
+                            }
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         EditTextLabel(value = "Kamal Tyagi", text = "User Name")

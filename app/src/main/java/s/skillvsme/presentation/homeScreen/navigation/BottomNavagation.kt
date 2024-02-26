@@ -24,6 +24,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Card
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
@@ -73,6 +75,8 @@ import s.skillvsme.utils.coloredShadow
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
 fun NavigationGraph(navController: NavHostController, ) {
+    var loginDetails by mutableStateOf(LoginDetails())
+
     NavHost(
         navController = navController,
         startDestination = Route.Tutor.Home.Home
@@ -143,13 +147,13 @@ fun NavigationGraph(navController: NavHostController, ) {
             EditProfile(navController)
         }
         composable(Route.Student.Onboarding.JoinAS) {
-            JoinAs(navController = navController)
+            JoinAs(navController = navController,loginDetails)
         }
         composable(Route.Student.Onboarding.SignUp) {
             Signup(navController = navController)
         }
         composable(Route.Student.Onboarding.CodeVerification) {
-            CodeVerification(navController = navController)
+            CodeVerification(navController = navController, loginDetails = loginDetails)
         }
         composable(Route.Student.Profile.SubscriptionPlan) {
             SubscriptionPlan(navController)
@@ -173,13 +177,13 @@ fun NavigationGraph(navController: NavHostController, ) {
             Onboarding3(navController = navController)
         }
         composable(Route.Student.Onboarding.JoinAS) {
-            JoinAs(navController = navController)
+            JoinAs(navController = navController, loginDetails = loginDetails)
         }
         composable(Route.Student.Onboarding.SignUp) {
             Signup(navController = navController)
         }
         composable(Route.Student.Onboarding.CodeVerification) {
-            CodeVerification(navController = navController)
+            CodeVerification(navController = navController,loginDetails)
         }
         composable(Route.Tutor.Home.Home) {
             s.skillvsme.presentation.tutors.homePage.TutorHomePage(navController = navController)
@@ -205,9 +209,24 @@ fun NavigationGraph(navController: NavHostController, ) {
         composable(Route.Tutor.Profile.TransactionSuccess) {
             TransactionSuccess(navController = navController)
         }
+        composable(Route.Tutor.Profile.TutorProfilePublicView) {
+            s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails(navController = navController)
+        }
 
     }
 }
+data class LoginDetails(
+    var LoginAsTutor:Boolean=false
+){
+    fun loginasTutor(){
+     LoginAsTutor=true
+    }
+    fun loginasStudents(){
+   LoginAsTutor=false
+    }
+}
+
+
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable

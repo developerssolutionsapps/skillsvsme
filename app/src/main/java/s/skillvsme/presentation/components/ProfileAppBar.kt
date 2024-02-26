@@ -119,8 +119,6 @@ fun ProfileAppBar(
                     )
                 }
             }
-
-
         }
         Image(
             painter = painterResource(id = R.drawable.arrowback),

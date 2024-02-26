@@ -39,12 +39,15 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
+import s.skillvsme.presentation.homeScreen.navigation.LoginDetails
 import s.skillvsme.ui.theme.white
 
 
 @Composable
 fun CodeVerification(
-    navController: NavController
+    navController: NavController,
+    loginDetails: LoginDetails
+
 ) {
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
@@ -180,7 +183,11 @@ fun CodeVerification(
                             .padding(horizontal = 20.dp)
                             .fillMaxWidth(),
                         onClick = {
-                            navController.navigate(Route.Student.Home.Home)
+                            if (loginDetails.LoginAsTutor){
+                                navController.navigate(Route.Tutor.Home.Home)
+                            }else
+                            {navController.navigate(Route.Student.Home.Home)}
+
                         }
                     )
                     Spacer(modifier = Modifier.height(16.dp))
