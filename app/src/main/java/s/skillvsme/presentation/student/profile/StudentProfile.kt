@@ -1,4 +1,4 @@
-package s.skillvsme.presentation.tutors.TutorsProfile
+package s.skillvsme.presentation.student.profile
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -42,14 +42,14 @@ import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BottomSheet
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeText
-import s.skillvsme.presentation.tutors.navigation.BottomNavigation
+import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.darkGrey
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun TutorProfile(navController: NavController) {
+fun StudentProfile(navController: NavController) {
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
@@ -98,7 +98,7 @@ fun TutorProfile(navController: NavController) {
                         backgroundColor = Color.Black,
                         modifier = Modifier,
                         backgroundImage = painterResource(
-                            id = R.drawable.rectangle6,
+                            id = R.drawable.rectangle5,
 
                             ),
                         cameraIconAvailable = true,
@@ -127,7 +127,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Tutor.Profile.EditProfile)
+                                    navController.navigate(Route.Student.Profile.EditProfile)
                                 },
                             value = "Edit Profile",
                             iconBeforeSize = 23.dp,
@@ -156,7 +156,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Tutor.Profile.EditLanguage)
+                                    navController.navigate(Route.Student.Profile.EditLanguage)
                                 },
                             value = "Language",
                             value1 = "English",
@@ -186,9 +186,9 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Tutor.Profile.Earnings)
+                                    navController.navigate(Route.Student.Profile.SubscriptionPlan)
                                 },
-                            value = "Earnings",
+                            value = "Subscription plan",
                             iconBeforeSize = 20.dp,
                             iconAfterSize = 20.dp,
                             fontSize = 20,
@@ -215,7 +215,7 @@ fun TutorProfile(navController: NavController) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Route.Tutor.Profile.PaymentSettings)
+                                    navController.navigate(Route.Student.Profile.PaymentMethods)
                                 },
                             value = "Payment setting",
                             iconBeforeSize = 20.dp,
@@ -244,7 +244,9 @@ fun TutorProfile(navController: NavController) {
                 }
             },
             bottomBar = {
-               BottomNavigation(navController = navController)
+                BottomNavigation(
+                    navController = navController
+                )
             }
         )
     }

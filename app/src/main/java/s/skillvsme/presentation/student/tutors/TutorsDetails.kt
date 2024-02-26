@@ -1,4 +1,4 @@
-package s.skillvsme.presentation.tutors.TutorsProfile
+package s.skillvsme.presentation.student.tutors
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -37,16 +37,17 @@ import s.skillvsme.presentation.components.ReviewItem
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.TutorsExperience
+import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
-import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
 
+// This screen display the tutors details from the student view
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TutorsDetails(
+fun TutorsDetailsStud(
     navController: NavController
 ) {
     Scaffold(
