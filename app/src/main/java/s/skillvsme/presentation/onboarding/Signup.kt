@@ -69,7 +69,7 @@ fun Signup(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0XFFF2F3F4)),
+                    .background(black),
                 contentAlignment = Alignment.TopCenter
 
             ){

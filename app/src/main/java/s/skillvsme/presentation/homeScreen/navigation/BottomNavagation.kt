@@ -51,6 +51,7 @@ import s.skillvsme.presentation.payment.Checkout
 import s.skillvsme.presentation.payment.Payment
 import s.skillvsme.presentation.payment.PaymentPlan
 import s.skillvsme.presentation.payment.PaymentSuccess
+import s.skillvsme.presentation.streaming.LiveStreaming
 import s.skillvsme.presentation.streaming.streaming
 import s.skillvsme.presentation.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.tutors.Schedule
@@ -119,6 +120,9 @@ fun NavigationGraph(navController: NavHostController, ) {
         composable(Route.Student.Streaming.LiveStream) {
             streaming(navController)
         }
+        composable(Route.Student.Streaming.ViewLiveStream) {
+            LiveStreaming(navController)
+        }
         composable(Route.Student.Classes.UpcomingClasses) {
             Classes(navController = navController)
         }
@@ -133,15 +137,6 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Student.Profile.StudentProfile) {
             StudentProfile(navController = navController)
-        }
-        composable(Route.Student.Onboarding.Onboarding1) {
-            Onboarding1(navController = navController)
-        }
-        composable(Route.Student.Onboarding.Onboarding2) {
-            Onboarding2(navController = navController)
-        }
-        composable(Route.Student.Onboarding.Onboarding3) {
-            Onboarding3(navController = navController)
         }
         composable(Route.Student.Profile.EditProfile) {
             EditProfile(navController)
@@ -212,7 +207,6 @@ fun NavigationGraph(navController: NavHostController, ) {
         composable(Route.Tutor.Profile.TutorProfilePublicView) {
             s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails(navController = navController)
         }
-
     }
 }
 data class LoginDetails(
