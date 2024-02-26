@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SimpleAppBar
@@ -93,7 +94,9 @@ fun Earnings(navController: NavController) {
                         }
                     }
                     Spacer(modifier = Modifier.height(16.dp))
-                    SkillvsmeButton(label = "Withdraw funds", modifier = Modifier.fillMaxWidth())
+                    SkillvsmeButton(label = "Withdraw funds", modifier = Modifier.fillMaxWidth(), onClick = {
+                        navController.navigate(Route.Tutor.Profile.TransactionSuccess)
+                    })
                     Spacer(modifier = Modifier.height(54.dp))
                     Text(
                         text = "Transaction history",

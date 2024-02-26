@@ -65,6 +65,7 @@ object Route {
             const val Earnings = "/tutor/profile/subscriptionplan"
             const val PaymentSettings = "/tutor/profile/paymentsettings"
             const val Notifications = "/tutor/profile/notification"
+            const val TransactionSuccess="/tutor/profile/transactionSuccess"
         }
         object Classes {
             const val UpcomingClasses = "/tutor/classes/upcomingclasses"
