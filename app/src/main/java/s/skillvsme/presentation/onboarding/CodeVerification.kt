@@ -39,6 +39,7 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 
@@ -65,7 +66,7 @@ fun CodeVerification(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0XFFF2F3F4)),
+                    .background(black),
                 contentAlignment = Alignment.TopCenter
 
             ){

@@ -163,6 +163,10 @@ fun HomePage(
                     )
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
+                        modifier = Modifier
+                            .clickable {
+                                navController.navigate(Route.Student.Streaming.LiveStream)
+                            },
                         text = "See all",
                         fontFamily = Fonts.jostFontFamily,
                         fontWeight = FontWeight.Normal,
@@ -179,7 +183,10 @@ fun HomePage(
                             modifier = Modifier
                                 .width(98.dp)
                                 .wrapContentHeight()
-                                .background(lightGrey, RoundedCornerShape(8.dp)),
+                                .background(lightGrey, RoundedCornerShape(8.dp))
+                                .clickable {
+                                    navController.navigate(Route.Student.Streaming.ViewLiveStream)
+                                },
                             contentAlignment = Alignment.Center
                         ) {
                             Column(
