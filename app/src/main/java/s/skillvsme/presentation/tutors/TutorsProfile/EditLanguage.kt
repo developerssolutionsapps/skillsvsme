@@ -44,7 +44,7 @@ fun EditLanguage(navController: NavController) {
             ) {
                 ProfileAppBar(
                     backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
-                        id = R.drawable.rectangle5,
+                        id = R.drawable.rectangle6,
                     ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController =navController
                 )
                 Spacer(modifier = Modifier.weight(1f))
