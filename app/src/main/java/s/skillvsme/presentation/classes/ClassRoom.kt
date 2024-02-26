@@ -19,12 +19,15 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.ui.theme.black
@@ -33,10 +36,18 @@ import s.skillvsme.ui.theme.black
 fun ClassRoom(
     navController: NavController
 ) {
-    Column {
+    val density = LocalDensity.current
+    val statusBarHeight = with(density) { remember { WindowInsetsCompat.Type.statusBars() } }
+    val navigationBarHeight = with(density) { remember { WindowInsetsCompat.Type.navigationBars() } }
+
+    Column(
+        modifier = Modifier
+            .padding(bottom = navigationBarHeight.dp)
+    ) {
         Box(
             modifier = Modifier
-                .weight(1f)
+                .weight(1f),
+            contentAlignment = Alignment.TopEnd
         ){
             Image(
                 modifier = Modifier
@@ -47,6 +58,7 @@ fun ClassRoom(
             )
             Image(
                 modifier = Modifier
+                    .padding(top = navigationBarHeight.dp)
                     .size(24.dp)
                     .padding(end = 20.dp, top = 20.dp),
                 painter = painterResource(id = R.drawable.minimize),
