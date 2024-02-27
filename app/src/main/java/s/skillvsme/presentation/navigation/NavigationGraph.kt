@@ -45,7 +45,9 @@ import s.skillvsme.presentation.student.profile.EditProfileStud
 import s.skillvsme.presentation.student.profile.StudentProfile
 import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
+import s.skillvsme.presentation.student.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
+import s.skillvsme.presentation.tutors.streaming.StreamingPreview
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -176,6 +178,14 @@ fun NavigationGraph(navController: NavHostController, ) {
         // Tutors home screen
         composable(Route.Tutor.Home.Home) {
             TutorHomePage(navController = navController)
+        }
+
+        // Tutors live stream screens
+        composable(Route.Tutor.Streaming.LiveStream) {
+            StreamingScreen(navController = navController)
+        }
+        composable(Route.Tutor.Streaming.LiveStreamPreview) {
+            StreamingPreview(navController = navController)
         }
 
         // Tutors profile screens
