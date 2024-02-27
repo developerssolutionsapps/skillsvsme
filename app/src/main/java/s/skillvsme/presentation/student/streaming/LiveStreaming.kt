@@ -54,6 +54,7 @@ import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
+import kotlin.random.Random
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
@@ -325,11 +326,12 @@ fun StreamingChat(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
+        val randomColor = Color(Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
         Surface(
             modifier = Modifier
                 .size(40.dp),
             shape = RoundedCornerShape(20.dp),
-            color = Color.Magenta
+            color = randomColor
         ) {
             Row(
                 horizontalArrangement = Arrangement.Center,
