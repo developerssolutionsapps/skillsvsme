@@ -46,6 +46,7 @@ import s.skillvsme.presentation.student.profile.StudentProfile
 import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
+import s.skillvsme.presentation.tutors.classes.Addclass
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -55,7 +56,7 @@ fun NavigationGraph(navController: NavHostController, ) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Student.Onboarding.Onboarding1
+        startDestination = Route.Tutor.Classes.AddClass
     ) {
         /*
         * The screens below are those that are related to both the students and the tutors.
@@ -202,6 +203,11 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Tutor.Profile.TutorProfilePublicView) {
             TutorsDetails(navController = navController)
+        }
+
+        //Tutor Classes
+        composable(Route.Tutor.Classes.AddClass) {
+            Addclass(navController = navController)
         }
     }
 }
