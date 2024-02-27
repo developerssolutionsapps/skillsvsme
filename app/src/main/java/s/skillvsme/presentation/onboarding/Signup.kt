@@ -48,7 +48,6 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.white
 
-
 @Composable
 fun Signup(
     navController: NavController
@@ -69,7 +68,7 @@ fun Signup(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0XFFF2F3F4)),
+                    .background(black),
                 contentAlignment = Alignment.TopCenter
 
             ){

@@ -1,4 +1,4 @@
-package s.skillvsme.presentation.tutors.TutorsProfile
+package s.skillvsme.presentation.student.profile
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -34,7 +34,7 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
-import s.skillvsme.presentation.tutors.navigation.BottomNavigation
+import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
@@ -43,7 +43,7 @@ import s.skillvsme.ui.theme.white
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun PaymentSetting(navController: NavController) {
+fun paymentMethod(navController: NavController) {
     Scaffold (
         content = {
             Column(
@@ -54,7 +54,7 @@ fun PaymentSetting(navController: NavController) {
             ) {
                 ProfileAppBar(
                     backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
-                        id = R.drawable.rectangle6,
+                        id = R.drawable.rectangle5,
                     ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController = navController
                 )
                 Column(
@@ -198,10 +198,7 @@ fun PaymentSetting(navController: NavController) {
                 }
             }
         },
-        bottomBar = { BottomNavigation(
-            navController = navController
-        )
-        }
+        bottomBar = { BottomNavigation(navController = navController) }
     )
 
 }

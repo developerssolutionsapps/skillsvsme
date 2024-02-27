@@ -27,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -39,7 +38,8 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.homeScreen.navigation.LoginDetails
+import s.skillvsme.presentation.navigation.LoginDetails
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 
@@ -68,7 +68,7 @@ fun CodeVerification(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0XFFF2F3F4)),
+                    .background(black),
                 contentAlignment = Alignment.TopCenter
 
             ){
@@ -183,7 +183,7 @@ fun CodeVerification(
                             .padding(horizontal = 20.dp)
                             .fillMaxWidth(),
                         onClick = {
-                            if (loginDetails.LoginAsTutor){
+                            if (loginDetails.loginAsTutor){
                                 navController.navigate(Route.Tutor.Home.Home)
                             }else
                             {navController.navigate(Route.Student.Home.Home)}

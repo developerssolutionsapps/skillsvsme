@@ -33,7 +33,6 @@ fun OtpTextField(
             throw IllegalArgumentException("Otp text value must not have more than otpCount: $otpCount characters")
         }
     }
-
     BasicTextField(
         modifier = modifier,
         value = TextFieldValue(otpText, selection = TextRange(otpText.length)),

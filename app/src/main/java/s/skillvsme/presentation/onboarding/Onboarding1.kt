@@ -67,13 +67,10 @@ fun Onboarding1(
                     navController.navigate(Route.Student.Onboarding.JoinAS)
                 }
             )
-
             SkillvsmeButton(
                 label = "Next",
                 modifier = Modifier
                     .weight(1f),
-//                    .width(166.dp)
-//                    .height(49.dp),
                 onClick = {
                     navController.navigate(Route.Student.Onboarding.Onboarding2)
                 }

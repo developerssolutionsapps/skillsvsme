@@ -19,7 +19,7 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.homeScreen.navigation.LoginDetails
+import s.skillvsme.presentation.navigation.LoginDetails
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
@@ -45,18 +45,14 @@ fun JoinAs(
                 .padding(top = 32.dp)
                 .size(120.dp)
         )
-
         Spacer(modifier = Modifier.height(16.dp))
-
         // Welcome text
         Text(
             fontFamily = Fonts.jostFontFamily,
             text = "Join Skillvsme as",
             style = MaterialTheme.typography.h4
         )
-
         Spacer(modifier = Modifier.height(16.dp))
-
         var tutorSelected by remember { mutableStateOf(false) }
         var studentSelected by remember { mutableStateOf(false) }
         // Horizontal row of images with text below
@@ -73,7 +69,7 @@ fun JoinAs(
                         .clickable {
                             studentSelected = false
                             tutorSelected = true
-                            loginDetails.loginasTutor()
+                            loginDetails.loginAsTutor()
                         },
                 ) {
                     Surface(
@@ -117,7 +113,7 @@ fun JoinAs(
                         .clickable {
                             studentSelected = true
                             tutorSelected = false
-                            loginDetails.loginasStudents()
+                            loginDetails.loginAsStudents()
                         },
                 ) {
                     Surface(
@@ -154,9 +150,7 @@ fun JoinAs(
                 )
             }
         }
-
         Spacer(modifier = Modifier.height(32.dp))
-
         SkillvsmeButton(
             enabled = studentSelected || tutorSelected,
             modifier = Modifier
@@ -166,7 +160,6 @@ fun JoinAs(
                 navController.navigate(Route.Student.Onboarding.SignUp)
             }
         )
-
         Spacer(modifier = Modifier.height(32.dp))
     }
 }
