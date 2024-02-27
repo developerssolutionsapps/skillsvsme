@@ -8,13 +8,16 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import s.skillvsme.common.Route
 
 @Composable
 fun UnBookedClassesListItem(
     day: String,
     date: String,
     month: String,
-    cancelClicked: () -> Unit = {}
+    cancelClicked: () -> Unit = {},
+    navController: NavController
 ) {
     Row {
         DateCard(day = day, date = date, month = month)
@@ -27,7 +30,9 @@ fun UnBookedClassesListItem(
             Spacer(modifier = Modifier.height(10.dp))
             EditUnbookedClasses(label = "3:00 - 4:00 PM")
             Spacer(modifier = Modifier.height(10.dp))
-            AddClass()
+            AddClass(
+                navController = navController
+            )
             Spacer(modifier = Modifier.height(10.dp))
         }
     }
