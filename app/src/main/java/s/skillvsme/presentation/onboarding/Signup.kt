@@ -48,7 +48,6 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.white
 
-
 @Composable
 fun Signup(
     navController: NavController

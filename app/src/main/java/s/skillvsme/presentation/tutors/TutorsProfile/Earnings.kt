@@ -32,11 +32,10 @@ import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.BorderedSurface
-import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.TransactionHistory
-import s.skillvsme.presentation.tutors.homePage.navigation.BottomNavigation
+import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 

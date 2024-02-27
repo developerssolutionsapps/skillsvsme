@@ -1,4 +1,4 @@
-package s.skillvsme.presentation.tutors.TutorsProfile
+package s.skillvsme.presentation.student.profile
 
 import android.annotation.SuppressLint
 import android.os.Build
@@ -28,13 +28,12 @@ import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
-import s.skillvsme.presentation.tutors.navigation.BottomNavigation
-
+import s.skillvsme.presentation.student.navigation.BottomNavigation
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
-fun EditLanguage(navController: NavController) {
+fun EditLanguageStud(navController: NavController) {
     Scaffold(
         content = {
             Column(
@@ -45,7 +44,7 @@ fun EditLanguage(navController: NavController) {
             ) {
                 ProfileAppBar(
                     backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
-                        id = R.drawable.rectangle6,
+                        id = R.drawable.rectangle5,
                     ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController =navController
                 )
                 Spacer(modifier = Modifier.weight(1f))
@@ -85,10 +84,7 @@ fun EditLanguage(navController: NavController) {
                 }
             }
         },
-        bottomBar = { BottomNavigation(
-            navController = navController
-        )
-        }
+        bottomBar = { BottomNavigation(navController = navController) }
     )
 
 }

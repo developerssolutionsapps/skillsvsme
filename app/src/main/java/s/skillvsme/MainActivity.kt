@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.compose.rememberNavController
-import s.skillvsme.presentation.homeScreen.navigation.NavigationGraph
+import s.skillvsme.presentation.navigation.NavigationGraph
 import s.skillvsme.ui.theme.SkillVsMeTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +33,8 @@ class MainActivity : ComponentActivity() {
                     androidx.compose.material.Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
-                    ) {NavigationGraph(
+                    ) {
+                        NavigationGraph(
                             navController = navController
                         )
                     }
