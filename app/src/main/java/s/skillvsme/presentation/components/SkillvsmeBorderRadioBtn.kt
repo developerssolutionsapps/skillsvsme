@@ -29,7 +29,8 @@ fun SkillvsmeBorderRadioBtn(
         modifier = modifier,
         borderColor = if (primary) white else black,
         borderWidth = 1.dp,
-        cornerRadius = 24.dp
+        cornerRadius = 24.dp,
+
     ) {
         Row(
             horizontalArrangement = Arrangement.Start,

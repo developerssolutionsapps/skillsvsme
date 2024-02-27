@@ -56,7 +56,7 @@ fun NavigationGraph(navController: NavHostController, ) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Tutor.Classes.AddClass
+        startDestination = Route.Student.Onboarding.Onboarding1
     ) {
         /*
         * The screens below are those that are related to both the students and the tutors.
