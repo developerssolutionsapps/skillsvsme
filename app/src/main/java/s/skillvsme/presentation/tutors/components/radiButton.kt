@@ -1,18 +1,18 @@
 package s.skillvsme.presentation.tutors.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.material.Icon
-import androidx.compose.material.RadioButton
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.IconToggleButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import s.skillvsme.R
 
 @Composable
@@ -22,41 +22,40 @@ fun TwoRadioButtons(
     selectedOption: String,
     onOptionSelected: (String) -> Unit
 ) {
-    Row {
-        RadioButton(
-            selected = selectedOption == option1Text,
-            onClick = { onOptionSelected(option1Text) },
-            modifier = Modifier.padding(end = 8.dp)
-        )
+    Row( verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Start,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        IconToggleButton(
+            checked  = selectedOption == option1Text,
+            onCheckedChange = { onOptionSelected(option1Text) },
+
+        ){
+            Image(
+                painter = painterResource(if (selectedOption == option1Text) R.drawable.checked_radio_button else R.drawable.unchecked_radio_button),
+                contentDescription = "Radio button icon",)
+
+        }
         Text(
             text = option1Text,
             modifier = Modifier.clickable { onOptionSelected(option1Text) }
         )
-        if (selectedOption == option1Text) {
 
-            Icon(
-                painter = painterResource(id = R.drawable.green_tick_icon),
-                contentDescription = null,
-                tint = Color.Green
-            )
+        Spacer(modifier = Modifier.weight(1f))
+        IconToggleButton(
+            checked  = selectedOption == option2Text,
+            onCheckedChange = { onOptionSelected(option2Text) },
+
+            ){
+            Image(
+                painter = painterResource(if (selectedOption == option2Text) R.drawable.checked_radio_button else R.drawable.unchecked_radio_button),
+                contentDescription = "Radio button icon",)
+
         }
-        Spacer(modifier = Modifier.width(16.dp))
-        RadioButton(
-            selected = selectedOption == option2Text,
-            onClick = { onOptionSelected(option2Text) },
-            modifier = Modifier.padding(end = 8.dp)
-        )
         Text(
             text = option2Text,
             modifier = Modifier.clickable { onOptionSelected(option2Text) }
         )
-        if (selectedOption == option2Text) {
 
-            Icon(
-                painter = painterResource(id = R.drawable.green_tick_icon),
-                contentDescription = null,
-                tint = Color.Green
-            )
-        }
     }
 }
