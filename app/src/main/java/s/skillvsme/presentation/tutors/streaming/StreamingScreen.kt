@@ -1,7 +1,6 @@
-package s.skillvsme.presentation.student.streaming
+package s.skillvsme.presentation.tutors.streaming
 
 import android.os.Build
-import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,41 +17,27 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.BottomSheetScaffold
-import androidx.compose.material.BottomSheetState
-import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.rememberBottomSheetScaffoldState
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
-import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
+import s.skillvsme.presentation.student.streaming.StreamingChat
 import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -77,165 +62,178 @@ fun StreamingScreen(
                 Column(
                     modifier = Modifier
                         .padding(paddingValues)
-                        .padding(20.dp)
                         .fillMaxSize(),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column(
-                        verticalArrangement = Arrangement.Top
+                        modifier = Modifier
+                            .padding(20.dp)
+                            .weight(1f),
+                        verticalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
+                        Column(
+                            verticalArrangement = Arrangement.Top
                         ) {
                             Row(
-                                horizontalArrangement = Arrangement.Start
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween
                             ) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(65.dp),
-                                    contentAlignment = Alignment.BottomCenter
+                                Row(
+                                    horizontalArrangement = Arrangement.Start
                                 ) {
-                                    Surface(
+                                    Box(
                                         modifier = Modifier
                                             .size(65.dp),
-                                        shape = RoundedCornerShape(percent = 50)
+                                        contentAlignment = Alignment.BottomCenter
                                     ) {
-                                        Image(
-                                            painter = painterResource(id = R.drawable.student),
-                                            contentDescription = "",
-                                            modifier = Modifier.background(
-                                                white,
-                                                CircleShape
-                                            ),
-                                            contentScale = ContentScale.Crop
-                                        )
-                                    }
-                                    SkillvsmeLiveTag(
-                                        fontSize = 10,
-                                        textModifier = Modifier
-                                            .padding(horizontal = 8.dp)
-                                    )
-                                }
-                                Spacer(modifier = Modifier.width(20.dp))
-                                Column(
-                                    verticalArrangement = Arrangement.SpaceEvenly
-                                ) {
-                                    Row {
-                                        Text(
-                                            text = "Keria Swain",
-                                            fontWeight = FontWeight.SemiBold,
-                                            fontFamily = Fonts.jostFontFamily,
-                                            color = white,
-                                            fontSize = 20.sp
-                                        )
-                                        Spacer(modifier = Modifier.width(20.dp))
-                                        Image(
-                                            painter = painterResource(id = R.drawable.follow_1),
-                                            contentDescription = null,
+                                        Surface(
                                             modifier = Modifier
-                                                .size(24.dp)
-                                        )
-                                    }
-                                    Spacer(modifier = Modifier.height(4.dp))
-                                    Surface(
-                                        shape = RoundedCornerShape(8.dp),
-                                        color = black
-                                    ) {
-                                        Row(
-                                            verticalAlignment = Alignment.CenterVertically,
-                                            horizontalArrangement = Arrangement.SpaceEvenly,
-                                            modifier = Modifier
-                                                .padding(horizontal = 2.dp, vertical = 4.dp)
-                                                .padding(end = 6.dp)
+                                                .size(65.dp),
+                                            shape = RoundedCornerShape(percent = 50)
                                         ) {
                                             Image(
-                                                painter = painterResource(id = R.drawable.followers),
-                                                contentDescription = null,
-                                                modifier = Modifier
-                                                    .size(24.dp)
+                                                painter = painterResource(id = R.drawable.student),
+                                                contentDescription = "",
+                                                modifier = Modifier.background(
+                                                    white,
+                                                    CircleShape
+                                                ),
+                                                contentScale = ContentScale.Crop
                                             )
+                                        }
+                                        SkillvsmeLiveTag(
+                                            fontSize = 10,
+                                            textModifier = Modifier
+                                                .padding(horizontal = 8.dp)
+                                        )
+                                    }
+                                    Spacer(modifier = Modifier.width(20.dp))
+                                    Column(
+                                        verticalArrangement = Arrangement.SpaceEvenly
+                                    ) {
+                                        Row {
                                             Text(
-                                                text = "1996",
-                                                fontWeight = FontWeight.Bold,
+                                                text = "Keria Swain",
+                                                fontWeight = FontWeight.SemiBold,
                                                 fontFamily = Fonts.jostFontFamily,
-                                                fontSize = 12.sp
+                                                color = white,
+                                                fontSize = 20.sp
                                             )
+                                            Spacer(modifier = Modifier.width(20.dp))
+                                        }
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Surface(
+                                            shape = RoundedCornerShape(8.dp),
+                                            color = black
+                                        ) {
+                                            Row(
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.SpaceEvenly,
+                                                modifier = Modifier
+                                                    .padding(horizontal = 2.dp, vertical = 4.dp)
+                                                    .padding(end = 6.dp)
+                                            ) {
+                                                Image(
+                                                    painter = painterResource(id = R.drawable.eye),
+                                                    contentDescription = null,
+                                                    modifier = Modifier
+                                                        .size(24.dp)
+                                                )
+                                                Text(
+                                                    text = "1996",
+                                                    fontWeight = FontWeight.Bold,
+                                                    fontFamily = Fonts.jostFontFamily,
+                                                    fontSize = 12.sp
+                                                )
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            Surface(
-                                modifier = Modifier
-                                    .size(30.dp),
-                                shape = RoundedCornerShape(percent = 50),
-                                color = black
-                            ) {
-                                Image(
-                                    painter = painterResource(id = R.drawable.close),
-                                    contentDescription = null,
+                                Surface(
                                     modifier = Modifier
-                                        .size(24.dp)
+                                        .size(30.dp),
+                                    shape = RoundedCornerShape(percent = 50),
+                                    color = black
+                                ) {
+                                    Image(
+                                        painter = painterResource(id = R.drawable.close),
+                                        contentDescription = null,
+                                        modifier = Modifier
+                                            .clickable { navController.popBackStack() }
+                                            .size(24.dp)
+                                            .padding(4.dp)
+                                    )
+                                }
+                            }
+                            Spacer(modifier = Modifier.height(20.dp))
+                            Image(
+                                painter = painterResource(id = R.drawable.recording_timer),
+                                contentDescription = null
+                            )
+                        }
+                        Row(
+                            verticalAlignment = Alignment.Bottom,
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            modifier = Modifier
+                                .wrapContentHeight()
+                                .fillMaxWidth(),
+                        ) {
+                            Column(
+                                verticalArrangement = Arrangement.Bottom,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(end = 20.dp)
+                            ) {
+                                StreamingChat(
+                                    name = "Sally Ed",
+                                    text = "Hello there"
                                 )
+                                StreamingChat(
+                                    name = "Cid Park",
+                                    text = "I was waiting for this live.."
+                                )
+                                StreamingChat(
+                                    name = "Fatima Adel",
+                                    text = "Your video is super hel..."
+                                )
+                                StreamingChat(
+                                    name = "Anne Wayte",
+                                    text = "Very nice"
+                                )
+                                Spacer(modifier = Modifier.height(8.dp))
                             }
                         }
-                        Image(painter = painterResource(id = R.drawable.recording_timer), contentDescription = null)
                     }
-                    Row(
-                        verticalAlignment = Alignment.Bottom,
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                    androidx.compose.material.Surface(
+                        shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
+                        color = black,
                         modifier = Modifier
-                            .wrapContentHeight()
-                            .fillMaxWidth(),
+                            .wrapContentHeight(),
                     ) {
-                        Column(
-                            verticalArrangement = Arrangement.Bottom,
+                        Row(
                             modifier = Modifier
-                                .weight(1f)
-                                .padding(end = 20.dp)
+                                .fillMaxWidth()
+                                .padding(bottom = 10.dp, top = 10.dp),
+                            horizontalArrangement = Arrangement.Center,
+                            verticalAlignment = Alignment.CenterVertically
                         ) {
-                            StreamingChat(
-                                name = "Sally Ed",
-                                text = "Hello there"
+                            Image(
+                                modifier = Modifier.size(48.dp),
+                                painter = painterResource(id = R.drawable.audio_recorder),
+                                contentDescription = null
                             )
-                            StreamingChat(
-                                name = "Cid Park",
-                                text = "I was waiting for this live.."
+                            Spacer(modifier = Modifier.width(28.dp))
+                            Image(
+                                modifier = Modifier.size(60.dp),
+                                painter = painterResource(id = R.drawable.pause_recording),
+                                contentDescription = null
                             )
-                            StreamingChat(
-                                name = "Fatima Adel",
-                                text = "Your video is super hel..."
+                            Spacer(modifier = Modifier.width(28.dp))
+                            Image(
+                                modifier = Modifier.size(48.dp),
+                                painter = painterResource(id = R.drawable.video_recorder),
+                                contentDescription = null
                             )
-                            StreamingChat(
-                                name = "Anne Wayte",
-                                text = "Very nice"
-                            )
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Row(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .padding(bottom = 33.dp, top = 10.dp),
-                                horizontalArrangement = Arrangement.Center,
-                                verticalAlignment = Alignment.CenterVertically
-                            ) {
-                                Image(
-                                    modifier = Modifier.size(48.dp),
-                                    painter = painterResource(id = R.drawable.audio_recorder),
-                                    contentDescription = null
-                                )
-                                Spacer(modifier = Modifier.width(28.dp))
-                                Image(
-                                    modifier = Modifier.size(56.dp),
-                                    painter = painterResource(id = R.drawable.pause_recording),
-                                    contentDescription = null
-                                )
-                                Spacer(modifier = Modifier.width(28.dp))
-                                Image(
-                                    modifier = Modifier.size(48.dp),
-                                    painter = painterResource(id = R.drawable.video_recorder),
-                                    contentDescription = null
-                                )
-                            }
                         }
                     }
                 }

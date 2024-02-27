@@ -45,7 +45,7 @@ import s.skillvsme.presentation.student.profile.EditProfileStud
 import s.skillvsme.presentation.student.profile.StudentProfile
 import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
-import s.skillvsme.presentation.student.streaming.StreamingScreen
+import s.skillvsme.presentation.tutors.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
 import s.skillvsme.presentation.tutors.streaming.StreamingPreview
 
