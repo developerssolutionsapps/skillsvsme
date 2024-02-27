@@ -47,8 +47,7 @@ import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
 import s.skillvsme.presentation.tutors.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
-import s.skillvsme.presentation.tutors.classes.TutorsClassesScreen
-import s.skillvsme.presentation.tutors.streaming.StreamingPreview
+import s.skillvsme.presentation.tutors.classes.Addclass
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -218,6 +217,11 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Tutor.Profile.TutorProfilePublicView) {
             TutorsDetails(navController = navController)
+        }
+
+        //Tutor Classes
+        composable(Route.Tutor.Classes.AddClass) {
+            Addclass(navController = navController)
         }
     }
 }

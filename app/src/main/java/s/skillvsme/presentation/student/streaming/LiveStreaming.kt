@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.student.streaming
 
+import ReportOverlay
 import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
@@ -34,6 +35,8 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -46,11 +49,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
+import s.skillvsme.presentation.dialogue.PopForFollow
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
@@ -60,8 +65,19 @@ import kotlin.random.Random
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
 fun LiveStreaming(
-    navController:NavController
-){
+    navController: NavController
+) {
+
+    val showDialog = remember { mutableStateOf(false) }
+    val showDialogPop = remember { mutableStateOf(false) }
+    if (showDialog.value)
+        ReportOverlay(value = "", setShowDialog = {
+            showDialog.value = it
+        }) {}
+    if (showDialogPop.value)
+        PopForFollow(value = "", setShowDialog = {
+            showDialog.value = it
+        }) {}
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
@@ -164,6 +180,9 @@ fun LiveStreaming(
                                             contentDescription = null,
                                             modifier = Modifier
                                                 .size(24.dp)
+                                                .clickable {
+
+                                                }
                                         )
                                     }
                                     Spacer(modifier = Modifier.height(4.dp))
@@ -290,7 +309,9 @@ fun LiveStreaming(
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
                                     painter = painterResource(id = R.drawable.warning),
-                                    contentDescription = null
+                                    contentDescription = null, modifier = Modifier.clickable {
+                                        showDialog.value = true
+                                    }
                                 )
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
@@ -315,13 +336,21 @@ fun LiveStreaming(
             },
         )
     }
+    LaunchedEffect(Unit) {
+        while (true) {
+            delay(5000) // Delay for 5 seconds
+            showDialog.value = true
+            delay(5000) // Wait for another 5 seconds
+            showDialog.value = false
+        }
+    }
 }
 
 @Composable
 fun StreamingChat(
     name: String,
     text: String
-){
+) {
     Row(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
@@ -478,7 +507,7 @@ fun GiftOverlay(navController: NavController) {
                     )
                     Text(
                         modifier = Modifier
-                            .clickable {  },
+                            .clickable { },
                         text = "Recharge",
                         color = white,
                         fontFamily = Fonts.jostFontFamily,

@@ -70,8 +70,8 @@ object Route {
             const val TutorProfilePublicView="/tutor/profile/tutorProfilePublicView"
         }
         object Classes {
-            const val Classes = "/tutor/classes/classes"
-            const val AddClass = "/tutor/classes/addclasses"
+            const val UpcomingClasses = "/tutor/classes/upcomingclasses"
+            const val AddClass= "/tutor/classes/addClass"
         }
         object Streaming {
             const val LiveStream = "/tutor/streaming/livestream"

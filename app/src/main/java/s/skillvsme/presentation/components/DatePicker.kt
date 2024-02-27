@@ -73,7 +73,7 @@ fun datepicker() {
         Surface(border = BorderStroke(1.dp, darkGrey), modifier = Modifier
             .fillMaxWidth()
             .height(40.dp),
-            shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(12.dp),
         ){
 
         }
@@ -112,8 +112,6 @@ fun datepicker() {
             )
         }
     }
-
-
 }
 
 private fun lastDayInMonth(month: Int, year: Int): Int {
@@ -150,7 +148,7 @@ fun timepicker() {
         Surface(border = BorderStroke(1.dp, darkGrey), modifier = Modifier
             .fillMaxWidth()
             .height(40.dp),
-            shape = RoundedCornerShape(12.dp),
+                shape = RoundedCornerShape(12.dp),
         )
 
         {
