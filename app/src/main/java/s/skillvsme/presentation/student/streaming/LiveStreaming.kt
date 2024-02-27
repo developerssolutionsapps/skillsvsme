@@ -197,7 +197,7 @@ fun LiveStreaming(
                                 modifier = Modifier
                                     .size(30.dp),
                                 shape = RoundedCornerShape(percent = 50),
-                                color = black.copy(alpha = 0.3f)
+                                color = black
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.close),

@@ -46,7 +46,6 @@ import java.time.Month
 fun TutorHomePage(
     navController: NavController
 ) {
-    val itemCount:Int
     var selectedDay by remember { mutableStateOf(0) }
     var selectedMonth by remember { mutableStateOf(Month.JANUARY) }
     var selectedYear by remember { mutableStateOf(0) }
@@ -122,7 +121,7 @@ fun TutorHomePage(
                         Box {
                             Image(
                                 painter = painterResource(id = R.drawable.background_lines),
-                                contentDescription = "Vehicles Image",
+                                contentDescription = null,
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(204.dp),
@@ -146,7 +145,9 @@ fun TutorHomePage(
                                 }
                                 Spacer(modifier = Modifier.height(8.dp))
                                 Button(
-                                    onClick = { },
+                                    onClick = {
+                                        navController.navigate(Route.Tutor.Streaming.LiveStreamPreview)
+                                    },
                                     shape = RoundedCornerShape(21.dp),
                                     modifier = Modifier
                                         .width(128.dp)
