@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.student.payment
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
@@ -27,6 +28,7 @@ import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.white
 
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
@@ -37,10 +39,9 @@ fun Payment(
         topBar = {
             SimpleAppBar(navController = navController, text = "Confirmation")
         },
-        content = {it ->
+        content = {
             Column(
                 modifier = Modifier
-                    .padding(it)
                     .padding(24.dp)
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceBetween

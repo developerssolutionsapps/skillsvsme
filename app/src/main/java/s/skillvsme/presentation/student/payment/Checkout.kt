@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.student.payment
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
@@ -31,6 +32,7 @@ import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
@@ -41,10 +43,9 @@ fun Checkout(
         topBar = {
             SimpleAppBar(navController = navController, text = "Checkout")
         },
-        content = { paddingValues ->
+        content = {
             Column(
                 modifier = Modifier
-                    .padding(paddingValues)
                     .padding(24.dp)
                     .fillMaxSize(),
                 verticalArrangement = Arrangement.SpaceBetween
@@ -180,7 +181,7 @@ fun Checkout(
                             navController.popBackStack()
                         }
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(80.dp))
                 }
             }
         },

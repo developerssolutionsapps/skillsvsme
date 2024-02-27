@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.student.payment
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
@@ -24,6 +25,7 @@ import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.purple
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
@@ -34,12 +36,11 @@ fun PaymentPlan(
         topBar = {
             SimpleAppBar(navController = navController, text = "Customize your plan")
         },
-        content = { paddingValues ->
+        content = {
             val selectedValue = "30 mins/week"
             val selecctedPayPlan = "Every 3 months"
             Column(
                 modifier = Modifier
-                    .padding(paddingValues)
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
@@ -139,8 +140,7 @@ fun PaymentPlan(
                         navController.popBackStack()
                     }
                 )
-                Spacer(modifier = Modifier.height(20.dp))
-
+                Spacer(modifier = Modifier.height(80.dp))
             }
         },
         bottomBar = {

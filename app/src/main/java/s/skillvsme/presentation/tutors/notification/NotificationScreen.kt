@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -57,29 +58,29 @@ fun NotificationScreen(
                 },
             )
         },
-        content = {paddingValues ->
+        content = {
             Column (modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp,)
                 .fillMaxSize()
-                .verticalScroll(scrollState)){
+                .verticalScroll(scrollState)
+            ){
                 Column(
                     modifier = Modifier
-                        .padding(paddingValues)
                         .fillMaxSize()
-
-                ) {repeat(16){
-                    Notification(iconStart = painterResource(id = R.drawable.notification_1))
-                    Divider(
-                        color = darkGrey,
-                        modifier = Modifier
-                            .height(1.dp)
-                            .fillMaxWidth() // Adjust width as needed
-                    )
-                }
-
+                ) {
+                    Spacer(modifier = Modifier.height(80.dp))
+                    repeat(16){
+                        Notification(iconStart = painterResource(id = R.drawable.notification_1))
+                        Divider(
+                            color = darkGrey,
+                            modifier = Modifier
+                                .height(1.dp)
+                                .fillMaxWidth() // Adjust width as needed
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(100.dp))
                 }
             }
-
         },
         bottomBar = {
             BottomNavigation(navController = navController)

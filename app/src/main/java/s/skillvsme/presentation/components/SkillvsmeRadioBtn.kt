@@ -5,12 +5,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Colors
 import androidx.compose.material.RadioButton
 import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
@@ -22,7 +24,10 @@ fun SkillvsmeRadioBtn(
     modifier: Modifier = Modifier,
     selectedValue: String,
     label: String,
-    onClick: () -> Unit = {}
+    onClick: () -> Unit = {},
+    color: Color = black,
+    textColor:Color= black,
+    fontSize:Int=20
 ) {
     Row(
         horizontalArrangement = Arrangement.Start,
@@ -32,15 +37,16 @@ fun SkillvsmeRadioBtn(
             selected = selectedValue == label,
             onClick = onClick,
             colors = RadioButtonDefaults.colors(
-                selectedColor = black,
-                unselectedColor = black
+                selectedColor = color,
+                unselectedColor = color
             )
         )
         Text(
             text = label,
+            color = color,
             modifier = Modifier.fillMaxWidth(),
             fontFamily = Fonts.jostFontFamily,
-            fontSize = 20.sp
+            fontSize = fontSize.sp
         )
     }
 }

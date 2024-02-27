@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.student.payment
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -44,6 +45,7 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
@@ -54,10 +56,9 @@ fun BookTrial(
         topBar = {
             SimpleAppBar(navController = navController, text = "Book Trial")
         },
-        content = {it ->
+        content = {
             Column(
                 modifier = Modifier
-                    .padding(it)
                     .padding(20.dp)
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState()),

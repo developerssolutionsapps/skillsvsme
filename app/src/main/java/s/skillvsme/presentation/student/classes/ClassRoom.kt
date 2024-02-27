@@ -43,6 +43,7 @@ fun ClassRoom(
     Column(
         modifier = Modifier
             .padding(bottom = navigationBarHeight.dp)
+            .background(black)
     ) {
         Box(
             modifier = Modifier
@@ -56,14 +57,18 @@ fun ClassRoom(
                 contentDescription = null,
                 contentScale = ContentScale.Crop
             )
-            Image(
+            Box(
                 modifier = Modifier
                     .padding(top = navigationBarHeight.dp)
-                    .size(24.dp)
-                    .padding(end = 20.dp, top = 20.dp),
-                painter = painterResource(id = R.drawable.minimize),
-                contentDescription = null,
-            )
+                    .padding(end = 20.dp, top = 20.dp)
+            ) {
+                Image(
+                    modifier = Modifier
+                        .size(24.dp),
+                    painter = painterResource(id = R.drawable.minimize),
+                    contentDescription = null,
+                )
+            }
         }
         Box(
             modifier = Modifier

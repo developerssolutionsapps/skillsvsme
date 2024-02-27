@@ -49,7 +49,7 @@ fun Earnings(navController: NavController) {
         topBar = {
                  SimpleAppBar(navController = navController, text = "Earnings")
         },
-        content = {paddingValue ->
+        content = {
             Column(
                 modifier = Modifier.padding(start = 16.dp, end = 16.dp,)
                     .verticalScroll(scrollState),
@@ -59,9 +59,8 @@ fun Earnings(navController: NavController) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(paddingValue),
                 ) {
-                    Spacer(modifier = Modifier.height(18.dp))
+                    Spacer(modifier = Modifier.height(80.dp))
                     Text(
                         text = "Available Balance",
                         fontWeight = FontWeight.Normal,
@@ -135,6 +134,7 @@ fun Earnings(navController: NavController) {
                             .height(1.dp)
                             .fillMaxWidth() // Adjust width as needed
                     )
+                    Spacer(modifier = Modifier.height(100.dp))
                 }
             }
         },
