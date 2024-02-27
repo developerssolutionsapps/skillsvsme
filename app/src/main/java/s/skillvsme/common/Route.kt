@@ -75,7 +75,7 @@ object Route {
         }
         object Streaming {
             const val LiveStream = "/tutor/streaming/livestream"
-
+            const val LiveStreamPreview = "/tutor/streaming/livestreampreview"
         }
     }
 

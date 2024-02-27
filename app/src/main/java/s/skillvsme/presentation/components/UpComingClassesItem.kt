@@ -30,7 +30,6 @@ import s.skillvsme.ui.theme.black60
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
 
-
 @Composable
 fun UpComingClassesItem(
     day: String,

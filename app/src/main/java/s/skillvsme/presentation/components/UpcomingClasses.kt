@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.components
 
+import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,6 +15,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,13 +29,22 @@ import androidx.compose.ui.unit.sp
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
-
+import kotlin.random.Random
 
 
 @Composable
 fun UpcomingClasses(
-    Join: String
+    join: String,
+    buttonOnclick: () -> Unit = {},
 ) {
+    val showDialog =  remember { mutableStateOf(false) }
+    if(showDialog.value)
+        CustomDialog(
+            value = "You will be able to join the classroom 10 min before the class starts",
+            buttonText = "Confirm",
+            setShowDialog = {
+            showDialog.value = it
+        })
     Column(
         modifier = Modifier
             .wrapContentSize()
@@ -46,7 +58,7 @@ fun UpcomingClasses(
         ) {
             Box(
                 modifier = Modifier
-                    .background(if (Join == "Join") Color.Black else Color.White)
+                    .background(if (join == "Join") Color.Black else Color.White)
             ) {
                 Column(
                     modifier = Modifier.padding(8.dp),
@@ -58,7 +70,7 @@ fun UpcomingClasses(
                         fontSize = 18.sp,
                         modifier = Modifier.padding(start = 12.dp, top = 12.dp),
                         style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Bold),
-                        color = if (Join == "Join") Color.White else Color.Black
+                        color = if (join == "Join") Color.White else Color.Black
                     )
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
@@ -71,7 +83,7 @@ fun UpcomingClasses(
                                 fontWeight = FontWeight.Normal,
                                 fontSize = 18.sp,
                                 modifier = Modifier.padding(start = 10.dp),
-                                color = if (Join == "Join") Color.White else Color.Black
+                                color = if (join == "Join") Color.White else Color.Black
                             )
                             Row(
                                 verticalAlignment = Alignment.CenterVertically
@@ -82,7 +94,7 @@ fun UpcomingClasses(
                                         .size(16.dp)
                                         .padding(start = 7.dp),
                                     contentDescription = "Location icon",
-                                    tint = if (Join == "Join") Color.White else Color.Black
+                                    tint = if (join == "Join") Color.White else Color.Black
                                 )
                                 Text(
                                     text = "Markesh, Morocco | 1:30pm",
@@ -91,22 +103,32 @@ fun UpcomingClasses(
                                     fontFamily = Fonts.jostFontFamily,
                                     fontWeight = FontWeight.Normal,
                                     fontSize = 10.sp,
-                                    color = if (Join == "Join") Color.White else Color.Black
+                                    color = if (join == "Join") Color.White else Color.Black
                                 )
                             }
                         }
                     }
                     Spacer(modifier = Modifier.height(9.dp))
                     Button(
-                        onClick = { /* Handle button click */ },
+                        onClick = {
+                            if(join == "Join"){
+                                val randBool = Random.nextBoolean()
+                                if(randBool) {
+                                    showDialog.value = true
+                                } else {
+                                    buttonOnclick()
+                                }
+                            }
+                            buttonOnclick()
+                                  },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(49.dp)
                             .padding(start = 12.dp, end = 11.dp)
                             .clip(RoundedCornerShape(21.dp)),
-                        colors = ButtonDefaults.buttonColors(if (Join == "Join") Color.White else Color.Black),
+                        colors = ButtonDefaults.buttonColors(if (join == "Join") Color.White else Color.Black),
                     ) {
-                        Text(text = Join, color = if (Join == "Join") Color.Black else Color.White)
+                        Text(text = join, color = if (join == "Join") Color.Black else Color.White)
                     }
                 }
             }

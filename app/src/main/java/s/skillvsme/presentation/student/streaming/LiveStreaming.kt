@@ -59,6 +59,7 @@ import s.skillvsme.presentation.dialogue.PopForFollow
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
+import kotlin.random.Random
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
@@ -216,13 +217,15 @@ fun LiveStreaming(
                                 modifier = Modifier
                                     .size(30.dp),
                                 shape = RoundedCornerShape(percent = 50),
-                                color = black.copy(alpha = 0.3f)
+                                color = black
                             ) {
                                 Image(
                                     painter = painterResource(id = R.drawable.close),
                                     contentDescription = null,
                                     modifier = Modifier
+                                        .clickable { navController.popBackStack() }
                                         .size(24.dp)
+                                        .padding(4.dp)
                                 )
                             }
                         }
@@ -317,6 +320,12 @@ fun LiveStreaming(
                                 )
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
+                                    modifier = Modifier
+                                        .clickable {
+                                           scope.launch {
+                                               bottomSheetScaffoldState.bottomSheetState.expand()
+                                           }
+                                        },
                                     painter = painterResource(id = R.drawable.gift),
                                     contentDescription = null
                                 )
@@ -346,11 +355,12 @@ fun StreamingChat(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically
     ) {
+        val randomColor = Color(Random.nextInt(256), Random.nextInt(256), Random.nextInt(256))
         Surface(
             modifier = Modifier
                 .size(40.dp),
             shape = RoundedCornerShape(20.dp),
-            color = Color.Magenta
+            color = randomColor
         ) {
             Row(
                 horizontalArrangement = Arrangement.Center,
