@@ -47,7 +47,10 @@ import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
 import s.skillvsme.presentation.tutors.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
-import s.skillvsme.presentation.tutors.classes.Addclass
+import s.skillvsme.presentation.tutors.classes.AddClass
+import s.skillvsme.presentation.tutors.classes.ClassAddSuccess
+import s.skillvsme.presentation.tutors.classes.TutorsClassesScreen
+import s.skillvsme.presentation.tutors.streaming.StreamingPreview
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -192,6 +195,15 @@ fun NavigationGraph(navController: NavHostController, ) {
         composable(Route.Tutor.Classes.Classes) {
             TutorsClassesScreen(navController = navController)
         }
+        composable(Route.Tutor.Classes.AddClass) {
+            AddClass(navController = navController)
+        }
+        composable(Route.Tutor.Classes.AddClassSuccess) {
+            ClassAddSuccess(navController = navController)
+        }
+        composable(Route.Tutor.Classes.CancelClassSuccess) {
+            ClassAddSuccess(navController = navController)
+        }
 
         // Tutors profile screens
         composable(Route.Tutor.Profile.TutorProfile) {
@@ -217,11 +229,6 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Tutor.Profile.TutorProfilePublicView) {
             TutorsDetails(navController = navController)
-        }
-
-        //Tutor Classes
-        composable(Route.Tutor.Classes.AddClass) {
-            Addclass(navController = navController)
         }
     }
 }

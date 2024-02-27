@@ -1,6 +1,7 @@
-package s.skillvsme.presentation.components
+package s.skillvsme.presentation.dialog
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
@@ -51,6 +53,9 @@ fun CustomDialog(
                         ) {
                             Image(
                                 modifier = Modifier
+                                    .clickable {
+                                        setShowDialog(false)
+                                    }
                                     .padding(4.dp),
                                 painter = painterResource(id = R.drawable.cancel),
                                 contentDescription = null

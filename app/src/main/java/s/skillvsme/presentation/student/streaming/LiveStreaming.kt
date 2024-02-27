@@ -53,9 +53,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
-import s.skillvsme.presentation.dialogue.PopForFollow
+import s.skillvsme.presentation.dialog.PopForFollow
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
@@ -223,7 +224,7 @@ fun LiveStreaming(
                                     painter = painterResource(id = R.drawable.close),
                                     contentDescription = null,
                                     modifier = Modifier
-                                        .clickable { navController.popBackStack() }
+                                        .clickable { navController.navigate(Route.Student.Home.Home) }
                                         .size(24.dp)
                                         .padding(4.dp)
                                 )
@@ -337,12 +338,7 @@ fun LiveStreaming(
         )
     }
     LaunchedEffect(Unit) {
-        while (true) {
-            delay(5000) // Delay for 5 seconds
-            showDialog.value = true
-            delay(5000) // Wait for another 5 seconds
-            showDialog.value = false
-        }
+
     }
 }
 

@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.tutors.streaming
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -35,11 +36,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.student.streaming.StreamingChat
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
@@ -47,7 +50,7 @@ fun StreamingScreen(
     navController:NavController
 ) {
     Scaffold(
-        content = { paddingValues ->
+        content = {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -61,7 +64,6 @@ fun StreamingScreen(
                 )
                 Column(
                     modifier = Modifier
-                        .padding(paddingValues)
                         .fillMaxSize(),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
@@ -159,7 +161,7 @@ fun StreamingScreen(
                                         painter = painterResource(id = R.drawable.close),
                                         contentDescription = null,
                                         modifier = Modifier
-                                            .clickable { navController.popBackStack() }
+                                            .clickable { navController.navigate(Route.Tutor.Home.Home) }
                                             .size(24.dp)
                                             .padding(4.dp)
                                     )

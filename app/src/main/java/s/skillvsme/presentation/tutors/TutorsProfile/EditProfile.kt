@@ -53,7 +53,7 @@ fun EditProfile(
 ) {
     val  scrollState= rememberScrollState()
     Scaffold(
-        content = {paddingValues ->
+        content = {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -77,8 +77,7 @@ fun EditProfile(
                     .padding(top = 40.dp, start = 16.dp, end = 16.dp),) {
                     Column(
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(paddingValues),
+                            .fillMaxSize(),
                     ) {
                         Spacer(modifier = Modifier.height(25.dp))
                         Text(
@@ -93,9 +92,11 @@ fun EditProfile(
                             fontSize = 18.sp,
                             color= purple,
                             textDecoration = TextDecoration.Underline,
-                            modifier = Modifier.align(Alignment.CenterHorizontally).clickable {
-                            navController.navigate(Route.Tutor.Profile.TutorProfilePublicView)
-                            }
+                            modifier = Modifier
+                                .align(Alignment.CenterHorizontally)
+                                .clickable {
+                                    navController.navigate(Route.Tutor.Profile.TutorProfilePublicView)
+                                }
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         EditTextLabel(value = "Kamal Tyagi", text = "User Name")
@@ -159,6 +160,7 @@ fun EditProfile(
                             boldLabel = false,
                             valueFont = FontWeight.Medium
                         )
+                        Spacer(modifier = Modifier.height(100.dp))
                     }
                 }
 

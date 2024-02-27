@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.student.classes
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -42,6 +43,7 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,10 +51,9 @@ fun ClassDetails(
     navController: NavController
 ) {
     Scaffold(
-        content = { paddingValues ->
+        content = {
             Column(
                 modifier = Modifier
-                    .padding(paddingValues)
                     .verticalScroll(rememberScrollState())
             ) {
                 Column(
@@ -178,6 +179,8 @@ fun ClassDetails(
                     }
                 }
             }
+            Spacer(modifier = Modifier.height(100.dp))
+
         },
         bottomBar = {
             BottomNavigation(navController = navController)

@@ -77,7 +77,9 @@ fun TutorsClassesScreen(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = 0.dp,
         sheetContent = {
-            CancelClassBottomSheet(navController = navController)
+            CancelClassBottomSheet(
+                navController = navController
+            )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
                     bottomSheetScaffoldState.bottomSheetState.collapse()
@@ -89,7 +91,7 @@ fun TutorsClassesScreen(
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Your Classes")
+                SimpleAppBar(navController = navController, text = "Your Classes", canNavigateBack = false)
             },
             content = {
                 Column(

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -41,7 +42,6 @@ import s.skillvsme.ui.theme.darkGrey
 fun NotificationScreen(
     navController: NavController
 ) {
-
     val scrollState = rememberScrollState()
     Scaffold(
         topBar = {
@@ -63,16 +63,18 @@ fun NotificationScreen(
                     .padding(start = 16.dp, end = 16.dp,top=50.dp)
                     .fillMaxSize()
                     .verticalScroll(scrollState)
-            ) {repeat(16){
-                Notification(iconStart = painterResource(id = R.drawable.notification_1))
-                Divider(
-                    color = darkGrey,
-                    modifier = Modifier
-                        .height(1.dp)
-                        .fillMaxWidth() // Adjust width as needed
-                )
-            }
-
+            ) {
+                Spacer(modifier = Modifier.height(80.dp))
+                repeat(16){
+                    Notification(iconStart = painterResource(id = R.drawable.notification_1))
+                    Divider(
+                        color = darkGrey,
+                        modifier = Modifier
+                            .height(1.dp)
+                            .fillMaxWidth() // Adjust width as needed
+                    )
+                }
+                Spacer(modifier = Modifier.height(80.dp))
             }
         },
         bottomBar = {

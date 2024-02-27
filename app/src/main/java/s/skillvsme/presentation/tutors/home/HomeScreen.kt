@@ -3,7 +3,6 @@ package s.skillvsme.presentation.tutors.home
 
 import android.annotation.SuppressLint
 import android.os.Build
-import android.util.Log
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -53,6 +52,7 @@ import java.time.Month
 fun TutorHomePage(
     navController: NavController
 ) {
+    var paddingValues=1.dp
     var selectedDay by remember { mutableStateOf(0) }
     var selectedMonth by remember { mutableStateOf(Month.JANUARY) }
     var selectedYear by remember { mutableStateOf(0) }
@@ -79,7 +79,9 @@ fun TutorHomePage(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = 0.dp,
         sheetContent = {
-            CancelClassBottomSheet(navController = navController)
+            CancelClassBottomSheet(
+                navController = navController
+            )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
                     bottomSheetScaffoldState.bottomSheetState.collapse()
@@ -90,7 +92,7 @@ fun TutorHomePage(
         modifier = Modifier.background(Color.Gray.copy(alpha = 0.5f))
     ) {
         Scaffold(
-            content = { paddingValues ->
+            content = { paddingValues
                 Column(
                     modifier = Modifier
                         .padding(20.dp)
@@ -328,6 +330,7 @@ fun TutorHomePage(
                             }
                         }
                     }
+                    Spacer(modifier = Modifier.height(100.dp))
                 }
             },
             bottomBar = {

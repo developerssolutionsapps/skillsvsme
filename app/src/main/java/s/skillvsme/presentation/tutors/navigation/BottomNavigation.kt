@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import s.skillvsme.R
+import s.skillvsme.common.Route
 import s.skillvsme.ui.theme.black
 import s.skillvsme.utils.coloredShadow
 
@@ -42,7 +43,7 @@ fun BottomNavigation(navController: NavController) {
     val items = listOf(
         ScreenNavigation.Home,
         ScreenNavigation.Stream,
-        ScreenNavigation.Classess,
+        ScreenNavigation.Classes,
         ScreenNavigation.Accounts,
     )
 
@@ -139,7 +140,9 @@ fun BottomNavigation(navController: NavController) {
 
         // Floating Button
         FloatingActionButton(
-            onClick = { /* Handle floating button click */ },
+            onClick = {
+                      navController.navigate(Route.Tutor.Classes.AddClass)
+                      },
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 35.dp)

@@ -3,6 +3,7 @@ package s.skillvsme.presentation.tutors.classes
 import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.TopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.datepicker
@@ -40,7 +41,7 @@ import s.skillvsme.ui.theme.purple
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Addclass(
+fun AddClass(
     navController: NavController
 ){
     var selectedOption by remember { mutableStateOf("Option 1") }
@@ -49,15 +50,16 @@ fun Addclass(
         topBar = {
                 SimpleAppBar(navController = navController, text = "Add Class")
         },
-        content = {paddingValues ->
+        content = {
             Column(modifier= Modifier
                 .padding(20.dp)
                 .fillMaxSize()
                 .verticalScroll(scrollstate),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column(modifier=Modifier
-                    .padding(paddingValues),
+                Spacer(modifier = Modifier.height(80.dp))
+                Column(
+                    modifier=Modifier,
                     horizontalAlignment = Alignment.Start
                 ) {
                     Text(text = "Pick a date",fontSize = 18.sp, fontFamily = Fonts.jostFontFamily, color = purple)
@@ -79,11 +81,17 @@ fun Addclass(
                         onOptionSelected = { option -> selectedOption = option },
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    SkillvsmeButton(label = "Save", modifier = Modifier.fillMaxWidth())
+                    SkillvsmeButton(
+                        label = "Save",
+                        modifier = Modifier.fillMaxWidth()
+                            .clickable {
+                                navController.navigate(Route.Tutor.Classes.AddClassSuccess)
+                            }
+                    )
                     Spacer(modifier = Modifier.height(20.dp))
                     SkillvsmeButton(label = "Cancel", modifier = Modifier.fillMaxWidth(), primary = false)
+                    Spacer(modifier = Modifier.height(100.dp))
                 }
-
             }
         }
     )

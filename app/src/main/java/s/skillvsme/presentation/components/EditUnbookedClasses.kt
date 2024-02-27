@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,8 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
@@ -24,7 +25,8 @@ fun EditUnbookedClasses(
     modifier: Modifier = Modifier,
     label: String,
     onDelete: () -> Unit = {},
-    onEdit: () -> Unit = {}
+    onEdit: () -> Unit = {},
+    navController: NavController
 ) {
     val primary = false
     BorderedSurface(
@@ -53,8 +55,8 @@ fun EditUnbookedClasses(
                 Image(
                     modifier = Modifier
                         .clickable {
-
-                                   },
+                            navController.navigate(Route.Tutor.Classes.AddClass)
+                        },
                     painter = painterResource(id = R.drawable.edit_1),
                     contentDescription = null
                 )

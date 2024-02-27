@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.tutors.TutorsProfile
 
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -42,6 +43,7 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
 @Composable
 fun TransactionSuccess(
@@ -49,13 +51,12 @@ fun TransactionSuccess(
 ) {
     val scrollState = rememberScrollState()
     Scaffold(
-        content = {paddingValues ->
+        content = {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .verticalScroll(state = scrollState)
                     .background(white)
-                    .padding(paddingValues)
             ) {
                 Column(
                     verticalArrangement = Arrangement.SpaceBetween,
@@ -182,7 +183,7 @@ fun TransactionSuccess(
                                     navController.navigate(Route.Student.Home.Home)
                                 }
                             )
-
+                            Spacer(modifier = Modifier.height(100.dp))
                         }
                     }
                 }

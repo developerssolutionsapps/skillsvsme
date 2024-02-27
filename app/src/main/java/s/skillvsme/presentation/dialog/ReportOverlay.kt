@@ -1,6 +1,5 @@
-package s.skillvsme.presentation.dialogue
-
 import android.R
+import android.graphics.fonts.FontFamily
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,17 +17,11 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
-import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -39,20 +32,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.components.SkillvsmeBorderRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeButton
-import s.skillvsme.presentation.components.SkillvsmeLiveTag
+import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 @Composable
-fun PopForFollow(value: String, setShowDialog: (Boolean) -> Unit, setValue: (String) -> Unit) {
+fun ReportOverlay(value: String, setShowDialog: (Boolean) -> Unit, setValue: (String) -> Unit) {
 
     val txtFieldError = remember { mutableStateOf("") }
     val txtField = remember { mutableStateOf(value) }
@@ -73,9 +65,14 @@ fun PopForFollow(value: String, setShowDialog: (Boolean) -> Unit, setValue: (Str
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
+                        horizontalArrangement = Arrangement.Start,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
+                        Text(text = "Report Abuse", modifier = Modifier.padding(start = 50.dp),
+                            fontFamily = Fonts.jostFontFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 24.sp,
+                            color = Color.White)
                         Spacer(modifier = Modifier.weight(1f))
                         Image(
                             painter = painterResource(id = s.skillvsme.R.drawable.cancel),
@@ -86,52 +83,32 @@ fun PopForFollow(value: String, setShowDialog: (Boolean) -> Unit, setValue: (Str
                                 .clickable { setShowDialog(false) }
                         )
                     }
-
                     Spacer(modifier = Modifier.height(20.dp))
-
-                    Box(
-                        modifier = Modifier
-                            .padding(start = 108.dp, end = 90.dp)
-                            .size(61.dp),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Image(
-                            painter = painterResource(id = s.skillvsme.R.drawable.student),
-                            contentDescription = "", modifier = Modifier.background(
-                                white,
-                                CircleShape
-                            ).clip(CircleShape),
-                            contentScale = ContentScale.Crop
-                        )
-
-                    }
+                    SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
+                        selectedValue = "Unprofessional behaviour",
+                        label = "Unprofessional behaviour", color = white,textColor = white,fontSize = 18)
                     Spacer(modifier = Modifier.height(10.dp))
-                    Text(
-                        text = "Keria Swain",
-                        Modifier
-                            .padding(start = 100.dp, end = 80.dp),
-                        fontSize = 18.sp,
-                        fontFamily = Fonts.jostFontFamily,
-                        fontWeight = FontWeight.SemiBold,
-                        color = Color.White
-                    )
-                    Spacer(modifier = Modifier.height(20.dp))
-                    Text(
-                        text = "we will notify you when the tutor karia \nswain goes live or come online",
-                        Modifier
-                            .padding( ),fontSize = 18.sp,
-                        fontFamily = Fonts.jostFontFamily,
-                        fontWeight = FontWeight.Light,
-                        color = Color.White
-                    )
+                    SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
+                        selectedValue = "",
+                        label = "Abusive/harmful content", color = white,textColor = white,fontSize = 18)
                     Spacer(modifier = Modifier.height(10.dp))
+                    SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
+                        selectedValue = "",
+                        label = "Misguidance", color = white,textColor = white,fontSize = 18)
+                    Spacer(modifier = Modifier.height(10.dp),)
+                    SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
+                        selectedValue = "",
+                        label = "Other", color = white, textColor = white, fontSize = 18)
+
                     SkillvsmeButton(
-                        label = "Follow",
+                        label = "Submit",
                         modifier = Modifier
-                            .padding(start = 20.dp, end = 20.dp)
+                            .padding(start = 20.dp, end = 20.dp, bottom = 10.dp,top=10.dp)
                             .fillMaxWidth(),
                         primary = false
-                    )
+                    ){
+                        setShowDialog(false)
+                    }
                 }
             }
         }

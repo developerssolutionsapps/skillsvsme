@@ -1,13 +1,10 @@
 package s.skillvsme.presentation.components
 
-import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
@@ -28,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.dialog.CustomDialog
 import s.skillvsme.ui.theme.black
 import kotlin.random.Random
 
@@ -35,7 +33,7 @@ import kotlin.random.Random
 @Composable
 fun UpcomingClasses(
     join: String,
-    buttonOnclick: () -> Unit = {},
+    buttonOnclick: () -> Unit,
 ) {
     val showDialog =  remember { mutableStateOf(false) }
     if(showDialog.value)
@@ -118,9 +116,10 @@ fun UpcomingClasses(
                                 } else {
                                     buttonOnclick()
                                 }
+                            } else {
+                                buttonOnclick()
                             }
-                            buttonOnclick()
-                                  },
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(49.dp)
