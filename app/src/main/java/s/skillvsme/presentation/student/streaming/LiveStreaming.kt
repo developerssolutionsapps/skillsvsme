@@ -298,6 +298,12 @@ fun LiveStreaming(
                                 )
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
+                                    modifier = Modifier
+                                        .clickable {
+                                           scope.launch {
+                                               bottomSheetScaffoldState.bottomSheetState.expand()
+                                           }
+                                        },
                                     painter = painterResource(id = R.drawable.gift),
                                     contentDescription = null
                                 )
