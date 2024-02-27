@@ -71,6 +71,7 @@ object Route {
         }
         object Classes {
             const val Classes = "/tutor/classes/classes"
+            const val AddClass = "/tutor/classes/addclasses"
         }
         object Streaming {
             const val LiveStream = "/tutor/streaming/livestream"

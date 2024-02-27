@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -45,13 +44,13 @@ import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.components.BookedClassesListItem
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.UnBookedClassesListItem
-import s.skillvsme.presentation.student.navigation.BottomNavigation
+import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun TutorsClassesScreen(
     navController:NavController
@@ -71,7 +70,6 @@ fun TutorsClassesScreen(
                 bottomSheetScaffoldState.bottomSheetState.collapse()
             }
         } else {
-            // Navigate back or handle back button press in another way
             navController.popBackStack()
         }
     }
@@ -86,19 +84,17 @@ fun TutorsClassesScreen(
                 }
             }
         },
-        sheetBackgroundColor = Color.Gray.copy(alpha = 0.5f), // Set sheet background color
+        sheetBackgroundColor = Color.Gray.copy(alpha = 0.5f),
         modifier = Modifier.background(Color.Gray.copy(alpha = 0.5f))
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Checkout")
+                SimpleAppBar(navController = navController, text = "Your Classes")
             },
-            content = { paddingValues ->
+            content = {
                 Column(
                     modifier = Modifier
-                        .padding(paddingValues)
-                        .padding(20.dp)
-                        .fillMaxSize()
+                        .padding(20.dp, vertical = 70.dp)
                         .verticalScroll(rememberScrollState()),
                     verticalArrangement = Arrangement.SpaceBetween,
                 ) {
@@ -167,11 +163,12 @@ fun TutorsClassesScreen(
                                 day = "Wed",
                                 date = "29",
                                 month = "Nov",
+                                navController = navController
                             )
                         }
                         Spacer(
                             modifier = Modifier
-                                .height(16.dp)
+                                .height(20.dp)
                         )
                     }
                 }

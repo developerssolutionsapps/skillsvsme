@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import s.skillvsme.common.Route
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
@@ -37,7 +38,12 @@ fun ClassAddSuccess(
                     successMessage = "Class added successfully",
                     buttonText = "Add another class",
                     backButtonText = "Back to home",
-                    buttonOnclickAction = {}
+                    buttonOnclickAction = {
+                        navController.navigate(Route.Tutor.Classes.AddClass)
+                    },
+                    backButtonOnclickAction = {
+                        navController.popBackStack()
+                    }
                 )
             }
         },

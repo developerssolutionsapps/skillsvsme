@@ -45,20 +45,22 @@ fun EditUnbookedClasses(
             Text(
                 text = label,
                 color = if (primary) white else black,
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.weight(1f),
                 fontFamily = Fonts.jostFontFamily,
                 fontSize = 20.sp
             )
             Row {
                 Image(
                     modifier = Modifier
-                        .clickable { onEdit },
+                        .clickable {
+
+                                   },
                     painter = painterResource(id = R.drawable.edit_1),
                     contentDescription = null
                 )
                 Image(
                     modifier = Modifier
-                        .clickable { onDelete },
+                        .clickable { onDelete() },
                     painter = painterResource(id = R.drawable.delete_1),
                     contentDescription = null
                 )

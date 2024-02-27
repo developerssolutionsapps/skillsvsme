@@ -213,6 +213,10 @@ fun TutorHomePage(
                             )
                             Spacer(modifier = Modifier.weight(1f))
                             Text(
+                                modifier = Modifier
+                                    .clickable {
+                                        navController.navigate(Route.Tutor.Classes.AddClass)
+                                    },
                                 text = "Add",
                                 fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
@@ -257,7 +261,6 @@ fun TutorHomePage(
                                                     .clip(CircleShape)
                                                     .background(Color.White),
                                                 contentAlignment = Alignment.Center
-                                                // Aligning the circle to the top center
                                             ) {
                                                 Box(
                                                     modifier = Modifier
@@ -274,7 +277,6 @@ fun TutorHomePage(
                                                     .clip(CircleShape)
                                                     .background(Color.Gray),
                                                 contentAlignment = Alignment.Center
-                                                // Aligning the circle to the top center
                                             ) {
                                                 Box(
                                                     modifier = Modifier
