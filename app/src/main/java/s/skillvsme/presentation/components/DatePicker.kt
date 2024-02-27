@@ -4,16 +4,19 @@ import android.util.Log
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material3.Card
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,7 +34,9 @@ import androidx.compose.ui.unit.sp
 import io.ktor.http.ContentType
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.darkGrey
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import kotlin.math.abs
 
@@ -64,21 +69,24 @@ fun datepicker() {
             }
         }
     }
-    Box(contentAlignment = Alignment.Center){
-        Surface(border = BorderStroke(1.dp, black), modifier = Modifier
+    Box(contentAlignment = Alignment.CenterStart){
+        Surface(border = BorderStroke(1.dp, darkGrey), modifier = Modifier
             .fillMaxWidth()
-            .height(40.dp)){
+            .height(40.dp),
+                shape = RoundedCornerShape(12.dp),
+        ){
 
         }
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
+
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
 
             InfiniteCircularList(
                 width = 200.dp,
-                itemHeight = 70.dp,
+                itemHeight = 40.dp,
                 items = listOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"), //(1..30).map { it.toString() },
                 initialItem = "December",
                 textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
@@ -92,7 +100,7 @@ fun datepicker() {
             Spacer(modifier = Modifier.width(20.dp))
             InfiniteCircularList(
                 width = 50.dp,
-                itemHeight = 70.dp,
+                itemHeight = 40.dp,
                 items = (1..lastDayInMonth).toMutableList(),
                 initialItem = day,
                 textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
@@ -104,8 +112,6 @@ fun datepicker() {
             )
         }
     }
-
-
 }
 
 private fun lastDayInMonth(month: Int, year: Int): Int {
@@ -120,7 +126,95 @@ private fun lastDayInMonth(month: Int, year: Int): Int {
     }
 }
 
+@Composable
+fun timepicker() {
+    val currentDateTime = LocalDateTime.now()
+    val formatter = DateTimeFormatter.ofPattern("HH:mm")
+    val formattedDateTime = currentDateTime.format(formatter)
+    val startHour = currentDateTime.hour
+    val startMinute = currentDateTime.minute
 
+    // End of the year
+    var hour by remember {
+        mutableStateOf(1)
+    }
+    var minute by remember {
+        mutableStateOf(1)
+    }
+    var amOrPm by remember {
+        mutableStateOf("AM")
+    }
+    Box(contentAlignment = Alignment.CenterStart){
+        Surface(border = BorderStroke(1.dp, darkGrey), modifier = Modifier
+            .fillMaxWidth()
+            .height(40.dp),
+                shape = RoundedCornerShape(12.dp),
+        )
+
+        {
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            Spacer(modifier = Modifier.width(40.dp))
+            InfiniteCircularList(
+                width = 25.dp,
+                itemHeight = 40.dp,
+                items = (1..12).toMutableList(),
+                initialItem = startHour,
+                textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
+                textColor = Color.LightGray,
+                selectedTextColor = Color.Black,
+                onItemSelected = { i, item ->
+                    hour = i + 1
+                }
+            )
+            Spacer(modifier = Modifier.width(35.dp))
+            InfiniteCircularList(
+                width = 10.dp,
+                itemHeight = 40.dp,
+                items = listOf(":", ":",),
+                initialItem = ":",
+                textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
+                textColor = Color.LightGray,
+                selectedTextColor = Color.Black,
+                onItemSelected = { i, item ->
+                    hour = i + 1
+                }
+            )
+            Spacer(modifier = Modifier.width(35.dp))
+            InfiniteCircularList(
+                width = 25.dp,
+                itemHeight = 40.dp,
+                items = (1..60).toMutableList(),
+                initialItem = startMinute,
+                textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
+                textColor = Color.LightGray,
+                selectedTextColor = Color.Black,
+                onItemSelected = { i, item ->
+                    minute = item
+                }
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            InfiniteCircularList(
+                width = 30.dp,
+                itemHeight = 40.dp,
+                items = listOf("AM","PM",),
+                initialItem = "AM",
+                textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
+                textColor = Color.LightGray,
+                selectedTextColor = Color.Black,
+                onItemSelected = { i, item ->
+                    amOrPm = item
+                }
+
+            )
+            Spacer(modifier = Modifier.width(40.dp))
+        }
+    }
+}
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun <T> InfiniteCircularList(
@@ -178,14 +272,8 @@ fun <T> InfiniteCircularList(
                                 lastSelectedIndex = i
                             }
                         },
-                    contentAlignment = Alignment.Center
+                    contentAlignment = Alignment.CenterStart
                 ) {
-
-                    Surface(modifier = Modifier.fillMaxWidth().padding(20.dp),
-                        border = BorderStroke(2.dp, black),
-                        shape = RectangleShape
-                    ) {
-                    }
                     Text(
                         text = item.toString(),
                         style = textStyle,
