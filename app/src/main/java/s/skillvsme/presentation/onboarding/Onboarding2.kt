@@ -16,12 +16,15 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun Onboarding2(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,6 +69,7 @@ fun Onboarding2(
                     navController.navigate(Route.Student.Onboarding.JoinAS)
                 }
             )
+            Spacer(modifier = Modifier.width(15.dp))
             SkillvsmeButton(
                 label = "Next",
                 modifier = Modifier.weight(1f),

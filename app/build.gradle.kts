@@ -66,7 +66,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation ("androidx.compose.material:material:1.6.1")
 
-//datepicker
+    //datepicker
     implementation ("com.github.commandiron:WheelPickerCompose:1.1.11")
 
 
@@ -104,10 +104,12 @@ dependencies {
 
     // Video player
     implementation("io.sanghun:compose-video:1.2.0")
-    implementation("androidx.media3:media3-exoplayer:1.1.0") // [Required] androidx.media3 ExoPlayer dependency
-    implementation("androidx.media3:media3-session:1.1.0") // [Required] MediaSession Extension dependency
-    implementation("androidx.media3:media3-ui:1.1.0") // [Required] Base Player UI
+    implementation("androidx.media3:media3-exoplayer:1.1.0")
+    implementation("androidx.media3:media3-session:1.1.0")
+    implementation("androidx.media3:media3-ui:1.1.0")
+    implementation("androidx.media3:media3-exoplayer-dash:1.1.0")
+    implementation("androidx.media3:media3-exoplayer-hls:1.1.0")
 
-    implementation("androidx.media3:media3-exoplayer-dash:1.1.0") // [Optional] If your media item is DASH
-    implementation("androidx.media3:media3-exoplayer-hls:1.1.0") // [Optional] If your media item is HLS (m3u8..)
+    // Status bar colors
+    implementation("com.google.accompanist:accompanist-systemuicontroller:x.y.z")
 }

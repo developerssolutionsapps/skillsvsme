@@ -16,13 +16,16 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun Onboarding3(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     Column(
         modifier = Modifier
             .fillMaxSize()

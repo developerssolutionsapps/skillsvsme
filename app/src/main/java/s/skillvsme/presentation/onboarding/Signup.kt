@@ -41,6 +41,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.SkillvsmeTextField
@@ -52,6 +53,7 @@ import s.skillvsme.ui.theme.white
 fun Signup(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
     Box(
@@ -111,30 +113,35 @@ fun Signup(
                             )
                         }
                 ) {
+                    Spacer(modifier = Modifier.height(50.dp))
                     Row(
                         modifier = Modifier
-                            .padding(20.dp)
+                            .padding(horizontal = 20.dp)
                             .fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         Surface(
                             modifier = Modifier
-                                .padding(top = 28.dp, end = 12.dp),
-                            shape = RoundedCornerShape(24.dp),
+                                .padding(end = 17.dp),
+                            shape = RoundedCornerShape(21.dp),
                             color = black
                         ){
                             Row(
                                 modifier = Modifier
-                                    .padding(horizontal = 10.dp, vertical = 16.dp),
+                                    .width(92.dp)
+                                    .height(50.dp)
+                                    .padding(horizontal = 14.dp, vertical = 13.dp),
                             ) {
                                 Text(
-                                    text = " +999 ",
+                                    text = "+999",
                                     fontWeight = FontWeight.Medium,
                                     color = white,
                                     fontSize = 16.sp,
                                     fontFamily = Fonts.jostFontFamily
                                 )
                                 Image(
+                                    modifier = Modifier
+                                        .size(24.dp),
                                     painter = painterResource(R.drawable.arrow_down),
                                     contentDescription = "arrow down"
                                 )
@@ -143,13 +150,13 @@ fun Signup(
                         SkillvsmeTextField(
                             value = otpCodeValue,
                             onChange = { it ->
-                                       otpCodeValue = it
+                                otpCodeValue = it
                             },
-                            label = "",
                             hint = "Enter Your Phone Number",
                             fieldDescription = ""
                         )
                     }
+                    Spacer(modifier = Modifier.height(23.dp))
                     SkillvsmeButton(
                         enabled = otpCodeValue != "",
                         label = "Send Code",
@@ -160,20 +167,21 @@ fun Signup(
                             navController.navigate(Route.Student.Onboarding.CodeVerification)
                         }
                     )
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(53.dp))
                     Text(
                         text = "OR",
                         fontSize = 20.sp,
                         fontFamily = Fonts.headlandOneFontFamily
                     )
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(37.dp))
                     Card    (
-                        shape = RoundedCornerShape(24.dp),
+                        shape = RoundedCornerShape(21.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = lightGrey,
                             ),
                         modifier = Modifier
                             .padding(horizontal = 20.dp)
+                            .height(50.dp)
                             .align(alignment = CenterHorizontally)
                             .fillMaxWidth(),
                     ) {
@@ -186,14 +194,15 @@ fun Signup(
                             value = "Sign Up With Apple"
                         )
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(11.dp))
                     Card    (
-                        shape = RoundedCornerShape(24.dp),
+                        shape = RoundedCornerShape(21.dp),
                         colors = CardDefaults.cardColors(
                             containerColor = lightGrey,
                         ),
                         modifier = Modifier
                             .padding(horizontal = 20.dp)
+                            .height(50.dp)
                             .align(alignment = CenterHorizontally)
                             .fillMaxWidth(),
                     ) {
@@ -206,7 +215,7 @@ fun Signup(
                             value = "Sign Up With Google"
                         )
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(11.dp))
                     TextEndingWithLink(
                         text = "Already have an account?",
                         linkText = "login in",
