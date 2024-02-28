@@ -32,6 +32,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.ReviewItem
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -41,6 +42,7 @@ import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 // This screen display the tutors details from the student view
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -50,6 +52,7 @@ import s.skillvsme.ui.theme.purple
 fun TutorsDetailsStud(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = {
             Column(

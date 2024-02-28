@@ -39,10 +39,12 @@ import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BottomSheet
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.student.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -50,6 +52,7 @@ import s.skillvsme.ui.theme.darkGrey
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun StudentProfile(navController: NavController) {
+    SetStatusBarColor(color = black)
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(

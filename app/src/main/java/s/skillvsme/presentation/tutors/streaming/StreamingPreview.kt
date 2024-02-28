@@ -27,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +37,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
@@ -46,6 +48,7 @@ import s.skillvsme.ui.theme.white
 fun StreamingPreview(
     navController:NavController
 ){
+    SetStatusBarColor(color = Color(0x33597041))
     Scaffold(
         content = {
             Box(

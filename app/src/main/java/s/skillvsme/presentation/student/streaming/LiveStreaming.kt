@@ -54,6 +54,7 @@ import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.dialog.PopForFollow
@@ -68,7 +69,7 @@ import kotlin.random.Random
 fun LiveStreaming(
     navController: NavController
 ) {
-
+    SetStatusBarColor(color = Color(0x33597041))
     val showDialog = remember { mutableStateOf(false) }
     val showDialogPop = remember { mutableStateOf(false) }
     if (showDialog.value)

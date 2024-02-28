@@ -18,8 +18,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.black20
-import s.skillvsme.ui.theme.greyishBlack
 
 @Composable
 fun OtpTextField(

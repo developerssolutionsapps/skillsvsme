@@ -12,9 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
 import s.skillvsme.presentation.student.navigation.BottomNavigation
+import s.skillvsme.ui.theme.white
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -24,6 +26,7 @@ import s.skillvsme.presentation.student.navigation.BottomNavigation
 fun ClassCancelSuccess(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
             SimpleAppBar(navController = navController, text = "Confirmation")

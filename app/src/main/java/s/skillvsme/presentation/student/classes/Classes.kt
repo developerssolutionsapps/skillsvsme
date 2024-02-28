@@ -48,6 +48,7 @@ import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.PastClassesItem
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -59,6 +60,7 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.red
+import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
@@ -67,6 +69,7 @@ import s.skillvsme.ui.theme.red
 fun Classes(
     navController:NavController
 ){
+    SetStatusBarColor(color = white)
     var upcomingSelected by remember { mutableStateOf(true) }
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
@@ -245,7 +248,7 @@ fun CancelBottomSheet(navController: NavController) {
                             .clickable {
                                 navController.popBackStack()
                             },
-                        painter = painterResource(id = R.drawable.warning),
+                        painter = painterResource(id = R.drawable.warning_1),
                         contentDescription = null
                     )
                     Spacer(modifier = Modifier.width(20.dp))

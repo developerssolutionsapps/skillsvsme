@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.UpcomingClasses
 import s.skillvsme.presentation.tutors.classes.CancelClassBottomSheet
 import s.skillvsme.presentation.tutors.components.WeekView
@@ -52,6 +53,7 @@ import java.time.Month
 fun TutorHomePage(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     var paddingValues=1.dp
     var selectedDay by remember { mutableStateOf(0) }
     var selectedMonth by remember { mutableStateOf(Month.JANUARY) }

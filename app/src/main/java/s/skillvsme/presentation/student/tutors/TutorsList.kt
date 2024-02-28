@@ -19,10 +19,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.TutorsListComponent
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.white
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,6 +34,7 @@ import s.skillvsme.ui.theme.black
 fun TutorsList(
     navController:NavController
 ) {
+    SetStatusBarColor(color = white)
     Scaffold (
         topBar = {
             SimpleAppBar(navController = navController, text = "Tutors")

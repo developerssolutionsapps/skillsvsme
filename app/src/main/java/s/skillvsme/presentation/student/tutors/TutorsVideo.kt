@@ -27,11 +27,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -41,6 +43,7 @@ import s.skillvsme.ui.theme.purple
 fun TutorsVideo(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = {
             Column(

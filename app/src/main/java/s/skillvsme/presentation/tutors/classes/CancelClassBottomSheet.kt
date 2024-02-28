@@ -21,14 +21,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.red
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun CancelClassBottomSheet(navController: NavController) {
+    SetStatusBarColor(color = white)
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +68,7 @@ fun CancelClassBottomSheet(navController: NavController) {
                             .clickable {
                                 navController.popBackStack()
                             },
-                        painter = painterResource(id = R.drawable.warning),
+                        painter = painterResource(id = R.drawable.warning_1),
                         contentDescription = null
                     )
                     Spacer(modifier = Modifier.width(20.dp))
@@ -108,7 +112,9 @@ fun CancelClassBottomSheet(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth(),
                     label = "Cancel class",
-                    onClick = {}
+                    onClick = {
+                        navController.navigate(Route.Tutor.Classes.CancelClassSuccess)
+                    }
                 )
             }
         }
