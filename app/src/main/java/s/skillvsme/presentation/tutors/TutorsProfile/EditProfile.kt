@@ -35,6 +35,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -51,6 +52,7 @@ import s.skillvsme.ui.theme.purple
 fun EditProfile(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     val  scrollState= rememberScrollState()
     Scaffold(
         content = {

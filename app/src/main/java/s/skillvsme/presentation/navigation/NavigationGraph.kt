@@ -47,6 +47,7 @@ import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
 import s.skillvsme.presentation.tutors.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
+import s.skillvsme.presentation.tutors.TutorsProfile.WithdrawFunds
 import s.skillvsme.presentation.tutors.classes.AddClass
 import s.skillvsme.presentation.tutors.classes.ClassAddSuccess
 import s.skillvsme.presentation.tutors.classes.TutorsClassesScreen
@@ -202,7 +203,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             ClassAddSuccess(navController = navController)
         }
         composable(Route.Tutor.Classes.CancelClassSuccess) {
-            ClassAddSuccess(navController = navController)
+            ClassCancelSuccess(navController = navController)
         }
 
         // Tutors profile screens
@@ -229,6 +230,9 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Tutor.Profile.TutorProfilePublicView) {
             TutorsDetails(navController = navController)
+        }
+        composable(Route.Tutor.Profile.WithdrawFunds) {
+            WithdrawFunds(navController = navController)
         }
     }
 }

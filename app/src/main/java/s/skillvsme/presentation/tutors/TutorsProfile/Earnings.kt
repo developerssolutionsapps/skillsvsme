@@ -31,6 +31,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -45,6 +46,7 @@ import s.skillvsme.ui.theme.white
 @Composable
 fun Earnings(navController: NavController) {
     val scrollState = rememberScrollState()
+    SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
                  SimpleAppBar(navController = navController, text = "Earnings")
@@ -92,8 +94,11 @@ fun Earnings(navController: NavController) {
                         }
                     }
                     Spacer(modifier = Modifier.height(16.dp))
-                    SkillvsmeButton(label = "Withdraw funds", modifier = Modifier.fillMaxWidth(), onClick = {
-                        navController.navigate(Route.Tutor.Profile.TransactionSuccess)
+                    SkillvsmeButton(
+                        label = "Withdraw funds",
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {
+                        navController.navigate(Route.Tutor.Profile.WithdrawFunds)
                     })
                     Spacer(modifier = Modifier.height(54.dp))
                     Text(

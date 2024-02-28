@@ -33,7 +33,7 @@ fun ClassCancelSuccess(
     SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
-            SimpleAppBar(navController = navController, text = "Add Class")
+            SimpleAppBar(navController = navController, text = "Cancel Class")
         },
         content = {
             Spacer(modifier = Modifier.height(80.dp))
@@ -50,7 +50,7 @@ fun ClassCancelSuccess(
                         navController.navigate(Route.Tutor.Classes.AddClass)
                     },
                     backButtonOnclickAction = {
-                        navController.popBackStack()
+                        navController.navigate(Route.Tutor.Home.Home)
                     }
                 )
                 Spacer(modifier = Modifier.height(130.dp))

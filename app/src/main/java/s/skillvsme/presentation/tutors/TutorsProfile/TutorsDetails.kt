@@ -32,6 +32,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.ReviewItem
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -49,6 +50,7 @@ import s.skillvsme.ui.theme.purple
 fun TutorsDetails(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = {
             Column(

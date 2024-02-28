@@ -24,17 +24,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun EditLanguage(navController: NavController) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = {
             Column(
