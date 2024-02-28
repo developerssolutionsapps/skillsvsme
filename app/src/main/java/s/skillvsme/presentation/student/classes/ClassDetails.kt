@@ -36,12 +36,14 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.student.classes.components.ClassesDetailsAppBar
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -50,6 +52,7 @@ import s.skillvsme.ui.theme.purple
 fun ClassDetails(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = {
             Column(

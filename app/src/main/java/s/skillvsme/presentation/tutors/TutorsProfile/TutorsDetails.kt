@@ -32,6 +32,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.LanguageCard
 import s.skillvsme.presentation.components.ReviewItem
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -49,6 +50,7 @@ import s.skillvsme.ui.theme.purple
 fun TutorsDetails(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = {
             Column(
@@ -66,7 +68,9 @@ fun TutorsDetails(
                         backgroundColor = black,
                         backgroundImage = painterResource(id = R.drawable.background_lines),
                         profileImage = painterResource(id = R.drawable.profile2),
-                        onClick = {},
+                        onClick = {
+                            navController.navigate(Route.Tutor.Classes.AddClass)
+                        },
                         navController = navController
                     )
                 }
@@ -223,10 +227,10 @@ fun TutorsDetails(
                     Spacer(modifier = Modifier.height(8.dp))
                     SkillvsmeButton(
                         modifier = Modifier.fillMaxWidth(),
-                        label = "Schedule a class",
+                        label = "Proceed to payment",
                         primary = true,
                         onClick = {
-                            navController.navigate(Route.Student.Tutor.Schedule)
+                            navController.navigate(Route.Tutor.Profile.Earnings)
                         }
                     )
                     Spacer(modifier = Modifier.height(4.dp))
@@ -238,7 +242,7 @@ fun TutorsDetails(
                             navController.popBackStack()
                         }
                     )
-                    Spacer(modifier = Modifier.height(48.dp))
+                    Spacer(modifier = Modifier.height(120.dp))
                 }
             }
         },

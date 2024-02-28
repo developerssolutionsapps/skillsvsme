@@ -36,6 +36,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.AmountTextField
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
@@ -49,6 +50,7 @@ import s.skillvsme.ui.theme.white
 fun TransactionSuccess(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     val scrollState = rememberScrollState()
     Scaffold(
         content = {
@@ -180,7 +182,7 @@ fun TransactionSuccess(
                                     .fillMaxWidth()
                                     .height(49.dp),
                                 onClick = {
-                                    navController.navigate(Route.Student.Home.Home)
+                                    navController.navigate(Route.Tutor.Home.Home)
                                 }
                             )
                             Spacer(modifier = Modifier.height(100.dp))

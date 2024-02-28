@@ -33,10 +33,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.UpcomingClasses
 import s.skillvsme.presentation.tutors.classes.CancelClassBottomSheet
 import s.skillvsme.presentation.tutors.components.WeekView
@@ -52,6 +55,7 @@ import java.time.Month
 fun TutorHomePage(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     var paddingValues=1.dp
     var selectedDay by remember { mutableStateOf(0) }
     var selectedMonth by remember { mutableStateOf(Month.JANUARY) }
@@ -80,7 +84,12 @@ fun TutorHomePage(
         sheetPeekHeight = 0.dp,
         sheetContent = {
             CancelClassBottomSheet(
-                navController = navController
+                navController = navController,
+                collapseBtn = {
+                    scope.launch (Dispatchers.Main) {
+                        bottomSheetScaffoldState.bottomSheetState.collapse()
+                    }
+                }
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {

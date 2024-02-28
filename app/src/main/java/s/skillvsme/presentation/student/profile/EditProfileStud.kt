@@ -24,11 +24,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.EditTextLabel
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.student.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -37,6 +39,7 @@ import s.skillvsme.presentation.student.navigation.BottomNavigation
 fun EditProfileStud(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     Scaffold(
         content = { paddingValues ->
             Column(
@@ -61,37 +64,45 @@ fun EditProfileStud(
                         .fillMaxSize()
                         .padding(paddingValues),
                 ) {
-                    Column(modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 40.dp, start = 16.dp, end = 16.dp),) {
-                        Spacer(modifier = Modifier.height(25.dp))
-                        Text(
-                            text = "Kamal Tyagi",
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 25.sp,
-                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                        )
-                        Spacer(modifier = Modifier.height(15.dp))
-                        EditTextLabel(value = "Kamal Tyagi", text = "User Name")
-                        Spacer(modifier = Modifier.height(15.dp))
-                        EditTextLabel(value = "+999 45821365479", text = "Phone Number")
-
-                        Spacer(modifier = Modifier.height(15.dp))
-                        EditTextLabel(value = "Califonia, USA", text = "Location")
-
-                        Spacer(modifier = Modifier.height(90.dp))
-                        SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(top = 40.dp, start = 16.dp, end = 16.dp),
+                        verticalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column {
+                            Spacer(modifier = Modifier.height(25.dp))
+                            Text(
+                                text = "Kamal Tyagi",
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 25.sp,
+                                modifier = Modifier.align(Alignment.CenterHorizontally)
+                            )
+                            Spacer(modifier = Modifier.height(15.dp))
+                            EditTextLabel(value = "Kamal Tyagi", text = "User Name")
+                            Spacer(modifier = Modifier.height(15.dp))
+                            EditTextLabel(value = "+999 45821365479", text = "Phone Number")
+                            Spacer(modifier = Modifier.height(15.dp))
+                            EditTextLabel(value = "Califonia, USA", text = "Location")
                         }
-                        Spacer(modifier = Modifier.height(20.dp))
-                        SkillvsmeText(
-                            value = "Back",
-                            modifier = Modifier.align(Alignment.CenterHorizontally),
-                            boldValue = true,
-                            valueFont = FontWeight.Bold
-                        )
+                        Column {
+                            SkillvsmeButton(
+                                label = "Save Changes",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            Spacer(modifier = Modifier.height(20.dp))
+                            SkillvsmeButton(
+                                label = "Back",
+                                primary = false,
+                                modifier = Modifier.align(Alignment.CenterHorizontally),
+                                onClick = {
+                                    navController.popBackStack()
+                                }
+                            )
+                            Spacer(modifier = Modifier.height(10.dp))
+                        }
                     }
-                    }
-
+                }
             }
         },
         bottomBar = {

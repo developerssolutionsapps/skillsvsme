@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.datepicker
@@ -35,6 +36,7 @@ import s.skillvsme.presentation.components.timepicker
 import s.skillvsme.presentation.tutors.components.TwoRadioButtons
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -44,6 +46,7 @@ import s.skillvsme.ui.theme.purple
 fun AddClass(
     navController: NavController
 ){
+    SetStatusBarColor(color = white)
     var selectedOption by remember { mutableStateOf("Option 1") }
     val scrollstate= rememberScrollState()
     Scaffold (
@@ -89,7 +92,15 @@ fun AddClass(
                             }
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    SkillvsmeButton(label = "Cancel", modifier = Modifier.fillMaxWidth(), primary = false)
+                    SkillvsmeButton(
+                        label = "Cancel",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                navController.popBackStack()
+                            },
+                        primary = false,
+                    )
                     Spacer(modifier = Modifier.height(100.dp))
                 }
             }

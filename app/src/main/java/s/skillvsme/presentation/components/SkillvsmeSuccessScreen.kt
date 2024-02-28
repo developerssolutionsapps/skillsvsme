@@ -33,7 +33,7 @@ fun SkillvsmeSuccessScreen(
 ) {
     Column(
         modifier = Modifier
-            .padding(24.dp)
+            .padding(20.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween
     ) {

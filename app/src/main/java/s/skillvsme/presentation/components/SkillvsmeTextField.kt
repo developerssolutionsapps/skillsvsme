@@ -47,7 +47,7 @@ fun SkillvsmeTextField(
     onDone: () -> Unit = {},
     isValid: Boolean = true,
     errorMessage: String = "",
-    label: String,
+    label: String? = null,
     hint: String,
     hintSize: Int? = null,
     trailingIcon: (() -> Unit)? = null,
@@ -69,13 +69,15 @@ fun SkillvsmeTextField(
         horizontalAlignment = Alignment.Start,
         modifier = modifier
     ) {
-        Text(
-            fontFamily = Fonts.jostFontFamily,
-            text = label,
-            fontSize = hintSize?.sp ?: TextUnit.Unspecified,
-            style = MaterialTheme.typography.body1,
-            fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal
-        )
+        if(label != null){
+            Text(
+                fontFamily = Fonts.jostFontFamily,
+                text = label,
+                fontSize = hintSize?.sp ?: TextUnit.Unspecified,
+                style = MaterialTheme.typography.body1,
+                fontWeight = if (boldLabel) FontWeight.Bold else FontWeight.Normal
+            )
+        }
         if (fieldDescription.isNotEmpty()) {
             Spacer(modifier = Modifier.height(4.dp))
             Text(
@@ -84,28 +86,21 @@ fun SkillvsmeTextField(
                 color = if (isValid) Color.Unspecified else Color.Red
             )
         }
-        Spacer(modifier = Modifier.height(8.dp))
+        if(label != null) {
+            Spacer(modifier = Modifier.height(8.dp))
+        }
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
             OutlinedTextField(
                 readOnly = readOnly,
-                leadingIcon={
-                    if (LeadingIcon != null) {
-                        Icon(imageVector = LeadingIcon,
-                            contentDescription ="",
-                            tint = black
-                        )
-                    }
-                },
                 trailingIcon={
                     trailingIcon
                 },
                 enabled = enabled,
                 modifier = Modifier
-                    .weight(1f)
-                    .height(if (isLongText) 150.dp else TextFieldDefaults.MinHeight)
+                    .height(if (isLongText) 150.dp else 49.dp)
                     .testTag(label + "1"),
                 singleLine = !isLongText,
                 colors = TextFieldDefaults.outlinedTextFieldColors(
@@ -117,15 +112,13 @@ fun SkillvsmeTextField(
                 onValueChange = {it ->
                     onChange(it)
                 },
-                shape = RoundedCornerShape(24.dp),
+                shape = RoundedCornerShape(20.dp),
                 keyboardOptions = keyboardOptions,
                 placeholder = {
                     Text(
-                        modifier = Modifier
-                            .scale(1.6f),
                         fontFamily = Fonts.jostFontFamily,
                         text = hint,
-                        fontSize = if (hintSize != null) hintSize.sp else 10.sp,
+                        fontSize = hintSize?.sp ?: 16.sp,
                         textAlign = TextAlign.Center,
                         color = darkGrey
                     ) },

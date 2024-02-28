@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeText
@@ -31,6 +32,7 @@ import s.skillvsme.presentation.components.SkillvsmeTextField
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
+import s.skillvsme.ui.theme.white
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,6 +41,7 @@ import s.skillvsme.ui.theme.purple
 fun Checkout(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
             SimpleAppBar(navController = navController, text = "Checkout")
