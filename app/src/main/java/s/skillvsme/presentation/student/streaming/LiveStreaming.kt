@@ -2,6 +2,7 @@ package s.skillvsme.presentation.student.streaming
 
 import ReportOverlay
 import android.os.Build
+import android.os.Handler
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -35,9 +36,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,6 +52,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import s.skillvsme.R
@@ -70,17 +74,25 @@ fun LiveStreaming(
     navController: NavController
 ) {
     SetStatusBarColor(color = Color(0x33597041))
+    val scope = rememberCoroutineScope()
     val showDialog = remember { mutableStateOf(false) }
-    val showDialogPop = remember { mutableStateOf(false) }
+    var showDialogPop by remember { mutableStateOf(false) }
+    var dialogLaunched by remember { mutableStateOf(false) }
+    if (!dialogLaunched) {
+        scope.launch {
+            delay(5000) // Wait for 5 seconds
+            showDialogPop = true // Set the flag to show the dialog
+            dialogLaunched = true
+        }
+    }
     if (showDialog.value)
         ReportOverlay(value = "", setShowDialog = {
             showDialog.value = it
         }) {}
-    if (showDialogPop.value)
+    if (showDialogPop)
         PopForFollow(value = "", setShowDialog = {
-            showDialog.value = it
+            showDialogPop = it
         }) {}
-    val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(
@@ -337,9 +349,6 @@ fun LiveStreaming(
                 }
             },
         )
-    }
-    LaunchedEffect(Unit) {
-
     }
 }
 

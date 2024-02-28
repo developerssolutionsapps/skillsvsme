@@ -92,7 +92,15 @@ fun AddClass(
                             }
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    SkillvsmeButton(label = "Cancel", modifier = Modifier.fillMaxWidth(), primary = false)
+                    SkillvsmeButton(
+                        label = "Cancel",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                navController.popBackStack()
+                            },
+                        primary = false,
+                    )
                     Spacer(modifier = Modifier.height(100.dp))
                 }
             }

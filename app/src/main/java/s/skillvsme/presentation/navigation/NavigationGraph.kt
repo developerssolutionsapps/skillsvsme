@@ -45,6 +45,8 @@ import s.skillvsme.presentation.student.profile.EditProfileStud
 import s.skillvsme.presentation.student.profile.StudentProfile
 import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
+import s.skillvsme.presentation.tutors.TutorsProfile.EditLanguage
+import s.skillvsme.presentation.tutors.TutorsProfile.EditProfile
 import s.skillvsme.presentation.tutors.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsProfile.WithdrawFunds
@@ -61,7 +63,7 @@ fun NavigationGraph(navController: NavHostController, ) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Tutor.Home.Home
+        startDestination = Route.Student.Onboarding.Onboarding1
     ) {
         /*
         * The screens below are those that are related to both the students and the tutors.
@@ -211,13 +213,13 @@ fun NavigationGraph(navController: NavHostController, ) {
             TutorProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.EditLanguage) {
-            EditLanguageStud(navController = navController)
+            EditLanguage(navController = navController)
         }
         composable(Route.Tutor.Profile.Earnings) {
             Earnings(navController = navController)
         }
         composable(Route.Tutor.Profile.EditProfile) {
-            EditProfileStud(navController = navController)
+            EditProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.Notifications) {
             NotificationScreen(navController = navController)

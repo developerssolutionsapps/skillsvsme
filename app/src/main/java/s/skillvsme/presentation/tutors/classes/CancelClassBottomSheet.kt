@@ -31,7 +31,10 @@ import s.skillvsme.ui.theme.red
 import s.skillvsme.ui.theme.white
 
 @Composable
-fun CancelClassBottomSheet(navController: NavController) {
+fun CancelClassBottomSheet(
+    navController: NavController,
+    collapseBtn: () -> Unit
+) {
     SetStatusBarColor(color = white)
     Box(
         modifier = Modifier
@@ -56,7 +59,7 @@ fun CancelClassBottomSheet(navController: NavController) {
                     Image(
                         modifier = Modifier
                             .clickable {
-                                navController.popBackStack()
+                                collapseBtn()
                             },
                         painter = painterResource(id = R.drawable.cancel),
                         contentDescription = null

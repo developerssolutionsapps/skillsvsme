@@ -33,6 +33,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
@@ -82,7 +84,12 @@ fun TutorHomePage(
         sheetPeekHeight = 0.dp,
         sheetContent = {
             CancelClassBottomSheet(
-                navController = navController
+                navController = navController,
+                collapseBtn = {
+                    scope.launch (Dispatchers.Main) {
+                        bottomSheetScaffoldState.bottomSheetState.collapse()
+                    }
+                }
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {

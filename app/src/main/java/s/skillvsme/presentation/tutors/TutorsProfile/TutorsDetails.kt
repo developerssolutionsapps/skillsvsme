@@ -225,10 +225,10 @@ fun TutorsDetails(
                     Spacer(modifier = Modifier.height(8.dp))
                     SkillvsmeButton(
                         modifier = Modifier.fillMaxWidth(),
-                        label = "Schedule a class",
+                        label = "Proceed to payment",
                         primary = true,
                         onClick = {
-                            navController.navigate(Route.Student.Tutor.Schedule)
+                            navController.navigate(Route.Tutor.Profile.Earnings)
                         }
                     )
                     Spacer(modifier = Modifier.height(4.dp))
@@ -240,7 +240,7 @@ fun TutorsDetails(
                             navController.popBackStack()
                         }
                     )
-                    Spacer(modifier = Modifier.height(48.dp))
+                    Spacer(modifier = Modifier.height(120.dp))
                 }
             }
         },

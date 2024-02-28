@@ -80,7 +80,7 @@ fun NotificationScreen(
                                 .fillMaxWidth() // Adjust width as needed
                         )
                     }
-                    Spacer(modifier = Modifier.height(100.dp))
+                    Spacer(modifier = Modifier.height(120.dp))
                 }
             }
         },

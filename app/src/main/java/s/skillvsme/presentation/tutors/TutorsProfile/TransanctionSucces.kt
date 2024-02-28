@@ -182,7 +182,7 @@ fun TransactionSuccess(
                                     .fillMaxWidth()
                                     .height(49.dp),
                                 onClick = {
-                                    navController.navigate(Route.Student.Home.Home)
+                                    navController.navigate(Route.Tutor.Home.Home)
                                 }
                             )
                             Spacer(modifier = Modifier.height(100.dp))

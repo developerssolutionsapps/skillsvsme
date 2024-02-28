@@ -86,6 +86,7 @@ fun EditLanguage(navController: NavController) {
                         boldValue = true
                     )
                 }
+                Spacer(modifier = Modifier.height(100.dp))
             }
         },
         bottomBar = { BottomNavigation(
