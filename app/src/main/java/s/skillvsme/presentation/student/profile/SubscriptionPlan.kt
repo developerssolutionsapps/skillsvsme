@@ -163,9 +163,9 @@ fun SubscriptionPlan(navController: NavController) {
                                 .height(1.dp)
                                 .fillMaxWidth() // Adjust width as needed
                         )
+                        Spacer(modifier = Modifier.height(80.dp))
                     }
                 }
-
             }
         },
         bottomBar = { BottomNavigation(navController = navController) }

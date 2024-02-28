@@ -56,35 +56,38 @@ fun EditLanguageStud(navController: NavController) {
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(top = 40.dp, start = 16.dp, end = 16.dp),
+                    verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Spacer(modifier = Modifier.height(25.dp))
-                    Text(
-                        text = "Kamal Tyagi",
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 25.sp,
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                    Spacer(modifier = Modifier.height(30.dp))
-                    EditTextLabel(
-                        value = "English",
-                        text = "App Language",
-                        trailinicon = painterResource(id = R.drawable.arrow_down),
-                        spacer = 10.dp,
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .padding(top = 150.dp)
-                            .height(140.dp)
-                    )
-                    SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                    Column {
+                        Spacer(modifier = Modifier.height(25.dp))
+                        Text(
+                            text = "Kamal Tyagi",
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 25.sp,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                        Spacer(modifier = Modifier.height(30.dp))
+                        EditTextLabel(
+                            value = "English",
+                            text = "App Language",
+                            trailinicon = painterResource(id = R.drawable.arrow_down),
+                            spacer = 10.dp,
+                        )
                     }
-                    Spacer(modifier = Modifier.height(15.dp))
-                    SkillvsmeText(
-                        value = "Back",
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        boldLabel = false,
-                        boldValue = true
-                    )
+                    Column {
+                        SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                        }
+                        Spacer(modifier = Modifier.height(15.dp))
+                        SkillvsmeButton(
+                            label = "Back",
+                            primary = false,
+                            modifier = Modifier.align(Alignment.CenterHorizontally),
+                            onClick = {
+                                navController.popBackStack()
+                            }
+                        )
+                        Spacer(modifier = Modifier.height(80.dp))
+                    }
                 }
             }
         },

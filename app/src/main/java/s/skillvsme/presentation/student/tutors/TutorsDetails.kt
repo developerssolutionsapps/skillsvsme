@@ -70,7 +70,9 @@ fun TutorsDetailsStud(
                         backgroundColor = black,
                         backgroundImage = painterResource(id = R.drawable.background_lines),
                         profileImage = painterResource(id = R.drawable.profile2),
-                        onClick = {},
+                        onClick = {
+                            navController.navigate(Route.Student.Tutor.Schedule)
+                        },
                         navController = navController
                     )
                 }

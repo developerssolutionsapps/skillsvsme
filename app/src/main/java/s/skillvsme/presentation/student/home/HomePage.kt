@@ -243,6 +243,9 @@ fun HomePage(
                     modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
+                        .clickable {
+                            navController.navigate(Route.Student.Payment.BookTrial)
+                        }
                         .padding(vertical = 2.dp, horizontal = 2.dp),
                     shape = RoundedCornerShape(16.dp),
                     backgroundColor = Color.White,
@@ -256,10 +259,6 @@ fun HomePage(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row(
-                            modifier = Modifier
-                                .clickable {
-                                    navController.navigate(Route.Student.Payment.BookTrial)
-                                },
                             horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
                         ){
@@ -306,9 +305,11 @@ fun HomePage(
                     modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
+                        .clickable {
+                            navController.navigate(Route.Student.Payment.PaymentPlan)
+                        }
                         .padding(vertical = 2.dp, horizontal = 2.dp),
                     shape = RoundedCornerShape(16.dp),
-
                     backgroundColor = white,
                     border = BorderStroke(width = 1.dp, color = Color.Black),
                 ) {
@@ -320,10 +321,6 @@ fun HomePage(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row(
-                            modifier = Modifier
-                                .clickable {
-                                    navController.navigate(Route.Student.Payment.PaymentPlan)
-                                },
                             horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
                         ){

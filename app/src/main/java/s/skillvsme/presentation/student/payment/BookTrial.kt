@@ -68,6 +68,7 @@ fun BookTrial(
             ) {
                 Column {
                     // Black rounded corner shape container
+                    Spacer(modifier = Modifier.height(80.dp))
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -247,6 +248,7 @@ fun BookTrial(
                         }
                     )
                     Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(80.dp))
                 }
             }
         },

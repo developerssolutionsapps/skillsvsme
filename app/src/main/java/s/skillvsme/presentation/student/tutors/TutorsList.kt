@@ -37,7 +37,7 @@ fun TutorsList(
     SetStatusBarColor(color = white)
     Scaffold (
         topBar = {
-            SimpleAppBar(navController = navController, text = "Tutors")
+            SimpleAppBar(navController = navController, text = "Tutors", canNavigateBack = false)
         },
         content = {
             Column(
