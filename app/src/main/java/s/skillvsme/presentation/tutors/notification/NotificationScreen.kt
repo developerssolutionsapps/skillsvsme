@@ -30,9 +30,11 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Divider
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.Notification
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.darkGrey
+import s.skillvsme.ui.theme.white
 
 
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -42,7 +44,7 @@ import s.skillvsme.ui.theme.darkGrey
 fun NotificationScreen(
     navController: NavController
 ) {
-
+    SetStatusBarColor(color = white)
     val scrollState = rememberScrollState()
     Scaffold(
         topBar = {
@@ -78,7 +80,7 @@ fun NotificationScreen(
                                 .fillMaxWidth() // Adjust width as needed
                         )
                     }
-                    Spacer(modifier = Modifier.height(100.dp))
+                    Spacer(modifier = Modifier.height(120.dp))
                 }
             }
         },

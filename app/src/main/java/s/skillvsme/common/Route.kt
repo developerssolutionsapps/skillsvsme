@@ -64,8 +64,9 @@ object Route {
             const val EditProfile = "/tutor/profile/editprofile"
             const val EditLanguage = "/tutor/profile/editlanguage"
             const val Earnings = "/tutor/profile/subscriptionplan"
-            const val PaymentSettings = "/tutor/profile/paymentsettings"
             const val Notifications = "/tutor/profile/notification"
+            const val WithdrawFunds = "/tutor/profile/withdrawfunds"
+            const val PaymentSettings = "/tutor/profile/paymentsettings"
             const val TransactionSuccess="/tutor/profile/transactionSuccess"
             const val TutorProfilePublicView="/tutor/profile/tutorProfilePublicView"
         }

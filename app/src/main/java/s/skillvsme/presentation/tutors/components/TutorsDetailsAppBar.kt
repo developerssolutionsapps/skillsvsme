@@ -137,9 +137,7 @@ fun TutorsDetailsAppBar(
                     .fillMaxWidth(),
                 label = "Schedule a class",
                 primary = false,
-                onClick = {
-                    navController.navigate(Route.Student.Tutor.Schedule)
-                }
+                onClick = { onClick() }
             )
             Spacer(modifier = Modifier.height(16.dp))
         }

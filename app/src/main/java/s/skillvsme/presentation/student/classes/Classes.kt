@@ -44,10 +44,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.PastClassesItem
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -59,6 +61,7 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.red
+import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
@@ -67,6 +70,7 @@ import s.skillvsme.ui.theme.red
 fun Classes(
     navController:NavController
 ){
+    SetStatusBarColor(color = white)
     var upcomingSelected by remember { mutableStateOf(true) }
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
@@ -82,7 +86,6 @@ fun Classes(
                 bottomSheetScaffoldState.bottomSheetState.collapse()
             }
         } else {
-            // Navigate back or handle back button press in another way
             navController.popBackStack()
         }
     }
@@ -90,7 +93,14 @@ fun Classes(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = 0.dp,
         sheetContent = {
-            CancelBottomSheet(navController = navController)
+            CancelBottomSheet(
+                navController = navController,
+                cancelClicked = {
+                    scope.launch (Dispatchers.IO) {
+                        bottomSheetScaffoldState.bottomSheetState.collapse()
+                    }
+                }
+            )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
                     bottomSheetScaffoldState.bottomSheetState.collapse()
@@ -209,7 +219,10 @@ fun Classes(
 }
 
 @Composable
-fun CancelBottomSheet(navController: NavController) {
+fun CancelBottomSheet(
+    navController: NavController,
+    cancelClicked: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -233,7 +246,7 @@ fun CancelBottomSheet(navController: NavController) {
                     Image(
                         modifier = Modifier
                             .clickable {
-                                navController.popBackStack()
+                                cancelClicked()
                             },
                         painter = painterResource(id = R.drawable.cancel),
                         contentDescription = null
@@ -245,7 +258,7 @@ fun CancelBottomSheet(navController: NavController) {
                             .clickable {
                                 navController.popBackStack()
                             },
-                        painter = painterResource(id = R.drawable.warning),
+                        painter = painterResource(id = R.drawable.warning_1),
                         contentDescription = null
                     )
                     Spacer(modifier = Modifier.width(20.dp))

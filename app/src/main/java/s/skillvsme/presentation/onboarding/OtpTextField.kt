@@ -18,8 +18,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
-import s.skillvsme.ui.theme.black20
-import s.skillvsme.ui.theme.greyishBlack
 
 @Composable
 fun OtpTextField(
@@ -63,26 +61,26 @@ private fun CharView(
 ) {
     val isFocused = text.length == index
     val char = when {
-        index == text.length -> "0"
+        index == text.length -> ""
         index > text.length -> ""
         else -> text[index].toString()
     }
     Text(
         modifier = Modifier
-            .width(65.dp)
-            .height(65.dp)
+            .width(60.dp)
+            .height(56.dp)
             .border(
                 1.dp, when {
-                    isFocused -> black
-                    else -> black20
+                    isFocused -> black.copy(alpha = 0.6f)
+                    else -> black.copy(alpha = 0.2f)
                 }, RoundedCornerShape(12.dp)
             )
-            .padding(2.dp),
+            .padding(horizontal = 4.dp),
         text = char,
         fontFamily = Fonts.jostFontFamily,
         style = MaterialTheme.typography.h4,
         color = if (isFocused) {
-            greyishBlack
+            black
         } else {
             black
         },

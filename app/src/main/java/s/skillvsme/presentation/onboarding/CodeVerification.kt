@@ -37,6 +37,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.navigation.LoginDetails
 import s.skillvsme.ui.theme.black
@@ -49,6 +50,7 @@ fun CodeVerification(
     loginDetails: LoginDetails
 
 ) {
+    SetStatusBarColor(color = black)
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
     val onOtpTextChange: (String, Boolean) -> Unit = { otp, isComplete ->
@@ -140,20 +142,20 @@ fun CodeVerification(
                             .padding(20.dp)
                             .fillMaxWidth(),
                     ) {
+                        Spacer(modifier = Modifier.height(26.dp))
                         Text(
                             fontFamily = Fonts.jostFontFamily,
                             modifier = Modifier
-                                .padding(10.dp)
                                 .fillMaxWidth(),
                             text = "Verify Phone Number",
                             style = MaterialTheme.typography.body1,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center
                         )
+                        Spacer(modifier = Modifier.height(12.dp))
                         Text(
                             fontFamily = Fonts.jostFontFamily,
                             modifier = Modifier
-                                .padding(10.dp)
                                 .fillMaxWidth(),
                             text = "We have sent you a one time verification code on to +999XXXXXXX45 ",
                             style = MaterialTheme.typography.body1,
@@ -161,13 +163,13 @@ fun CodeVerification(
                             textAlign = TextAlign.Center
                         )
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(53.dp))
                     OtpTextField(
                         otpText = otpCodeValue,
                         onOtpTextChange = onOtpTextChange,
                         otpCount = 4
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
                     TextEndingWithLink(
                         text = "Didn't receive code?",
                         linkText = "Resend",
@@ -175,7 +177,7 @@ fun CodeVerification(
                             otpCodeValue = ""
                         }
                     )
-                    Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(57.dp))
                     SkillvsmeButton(
                         enabled = otpCodeValue != "",
                         label = "Continue",

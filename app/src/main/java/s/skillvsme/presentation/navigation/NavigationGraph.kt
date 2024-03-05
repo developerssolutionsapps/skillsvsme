@@ -45,8 +45,11 @@ import s.skillvsme.presentation.student.profile.EditProfileStud
 import s.skillvsme.presentation.student.profile.StudentProfile
 import s.skillvsme.presentation.student.profile.SubscriptionPlan
 import s.skillvsme.presentation.student.profile.paymentMethod
+import s.skillvsme.presentation.tutors.TutorsProfile.EditLanguage
+import s.skillvsme.presentation.tutors.TutorsProfile.EditProfile
 import s.skillvsme.presentation.tutors.streaming.StreamingScreen
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
+import s.skillvsme.presentation.tutors.TutorsProfile.WithdrawFunds
 import s.skillvsme.presentation.tutors.classes.AddClass
 import s.skillvsme.presentation.tutors.classes.ClassAddSuccess
 import s.skillvsme.presentation.tutors.classes.TutorsClassesScreen
@@ -202,7 +205,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             ClassAddSuccess(navController = navController)
         }
         composable(Route.Tutor.Classes.CancelClassSuccess) {
-            ClassAddSuccess(navController = navController)
+            ClassCancelSuccess(navController = navController)
         }
 
         // Tutors profile screens
@@ -210,13 +213,13 @@ fun NavigationGraph(navController: NavHostController, ) {
             TutorProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.EditLanguage) {
-            EditLanguageStud(navController = navController)
+            EditLanguage(navController = navController)
         }
         composable(Route.Tutor.Profile.Earnings) {
             Earnings(navController = navController)
         }
         composable(Route.Tutor.Profile.EditProfile) {
-            EditProfileStud(navController = navController)
+            EditProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.Notifications) {
             NotificationScreen(navController = navController)
@@ -229,6 +232,9 @@ fun NavigationGraph(navController: NavHostController, ) {
         }
         composable(Route.Tutor.Profile.TutorProfilePublicView) {
             TutorsDetails(navController = navController)
+        }
+        composable(Route.Tutor.Profile.WithdrawFunds) {
+            WithdrawFunds(navController = navController)
         }
     }
 }

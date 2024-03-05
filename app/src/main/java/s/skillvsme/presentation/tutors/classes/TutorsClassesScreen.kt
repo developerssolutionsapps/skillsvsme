@@ -39,14 +39,17 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BookedClassesListItem
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.UnBookedClassesListItem
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
+import s.skillvsme.ui.theme.white
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
@@ -55,6 +58,7 @@ import s.skillvsme.ui.theme.lightGrey
 fun TutorsClassesScreen(
     navController:NavController
 ){
+    SetStatusBarColor(color = white)
     var upcomingSelected by remember { mutableStateOf(true) }
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
@@ -78,7 +82,12 @@ fun TutorsClassesScreen(
         sheetPeekHeight = 0.dp,
         sheetContent = {
             CancelClassBottomSheet(
-                navController = navController
+                navController = navController,
+                collapseBtn = {
+                    scope.launch (Dispatchers.Main) {
+                        bottomSheetScaffoldState.bottomSheetState.collapse()
+                    }
+                }
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
@@ -173,6 +182,7 @@ fun TutorsClassesScreen(
                                 .height(20.dp)
                         )
                     }
+                    Spacer(modifier = Modifier.height(40.dp))
                 }
             },
             bottomBar = {

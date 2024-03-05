@@ -30,12 +30,15 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.white
 
 @Composable
 fun ClassRoom(
     navController: NavController
 ) {
+    SetStatusBarColor(color = black)
     val density = LocalDensity.current
     val statusBarHeight = with(density) { remember { WindowInsetsCompat.Type.statusBars() } }
     val navigationBarHeight = with(density) { remember { WindowInsetsCompat.Type.navigationBars() } }

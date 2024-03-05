@@ -38,9 +38,11 @@ fun SkillvsmeButton(
         ),
         border = BorderStroke(0.dp, white),
         onClick = onClick,
-        modifier = modifier.testTag(label),
+        modifier = modifier
+            .height(49.dp)
+            .testTag(label),
         enabled = enabled,
-        shape = MaterialTheme.shapes.large.copy(all = CornerSize(24.dp)),
+        shape = MaterialTheme.shapes.large.copy(all = CornerSize(21.dp)),
         colors = ButtonDefaults.buttonColors(
             contentColor = if(primary) white else black,
             containerColor = if (primary) black else white,

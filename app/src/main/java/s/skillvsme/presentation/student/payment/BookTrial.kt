@@ -35,6 +35,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeButton
@@ -52,6 +53,7 @@ import s.skillvsme.ui.theme.white
 fun BookTrial(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
             SimpleAppBar(navController = navController, text = "Book Trial")
@@ -66,6 +68,7 @@ fun BookTrial(
             ) {
                 Column {
                     // Black rounded corner shape container
+                    Spacer(modifier = Modifier.height(80.dp))
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -245,6 +248,7 @@ fun BookTrial(
                         }
                     )
                     Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(80.dp))
                 }
             }
         },

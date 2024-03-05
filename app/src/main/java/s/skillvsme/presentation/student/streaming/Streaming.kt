@@ -36,9 +36,11 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.student.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.white
 
@@ -49,6 +51,7 @@ import s.skillvsme.ui.theme.white
 fun Streaming(
     navController:NavController
 ){
+    SetStatusBarColor(color = white)
     Scaffold (
         topBar = {
             SimpleAppBar(navController = navController, text = "Live now")

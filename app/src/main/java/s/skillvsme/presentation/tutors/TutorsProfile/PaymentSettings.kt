@@ -32,9 +32,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
@@ -44,6 +46,7 @@ import s.skillvsme.ui.theme.white
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun PaymentSetting(navController: NavController) {
+    SetStatusBarColor(color = black)
     Scaffold (
         content = {
             Column(

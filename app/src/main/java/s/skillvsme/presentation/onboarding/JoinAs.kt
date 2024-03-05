@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.navigation.LoginDetails
 import s.skillvsme.ui.theme.lightGrey
@@ -29,6 +30,7 @@ fun JoinAs(
     navController: NavController,
     loginDetails: LoginDetails
 ) {
+    SetStatusBarColor(color = white)
     Column(
         modifier = Modifier
             .padding(20.dp)

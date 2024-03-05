@@ -38,6 +38,7 @@ import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 import androidx.compose.foundation.layout.wrapContentHeight
+import s.skillvsme.common.SetStatusBarColor
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -45,6 +46,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 fun HomePage(
     navController: NavController
 ) {
+    SetStatusBarColor(color = white)
     val scrollState = rememberScrollState()
     Scaffold(
         content = {
@@ -83,7 +85,6 @@ fun HomePage(
                             .size(30.dp)
                             .background(Color.Gray, CircleShape)
                     ) {
-                        // Image
                         Image(
                             painter = (painterResource(id = R.drawable.ellipse1)),
                             contentDescription = "",
@@ -150,7 +151,7 @@ fun HomePage(
                         }
                     }
                 }
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(28.dp))
                 // Streaming now text
                 Row(
                     verticalAlignment = Alignment.CenterVertically
@@ -175,7 +176,7 @@ fun HomePage(
                         fontSize = 18.sp,
                     )
                 }
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(12.dp))
                 Row(
                     modifier = Modifier.horizontalScroll(rememberScrollState())
                 ) {
@@ -226,7 +227,7 @@ fun HomePage(
                                 )
                             }
                         }
-                        Spacer(modifier = Modifier.width(8.dp))
+                        Spacer(modifier = Modifier.width(12.dp))
                     }
                 }
                 Spacer(modifier = Modifier.height(16.dp))
@@ -242,6 +243,9 @@ fun HomePage(
                     modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
+                        .clickable {
+                            navController.navigate(Route.Student.Payment.BookTrial)
+                        }
                         .padding(vertical = 2.dp, horizontal = 2.dp),
                     shape = RoundedCornerShape(16.dp),
                     backgroundColor = Color.White,
@@ -255,10 +259,6 @@ fun HomePage(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row(
-                            modifier = Modifier
-                                .clickable {
-                                    navController.navigate(Route.Student.Payment.BookTrial)
-                                },
                             horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
                         ){
@@ -305,9 +305,11 @@ fun HomePage(
                     modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
+                        .clickable {
+                            navController.navigate(Route.Student.Payment.PaymentPlan)
+                        }
                         .padding(vertical = 2.dp, horizontal = 2.dp),
                     shape = RoundedCornerShape(16.dp),
-
                     backgroundColor = white,
                     border = BorderStroke(width = 1.dp, color = Color.Black),
                 ) {
@@ -319,10 +321,6 @@ fun HomePage(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Row(
-                            modifier = Modifier
-                                .clickable {
-                                    navController.navigate(Route.Student.Payment.PaymentPlan)
-                                },
                             horizontalArrangement = Arrangement.Start,
                             verticalAlignment = Alignment.CenterVertically
                         ){

@@ -30,10 +30,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BorderedSurface
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.TransactionHistory
 import s.skillvsme.presentation.student.navigation.BottomNavigation
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 
@@ -42,6 +44,7 @@ import s.skillvsme.ui.theme.white
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun SubscriptionPlan(navController: NavController) {
+    SetStatusBarColor(color = black)
     val scrollState = rememberScrollState()
     Scaffold(
         content = { paddingValues ->
@@ -160,9 +163,9 @@ fun SubscriptionPlan(navController: NavController) {
                                 .height(1.dp)
                                 .fillMaxWidth() // Adjust width as needed
                         )
+                        Spacer(modifier = Modifier.height(80.dp))
                     }
                 }
-
             }
         },
         bottomBar = { BottomNavigation(navController = navController) }
