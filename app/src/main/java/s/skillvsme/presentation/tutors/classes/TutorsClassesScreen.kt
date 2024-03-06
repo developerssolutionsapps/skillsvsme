@@ -46,6 +46,7 @@ import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BookedClassesListItem
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.UnBookedClassesListItem
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
@@ -113,13 +114,14 @@ fun TutorsClassesScreen(
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth(),
-                        shape = RoundedCornerShape(20.dp)
+                        shape = RoundedCornerShape(20.dp),
+                        color = lightGrey
                     ) {
                         Row {
                             Surface(
                                 modifier = Modifier
                                     .weight(1f)
-                                    .clickable {
+                                    .noRippleClickable {
                                         upcomingSelected = true
                                     },
                                 shape = RoundedCornerShape(24.dp),
@@ -131,7 +133,8 @@ fun TutorsClassesScreen(
                                         .fillMaxWidth(),
                                     text = "Upcoming",
                                     textAlign = TextAlign.Center,
-                                    fontFamily = Fonts.jostFontFamily
+                                    fontFamily = Fonts.jostFontFamily,
+                                    color = if (upcomingSelected) white else black
                                 )
                             }
                             Spacer(modifier = Modifier.width(8.dp))
@@ -139,7 +142,7 @@ fun TutorsClassesScreen(
                                 modifier = Modifier
                                     .weight(1f)
                                     .background(lightGrey)
-                                    .clickable {
+                                    .noRippleClickable {
                                         upcomingSelected = false
                                     },
                                 shape = RoundedCornerShape(24.dp),
@@ -151,7 +154,8 @@ fun TutorsClassesScreen(
                                         .fillMaxWidth(),
                                     text = "Past",
                                     textAlign = TextAlign.Center,
-                                    fontFamily = Fonts.jostFontFamily
+                                    fontFamily = Fonts.jostFontFamily,
+                                    color = if (upcomingSelected) black else lightGrey
                                 )
                             }
                         }

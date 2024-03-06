@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import s.skillvsme.R
+import s.skillvsme.presentation.onboarding.noRippleClickable
 
 @Composable
 fun TwoRadioButtons(
@@ -35,7 +36,7 @@ fun TwoRadioButtons(
         }
         Text(
             text = option1Text,
-            modifier = Modifier.clickable { onOptionSelected(option1Text) }
+            modifier = Modifier.noRippleClickable { onOptionSelected(option1Text) }
         )
 
         Spacer(modifier = Modifier.weight(1f))
@@ -49,7 +50,7 @@ fun TwoRadioButtons(
         }
         Text(
             text = option2Text,
-            modifier = Modifier.clickable { onOptionSelected(option2Text) }
+            modifier = Modifier.noRippleClickable { onOptionSelected(option2Text) }
         )
 
     }

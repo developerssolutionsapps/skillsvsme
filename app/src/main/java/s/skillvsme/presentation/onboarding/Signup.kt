@@ -192,7 +192,7 @@ fun Signup(
                         SkillvsmeText(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
-                                .padding(8.dp),
+                                .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.apple_icon),
                             value = "Sign Up With Apple"
                         )
@@ -213,7 +213,7 @@ fun Signup(
                         SkillvsmeText(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
-                                .padding(8.dp),
+                                .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.google_icon),
                             value = "Sign Up With Google"
                         )

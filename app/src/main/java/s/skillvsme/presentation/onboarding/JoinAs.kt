@@ -1,8 +1,10 @@
 package s.skillvsme.presentation.onboarding
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
@@ -11,9 +13,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.composed
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
@@ -38,7 +43,7 @@ fun JoinAs(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.weight(0.32f))
         // Logo
         Image(
             painter = painterResource(id = R.drawable.logo), // Replace with your logo
@@ -47,14 +52,14 @@ fun JoinAs(
                 .padding(top = 32.dp)
                 .size(120.dp)
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.weight(0.76f))
         // Welcome text
         Text(
             fontFamily = Fonts.jostFontFamily,
             text = "Join Skillvsme as",
             style = MaterialTheme.typography.h4
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.weight(0.26f))
         var tutorSelected by remember { mutableStateOf(false) }
         var studentSelected by remember { mutableStateOf(false) }
         // Horizontal row of images with text below
@@ -68,7 +73,7 @@ fun JoinAs(
                 Column(
                     modifier = Modifier
                         .padding(6.dp)
-                        .clickable {
+                        .noRippleClickable {
                             studentSelected = false
                             tutorSelected = true
                             loginDetails.loginAsTutor()
@@ -97,13 +102,13 @@ fun JoinAs(
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(30.dp))
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "Tutor",
-                    color = MaterialTheme.colors.onSurface,
-                    style = MaterialTheme.typography.body2,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 24.sp,
                     modifier = Modifier
-                        .padding(bottom = 8.dp)
                         .align(Alignment.CenterHorizontally)
                 )
             }
@@ -112,7 +117,7 @@ fun JoinAs(
                 Column(
                     modifier = Modifier
                         .padding(6.dp)
-                        .clickable {
+                        .noRippleClickable {
                             studentSelected = true
                             tutorSelected = false
                             loginDetails.loginAsStudents()
@@ -141,18 +146,18 @@ fun JoinAs(
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(30.dp))
                 Text(
                     fontFamily = Fonts.jostFontFamily,
                     text = "Student",
-                    color = MaterialTheme.colors.onSurface,
-                    style = MaterialTheme.typography.body2,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 24.sp,
                     modifier = Modifier
-                        .padding(bottom = 8.dp)
                         .align(Alignment.CenterHorizontally)
                 )
             }
         }
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.weight(1.8f))
         SkillvsmeButton(
             enabled = studentSelected || tutorSelected,
             modifier = Modifier
@@ -162,6 +167,14 @@ fun JoinAs(
                 navController.navigate(Route.Student.Onboarding.SignUp)
             }
         )
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(49.dp))
+    }
+}
+@SuppressLint("ModifierFactoryUnreferencedReceiver")
+@Composable
+fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
+    clickable(indication = null,
+        interactionSource = remember { MutableInteractionSource() }) {
+        onClick()
     }
 }

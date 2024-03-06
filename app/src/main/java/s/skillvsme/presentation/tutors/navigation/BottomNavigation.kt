@@ -20,7 +20,11 @@ import androidx.compose.material.Card
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material.ripple.RippleAlpha
+import androidx.compose.material.ripple.RippleTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -72,72 +76,71 @@ fun BottomNavigation(navController: NavController) {
                     )
                     .padding(top = 1.dp)
                     .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
+                elevation = 0.dp
             ) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentRoute = navBackStackEntry?.destination?.route
                 items.forEachIndexed { index, item ->
-                 // Exclude Tutor item
-                        BottomNavigationItem(
-                            icon = {
-                                Box {
-                                    Icon(
-                                        painterResource(id = item.icon),
-                                        contentDescription = item.title,
-                                        modifier = Modifier.size(25.dp),
-                                        tint = Color.Black
+                    // Exclude Tutor item
+                    BottomNavigationItem(
+                        icon = {
+                            Box {
+                                Icon(
+                                    painterResource(id = item.icon),
+                                    contentDescription = item.title,
+                                    modifier = Modifier.size(25.dp),
+                                    tint = Color.Black
+                                )
+                            }
+                        },
+                        label = {
+                            Column(
+                                verticalArrangement = Arrangement.Center,
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                            ) {
+                                Text(
+                                    text = item.title,
+                                    fontSize = 12.sp,
+                                    color = Color.Black
+                                )
+                                Spacer(modifier = Modifier.height(4.dp))
+                                if (currentRoute == item.screenroute) {
+                                    Box(
+                                        modifier = Modifier
+                                            .size(8.dp)
+                                            .clip(RoundedCornerShape(50))
+                                            .background(Color.Red)
                                     )
-                                }
-                            },
-                            label = {
-                                Column(
-                                    verticalArrangement = Arrangement.Center,
-                                    horizontalAlignment = Alignment.CenterHorizontally,
-                                ) {
-                                    Text(
-                                        text = item.title,
-                                        fontSize = 12.sp,
-                                        color = Color.Black
-                                    )
-                                    Spacer(modifier = Modifier.height(4.dp))
-                                    if (currentRoute == item.screenroute) {
-                                        Box(
-                                            modifier = Modifier
-                                                .size(8.dp)
-                                                .clip(RoundedCornerShape(50))
-                                                .background(Color.Red)
-                                        )
-                                    }
-                                }
-                            },
-                            selectedContentColor = Color.Black,
-                            unselectedContentColor = Color.Black,
-                            alwaysShowLabel = true,
-                            selected = currentRoute == item.screenroute,
-                            onClick = {
-                                navController.navigate(item.screenroute) {
-                                    navController.graph.startDestinationRoute?.let { screen_route ->
-                                        popUpTo(screen_route) {
-                                            saveState = true
-                                        }
-                                    }
-                                    launchSingleTop = true
-                                    restoreState = true
                                 }
                             }
-                        )
+                        },
+                        selectedContentColor = Color.Black,
+                        unselectedContentColor = Color.Black,
+                        alwaysShowLabel = true,
+                        selected = currentRoute == item.screenroute,
+                        onClick = {
+                            navController.navigate(item.screenroute) {
+                                navController.graph.startDestinationRoute?.let { screen_route ->
+                                    popUpTo(screen_route) {
+                                        saveState = true
+                                    }
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        },
 
-                    if (index == 1 ) {
-                        Spacer(modifier = Modifier.padding(start =40.dp))
+                        )
+                    if (index == 1) {
+                        Spacer(modifier = Modifier.padding(start = 40.dp))
                     }
-                    if (index == 1 ) {
-                        Spacer(modifier = Modifier.padding(end =40.dp))
+                    if (index == 1) {
+                        Spacer(modifier = Modifier.padding(end = 40.dp))
                     }
 
                 }
             }
         }
-
-
         // Floating Button
         FloatingActionButton(
             onClick = {
@@ -158,4 +161,11 @@ fun BottomNavigation(navController: NavController) {
             )
         }
     }
+}
+private object NoRippleTheme : RippleTheme {
+    @Composable
+    override fun defaultColor() = Color.White
+
+    @Composable
+    override fun rippleAlpha(): RippleAlpha = RippleAlpha(0.0f,0.0f,0.0f,0.0f)
 }
