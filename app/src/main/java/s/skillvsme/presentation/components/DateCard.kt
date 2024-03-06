@@ -28,7 +28,7 @@ fun DateCard(
 ) {
     Box(
         modifier = Modifier
-            .padding(top = 24.dp, end = 12.dp)
+            .padding(top = 10.dp, end = 12.dp)
             .fillMaxWidth(0.2f)
             .background(
                 color = lightGrey,
