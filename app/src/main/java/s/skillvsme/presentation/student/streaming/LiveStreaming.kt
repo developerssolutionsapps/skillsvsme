@@ -238,15 +238,7 @@ fun LiveStreaming(
                                     contentDescription = null,
                                     modifier = Modifier
                                         .clickable {
-                                            navController.navigate(Route.Student.Home.Home) {
-                                                navController.graph.startDestinationRoute?.let { screen_route ->
-                                                    popUpTo(screen_route) {
-                                                        saveState = true
-                                                    }
-                                                }
-                                                launchSingleTop = true
-                                                restoreState = true
-                                            }
+                                          navController.popBackStack()
                                         }
                                         .size(24.dp)
                                         .padding(4.dp)
