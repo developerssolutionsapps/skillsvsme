@@ -237,7 +237,17 @@ fun LiveStreaming(
                                     painter = painterResource(id = R.drawable.close),
                                     contentDescription = null,
                                     modifier = Modifier
-                                        .clickable { navController.navigate(Route.Student.Home.Home) }
+                                        .clickable {
+                                            navController.navigate(Route.Student.Home.Home) {
+                                                navController.graph.startDestinationRoute?.let { screen_route ->
+                                                    popUpTo(screen_route) {
+                                                        saveState = true
+                                                    }
+                                                }
+                                                launchSingleTop = true
+                                                restoreState = true
+                                            }
+                                        }
                                         .size(24.dp)
                                         .padding(4.dp)
                                 )
