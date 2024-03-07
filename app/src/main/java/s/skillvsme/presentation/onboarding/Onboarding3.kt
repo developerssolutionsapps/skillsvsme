@@ -25,7 +25,6 @@ import s.skillvsme.ui.theme.white
 fun Onboarding3(
     navController: NavController
 ) {
-    SetStatusBarColor(color = white)
     Column(
         modifier = Modifier
             .fillMaxSize()

@@ -1,5 +1,8 @@
 package s.skillvsme.presentation.onboarding
 
+import android.app.Activity
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -34,11 +37,15 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.view.WindowCompat
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
@@ -55,7 +62,7 @@ import s.skillvsme.ui.theme.white
 fun Signup(
     navController: NavController
 ) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Black)
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
     Box(
@@ -230,3 +237,4 @@ fun Signup(
         }
     }
 }
+

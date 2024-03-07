@@ -65,6 +65,8 @@ dependencies {
     // compose navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
     implementation ("androidx.compose.material:material:1.6.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
 
     //datepicker
     implementation ("com.github.commandiron:WheelPickerCompose:1.1.11")
