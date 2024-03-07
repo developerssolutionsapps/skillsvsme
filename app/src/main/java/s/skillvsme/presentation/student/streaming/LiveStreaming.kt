@@ -237,7 +237,9 @@ fun LiveStreaming(
                                     painter = painterResource(id = R.drawable.close),
                                     contentDescription = null,
                                     modifier = Modifier
-                                        .clickable { navController.navigate(Route.Student.Home.Home) }
+                                        .clickable {
+                                          navController.popBackStack()
+                                        }
                                         .size(24.dp)
                                         .padding(4.dp)
                                 )

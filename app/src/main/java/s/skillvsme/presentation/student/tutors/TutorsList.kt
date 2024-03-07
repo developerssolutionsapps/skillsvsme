@@ -32,87 +32,64 @@ import s.skillvsme.ui.theme.white
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun TutorsList(
-    navController:NavController
+    navController: NavController
 ) {
     SetStatusBarColor(color = white)
-    Scaffold (
+    Scaffold(
         topBar = {
             SimpleAppBar(navController = navController, text = "Tutors", canNavigateBack = false)
         },
         content = {
             Column(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(start = 16.dp, end = 16.dp)
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.Center,
             ) {
                 TutorsListComponent(
                     name = "Alexander Brik",
-                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
+                    bio = "Experienced and dedicated\n" +
+                            "language tutor passionate about\n" +
+                            "helping students unlock their\n" +
+                            "linguistic potential.Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language.",
                     rating = 5.0,
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile1)
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Divider(
-                    thickness = 1.dp,
-                    color = black
-                )
-                Spacer(modifier = Modifier.height(8.dp))
                 TutorsListComponent(
                     name = "Alexander Brik",
-                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
+                    bio = "Experienced and dedicated\n"+
+                            "language tutor passionate about\n"+
+                            "helping students unlock their\n"+
+                            "linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language.",
                     rating = 4.8,
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile2),
                     isLive = false
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Divider(
-                    thickness = 1.dp,
-                    color = black
-                )
-                Spacer(modifier = Modifier.height(8.dp))
                 TutorsListComponent(
                     name = "Alexander Brik",
-                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
+                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language. ",
                     rating = 2.9,
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile3),
                     isLive = false
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Divider(
-                    thickness = 1.dp,
-                    color = black
-                )
-                Spacer(modifier = Modifier.height(8.dp))
+
                 TutorsListComponent(
                     name = "Alexander Brik",
-                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
+                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language.",
                     rating = 4.5,
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile1)
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Divider(
-                    thickness = 1.dp,
-                    color = black
-                )
-                Spacer(modifier = Modifier.height(8.dp))
                 TutorsListComponent(
                     name = "Alexander Brik",
-                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
+                    bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language.",
                     rating = 5.0,
                     navController = navController,
                     profile = painterResource(id = R.drawable.profile3)
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Divider(
-                    thickness = 1.dp,
-                    color = black
-                )
-                Spacer(modifier = Modifier.height(8.dp))
                 TutorsListComponent(
                     name = "Alexander Brik",
                     bio = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in ...",
@@ -121,14 +98,10 @@ fun TutorsList(
                     profile = painterResource(id = R.drawable.profile2),
                     isLive = false
                 )
-                Spacer(modifier = Modifier.height(16.dp))
-                Divider(
-                    thickness = 1.dp,
-                    color = black
-                )
+                Spacer(modifier = Modifier.height(100.dp))
                 Spacer(modifier = Modifier.height(8.dp))
-                Spacer(modifier = Modifier.height(40.dp))
             }
+
         },
         bottomBar = {
             BottomNavigation(navController = navController)

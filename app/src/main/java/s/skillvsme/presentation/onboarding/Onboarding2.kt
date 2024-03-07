@@ -32,6 +32,7 @@ fun Onboarding2(
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.weight(0.5f))
         Column(
             modifier = Modifier
                 .padding(16.dp),
@@ -57,6 +58,7 @@ fun Onboarding2(
                 textAlign = TextAlign.Center
             )
         }
+        Spacer(modifier = Modifier.weight(0.5f))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -78,5 +80,6 @@ fun Onboarding2(
                 }
             )
         }
+        Spacer(modifier = Modifier.height(49.dp))
     }
 }

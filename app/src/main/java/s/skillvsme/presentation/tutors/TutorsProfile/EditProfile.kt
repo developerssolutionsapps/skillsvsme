@@ -154,14 +154,9 @@ fun EditProfile(
                         SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
                         }
                         Spacer(modifier = Modifier.height(20.dp))
-                        SkillvsmeText(
-                            value = "Back",
-                            fontSize = 20,
-                            boldValue = true,
-                            modifier = Modifier.align(Alignment.CenterHorizontally),
-                            boldLabel = false,
-                            valueFont = FontWeight.Medium
-                        )
+                        SkillvsmeButton(label = "Back" +
+                                "", modifier = Modifier.fillMaxWidth(), primary = false) {
+                        }
                         Spacer(modifier = Modifier.height(120.dp))
                     }
                 }

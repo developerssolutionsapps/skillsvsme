@@ -25,7 +25,6 @@ import s.skillvsme.ui.theme.white
 fun Onboarding3(
     navController: NavController
 ) {
-    SetStatusBarColor(color = white)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -33,6 +32,7 @@ fun Onboarding3(
         verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Spacer(modifier = Modifier.weight(0.5f))
         Column(
             modifier = Modifier
                 .padding(16.dp),
@@ -58,6 +58,7 @@ fun Onboarding3(
                 textAlign = TextAlign.Center
             )
         }
+        Spacer(modifier = Modifier.weight(0.5f))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
@@ -70,5 +71,6 @@ fun Onboarding3(
                 }
             )
         }
+        Spacer(modifier = Modifier.height(49.dp))
     }
 }

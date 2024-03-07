@@ -19,9 +19,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.darkGrey
@@ -32,10 +35,13 @@ fun SkillvsmeText(
     value: String,
     value1: String?=null,
     modifier: Modifier = Modifier,
+    lineheight:Double?=null,
+    maxline:Int?=null,
     label: String? = null,
     color: Color = white,
     boldLabel: Boolean = true,
     fontSize: Int? = null,
+    letterSpacing:Double?=null,
     boldValue: Boolean = false,
     iconBeforeSize: Dp =16.dp,
     valueSize: Int? = null,
@@ -98,14 +104,18 @@ fun SkillvsmeText(
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(
-                        text = value,
-                        color = valueColor ?: Color.Unspecified,
-                        fontFamily = Fonts.jostFontFamily,
-                        fontSize = if(valueSize != null) valueSize.sp else TextUnit.Unspecified,
-                        style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
-                        fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
-                    )
+
+                        Text(
+                            text = value,
+                            lineHeight = lineheight?.em?: TextUnit.Unspecified,
+                            color = valueColor ?: Color.Unspecified,
+                            letterSpacing =letterSpacing?.sp ?:TextUnit.Unspecified,
+                            fontFamily = Fonts.jostFontFamily,
+                            maxLines = maxline ?: Int.MAX_VALUE ,
+                            overflow = TextOverflow.Ellipsis,
+                            fontSize = valueSize?.sp ?: TextUnit.Unspecified,
+                            fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
+                        )
                     Spacer(modifier = Modifier.width(8.dp))
                     if (value1 !=null){
                         Text(

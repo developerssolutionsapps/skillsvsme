@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -50,7 +51,7 @@ fun CodeVerification(
     loginDetails: LoginDetails
 
 ) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Black)
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
     val onOtpTextChange: (String, Boolean) -> Unit = { otp, isComplete ->

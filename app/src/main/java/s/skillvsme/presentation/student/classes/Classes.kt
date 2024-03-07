@@ -56,6 +56,7 @@ import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeRadioBtn
 import s.skillvsme.presentation.components.SkillvsmeText
 import s.skillvsme.presentation.components.UpComingClassesItem
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
@@ -112,7 +113,7 @@ fun Classes(
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Checkout")
+                SimpleAppBar(navController = navController, text = "Checkout",false)
             },
             content = { paddingValues ->
                 Column(
@@ -127,13 +128,14 @@ fun Classes(
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth(),
-                        shape = RoundedCornerShape(20.dp)
+                        shape = RoundedCornerShape(20.dp),
+                        color= lightGrey
                     ) {
                         Row {
                             Surface(
                                 modifier = Modifier
                                     .weight(1f)
-                                    .clickable {
+                                    .noRippleClickable {
                                         upcomingSelected = true
                                     },
                                 shape = RoundedCornerShape(24.dp),
@@ -145,7 +147,8 @@ fun Classes(
                                         .fillMaxWidth(),
                                     text = "Upcoming",
                                     textAlign = TextAlign.Center,
-                                    fontFamily = Fonts.jostFontFamily
+                                    fontFamily = Fonts.jostFontFamily,
+                                    color = if (upcomingSelected) white else black
                                 )
                             }
                             Spacer(modifier = Modifier.width(8.dp))
@@ -153,7 +156,7 @@ fun Classes(
                                 modifier = Modifier
                                     .weight(1f)
                                     .background(lightGrey)
-                                    .clickable {
+                                    .noRippleClickable {
                                         upcomingSelected = false
                                     },
                                 shape = RoundedCornerShape(24.dp),
@@ -165,7 +168,8 @@ fun Classes(
                                         .fillMaxWidth(),
                                     text = "Past",
                                     textAlign = TextAlign.Center,
-                                    fontFamily = Fonts.jostFontFamily
+                                    fontFamily = Fonts.jostFontFamily,
+                                    color = if (upcomingSelected) black else lightGrey
                                 )
                             }
                         }

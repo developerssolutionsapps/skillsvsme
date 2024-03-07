@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
@@ -71,7 +72,7 @@ fun DayItem(
         modifier = Modifier
             .size(56.dp)
             .background(if(isSelected) white else Color.Transparent)
-            .clickable { onDaySelected() },
+            .noRippleClickable { onDaySelected() },
             horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(

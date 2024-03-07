@@ -51,42 +51,34 @@ fun EditLanguage(navController: NavController) {
                         id = R.drawable.rectangle6,
                     ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController =navController
                 )
-                Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.weight(0.03f))
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(top = 40.dp, start = 16.dp, end = 16.dp),
                 ) {
-                    Spacer(modifier = Modifier.height(25.dp))
+                    Spacer(modifier = Modifier.weight(0.25f))
                     Text(
                         text = "Kamal Tyagi",
                         fontWeight = FontWeight.Bold,
                         fontSize = 25.sp,
                         modifier = Modifier.align(Alignment.CenterHorizontally)
                     )
-                    Spacer(modifier = Modifier.height(30.dp))
+                    Spacer(modifier = Modifier.weight(0.31f))
                     EditTextLabel(
                         value = "English",
                         text = "App Language",
                         trailinicon = painterResource(id = R.drawable.arrow_down),
                         spacer = 10.dp,
                     )
-                    Spacer(
-                        modifier = Modifier
-                            .padding(top = 150.dp)
-                            .height(140.dp)
-                    )
+                    Spacer(modifier = Modifier.weight(2.75f))
                     SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
                     }
-                    Spacer(modifier = Modifier.height(15.dp))
-                    SkillvsmeText(
-                        value = "Back",
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        boldLabel = false,
-                        boldValue = true
-                    )
+                    Spacer(modifier = Modifier.weight(0.15f))
+                    SkillvsmeButton(label = "Back", modifier = Modifier.fillMaxWidth(), primary = false) {
+                    }
+                    Spacer(modifier = Modifier.weight(1.2f))
                 }
-                Spacer(modifier = Modifier.height(100.dp))
             }
         },
         bottomBar = { BottomNavigation(
@@ -94,5 +86,4 @@ fun EditLanguage(navController: NavController) {
         )
         }
     )
-
 }

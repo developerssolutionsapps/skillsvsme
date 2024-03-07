@@ -12,10 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
 import s.skillvsme.ui.theme.black
 
@@ -75,10 +77,11 @@ private fun CharView(
                     else -> black.copy(alpha = 0.2f)
                 }, RoundedCornerShape(12.dp)
             )
-            .padding(horizontal = 4.dp),
+            .padding(horizontal = 25.dp, vertical = 18.dp),
         text = char,
         fontFamily = Fonts.jostFontFamily,
-        style = MaterialTheme.typography.h4,
+        fontSize =  18.sp,
+        fontWeight = FontWeight.Normal,
         color = if (isFocused) {
             black
         } else {

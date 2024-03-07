@@ -1,5 +1,6 @@
 package s.skillvsme.presentation.onboarding
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -55,7 +56,7 @@ import s.skillvsme.ui.theme.white
 fun Signup(
     navController: NavController
 ) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Black)
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
     Box(
@@ -192,7 +193,7 @@ fun Signup(
                         SkillvsmeText(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
-                                .padding(8.dp),
+                                .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.apple_icon),
                             value = "Sign Up With Apple"
                         )
@@ -213,7 +214,7 @@ fun Signup(
                         SkillvsmeText(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
-                                .padding(8.dp),
+                                .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.google_icon),
                             value = "Sign Up With Google"
                         )
@@ -230,3 +231,4 @@ fun Signup(
         }
     }
 }
+

@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
@@ -34,7 +36,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
@@ -44,6 +45,7 @@ import s.skillvsme.presentation.components.UpcomingClasses
 import s.skillvsme.presentation.tutors.classes.CancelClassBottomSheet
 import s.skillvsme.presentation.tutors.components.WeekView
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.greyishBlack
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 import java.time.Month
@@ -56,7 +58,7 @@ fun TutorHomePage(
     navController: NavController
 ) {
     SetStatusBarColor(color = white)
-    var paddingValues=1.dp
+    var paddingValues = 1.dp
     var selectedDay by remember { mutableStateOf(0) }
     var selectedMonth by remember { mutableStateOf(Month.JANUARY) }
     var selectedYear by remember { mutableStateOf(0) }
@@ -86,7 +88,7 @@ fun TutorHomePage(
             CancelClassBottomSheet(
                 navController = navController,
                 collapseBtn = {
-                    scope.launch (Dispatchers.Main) {
+                    scope.launch(Dispatchers.Main) {
                         bottomSheetScaffoldState.bottomSheetState.collapse()
                     }
                 }
@@ -101,7 +103,8 @@ fun TutorHomePage(
         modifier = Modifier.background(Color.Gray.copy(alpha = 0.5f))
     ) {
         Scaffold(
-            content = { paddingValues
+            content = {
+                paddingValues
                 Column(
                     modifier = Modifier
                         .padding(20.dp)
@@ -266,20 +269,27 @@ fun TutorHomePage(
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                     repeat(4) { it ->
                                         if (it == 0) {
-                                            Box(
+                                            Surface(
                                                 modifier = Modifier
-                                                    .size(10.dp)
-                                                    .clip(CircleShape)
-                                                    .background(Color.White),
-                                                contentAlignment = Alignment.Center
+                                                    .size(10.dp),
+                                                color = greyishBlack,
+                                                shape = CircleShape,
+                                                border = BorderStroke(1.dp, greyishBlack.copy(0.1f))
                                             ) {
                                                 Box(
                                                     modifier = Modifier
                                                         .size(6.dp)
                                                         .clip(CircleShape)
-                                                        .background(black),
-
-                                                    )
+                                                        .background(Color.White),
+                                                    contentAlignment = Alignment.Center
+                                                ) {
+                                                    Box(
+                                                        modifier = Modifier
+                                                            .size(5.dp)
+                                                            .clip(CircleShape)
+                                                            .background(black),
+                                                        )
+                                                }
                                             }
                                         } else {
                                             Box(
