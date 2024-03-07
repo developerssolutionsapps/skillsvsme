@@ -113,7 +113,7 @@ fun Classes(
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Checkout")
+                SimpleAppBar(navController = navController, text = "Checkout",false)
             },
             content = { paddingValues ->
                 Column(
