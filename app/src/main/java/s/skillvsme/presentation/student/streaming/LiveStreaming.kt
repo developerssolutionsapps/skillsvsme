@@ -620,7 +620,7 @@ fun GiftOverlay(navController: NavController) {
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "Current Balance: 150$",
+                        text = "Current Balance: 150$ ",
                         color = white,
                         fontFamily = Fonts.jostFontFamily,
                         fontSize = 14.sp
@@ -628,7 +628,7 @@ fun GiftOverlay(navController: NavController) {
                     Text(
                         modifier = Modifier
                             .clickable { },
-                        text = "Recharge",
+                        text = " Recharge",
                         color = white,
                         fontFamily = Fonts.jostFontFamily,
                         fontSize = 14.sp,
