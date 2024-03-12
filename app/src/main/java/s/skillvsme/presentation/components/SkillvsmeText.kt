@@ -53,6 +53,7 @@ fun SkillvsmeText(
     iconAfter: Painter? = null,
     valueColor: Color? = null,
     labelColor: Color? = null,
+    valueFontWeignt: FontWeight = FontWeight.Normal,
     labelIcon: Painter? = null,
     isValueHeading: Boolean = false,
     verticalAlign: Arrangement.HorizontalOrVertical = Arrangement.Center,
@@ -124,7 +125,7 @@ fun SkillvsmeText(
                             fontFamily = Fonts.jostFontFamily,
                             fontSize = fontSize?.sp ?: TextUnit.Unspecified,
                             style = if (isValueHeading) MaterialTheme.typography.h5 else MaterialTheme.typography.body1,
-                            fontWeight = if (boldValue) FontWeight.SemiBold else FontWeight.Normal
+                            fontWeight = if (boldValue) FontWeight.Bold else valueFontWeignt
                         )
                     }
                 }

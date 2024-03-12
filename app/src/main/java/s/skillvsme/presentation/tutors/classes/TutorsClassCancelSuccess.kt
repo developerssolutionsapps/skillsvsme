@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -19,7 +18,6 @@ import s.skillvsme.common.Route
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
-import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.white
 
 
@@ -27,7 +25,7 @@ import s.skillvsme.ui.theme.white
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ClassCancelSuccess(
+fun TutorsClassCancelSuccess(
     navController: NavController
 ) {
     SetStatusBarColor(color = white)
@@ -55,9 +53,6 @@ fun ClassCancelSuccess(
                 )
                 Spacer(modifier = Modifier.height(130.dp))
             }
-        },
-        bottomBar = {
-            BottomNavigation(navController = navController)
         }
     )
 }

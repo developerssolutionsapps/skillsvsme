@@ -88,7 +88,8 @@ fun TutorsClassesScreen(
                     scope.launch (Dispatchers.Main) {
                         bottomSheetScaffoldState.bottomSheetState.collapse()
                     }
-                }
+                },
+                isStudent = false
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {

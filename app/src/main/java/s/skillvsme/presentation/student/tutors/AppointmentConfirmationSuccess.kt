@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import s.skillvsme.common.Route
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeSuccessScreen
@@ -34,9 +35,13 @@ fun AppointmentConfirmationSuccess(
             SkillvsmeSuccessScreen(
                 successMessage = "Appointment Confirmed",
                 buttonText = "View all classes",
-                buttonOnclickAction = {},
+                buttonOnclickAction = {
+                    navController.navigate(Route.Student.Classes.UpcomingClasses)
+                },
                 backButtonText = "Back to home",
-                backButtonOnclickAction = {},
+                backButtonOnclickAction = {
+                    navController.navigate(Route.Student.Home.Home)
+                },
             )
             Spacer(modifier = Modifier.height(40.dp))
         },

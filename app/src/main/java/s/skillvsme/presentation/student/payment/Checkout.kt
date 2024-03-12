@@ -54,13 +54,14 @@ fun Checkout(
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Column {
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                     SkillvsmeText(
                         value = "Promocode",
-                        boldValue = true,
+                        boldValue = false,
                         valueColor = purple,
-                        valueSize = 18
+                        valueSize = 18,
                     )
+                    Spacer(modifier = Modifier.height(12.dp))
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         modifier = Modifier
@@ -71,14 +72,13 @@ fun Checkout(
                             value = "ChRIS24",
                             onChange = {},
                             hintSize = 18,
-                            label = "",
                             hint = "",
                             fieldDescription = ""
                         )
                         SkillvsmeButton(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(top = 28.dp, start = 24.dp),
+                                .padding(start = 24.dp),
                             label = "Apply",
                             primary = true,
                             onClick = {}
@@ -184,7 +184,7 @@ fun Checkout(
                             navController.popBackStack()
                         }
                     )
-                    Spacer(modifier = Modifier.height(80.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                 }
             }
         },

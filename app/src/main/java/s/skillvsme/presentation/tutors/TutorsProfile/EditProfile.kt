@@ -154,9 +154,14 @@ fun EditProfile(
                         SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
                         }
                         Spacer(modifier = Modifier.height(20.dp))
-                        SkillvsmeButton(label = "Back" +
-                                "", modifier = Modifier.fillMaxWidth(), primary = false) {
-                        }
+                        SkillvsmeButton(
+                            label = "Back",
+                            modifier = Modifier.fillMaxWidth(),
+                            primary = false,
+                            onClick = {
+                                navController.popBackStack()
+                            }
+                        )
                         Spacer(modifier = Modifier.height(120.dp))
                     }
                 }

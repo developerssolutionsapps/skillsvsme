@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
@@ -32,12 +33,16 @@ fun TextEndingWithLink(
         Text(
             text = text,
             fontFamily = Fonts.jostFontFamily,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Light
         )
         Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = linkText,
             fontFamily = Fonts.jostFontFamily,
             color = purple,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.SemiBold,
             modifier = Modifier
                 .clickable(onClick = onLinkClick)
                 .drawBehind {

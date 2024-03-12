@@ -62,6 +62,7 @@ import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SkillvsmeButton
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.dialog.PopForFollow
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
@@ -75,14 +76,18 @@ fun LiveStreaming(
 ) {
     SetStatusBarColor(color = Color(0x33597041))
     val scope = rememberCoroutineScope()
+    var following by remember { mutableStateOf(false) }
+    val muted = remember { mutableStateOf(false) }
     val showDialog = remember { mutableStateOf(false) }
     var showDialogPop by remember { mutableStateOf(false) }
     var dialogLaunched by remember { mutableStateOf(false) }
     if (!dialogLaunched) {
         scope.launch {
-            delay(5000) // Wait for 5 seconds
-            showDialogPop = true // Set the flag to show the dialog
-            dialogLaunched = true
+            delay(5000)
+            if(!following){
+                showDialogPop = true
+                dialogLaunched = true
+            }
         }
     }
     if (showDialog.value)
@@ -90,9 +95,15 @@ fun LiveStreaming(
             showDialog.value = it
         }) {}
     if (showDialogPop)
-        PopForFollow(value = "", setShowDialog = {
-            showDialogPop = it
-        }) {}
+        PopForFollow(
+            value = "",
+            setShowDialog = {
+                showDialogPop = it
+            },
+            following = {
+                following = it
+            }
+        )
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(
@@ -189,40 +200,67 @@ fun LiveStreaming(
                                             fontSize = 20.sp
                                         )
                                         Spacer(modifier = Modifier.width(20.dp))
-                                        Image(
-                                            painter = painterResource(id = R.drawable.follow_1),
-                                            contentDescription = null,
-                                            modifier = Modifier
-                                                .size(24.dp)
-                                                .clickable {
-
-                                                }
-                                        )
-                                    }
-                                    Spacer(modifier = Modifier.height(4.dp))
-                                    Surface(
-                                        shape = RoundedCornerShape(8.dp),
-                                        color = black
-                                    ) {
-                                        Row(
-                                            verticalAlignment = Alignment.CenterVertically,
-                                            horizontalArrangement = Arrangement.SpaceEvenly,
-                                            modifier = Modifier
-                                                .padding(horizontal = 2.dp, vertical = 4.dp)
-                                                .padding(end = 6.dp)
-                                        ) {
+                                        if(!following) {
                                             Image(
-                                                painter = painterResource(id = R.drawable.followers),
+                                                painter = painterResource(id = R.drawable.follow_1),
                                                 contentDescription = null,
                                                 modifier = Modifier
                                                     .size(24.dp)
+                                                    .clickable {
+                                                        following = true
+                                                    }
                                             )
-                                            Text(
-                                                text = "1996",
-                                                fontWeight = FontWeight.Bold,
-                                                fontFamily = Fonts.jostFontFamily,
-                                                fontSize = 12.sp
-                                            )
+                                        }
+                                    }
+                                    Spacer(modifier = Modifier.height(4.dp))
+                                    Row {
+                                        Surface(
+                                            shape = RoundedCornerShape(8.dp),
+                                            color = black
+                                        ) {
+                                            Row(
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.SpaceEvenly,
+                                                modifier = Modifier
+                                                    .height(22.dp)
+                                                    .padding(start = 2.dp, end = 9.dp)
+                                            ) {
+                                                Image(
+                                                    painter = painterResource(id = R.drawable.followers),
+                                                    contentDescription = null,
+                                                    modifier = Modifier
+                                                        .size(24.dp)
+                                                )
+                                                Text(
+                                                    text = "1996",
+                                                    fontWeight = FontWeight.Bold,
+                                                    fontFamily = Fonts.jostFontFamily,
+                                                    fontSize = 12.sp
+                                                )
+                                            }
+                                        }
+                                        Spacer(modifier = Modifier.width(10.dp))
+                                        Surface(
+                                            shape = RoundedCornerShape(8.dp),
+                                            color = black
+                                        ) {
+                                            if(following) {
+                                                Row(
+                                                    verticalAlignment = Alignment.CenterVertically,
+                                                    horizontalArrangement = Arrangement.SpaceEvenly,
+                                                    modifier = Modifier
+                                                        .height(22.dp)
+                                                ) {
+                                                    Text(
+                                                        modifier = Modifier
+                                                            .padding(start = 13.dp, end = 14.dp),
+                                                        text = "following",
+                                                        fontWeight = FontWeight.Normal,
+                                                        fontFamily = Fonts.jostFontFamily,
+                                                        fontSize = 10.sp
+                                                    )
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -316,12 +354,27 @@ fun LiveStreaming(
                                 modifier = Modifier
                                     .wrapContentWidth()
                             ) {
-                                Image(
-                                    painter = painterResource(id = R.drawable.unmute),
-                                    contentDescription = null,
-                                    modifier = Modifier
-                                        .size(48.dp)
-                                )
+                                if(!muted.value) {
+                                    Image(
+                                        painter = painterResource(id = R.drawable.unmute),
+                                        contentDescription = null,
+                                        modifier = Modifier
+                                            .noRippleClickable {
+                                                muted.value = true
+                                            }
+                                            .size(48.dp)
+                                    )
+                                } else {
+                                    Image(
+                                        painter = painterResource(id = R.drawable.muted),
+                                        contentDescription = null,
+                                        modifier = Modifier
+                                            .noRippleClickable {
+                                                muted.value = false
+                                            }
+                                            .size(48.dp)
+                                    )
+                                }
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
                                     painter = painterResource(id = R.drawable.warning),
@@ -332,7 +385,11 @@ fun LiveStreaming(
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
                                     painter = painterResource(id = R.drawable.user2),
-                                    contentDescription = null
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .clickable {
+                                            navController.navigate(Route.Student.Tutor.TutorProfile)
+                                        }
                                 )
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Image(
@@ -628,7 +685,7 @@ fun GiftOverlay(navController: NavController) {
                     Text(
                         modifier = Modifier
                             .clickable { },
-                        text = " Recharge",
+                        text = "Recharge",
                         color = white,
                         fontFamily = Fonts.jostFontFamily,
                         fontSize = 14.sp,

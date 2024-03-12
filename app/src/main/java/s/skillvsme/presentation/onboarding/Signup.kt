@@ -195,7 +195,9 @@ fun Signup(
                                 .align(alignment = CenterHorizontally)
                                 .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.apple_icon),
-                            value = "Sign Up With Apple"
+                            value = "Sign Up With Apple",
+                            valueSize = 20,
+                            valueFontWeignt = FontWeight.Medium
                         )
                     }
                     Spacer(modifier = Modifier.height(11.dp))
@@ -216,7 +218,9 @@ fun Signup(
                                 .align(alignment = CenterHorizontally)
                                 .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.google_icon),
-                            value = "Sign Up With Google"
+                            value = "Sign Up With Google",
+                            valueSize = 20,
+                            valueFontWeignt = FontWeight.Medium
                         )
                     }
                     Spacer(modifier = Modifier.height(11.dp))

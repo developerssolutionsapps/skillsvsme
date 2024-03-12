@@ -3,6 +3,7 @@ package s.skillvsme.presentation.student.classes
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,6 +20,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -39,6 +41,7 @@ fun ClassRoom(
     navController: NavController
 ) {
     SetStatusBarColor(color = black)
+    val mutedrecorder = remember { mutableStateOf(false) }
     val density = LocalDensity.current
     val statusBarHeight = with(density) { remember { WindowInsetsCompat.Type.statusBars() } }
     val navigationBarHeight = with(density) { remember { WindowInsetsCompat.Type.navigationBars() } }
@@ -124,11 +127,25 @@ fun ClassRoom(
                                 painter = painterResource(id = R.drawable.video_recorder),
                                 contentDescription = null
                             )
-                            Image(
-                                modifier = Modifier.size(48.dp),
-                                painter = painterResource(id = R.drawable.audio_recorder),
-                                contentDescription = null
-                            )
+                            if(!mutedrecorder.value) {
+                                Image(
+                                    modifier = Modifier.size(48.dp)
+                                        .clickable {
+                                            mutedrecorder.value = true
+                                        },
+                                    painter = painterResource(id = R.drawable.audio_recorder),
+                                    contentDescription = null
+                                )
+                            } else {
+                                Image(
+                                    modifier = Modifier.size(48.dp)
+                                        .clickable {
+                                            mutedrecorder.value = false
+                                        },
+                                    painter = painterResource(id = R.drawable.muted_recorder),
+                                    contentDescription = null
+                                )
+                            }
 //                    Column {
                             Image(
                                 modifier = Modifier.size(56.dp),

@@ -35,14 +35,14 @@ fun PaymentSuccess(
             Spacer(modifier = Modifier.height(40.dp))
             SkillvsmeSuccessScreen(
                 successMessage = "Payment Successful",
-                successInfo = "Keep the momentum going and schedule you first class",
+                successInfo = "Keep the momentum going\nand schedule you first class",
                 buttonText = "Schedule a Class",
                 buttonOnclickAction = {
                     navController.navigate(Route.Student.Tutor.Schedule)
                 },
-                backButtonText = "Back",
+                backButtonText = "Back to home",
                 backButtonOnclickAction = {
-                    navController.popBackStack()
+                    navController.navigate(Route.Student.Home.Home)
                 },
             )
             Spacer(modifier = Modifier.height(40.dp))

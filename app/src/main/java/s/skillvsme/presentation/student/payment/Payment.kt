@@ -49,7 +49,7 @@ fun Payment(
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Column {
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                     SkillvsmeText(
                         value = "Please enter your card details",
                         valueSize = 18,
@@ -130,7 +130,7 @@ fun Payment(
                             navController.popBackStack()
                         }
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                 }
             }
         },

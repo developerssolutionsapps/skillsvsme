@@ -42,6 +42,7 @@ import s.skillvsme.common.Fonts
 import s.skillvsme.common.Route
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.UpcomingClasses
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.presentation.tutors.classes.CancelClassBottomSheet
 import s.skillvsme.presentation.tutors.components.WeekView
 import s.skillvsme.ui.theme.black
@@ -91,7 +92,8 @@ fun TutorHomePage(
                     scope.launch(Dispatchers.Main) {
                         bottomSheetScaffoldState.bottomSheetState.collapse()
                     }
-                }
+                },
+                isStudent = false,
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
@@ -228,7 +230,7 @@ fun TutorHomePage(
                             Spacer(modifier = Modifier.weight(1f))
                             Text(
                                 modifier = Modifier
-                                    .clickable {
+                                    .noRippleClickable {
                                         navController.navigate(Route.Tutor.Classes.AddClass)
                                     },
                                 text = "Add",
