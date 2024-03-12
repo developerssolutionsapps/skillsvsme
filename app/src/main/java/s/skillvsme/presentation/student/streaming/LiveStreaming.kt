@@ -238,7 +238,7 @@ fun LiveStreaming(
                                     contentDescription = null,
                                     modifier = Modifier
                                         .clickable {
-                                          navController.popBackStack()
+                                            navController.popBackStack()
                                         }
                                         .size(24.dp)
                                         .padding(4.dp)
@@ -422,7 +422,8 @@ fun StreamingChat(
 fun GiftOverlay(navController: NavController) {
     Box(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
+            .height(418.dp)
             .background(darkGrey.copy(alpha = 0.2f)),
         contentAlignment = Alignment.BottomCenter
     ) {
@@ -437,10 +438,19 @@ fun GiftOverlay(navController: NavController) {
             ) {
                 Row(
                     modifier = Modifier
-                        .padding(4.dp)
+                        .padding(5.dp)
                         .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End
+                    horizontalArrangement = Arrangement.Center
                 ) {
+                    Spacer(modifier = Modifier.weight(1f))
+                    Text(
+                        text = "Appreciate",
+                        color = white,
+                        fontFamily = Fonts.jostFontFamily,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
                     Image(
                         modifier = Modifier
                             .clickable {
@@ -450,63 +460,165 @@ fun GiftOverlay(navController: NavController) {
                         contentDescription = null
                     )
                 }
-                Text(
-                    text = "Appreciate",
-                    color = white,
-                    fontFamily = Fonts.jostFontFamily,
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.SemiBold
-                )
-                Row() {
-                    Column {
-                        Image(
-                            modifier = Modifier
-                                .clickable {
-                                    navController.popBackStack()
-                                },
-                            painter = painterResource(id = R.drawable.coin_1),
-                            contentDescription = null
-                        )
-                        Text(
-                            text = "Coin",
-                            color = white,
-                            fontFamily = Fonts.jostFontFamily,
-                            fontSize = 14.sp
-                        )
-                        Text(
-                            text = "5₹",
-                            color = white,
-                            fontFamily = Fonts.jostFontFamily,
-                            fontSize = 14.sp
-                        )
+                Spacer(modifier = Modifier.height(24.dp))
+                Column(
+                    modifier = Modifier.padding(horizontal = 45.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                modifier = Modifier
+                                    .size(48.dp),
+                                painter = painterResource(id = R.drawable.coin_1),
+                                contentDescription = null
+                            )
+                            Text(
+                                text = "Coin",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                            Text(
+                                text = "5₹",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                        }
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                modifier = Modifier
+                                    .size(48.dp),
+                                painter = painterResource(id = R.drawable.heart),
+                                contentDescription = null
+                            )
+                            Text(
+                                text = "Heart",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                            Text(
+                                text = "10₹",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                        }
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                modifier = Modifier
+                                    .size(48.dp),
+                                painter = painterResource(id = R.drawable.rose),
+                                contentDescription = null
+                            )
+                            Text(
+                                text = "Rose",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                            Text(
+                                text = "20₹",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                        }
                     }
-                    Image(
-                        modifier = Modifier
-                            .clickable {
-                                navController.popBackStack()
-                            },
-                        painter = painterResource(id = R.drawable.coin_1),
-                        contentDescription = null
-                    )
-                    Image(
-                        modifier = Modifier
-                            .clickable {
-                                navController.popBackStack()
-                            },
-                        painter = painterResource(id = R.drawable.coin_1),
-                        contentDescription = null
-                    )
-                    Image(
-                        modifier = Modifier
-                            .clickable {
-                                navController.popBackStack()
-                            },
-                        painter = painterResource(id = R.drawable.coin_1),
-                        contentDescription = null
-                    )
+                    Spacer(modifier = Modifier.height(17.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                modifier = Modifier
+                                    .size(48.dp),
+                                painter = painterResource(id = R.drawable.chocolate),
+                                contentDescription = null
+                            )
+                            Text(
+                                text = "Chocolate",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                            Text(
+                                text = "50₹",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                        }
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                modifier = Modifier
+                                    .size(48.dp),
+                                painter = painterResource(id = R.drawable.gold_ingot),
+                                contentDescription = null
+                            )
+                            Text(
+                                text = "Gold",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                            Text(
+                                text = "75₹",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                        }
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Image(
+                                modifier = Modifier
+                                    .size(48.dp),
+                                painter = painterResource(id = R.drawable.diamond),
+                                contentDescription = null
+                            )
+                            Text(
+                                text = "Diamond",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                            Text(
+                                text = "100₹",
+                                color = white,
+                                fontFamily = Fonts.jostFontFamily,
+                                fontSize = 14.sp
+                            )
+                        }
+                    }
                 }
-                SkillvsmeButton(label = "Send Gift", primary = false)
-                Row {
+                Spacer(modifier = Modifier.height(27.dp))
+                SkillvsmeButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    label = "Send Gift",
+                    primary = false
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
                     Text(
                         text = "Current Balance: 150$",
                         color = white,
@@ -523,6 +635,7 @@ fun GiftOverlay(navController: NavController) {
                         textDecoration = TextDecoration.Underline
                     )
                 }
+                Spacer(modifier = Modifier.height(51.dp))
             }
         }
     }
