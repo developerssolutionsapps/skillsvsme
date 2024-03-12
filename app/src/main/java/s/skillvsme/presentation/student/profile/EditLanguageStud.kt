@@ -51,13 +51,14 @@ fun EditLanguageStud(navController: NavController) {
                         id = R.drawable.rectangle5,
                     ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController =navController
                 )
+                Spacer(modifier = Modifier.weight(0.03f))
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(top = 40.dp, start = 16.dp, end = 16.dp),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Column {
+
                         Spacer(modifier = Modifier.weight(0.25f))
                         Text(
                             text = "Kamal Tyagi",
@@ -65,18 +66,17 @@ fun EditLanguageStud(navController: NavController) {
                             fontSize = 25.sp,
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
-                        Spacer(modifier = Modifier.weight(0.30f))
+                        Spacer(modifier = Modifier.weight(0.31f))
                         EditTextLabel(
                             value = "English",
                             text = "App Language",
                             trailinicon = painterResource(id = R.drawable.arrow_down),
                             spacer = 10.dp,
                         )
-                    }
-                    Column {
+                        Spacer(modifier = Modifier.weight(2.75f))
                         SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
                         }
-                        Spacer(modifier = Modifier.weight(0.05f))
+                        Spacer(modifier = Modifier.weight(0.15f))
                         SkillvsmeButton(
                             label = "Back",
                             primary = false,
@@ -85,8 +85,7 @@ fun EditLanguageStud(navController: NavController) {
                                 navController.popBackStack()
                             }
                         )
-                        Spacer(modifier = Modifier.weight(0.8f))
-                    }
+                        Spacer(modifier = Modifier.weight(1.2f))
                 }
             }
         },
