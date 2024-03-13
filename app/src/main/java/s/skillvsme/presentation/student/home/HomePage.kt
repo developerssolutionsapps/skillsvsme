@@ -47,13 +47,14 @@ import s.skillvsme.presentation.onboarding.noRippleClickable
 fun HomePage(
     navController: NavController
 ) {
-    SetStatusBarColor(color = white)
+    SetStatusBarColor(color = Color.White)
     val scrollState = rememberScrollState()
     Scaffold(
+        contentWindowInsets = WindowInsets.navigationBars,
         content = {
             Column(
                 modifier = Modifier
-                    .padding(20.dp)
+                    .padding(start = 20.dp, end = 20.dp, bottom = 20.dp, top = 70.dp)
                     .fillMaxSize()
                     .background(white)
                     .verticalScroll(scrollState)

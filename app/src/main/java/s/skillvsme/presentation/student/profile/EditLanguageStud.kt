@@ -37,7 +37,7 @@ import s.skillvsme.ui.theme.black
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun EditLanguageStud(navController: NavController) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     Scaffold(
         content = {
             Column(
@@ -49,7 +49,7 @@ fun EditLanguageStud(navController: NavController) {
                 ProfileAppBar(
                     backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
                         id = R.drawable.rectangle5,
-                    ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController =navController
+                    ), contentSize = 151.dp, bottomCornerRadius = 30.dp, navController =navController
                 )
                 Spacer(modifier = Modifier.weight(0.03f))
                 Column(
@@ -85,7 +85,7 @@ fun EditLanguageStud(navController: NavController) {
                                 navController.popBackStack()
                             }
                         )
-                        Spacer(modifier = Modifier.weight(1.2f))
+                        Spacer(modifier = Modifier.weight(0.9f))
                 }
             }
         },

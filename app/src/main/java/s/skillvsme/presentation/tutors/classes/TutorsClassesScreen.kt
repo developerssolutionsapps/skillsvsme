@@ -105,6 +105,7 @@ fun TutorsClassesScreen(
                 SimpleAppBar(navController = navController, text = "Your Classes", canNavigateBack = false)
             },
             content = {
+                Spacer(modifier = Modifier.height(50.dp))
                 Column(
                     modifier = Modifier
                         .padding(20.dp, vertical = 70.dp)
@@ -187,7 +188,7 @@ fun TutorsClassesScreen(
                                 .height(20.dp)
                         )
                     }
-                    Spacer(modifier = Modifier.height(40.dp))
+                    Spacer(modifier = Modifier.height(100.dp))
                 }
             },
             bottomBar = {

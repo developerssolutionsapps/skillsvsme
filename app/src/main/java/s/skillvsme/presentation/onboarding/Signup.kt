@@ -56,7 +56,7 @@ import s.skillvsme.ui.theme.white
 fun Signup(
     navController: NavController
 ) {
-    SetStatusBarColor(color = Color.Black)
+    SetStatusBarColor(color = Color.Transparent)
     val scrollState = rememberScrollState()
     var otpCodeValue by remember { mutableStateOf("") }
     Box(
@@ -82,16 +82,16 @@ fun Signup(
                     contentDescription = "Vehicles Image",
                     modifier    = Modifier
                         .fillMaxWidth()
-                        .height(300.dp),
+                        .height(347.dp),
                     contentScale = ContentScale.Crop
                 )
                 Column {
-                    Spacer(modifier = Modifier.height(50.dp))
+                    Spacer(modifier = Modifier.height(96.dp))
                     Image(
                         painter = painterResource(id = R.drawable.logo),
                         contentDescription = "logo",
                         modifier = Modifier
-                            .size(100.dp)
+                            .size(87.dp)
                             .graphicsLayer {
                                 this.scaleX = 1.5f
                                 this.scaleY = 1.5f
@@ -102,7 +102,7 @@ fun Signup(
             Box(
                 modifier = Modifier
                     .graphicsLayer {
-                        translationY = -100.dp.toPx()
+                        translationY = -86.dp.toPx()
                     }
             ){
                 Column(

@@ -39,7 +39,7 @@ import s.skillvsme.ui.theme.black
 fun EditProfileStud(
     navController: NavController
 ) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     Scaffold(
         content = { paddingValues ->
             Column(
@@ -54,7 +54,7 @@ fun EditProfileStud(
                     backgroundImage = painterResource(
                         id = R.drawable.rectangle5,
                     ),
-                    contentSize = 130.dp,
+                    contentSize = 151.dp,
                     bottomCornerRadius = 30.dp,
                     navController = navController
                 )

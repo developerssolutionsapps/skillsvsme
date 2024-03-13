@@ -74,7 +74,7 @@ fun ProfileAppBar(
                 .graphicsLayer {
                     translationY = +55.dp.toPx()
                 }
-                .size(130.dp)
+                .size(131.dp)
                 .background(Color.Transparent, CircleShape)
                 .align(Alignment.BottomCenter)
         ) {
@@ -125,8 +125,8 @@ fun ProfileAppBar(
             contentDescription = null,
             modifier = Modifier
                 .align(Alignment.CenterStart)
-                .padding(start = 16.dp)
-                .size(25.dp)
+                .padding(start = 16.dp,top=40.dp)
+                .size(40.dp)
                 .clickable {
                     navController?.popBackStack()
                 }

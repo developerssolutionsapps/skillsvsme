@@ -106,10 +106,9 @@ fun TutorHomePage(
     ) {
         Scaffold(
             content = {
-                paddingValues
                 Column(
                     modifier = Modifier
-                        .padding(20.dp)
+                        .padding(start=20.dp, end = 20.dp, bottom = 20.dp, top = 70.dp)
                         .fillMaxSize()
                         .background(white)
                         .verticalScroll(scrollState)
