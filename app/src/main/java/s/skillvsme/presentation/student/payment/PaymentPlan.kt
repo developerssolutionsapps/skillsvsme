@@ -47,7 +47,7 @@ fun PaymentPlan(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                Spacer(modifier = Modifier.height(60.dp))
+                Spacer(modifier = Modifier.height(100.dp))
                 // Step One
                 SkillvsmeText(
                     label = "Step 1",

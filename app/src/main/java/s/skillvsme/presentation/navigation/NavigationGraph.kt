@@ -23,6 +23,7 @@ import s.skillvsme.presentation.onboarding.Onboarding3
 import s.skillvsme.presentation.onboarding.Signup
 import s.skillvsme.presentation.streaming.Streaming
 import s.skillvsme.presentation.student.classes.ClassCancelSuccess
+import s.skillvsme.presentation.student.notification.NotificationScreenStudent
 import s.skillvsme.presentation.student.payment.BookTrial
 import s.skillvsme.presentation.student.payment.Checkout
 import s.skillvsme.presentation.student.payment.Payment
@@ -34,7 +35,7 @@ import s.skillvsme.presentation.student.tutors.Schedule
 import s.skillvsme.presentation.student.tutors.TutorsDetailsStud
 import s.skillvsme.presentation.student.tutors.TutorsList
 import s.skillvsme.presentation.tutors.TutorsProfile.Earnings
-import s.skillvsme.presentation.tutors.notification.NotificationScreen
+import s.skillvsme.presentation.tutors.notification.NotificationScreenTutor
 import s.skillvsme.presentation.tutors.TutorsProfile.PaymentSetting
 import s.skillvsme.presentation.tutors.TutorsProfile.TransactionSuccess
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorProfile
@@ -173,7 +174,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             paymentMethod(navController)
         }
         composable(Route.Student.Profile.Notifications) {
-            NotificationScreen(navController)
+            NotificationScreenStudent(navController)
         }
         composable(Route.Student.Profile.EditLanguage) {
             EditLanguageStud(navController)
@@ -223,7 +224,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             EditProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.Notifications) {
-            NotificationScreen(navController = navController)
+            NotificationScreenTutor(navController = navController)
         }
         composable(Route.Tutor.Profile.PaymentSettings) {
             PaymentSetting(navController = navController)

@@ -150,7 +150,7 @@ fun LiveStreaming(
                     Column(
                         modifier = Modifier
                             .padding(paddingValues)
-                            .padding(20.dp)
+                            .padding(start = 20.dp, end = 20.dp, bottom = 20.dp, top = 20.dp)
                             .fillMaxSize(),
                         verticalArrangement = Arrangement.SpaceBetween
                     ) {

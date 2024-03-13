@@ -90,9 +90,9 @@ fun ClassesDetailsAppBar(
             Box(
                 modifier = Modifier
 //                    .width(130.dp)
-                    .height(146.dp)
+                    .height(170.dp)
                     .fillMaxWidth()
-                    .padding(top = 16.dp, start = 76.dp, end = 40.dp)
+                    .padding(top = 40.dp, start = 60.dp, end = 40.dp)
                     .background(Color.Transparent, CircleShape)
             ) {
                 Row(

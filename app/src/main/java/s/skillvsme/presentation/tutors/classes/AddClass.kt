@@ -60,7 +60,7 @@ fun AddClass(
                 .verticalScroll(scrollstate),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(60.dp))
+                Spacer(modifier = Modifier.height(100.dp))
                 Column(
                     modifier=Modifier,
                     horizontalAlignment = Alignment.Start

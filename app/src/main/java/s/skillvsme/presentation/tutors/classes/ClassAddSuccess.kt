@@ -53,6 +53,16 @@ fun ClassAddSuccess(
                     },
                     backButtonOnclickAction = {
                         navController.popBackStack()
+                        navController.navigate(Route.Tutor.Home.Home){
+                            navController.graph.startDestinationRoute?.let { screen_route ->
+                                popUpTo(screen_route) {
+                                    saveState = true
+                                }
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+
                     }
                 )
             }

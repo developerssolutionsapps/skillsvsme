@@ -69,7 +69,7 @@ fun StreamingPreview(
                 ) {
                     Column(
                         modifier = Modifier
-                            .padding(20.dp)
+                            .padding(start = 20.dp, end = 20.dp, bottom = 20.dp,top=40.dp)
                             .weight(1f),
                         verticalArrangement = Arrangement.SpaceBetween
                     ) {

@@ -105,6 +105,7 @@ fun TutorHomePage(
         modifier = Modifier.background(Color.Gray.copy(alpha = 0.5f))
     ) {
         Scaffold(
+            contentWindowInsets = WindowInsets.navigationBars,
             content = {
                 Column(
                     modifier = Modifier
