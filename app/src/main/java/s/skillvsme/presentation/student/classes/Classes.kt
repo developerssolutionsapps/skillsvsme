@@ -306,7 +306,9 @@ fun CancelBottomSheet(
                     modifier = Modifier
                         .fillMaxWidth(),
                     label = "Cancel class",
-                    onClick = {}
+                    onClick = {
+                        navController.navigate(Route.Student.Classes.ClassCanceled)
+                    }
                 )
             }
         }

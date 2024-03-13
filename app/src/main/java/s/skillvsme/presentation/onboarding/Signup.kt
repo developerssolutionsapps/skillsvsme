@@ -185,7 +185,7 @@ fun Signup(
                             ),
                         modifier = Modifier
                             .padding(horizontal = 20.dp)
-                            .height(50.dp)
+                            .height(53.dp)
                             .align(alignment = CenterHorizontally)
                             .fillMaxWidth(),
                     ) {
@@ -197,6 +197,7 @@ fun Signup(
                             iconBefore = painterResource(R.drawable.apple_icon),
                             value = "Sign Up With Apple",
                             valueSize = 20,
+                            boldValue = true,
                             valueFontWeignt = FontWeight.Medium
                         )
                     }
@@ -208,11 +209,10 @@ fun Signup(
                         ),
                         modifier = Modifier
                             .padding(horizontal = 20.dp)
-                            .height(50.dp)
+                            .height(53.dp)
                             .align(alignment = CenterHorizontally)
                             .fillMaxWidth(),
                     ) {
-                        Spacer(modifier = Modifier.width(56.dp))
                         SkillvsmeText(
                             modifier = Modifier
                                 .align(alignment = CenterHorizontally)
@@ -220,7 +220,8 @@ fun Signup(
                             iconBefore = painterResource(R.drawable.google_icon),
                             value = "Sign Up With Google",
                             valueSize = 20,
-                            valueFontWeignt = FontWeight.Medium
+                            boldValue = true,
+                            valueFontWeignt = FontWeight.Bold
                         )
                     }
                     Spacer(modifier = Modifier.height(11.dp))

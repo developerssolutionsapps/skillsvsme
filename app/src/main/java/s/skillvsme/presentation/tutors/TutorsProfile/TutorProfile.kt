@@ -43,6 +43,7 @@ import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BottomSheet
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
@@ -129,7 +130,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.EditProfile)
                                 },
                             value = "Edit Profile",
@@ -158,7 +159,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.EditLanguage)
                                 },
                             value = "Language",
@@ -188,7 +189,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.Earnings)
                                 },
                             value = "Earnings",
@@ -217,7 +218,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.PaymentSettings)
                                 },
                             value = "Payment setting",

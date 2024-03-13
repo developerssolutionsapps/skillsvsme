@@ -31,7 +31,7 @@ import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
 
 @Composable
-fun SkillvsmeText(
+fun     SkillvsmeText(
     value: String,
     value1: String?=null,
     modifier: Modifier = Modifier,
