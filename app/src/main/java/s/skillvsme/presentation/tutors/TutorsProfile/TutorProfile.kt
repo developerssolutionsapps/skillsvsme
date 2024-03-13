@@ -47,6 +47,7 @@ import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
+import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)

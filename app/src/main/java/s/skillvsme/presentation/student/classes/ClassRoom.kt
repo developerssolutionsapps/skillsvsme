@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -40,7 +41,7 @@ import s.skillvsme.ui.theme.white
 fun ClassRoom(
     navController: NavController
 ) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     val mutedrecorder = remember { mutableStateOf(false) }
     val density = LocalDensity.current
     val statusBarHeight = with(density) { remember { WindowInsetsCompat.Type.statusBars() } }
@@ -51,6 +52,7 @@ fun ClassRoom(
             .padding(bottom = navigationBarHeight.dp)
             .background(black)
     ) {
+        Spacer(modifier = Modifier.height(20.dp))
         Box(
             modifier = Modifier
                 .weight(1f),
@@ -129,7 +131,8 @@ fun ClassRoom(
                             )
                             if(!mutedrecorder.value) {
                                 Image(
-                                    modifier = Modifier.size(48.dp)
+                                    modifier = Modifier
+                                        .size(48.dp)
                                         .clickable {
                                             mutedrecorder.value = true
                                         },
@@ -138,7 +141,8 @@ fun ClassRoom(
                                 )
                             } else {
                                 Image(
-                                    modifier = Modifier.size(48.dp)
+                                    modifier = Modifier
+                                        .size(48.dp)
                                         .clickable {
                                             mutedrecorder.value = false
                                         },
