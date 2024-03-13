@@ -2,7 +2,6 @@ package s.skillvsme.presentation.student.streaming
 
 import ReportOverlay
 import android.os.Build
-import android.os.Handler
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
@@ -24,6 +23,7 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.BottomSheetScaffold
+import androidx.compose.material.BottomSheetScaffoldState
 import androidx.compose.material.BottomSheetState
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
@@ -52,7 +52,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import s.skillvsme.R
@@ -124,7 +123,14 @@ fun LiveStreaming(
         scaffoldState = bottomSheetScaffoldState,
         sheetPeekHeight = 0.dp,
         sheetContent = {
-            GiftOverlay(navController = navController)
+            GiftOverlay(
+                navController = navController,
+                cancelClicked = {
+                    scope.launch {
+                        bottomSheetScaffoldState.bottomSheetState.collapse()
+                    }
+                }
+            )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
                     bottomSheetScaffoldState.bottomSheetState.collapse()
@@ -475,8 +481,9 @@ fun StreamingChat(
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun GiftOverlay(navController: NavController) {
+fun GiftOverlay(navController: NavController, cancelClicked: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -511,7 +518,7 @@ fun GiftOverlay(navController: NavController) {
                     Image(
                         modifier = Modifier
                             .clickable {
-                                navController.popBackStack()
+                                cancelClicked()
                             },
                         painter = painterResource(id = R.drawable.cancel),
                         contentDescription = null

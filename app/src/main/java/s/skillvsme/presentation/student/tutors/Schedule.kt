@@ -45,11 +45,12 @@ fun Schedule(
             val timeline3 = "6:00 - 8:50 PM"
             val selectedTime = timeline3
             Column(
+
                 modifier = Modifier
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                Spacer(modifier = Modifier.height(60.dp))
+                Spacer(modifier = Modifier.height(100.dp))
                 SkillvsmeText(value = "Available Slots", valueColor = purple)
                 SkillvsmeScheduleTimeline(
                     day = "Wed",
