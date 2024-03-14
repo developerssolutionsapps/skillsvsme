@@ -43,7 +43,7 @@ fun JoinAs(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Spacer(modifier = Modifier.weight(0.32f))
+        Spacer(modifier = Modifier.weight(1.03f))
         // Logo
         Image(
             painter = painterResource(id = R.drawable.logo), // Replace with your logo

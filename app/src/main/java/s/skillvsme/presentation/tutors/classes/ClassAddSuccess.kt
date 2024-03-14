@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -36,13 +37,14 @@ fun ClassAddSuccess(
             SimpleAppBar(navController = navController, text = "Add Class")
         },
         content = {
-            Spacer(modifier = Modifier.height(80.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Column(
                 modifier = Modifier
                     .fillMaxSize(),
-                verticalArrangement = Arrangement.SpaceBetween
             ) {
                 SkillvsmeSuccessScreen(
+                    modifier = Modifier
+                        .padding(bottom = 30.dp),
                     successMessage = "Class added successfully",
                     buttonText = "Add another class",
                     backButtonText = "Back to home",
@@ -51,9 +53,18 @@ fun ClassAddSuccess(
                     },
                     backButtonOnclickAction = {
                         navController.popBackStack()
+                        navController.navigate(Route.Tutor.Home.Home){
+                            navController.graph.startDestinationRoute?.let { screen_route ->
+                                popUpTo(screen_route) {
+                                    saveState = true
+                                }
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+
                     }
                 )
-                Spacer(modifier = Modifier.height(130.dp))
             }
         },
         bottomBar = {

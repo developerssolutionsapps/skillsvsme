@@ -201,7 +201,7 @@ fun timepicker() {
             InfiniteCircularList(
                 width = 30.dp,
                 itemHeight = 40.dp,
-                items = listOf("AM","PM",),
+                items = listOf("AM","PM"," ",),
                 initialItem = "AM",
                 textStyle = TextStyle(fontSize = 18.sp, fontFamily = Fonts.jostFontFamily),
                 textColor = Color.LightGray,

@@ -33,7 +33,8 @@ import s.skillvsme.ui.theme.white
 @Composable
 fun CancelClassBottomSheet(
     navController: NavController,
-    collapseBtn: () -> Unit
+    collapseBtn: () -> Unit,
+    isStudent: Boolean,
 ) {
     SetStatusBarColor(color = white)
     Box(
@@ -116,7 +117,11 @@ fun CancelClassBottomSheet(
                         .fillMaxWidth(),
                     label = "Cancel class",
                     onClick = {
-                        navController.navigate(Route.Tutor.Classes.CancelClassSuccess)
+                        if (isStudent){
+                            navController.navigate(Route.Student.Classes.ClassCanceled)
+                        } else {
+                            navController.navigate(Route.Tutor.Classes.CancelClassSuccess)
+                        }
                     }
                 )
             }

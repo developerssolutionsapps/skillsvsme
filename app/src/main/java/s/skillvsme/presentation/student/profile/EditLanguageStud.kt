@@ -37,7 +37,7 @@ import s.skillvsme.ui.theme.black
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun EditLanguageStud(navController: NavController) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     Scaffold(
         content = {
             Column(
@@ -49,35 +49,34 @@ fun EditLanguageStud(navController: NavController) {
                 ProfileAppBar(
                     backgroundColor = Color.Black, modifier = Modifier, backgroundImage = painterResource(
                         id = R.drawable.rectangle5,
-                    ), contentSize = 130.dp, bottomCornerRadius = 30.dp, navController =navController
+                    ), contentSize = 151.dp, bottomCornerRadius = 30.dp, navController =navController
                 )
-                Spacer(modifier = Modifier.weight(1f))
+                Spacer(modifier = Modifier.weight(0.03f))
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(top = 40.dp, start = 16.dp, end = 16.dp),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Column {
-                        Spacer(modifier = Modifier.height(25.dp))
+
+                        Spacer(modifier = Modifier.weight(0.25f))
                         Text(
                             text = "Kamal Tyagi",
                             fontWeight = FontWeight.Bold,
                             fontSize = 25.sp,
                             modifier = Modifier.align(Alignment.CenterHorizontally)
                         )
-                        Spacer(modifier = Modifier.height(30.dp))
+                        Spacer(modifier = Modifier.weight(0.31f))
                         EditTextLabel(
                             value = "English",
                             text = "App Language",
                             trailinicon = painterResource(id = R.drawable.arrow_down),
                             spacer = 10.dp,
                         )
-                    }
-                    Column {
+                        Spacer(modifier = Modifier.weight(2.75f))
                         SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
                         }
-                        Spacer(modifier = Modifier.height(15.dp))
+                        Spacer(modifier = Modifier.weight(0.15f))
                         SkillvsmeButton(
                             label = "Back",
                             primary = false,
@@ -86,8 +85,7 @@ fun EditLanguageStud(navController: NavController) {
                                 navController.popBackStack()
                             }
                         )
-                        Spacer(modifier = Modifier.height(80.dp))
-                    }
+                        Spacer(modifier = Modifier.weight(0.9f))
                 }
             }
         },

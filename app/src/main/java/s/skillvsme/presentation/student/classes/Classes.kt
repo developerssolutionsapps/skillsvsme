@@ -113,7 +113,7 @@ fun Classes(
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Checkout",false)
+                SimpleAppBar(navController = navController, text = "Classes",false)
             },
             content = { paddingValues ->
                 Column(
@@ -306,7 +306,9 @@ fun CancelBottomSheet(
                     modifier = Modifier
                         .fillMaxWidth(),
                     label = "Cancel class",
-                    onClick = {}
+                    onClick = {
+                        navController.navigate(Route.Student.Classes.ClassCanceled)
+                    }
                 )
             }
         }

@@ -32,6 +32,7 @@ import androidx.navigation.NavController
 import s.skillvsme.R
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.Notification
+import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
@@ -41,29 +42,19 @@ import s.skillvsme.ui.theme.white
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NotificationScreen(
+fun NotificationScreenStudent(
     navController: NavController
 ) {
     SetStatusBarColor(color = white)
     val scrollState = rememberScrollState()
     Scaffold(
         topBar = {
-            TopAppBar(
-                backgroundColor = Color.White,
-                navigationIcon = {
-                    IconButton(onClick = { navController.popBackStack() },modifier = Modifier.size(30.dp)) {
-                        Icon(Icons.Default.KeyboardArrowLeft, contentDescription = null, )
-                    }
-                },
-                title = {
-                    Text("Notification", fontSize = 24.sp, fontWeight = FontWeight.Normal)
-                },
-            )
+                   SimpleAppBar(navController = navController, text = "Notification")
         },
         content = {
             Column(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp,top=50.dp)
+                    .padding(start = 16.dp, end = 16.dp, top = 50.dp)
                     .fillMaxSize()
                     .verticalScroll(scrollState)
             ) {

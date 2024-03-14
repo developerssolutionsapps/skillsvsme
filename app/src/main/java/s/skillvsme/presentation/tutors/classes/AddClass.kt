@@ -60,17 +60,17 @@ fun AddClass(
                 .verticalScroll(scrollstate),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(80.dp))
+                Spacer(modifier = Modifier.height(100.dp))
                 Column(
                     modifier=Modifier,
                     horizontalAlignment = Alignment.Start
                 ) {
                     Text(text = "Pick a date",fontSize = 18.sp, fontFamily = Fonts.jostFontFamily, color = purple)
-                    Spacer(modifier = Modifier.height(28.dp))
+                    Spacer(modifier = Modifier.height(20.dp))
                     datepicker()
-                    Spacer(modifier = Modifier.height(22.dp))
+                    Spacer(modifier = Modifier.height(18.dp))
                     Text(text = "Pick time",fontSize = 18.sp, fontFamily = Fonts.jostFontFamily,color= purple)
-                    Spacer(modifier = Modifier.height(22.dp))
+                    Spacer(modifier = Modifier.height(20.dp))
                     Text(text = "From",fontSize = 18.sp, fontFamily = Fonts.jostFontFamily,color= black)
                     timepicker()
                     Spacer(modifier = Modifier.height(10.dp))
@@ -87,20 +87,19 @@ fun AddClass(
                     SkillvsmeButton(
                         label = "Save",
                         modifier = Modifier.fillMaxWidth()
-                            .clickable {
-                                navController.navigate(Route.Tutor.Classes.AddClassSuccess)
-                            }
-                    )
+                    ){
+                        navController.navigate(Route.Tutor.Classes.AddClassSuccess)
+                    }
+
                     Spacer(modifier = Modifier.height(20.dp))
                     SkillvsmeButton(
                         label = "Cancel",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                navController.popBackStack()
-                            },
+                            .fillMaxWidth(),
                         primary = false,
-                    )
+                    ){
+                        navController.popBackStack()
+                    }
                     Spacer(modifier = Modifier.height(100.dp))
                 }
             }

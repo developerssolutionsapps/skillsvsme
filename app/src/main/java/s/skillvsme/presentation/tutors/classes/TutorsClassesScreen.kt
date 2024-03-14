@@ -88,7 +88,8 @@ fun TutorsClassesScreen(
                     scope.launch (Dispatchers.Main) {
                         bottomSheetScaffoldState.bottomSheetState.collapse()
                     }
-                }
+                },
+                isStudent = false
             )
             LaunchedEffect(key1 = Unit) {
                 scope.launch {
@@ -110,7 +111,7 @@ fun TutorsClassesScreen(
                         .verticalScroll(rememberScrollState()),
                     verticalArrangement = Arrangement.SpaceBetween,
                 ) {
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(50.dp))
                     Surface(
                         modifier = Modifier
                             .fillMaxWidth(),

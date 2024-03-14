@@ -39,6 +39,7 @@ import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 import androidx.compose.foundation.layout.wrapContentHeight
 import s.skillvsme.common.SetStatusBarColor
+import s.skillvsme.presentation.onboarding.noRippleClickable
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
@@ -46,13 +47,14 @@ import s.skillvsme.common.SetStatusBarColor
 fun HomePage(
     navController: NavController
 ) {
-    SetStatusBarColor(color = white)
+    SetStatusBarColor(color = Color.White)
     val scrollState = rememberScrollState()
     Scaffold(
+        contentWindowInsets = WindowInsets.navigationBars,
         content = {
             Column(
                 modifier = Modifier
-                    .padding(20.dp)
+                    .padding(start = 20.dp, end = 20.dp, bottom = 20.dp, top = 70.dp)
                     .fillMaxSize()
                     .background(white)
                     .verticalScroll(scrollState)
@@ -75,7 +77,7 @@ fun HomePage(
                     IconButton(onClick = { /* Handle notification icon click */ }) {
                         Image(
                             painter = painterResource(id = R.drawable.notification),
-                            contentDescription = null, modifier = Modifier.clickable {
+                            contentDescription = null, modifier = Modifier.noRippleClickable {
                                 navController.navigate(Route.Student.Profile.Notifications)
                             }
                         )
@@ -90,7 +92,7 @@ fun HomePage(
                             contentDescription = "",
                             Modifier
                                 .fillMaxSize()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Student.Profile.StudentProfile) {
 
                                         navController.graph.startDestinationRoute?.let { screen_route ->
@@ -166,7 +168,7 @@ fun HomePage(
                     Spacer(modifier = Modifier.weight(1f))
                     Text(
                         modifier = Modifier
-                            .clickable {
+                            .noRippleClickable {
                                 navController.navigate(Route.Student.Streaming.LiveStream)
                             },
                         text = "See all",
@@ -186,7 +188,7 @@ fun HomePage(
                                 .width(98.dp)
                                 .wrapContentHeight()
                                 .background(lightGrey, RoundedCornerShape(8.dp))
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Student.Streaming.ViewLiveStream)
                                 },
                             contentAlignment = Alignment.Center
@@ -243,7 +245,7 @@ fun HomePage(
                     modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
-                        .clickable {
+                        .noRippleClickable {
                             navController.navigate(Route.Student.Payment.BookTrial)
                         }
                         .padding(vertical = 2.dp, horizontal = 2.dp),
@@ -305,7 +307,7 @@ fun HomePage(
                     modifier = Modifier
                         .height(80.dp)
                         .fillMaxWidth()
-                        .clickable {
+                        .noRippleClickable {
                             navController.navigate(Route.Student.Payment.PaymentPlan)
                         }
                         .padding(vertical = 2.dp, horizontal = 2.dp),
@@ -381,7 +383,7 @@ fun HomePage(
                         fontWeight = FontWeight.Normal,
                         color = purple,
                         fontSize = 18.sp,
-                        modifier = Modifier.clickable {
+                        modifier = Modifier.noRippleClickable {
 //                            navController.navigate(Route.Student.Tutor.TutorsList)
                             navController.navigate(Route.Student.Tutor.TutorsList) {
 
@@ -406,7 +408,10 @@ fun HomePage(
                                 .width(169.dp)
                                 .wrapContentHeight()
                                 .background(lightGrey, RoundedCornerShape(8.dp))
-                                .padding(8.dp),
+                                .padding(8.dp)
+                                .noRippleClickable {
+                                    navController.navigate(Route.Student.Tutor.TutorProfile)
+                                }
 
                             ) {
                             Row(
@@ -426,8 +431,6 @@ fun HomePage(
                                             modifier = Modifier
                                                 .fillMaxWidth()
                                         ) {
-                                            // Rounded image view
-//                                            Spacer(modifier = Modifier.width(10.dp))
                                             Box(
                                                 modifier = Modifier
                                                     .size(71.dp)

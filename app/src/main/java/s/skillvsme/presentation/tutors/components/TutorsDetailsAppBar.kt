@@ -86,8 +86,8 @@ fun TutorsDetailsAppBar(
             Box(
                 modifier = Modifier
                     .width(130.dp)
-                    .height(146.dp)
-                    .padding(top = 16.dp)
+                    .height(170.dp)
+                    .padding(top = 40.dp)
                     .background(Color.Transparent, CircleShape)
             ) {
                 Card(

@@ -41,7 +41,16 @@ fun ClassCancelSuccess(
                 },
                 backButtonText = "Back to home",
                 backButtonOnclickAction = {
-                    navController.navigate(Route.Student.Home.Home)
+                    navController.popBackStack()
+                    navController.navigate(Route.Student.Home.Home){
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
                 },
             )
             Spacer(modifier = Modifier.height(40.dp))

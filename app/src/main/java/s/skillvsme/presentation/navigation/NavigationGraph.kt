@@ -22,19 +22,20 @@ import s.skillvsme.presentation.onboarding.Onboarding2
 import s.skillvsme.presentation.onboarding.Onboarding3
 import s.skillvsme.presentation.onboarding.Signup
 import s.skillvsme.presentation.streaming.Streaming
+import s.skillvsme.presentation.student.classes.ClassCancelSuccess
+import s.skillvsme.presentation.student.notification.NotificationScreenStudent
 import s.skillvsme.presentation.student.payment.BookTrial
 import s.skillvsme.presentation.student.payment.Checkout
 import s.skillvsme.presentation.student.payment.Payment
 import s.skillvsme.presentation.student.payment.PaymentPlan
 import s.skillvsme.presentation.student.payment.PaymentSuccess
 import s.skillvsme.presentation.student.streaming.LiveStreaming
-import s.skillvsme.presentation.student.classes.ClassCancelSuccess
 import s.skillvsme.presentation.student.tutors.AppointmentConfirmationSuccess
 import s.skillvsme.presentation.student.tutors.Schedule
 import s.skillvsme.presentation.student.tutors.TutorsDetailsStud
 import s.skillvsme.presentation.student.tutors.TutorsList
 import s.skillvsme.presentation.tutors.TutorsProfile.Earnings
-import s.skillvsme.presentation.tutors.notification.NotificationScreen
+import s.skillvsme.presentation.tutors.notification.NotificationScreenTutor
 import s.skillvsme.presentation.tutors.TutorsProfile.PaymentSetting
 import s.skillvsme.presentation.tutors.TutorsProfile.TransactionSuccess
 import s.skillvsme.presentation.tutors.TutorsProfile.TutorProfile
@@ -52,6 +53,7 @@ import s.skillvsme.presentation.tutors.TutorsProfile.TutorsDetails
 import s.skillvsme.presentation.tutors.TutorsProfile.WithdrawFunds
 import s.skillvsme.presentation.tutors.classes.AddClass
 import s.skillvsme.presentation.tutors.classes.ClassAddSuccess
+import s.skillvsme.presentation.tutors.classes.TutorsClassCancelSuccess
 import s.skillvsme.presentation.tutors.classes.TutorsClassesScreen
 import s.skillvsme.presentation.tutors.streaming.StreamingPreview
 
@@ -172,7 +174,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             paymentMethod(navController)
         }
         composable(Route.Student.Profile.Notifications) {
-            NotificationScreen(navController)
+            NotificationScreenStudent(navController)
         }
         composable(Route.Student.Profile.EditLanguage) {
             EditLanguageStud(navController)
@@ -205,7 +207,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             ClassAddSuccess(navController = navController)
         }
         composable(Route.Tutor.Classes.CancelClassSuccess) {
-            ClassCancelSuccess(navController = navController)
+            TutorsClassCancelSuccess(navController = navController)
         }
 
         // Tutors profile screens
@@ -222,7 +224,7 @@ fun NavigationGraph(navController: NavHostController, ) {
             EditProfile(navController = navController)
         }
         composable(Route.Tutor.Profile.Notifications) {
-            NotificationScreen(navController = navController)
+            NotificationScreenTutor(navController = navController)
         }
         composable(Route.Tutor.Profile.PaymentSettings) {
             PaymentSetting(navController = navController)

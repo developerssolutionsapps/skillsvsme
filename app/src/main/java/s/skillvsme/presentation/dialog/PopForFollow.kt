@@ -36,7 +36,7 @@ import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 @Composable
-fun PopForFollow(value: String, setShowDialog: (Boolean) -> Unit, setValue: (String) -> Unit) {
+fun PopForFollow(value: String, setShowDialog: (Boolean) -> Unit, following: (Boolean) -> Unit, ) {
     Dialog(onDismissRequest = { setShowDialog(false) }) {
         Surface(
             shape = RoundedCornerShape(16.dp),
@@ -112,6 +112,7 @@ fun PopForFollow(value: String, setShowDialog: (Boolean) -> Unit, setValue: (Str
                             .fillMaxWidth(),
                         primary = false
                     ){
+                        following(false)
                         setShowDialog(false)
                     }
                 }

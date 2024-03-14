@@ -24,6 +24,7 @@ import s.skillvsme.common.Fonts
 
 @Composable
 fun SkillvsmeSuccessScreen(
+    modifier: Modifier = Modifier,
     successMessage: String,
     successInfo: String? = null,
     buttonText: String,
@@ -32,7 +33,7 @@ fun SkillvsmeSuccessScreen(
     backButtonOnclickAction: () -> Unit = {},
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .padding(20.dp)
             .fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween
@@ -44,9 +45,12 @@ fun SkillvsmeSuccessScreen(
                 .fillMaxHeight(0.6f)
                 .fillMaxWidth()
         ) {
-            Spacer(modifier = Modifier.height(60.dp))
-            Image(painter = painterResource(R.drawable.baseline_check_circle), contentDescription = "successful icon")
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(100.dp))
+            Image(
+                painter = painterResource(R.drawable.baseline_check_circle),
+                contentDescription = "successful icon"
+            )
+            Spacer(modifier = Modifier.height(14.dp))
             Text(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -56,18 +60,15 @@ fun SkillvsmeSuccessScreen(
                 fontFamily = Fonts.jostFontFamily,
                 textAlign = TextAlign.Center
             )
-            Spacer(modifier = Modifier.height(8.dp))
-
+            Spacer(modifier = Modifier.height(23.dp))
             if (successInfo != null) {
-                Spacer(modifier = Modifier.height(16.dp))
                 Text(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(22.dp),
+                        .fillMaxWidth(),
                     text = successInfo,
                     fontWeight = FontWeight.Normal,
                     fontFamily = Fonts.jostFontFamily,
-                    fontSize = 18.sp,
+                    fontSize = 22.sp,
                     textAlign = TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(16.dp))

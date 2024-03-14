@@ -66,7 +66,7 @@ fun BookTrial(
                     .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
-                Column {
+                Column(modifier = Modifier.padding(top=30.dp)) {
                     // Black rounded corner shape container
                     Spacer(modifier = Modifier.height(80.dp))
                     Card(

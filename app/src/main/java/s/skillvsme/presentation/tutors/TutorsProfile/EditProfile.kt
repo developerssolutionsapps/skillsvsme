@@ -52,7 +52,7 @@ import s.skillvsme.ui.theme.purple
 fun EditProfile(
     navController: NavController
 ) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     val  scrollState= rememberScrollState()
     Scaffold(
         content = {
@@ -69,7 +69,7 @@ fun EditProfile(
                     backgroundImage = painterResource(
                         id = R.drawable.rectangle6,
                     ),
-                    contentSize = 130.dp,
+                    contentSize = 151.dp,
                     bottomCornerRadius = 30.dp,
                     navController = navController
                 )
@@ -154,9 +154,14 @@ fun EditProfile(
                         SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
                         }
                         Spacer(modifier = Modifier.height(20.dp))
-                        SkillvsmeButton(label = "Back" +
-                                "", modifier = Modifier.fillMaxWidth(), primary = false) {
-                        }
+                        SkillvsmeButton(
+                            label = "Back",
+                            modifier = Modifier.fillMaxWidth(),
+                            primary = false,
+                            onClick = {
+                                navController.popBackStack()
+                            }
+                        )
                         Spacer(modifier = Modifier.height(120.dp))
                     }
                 }

@@ -47,7 +47,7 @@ fun PaymentPlan(
                     .padding(16.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(100.dp))
                 // Step One
                 SkillvsmeText(
                     label = "Step 1",
@@ -56,6 +56,7 @@ fun PaymentPlan(
                     labelSize = 18,
                     valueSize = 24,
                     boldValue = true,
+                    boldLabel = false
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 SkillvsmeBorderRadioBtn(
@@ -91,7 +92,8 @@ fun PaymentPlan(
                     labelColor = purple,
                     boldValue = true,
                     labelSize = 18,
-                    valueSize = 24
+                    valueSize = 24,
+                    boldLabel = false
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 SkillvsmeRadioPrice(

@@ -87,19 +87,15 @@ fun ReportOverlay(value: String, setShowDialog: (Boolean) -> Unit, setValue: (St
                     SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
                         selectedValue = "Unprofessional behaviour",
                         label = "Unprofessional behaviour", color = white,textColor = white,fontSize = 18)
-                    Spacer(modifier = Modifier.height(10.dp))
                     SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
                         selectedValue = "",
                         label = "Abusive/harmful content", color = white,textColor = white,fontSize = 18)
-                    Spacer(modifier = Modifier.height(10.dp))
                     SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
                         selectedValue = "",
                         label = "Misguidance", color = white,textColor = white,fontSize = 18)
-                    Spacer(modifier = Modifier.height(10.dp),)
                     SkillvsmeRadioBtn(modifier = Modifier.fillMaxWidth(),
                         selectedValue = "",
                         label = "Other", color = white, textColor = white, fontSize = 18)
-
                     SkillvsmeButton(
                         label = "Submit",
                         modifier = Modifier

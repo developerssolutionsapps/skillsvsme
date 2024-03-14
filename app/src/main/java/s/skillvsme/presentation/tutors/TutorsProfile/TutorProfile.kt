@@ -43,16 +43,18 @@ import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BottomSheet
 import s.skillvsme.presentation.components.ProfileAppBar
 import s.skillvsme.presentation.components.SkillvsmeText
+import s.skillvsme.presentation.onboarding.noRippleClickable
 import s.skillvsme.presentation.tutors.navigation.BottomNavigation
 import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
+import s.skillvsme.ui.theme.white
 
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun TutorProfile(navController: NavController) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     val scope = rememberCoroutineScope()
     val density = LocalDensity.current
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
@@ -107,7 +109,7 @@ fun TutorProfile(navController: NavController) {
                         cameraIconAvailable = true,
                         scope = scope,
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
-                        contentSize = 130.dp,
+                        contentSize = 151.dp,
                         bottomCornerRadius = 30.dp,
 
                         )
@@ -129,7 +131,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.EditProfile)
                                 },
                             value = "Edit Profile",
@@ -158,7 +160,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.EditLanguage)
                                 },
                             value = "Language",
@@ -188,7 +190,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.Earnings)
                                 },
                             value = "Earnings",
@@ -217,7 +219,7 @@ fun TutorProfile(navController: NavController) {
                         SkillvsmeText(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .clickable {
+                                .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.PaymentSettings)
                                 },
                             value = "Payment setting",

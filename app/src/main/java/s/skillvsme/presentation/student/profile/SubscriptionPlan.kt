@@ -44,10 +44,10 @@ import s.skillvsme.ui.theme.white
 @OptIn(ExperimentalMaterialApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun SubscriptionPlan(navController: NavController) {
-    SetStatusBarColor(color = black)
+    SetStatusBarColor(color = Color.Transparent)
     val scrollState = rememberScrollState()
     Scaffold(
-        content = { paddingValues ->
+        content = {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -61,7 +61,7 @@ fun SubscriptionPlan(navController: NavController) {
                     backgroundImage = painterResource(
                         id = R.drawable.rectangle5,
                     ),
-                    contentSize = 130.dp,
+                    contentSize = 151.dp,
                     bottomCornerRadius = 30.dp,
                     cameraIconAvailable = true,
                     navController = navController
@@ -72,7 +72,7 @@ fun SubscriptionPlan(navController: NavController) {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(paddingValues),
+                            ,
                     ) {
                         Spacer(modifier = Modifier.height(20.dp))
                         Text(
