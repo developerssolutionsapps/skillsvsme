@@ -101,9 +101,9 @@ fun EditProfile(
                                 }
                         )
                         Spacer(modifier = Modifier.height(16.dp))
-                        EditTextLabel(value = "Kamal Tyagi", text = "User Name")
+                        EditTextLabel(value = "Kamal Tyagi", text = "User name")
                         Spacer(modifier = Modifier.height(24.dp))
-                        EditTextLabel(value = "+999 45821365479", text = "Phone Number")
+                        EditTextLabel(value = "+999 45821365479", text = "Phone number")
                         Spacer(modifier = Modifier.height(24.dp))
                         EditTextLabel(value = "Califonia, USA", text = "Location")
                         Spacer(modifier = Modifier.height(24.dp))
@@ -119,7 +119,7 @@ fun EditProfile(
                                 "their target language.", text = "Bio", isLongText = true)
                         Spacer(modifier = Modifier.height(24.dp))
                         Row (verticalAlignment = Alignment.CenterVertically){
-                            Text(text = "Work Experience",fontSize = 18.sp,
+                            Text(text = "Work experience",fontSize = 18.sp,
                                 fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,)
                             Spacer(modifier = Modifier.weight(1f))
@@ -140,18 +140,18 @@ fun EditProfile(
                         }
                         Spacer(modifier = Modifier.height(24.dp))
                         TutorsExperience(
-                            title = "English Professor",
+                            title = "English professor",
                             timeline = "2014 - Present",
                             institution = "Cambridge University"
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         TutorsExperience(
-                            title = "Private English Tutor",
+                            title = "Private English tutor",
                             timeline = "2012 - 2014",
                             institution = "Self-employed"
                         )
                         Spacer(modifier = Modifier.height(40.dp))
-                        SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                        SkillvsmeButton(label = "Save changes", modifier = Modifier.fillMaxWidth()) {
                         }
                         Spacer(modifier = Modifier.height(20.dp))
                         SkillvsmeButton(

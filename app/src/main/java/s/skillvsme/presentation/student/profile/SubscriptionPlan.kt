@@ -84,7 +84,7 @@ fun SubscriptionPlan(navController: NavController) {
                         )
                         Spacer(modifier = Modifier.height(25.dp))
                         Text(
-                            text = "Current Plan",
+                            text = "Current plan",
                             fontWeight = FontWeight.Normal,
                             fontSize = 18.sp,
                             fontFamily = Fonts.jostFontFamily

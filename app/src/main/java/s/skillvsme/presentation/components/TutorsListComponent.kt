@@ -93,7 +93,8 @@ fun TutorsListComponent(
                     valueSize = 24
                 )
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.Top,
+                    horizontalArrangement = Arrangement.Center
                 ) {
                     Image(
                         painter = painterResource(R.drawable.rate_star),
@@ -102,6 +103,7 @@ fun TutorsListComponent(
                     )
                     SkillvsmeText(
                         value = "${rating}",
+                        valueColor = black.copy(alpha = 0.5f),
                         valueSize = 14
                     )
                 }

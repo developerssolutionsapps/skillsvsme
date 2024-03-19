@@ -11,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
@@ -22,6 +23,7 @@ fun SkillvsmeBorderRadioBtn(
     modifier: Modifier,
     selectedValue: String,
     label: String,
+    fontWeight: FontWeight = FontWeight.Normal,
     onClick: () -> Unit = {}
 ) {
     val primary = if (selectedValue == label) true else false
@@ -52,7 +54,8 @@ fun SkillvsmeBorderRadioBtn(
                 color = if (primary) white else black,
                 modifier = Modifier.fillMaxWidth(),
                 fontFamily = Fonts.jostFontFamily,
-                fontSize = 20.sp
+                fontSize = 20.sp,
+                fontWeight = fontWeight
             )
         }
     }

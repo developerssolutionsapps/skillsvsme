@@ -42,6 +42,7 @@ import s.skillvsme.presentation.components.TutorsExperience
 import s.skillvsme.presentation.student.navigation.BottomNavigation
 import s.skillvsme.presentation.tutors.components.TutorsDetailsAppBar
 import s.skillvsme.ui.theme.black
+import s.skillvsme.ui.theme.greyishBlack
 import s.skillvsme.ui.theme.purple
 import s.skillvsme.ui.theme.white
 
@@ -94,7 +95,8 @@ fun TutorsDetailsStud(
                         ) {
                             Image(
                                 painter = painterResource(id = R.drawable.rate_star),
-                                contentDescription = "rate star"
+                                contentDescription = "rate star",
+                                modifier = Modifier.size(40.dp)
                             )
                             Text(
                                 text = "5.0",
@@ -157,6 +159,7 @@ fun TutorsDetailsStud(
                         label = "Bio",
                         boldLabel = true,
                         labelColor = purple,
+                        valueColor = greyishBlack,
                         valueSize = 18,
                         labelSize = 20,
                         value = "Experienced and dedicated language tutor passionate about helping students unlock their linguistic potential. Skilled in creating personalized learning plans, fostering a supportive environment, and utilizing innovative teaching methods to enhance language proficiency. Committed to empowering students to communicate confidently and fluently in their target language."
@@ -192,13 +195,13 @@ fun TutorsDetailsStud(
                     Spacer(modifier = Modifier.height(8.dp))
                     Column {
                         TutorsExperience(
-                            title = "English Professor",
+                            title = "English professor",
                             timeline = "2014 - Present",
                             institution = "Cambridge University"
                         )
                         Spacer(modifier = Modifier.height(8.dp))
                         TutorsExperience(
-                            title = "Private English Tutor",
+                            title = "Private English tutor",
                             timeline = "2012 - 2014",
                             institution = "Self-employed"
                         )
@@ -211,13 +214,13 @@ fun TutorsDetailsStud(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         SkillvsmeText(
-                            value = "Student Reviews",
+                            value = "Student reviews",
                             valueColor = purple,
                             valueSize = 20,
                             boldValue = true
                         )
                         SkillvsmeText(
-                            value = "See All",
+                            value = "See all",
                             valueSize = 20,
                             valueColor = purple
                         )

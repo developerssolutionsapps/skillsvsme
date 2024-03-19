@@ -30,6 +30,7 @@ fun SkillvsmeButton(
     label:String,
     enabled: Boolean = true,
     primary: Boolean = true,
+    fontWeight: FontWeight = FontWeight.Medium,
     onClick: () -> Unit = {},
     ) {
     Button(
@@ -55,7 +56,7 @@ fun SkillvsmeButton(
             modifier = Modifier
                 .padding(2.dp),
             color = if(primary) white else black,
-            fontWeight = FontWeight.Medium,
+            fontWeight = fontWeight,
             fontSize = 20.sp,
             fontFamily = Fonts.jostFontFamily
         )

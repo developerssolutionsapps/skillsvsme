@@ -29,14 +29,14 @@ fun PaymentSuccess(
     SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
-            SimpleAppBar(navController = navController, text = "Confirmation")
+            SimpleAppBar(navController = navController, text = "Payment")
         },
         content = {
             Spacer(modifier = Modifier.height(40.dp))
             SkillvsmeSuccessScreen(
-                successMessage = "Payment Successful",
-                successInfo = "Keep the momentum going\nand schedule you first class",
-                buttonText = "Schedule a Class",
+                successMessage = "Payment successful",
+                successInfo = "Keep the momentum going\nand schedule your first class",
+                buttonText = "Schedule a class",
                 buttonOnclickAction = {
                     navController.navigate(Route.Student.Tutor.Schedule)
                 },

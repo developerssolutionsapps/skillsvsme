@@ -42,7 +42,8 @@ fun ProfileAppBar(
     scope:CoroutineScope?=null,
     bottomSheetScaffoldState:BottomSheetScaffoldState?=null,
     navController:NavController?=null,
-    cameraIconAvailable:Boolean=false
+    cameraIconAvailable:Boolean=false,
+    backNavigationAction: (() -> Unit)? = null
 
     ) {
 
@@ -125,10 +126,14 @@ fun ProfileAppBar(
             contentDescription = null,
             modifier = Modifier
                 .align(Alignment.CenterStart)
-                .padding(start = 16.dp,top=40.dp)
+                .padding(start = 16.dp, top = 40.dp)
                 .size(40.dp)
                 .clickable {
-                    navController?.popBackStack()
+                    if (backNavigationAction != null) {
+                        backNavigationAction()
+                    } else {
+                        navController?.popBackStack()
+                    }
                 }
         )
     }

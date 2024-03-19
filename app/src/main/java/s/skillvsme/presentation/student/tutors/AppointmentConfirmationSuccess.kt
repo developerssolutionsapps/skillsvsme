@@ -33,14 +33,42 @@ fun AppointmentConfirmationSuccess(
         content = {
             Spacer(modifier = Modifier.height(40.dp))
             SkillvsmeSuccessScreen(
-                successMessage = "Appointment Confirmed",
+                successMessage = "Appointment confirmed",
                 buttonText = "View all classes",
                 buttonOnclickAction = {
                     navController.navigate(Route.Student.Classes.UpcomingClasses)
+                    {
+                        navController.popBackStack(
+                            route = Route.Student.Tutor.TutorsList,
+                            inclusive = false,
+                            saveState = false
+                        )
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
                 },
                 backButtonText = "Back to home",
                 backButtonOnclickAction = {
                     navController.navigate(Route.Student.Home.Home)
+                    {
+                        navController.popBackStack(
+                            route = Route.Student.Tutor.TutorsList,
+                            inclusive = false,
+                            saveState = false
+                        )
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
                 },
             )
             Spacer(modifier = Modifier.height(40.dp))

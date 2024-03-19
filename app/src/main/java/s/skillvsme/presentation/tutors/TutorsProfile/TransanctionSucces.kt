@@ -75,7 +75,7 @@ fun TransactionSuccess(
                     ) {
                         Image(
                             painter = painterResource(id = R.drawable.background_lines),
-                            contentDescription = "Vehicles Image",
+                            contentDescription = "Vehicles image",
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(332.dp),
@@ -97,7 +97,7 @@ fun TransactionSuccess(
                             androidx.compose.material3.Text(
                                 modifier = Modifier
                                     .fillMaxWidth(),
-                                text = "Transaction Successful",
+                                text = "Transaction successful",
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 26.sp,
                                 color = white,
@@ -176,7 +176,7 @@ fun TransactionSuccess(
                             }
                             Spacer(modifier = Modifier.height(43.dp))
                             SkillvsmeButton(
-                                label = "Back to Home",
+                                label = "Back to home",
                                 modifier = Modifier
                                     .padding(horizontal = 20.dp)
                                     .fillMaxWidth()

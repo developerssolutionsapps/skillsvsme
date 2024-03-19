@@ -10,6 +10,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -22,6 +23,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import s.skillvsme.common.Fonts
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.darkGrey
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,6 +41,7 @@ fun EditTextLabel(
             text = text,
             fontFamily = Fonts.jostFontFamily,
             fontSize = 18.sp,
+            color = black,
             fontWeight = FontWeight.Normal,
         )
         spacer?.let { Modifier.height(it) }?.let { Spacer(modifier = it) }
@@ -60,6 +63,11 @@ fun EditTextLabel(
                     color = darkGrey
                 )
             },
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                textColor = black,
+                focusedBorderColor = darkGrey.copy(0.2f),
+                unfocusedBorderColor = darkGrey.copy(0.2f)
+            ),
             singleLine = !isLongText,
             textStyle = TextStyle(
                 fontSize = 18.sp,

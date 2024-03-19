@@ -2,6 +2,7 @@ package s.skillvsme.presentation.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -98,13 +99,14 @@ fun CodeVerification(
                 }
                 Row(
                     modifier = Modifier
-                        .padding(4.dp)
+                        .padding(top = 70.dp)
+                        .padding(start = 20.dp)
                         .fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Box(
                         modifier = Modifier
-                            .size(32.dp)
+                            .size(24.dp)
                             .clip(RoundedCornerShape(10.dp)),
                         contentAlignment = Alignment.Center
                     ){
@@ -112,11 +114,10 @@ fun CodeVerification(
                             painter = painterResource(id = R.drawable.back_arrow_white),
                             contentDescription = "back arrow",
                             modifier = Modifier
-                                .size(16.dp)
-                                .graphicsLayer {
-                                    this.scaleX = 1.5f
-                                    this.scaleY = 1.5f
+                                .clickable {
+                                    navController.popBackStack()
                                 }
+                                .size(16.dp)
                         )
                     }
                 }
@@ -148,7 +149,7 @@ fun CodeVerification(
                             fontFamily = Fonts.jostFontFamily,
                             modifier = Modifier
                                 .fillMaxWidth(),
-                            text = "Verify Phone Number",
+                            text = "Verify phone number",
                             style = MaterialTheme.typography.body1,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center

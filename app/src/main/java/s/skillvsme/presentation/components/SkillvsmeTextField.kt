@@ -95,9 +95,6 @@ fun SkillvsmeTextField(
         ) {
             OutlinedTextField(
                 readOnly = readOnly,
-                trailingIcon={
-                    trailingIcon
-                },
                 enabled = enabled,
                 modifier = Modifier
                     .height(if (isLongText) 150.dp else 49.dp)
@@ -118,8 +115,7 @@ fun SkillvsmeTextField(
                     Text(
                         fontFamily = Fonts.jostFontFamily,
                         text = hint,
-                        fontSize = hintSize?.sp ?: 16.sp,
-                        textAlign = TextAlign.Center,
+                        fontSize = hintSize?.sp ?: 18.sp,
                         color = darkGrey
                     ) },
                 isError = !isValid,

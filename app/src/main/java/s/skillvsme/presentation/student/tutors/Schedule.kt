@@ -51,7 +51,11 @@ fun Schedule(
                     .verticalScroll(rememberScrollState())
             ) {
                 Spacer(modifier = Modifier.height(100.dp))
-                SkillvsmeText(value = "Available Slots", valueColor = purple)
+                SkillvsmeText(
+                    value = "Available slots",
+                    valueColor = purple,
+                    valueSize = 18
+                )
                 SkillvsmeScheduleTimeline(
                     day = "Wed",
                     date = "29",

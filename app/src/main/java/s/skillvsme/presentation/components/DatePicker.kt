@@ -27,6 +27,7 @@ import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -277,6 +278,7 @@ fun <T> InfiniteCircularList(
                     Text(
                         text = item.toString(),
                         style = textStyle,
+                        fontWeight = FontWeight.Medium,
                         color = if (lastSelectedIndex == i) {
                             selectedTextColor
                         } else {

@@ -64,7 +64,7 @@ fun Earnings(navController: NavController) {
                 ) {
                     Spacer(modifier = Modifier.height(80.dp))
                     Text(
-                        text = "Available Balance",
+                        text = "Available balance",
                         fontWeight = FontWeight.Normal,
                         fontSize = 18.sp,
                         fontFamily = Fonts.jostFontFamily

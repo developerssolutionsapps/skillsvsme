@@ -56,7 +56,7 @@ fun BookTrial(
     SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
-            SimpleAppBar(navController = navController, text = "Book Trial")
+            SimpleAppBar(navController = navController, text = "Book trial")
         },
         content = {
             Column(
@@ -68,7 +68,7 @@ fun BookTrial(
             ) {
                 Column(modifier = Modifier.padding(top=30.dp)) {
                     // Black rounded corner shape container
-                    Spacer(modifier = Modifier.height(80.dp))
+                    Spacer(modifier = Modifier.height(65.dp))
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -229,7 +229,7 @@ fun BookTrial(
                     }
                 }
                 Column {
-                    Spacer(modifier = Modifier.height(30.dp))
+                    Spacer(modifier = Modifier.height(20.dp))
                     SkillvsmeButton(
                         modifier = Modifier.fillMaxWidth(),
                         label = "Purchase trial",
@@ -238,7 +238,7 @@ fun BookTrial(
                             navController.navigate(Route.Student.Payment.PaymentSuccess)
                         }
                     )
-                    Spacer(modifier = Modifier.height(4.dp))
+                    Spacer(modifier = Modifier.height(20.dp))
                     SkillvsmeButton(
                         modifier = Modifier.fillMaxWidth(),
                         label = "Back",
@@ -247,8 +247,7 @@ fun BookTrial(
                             navController.popBackStack()
                         }
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Spacer(modifier = Modifier.height(80.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                 }
             }
         },

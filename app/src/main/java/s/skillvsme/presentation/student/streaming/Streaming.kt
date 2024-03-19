@@ -40,7 +40,6 @@ import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.SkillvsmeLiveTag
 import s.skillvsme.presentation.student.navigation.BottomNavigation
-import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.lightGrey
 import s.skillvsme.ui.theme.white
 

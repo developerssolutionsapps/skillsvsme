@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Divider
 import androidx.compose.material.Scaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
@@ -19,11 +18,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Route
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.TutorsListComponent
 import s.skillvsme.presentation.student.navigation.BottomNavigation
-import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.white
 
 
@@ -37,7 +36,17 @@ fun TutorsList(
     SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
-            SimpleAppBar(navController = navController, text = "Tutors", canNavigateBack = false)
+            SimpleAppBar(navController = navController, text = "Tutors", canNavigateBack = true, backNavigation = {
+                    navController.navigate(Route.Student.Home.Home) {
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+            })
         },
         content = {
             Column(

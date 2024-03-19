@@ -3,7 +3,6 @@ package s.skillvsme.presentation.tutors.classes
 import android.annotation.SuppressLint
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -60,7 +59,7 @@ fun AddClass(
                 .verticalScroll(scrollstate),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(100.dp))
+                Spacer(modifier = Modifier.height(80.dp))
                 Column(
                     modifier=Modifier,
                     horizontalAlignment = Alignment.Start
@@ -100,7 +99,7 @@ fun AddClass(
                     ){
                         navController.popBackStack()
                     }
-                    Spacer(modifier = Modifier.height(100.dp))
+                    Spacer(modifier = Modifier.height(60.dp))
                 }
             }
         }
