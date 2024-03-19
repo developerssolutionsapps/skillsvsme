@@ -113,7 +113,18 @@ fun Classes(
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Your classes",false)
+                SimpleAppBar(navController = navController, text = "Your classes",true, backNavigation = {
+
+                        navController.navigate(Route.Student.Home.Home) {
+                            navController.graph.startDestinationRoute?.let { screen_route ->
+                                popUpTo(screen_route) {
+                                    saveState = true
+                                }
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                })
             },
             content = { paddingValues ->
                 Column(

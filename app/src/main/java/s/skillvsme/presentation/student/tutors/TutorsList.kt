@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.R
+import s.skillvsme.common.Route
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.SimpleAppBar
 import s.skillvsme.presentation.components.TutorsListComponent
@@ -35,7 +36,17 @@ fun TutorsList(
     SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
-            SimpleAppBar(navController = navController, text = "Tutors", canNavigateBack = false)
+            SimpleAppBar(navController = navController, text = "Tutors", canNavigateBack = true, backNavigation = {
+                    navController.navigate(Route.Student.Home.Home) {
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+            })
         },
         content = {
             Column(

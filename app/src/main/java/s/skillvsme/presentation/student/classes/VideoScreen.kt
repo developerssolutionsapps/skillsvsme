@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.media3.common.C
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
@@ -15,10 +16,12 @@ import io.sanghun.compose.video.VideoPlayer
 import io.sanghun.compose.video.controller.VideoPlayerControllerConfig
 import io.sanghun.compose.video.uri.VideoPlayerMediaItem
 import s.skillvsme.R
+import s.skillvsme.common.SetStatusBarColor
 
 
 @Composable
 fun VideoScreen() {
+    SetStatusBarColor(color = Color.Transparent)
     VideoPlayer(
         mediaItems = listOf(
             VideoPlayerMediaItem.RawResourceMediaItem(

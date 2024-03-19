@@ -111,7 +111,17 @@ fun StudentProfile(navController: NavController) {
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         contentSize = 151.dp,
                         bottomCornerRadius = 30.dp,
-
+                        backNavigationAction = {
+                            navController.navigate(Route.Student.Home.Home) {
+                                navController.graph.startDestinationRoute?.let { screen_route ->
+                                    popUpTo(screen_route) {
+                                        saveState = true
+                                    }
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
                         )
                     Spacer(modifier = Modifier.weight(1f))
                     Column(
