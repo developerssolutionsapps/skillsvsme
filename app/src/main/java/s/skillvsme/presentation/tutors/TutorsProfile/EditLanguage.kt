@@ -67,12 +67,12 @@ fun EditLanguage(navController: NavController) {
                     Spacer(modifier = Modifier.weight(0.31f))
                     EditTextLabel(
                         value = "English",
-                        text = "App Language",
+                        text = "App language",
                         trailinicon = painterResource(id = R.drawable.arrow_down),
                         spacer = 10.dp,
                     )
                     Spacer(modifier = Modifier.weight(2.75f))
-                    SkillvsmeButton(label = "Save Changes", modifier = Modifier.fillMaxWidth()) {
+                    SkillvsmeButton(label = "Save changes", modifier = Modifier.fillMaxWidth()) {
                     }
                     Spacer(modifier = Modifier.weight(0.15f))
                     SkillvsmeButton(

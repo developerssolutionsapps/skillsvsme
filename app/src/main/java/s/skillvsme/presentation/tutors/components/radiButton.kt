@@ -12,8 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.sp
 import s.skillvsme.R
+import s.skillvsme.common.Fonts
 import s.skillvsme.presentation.onboarding.noRippleClickable
+import s.skillvsme.ui.theme.black
 
 @Composable
 fun TwoRadioButtons(
@@ -36,6 +39,9 @@ fun TwoRadioButtons(
         }
         Text(
             text = option1Text,
+            color = black,
+            fontSize = 18.sp,
+            fontFamily = Fonts.jostFontFamily,
             modifier = Modifier.noRippleClickable { onOptionSelected(option1Text) }
         )
 
@@ -50,6 +56,9 @@ fun TwoRadioButtons(
         }
         Text(
             text = option2Text,
+            color = black,
+            fontSize = 18.sp,
+            fontFamily = Fonts.jostFontFamily,
             modifier = Modifier.noRippleClickable { onOptionSelected(option2Text) }
         )
 

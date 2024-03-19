@@ -38,7 +38,7 @@ fun AmountTextField(
         Column(Modifier.fillMaxWidth()) {
             Row(modifier = Modifier.padding(bottom = 21.dp, start = 14.dp, end = 13.dp,)) {
                 Text(
-                    text = "Amount Transferred",
+                    text = "Amount transferred",
                     fontFamily = Fonts.jostFontFamily,
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Normal,

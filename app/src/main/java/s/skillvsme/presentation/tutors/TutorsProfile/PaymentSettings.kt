@@ -75,7 +75,7 @@ fun PaymentSetting(navController: NavController) {
                             .padding(top = 30.dp)
                     )
                     Spacer(modifier = Modifier.height(20.dp))
-                    Text(text = "Payment Methods", fontWeight = FontWeight.Medium,fontSize = 18.sp,
+                    Text(text = "Withdrawal methods", fontWeight = FontWeight.Medium,fontSize = 18.sp,
                         fontFamily = Fonts.jostFontFamily,)
 
                     Spacer(modifier = Modifier.height(20.dp))
@@ -193,7 +193,7 @@ fun PaymentSetting(navController: NavController) {
                                     .background(Color.Black, CircleShape)
                                     .wrapContentSize()
                             )
-                            Text(text = "Payment Method", fontWeight = FontWeight.Normal)
+                            Text(text = "Add a withdrawal method", fontWeight = FontWeight.Normal)
                         }
 
                     }

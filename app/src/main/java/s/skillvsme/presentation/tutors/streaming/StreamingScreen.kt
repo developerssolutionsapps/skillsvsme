@@ -67,6 +67,7 @@ fun StreamingScreen(
                 )
                 Column(
                     modifier = Modifier
+                        .padding(top = 10.dp)
                         .fillMaxSize(),
                     verticalArrangement = Arrangement.SpaceBetween
                 ) {
@@ -135,20 +136,22 @@ fun StreamingScreen(
                                                 verticalAlignment = Alignment.CenterVertically,
                                                 horizontalArrangement = Arrangement.SpaceEvenly,
                                                 modifier = Modifier
-                                                    .padding(horizontal = 2.dp, vertical = 4.dp)
-                                                    .padding(end = 6.dp)
+                                                    .padding(vertical = 6.dp)
+                                                    .padding(start = 10.dp, end = 9.dp)
                                             ) {
                                                 Image(
                                                     painter = painterResource(id = R.drawable.eye),
                                                     contentDescription = null,
                                                     modifier = Modifier
-                                                        .size(24.dp)
+                                                        .size(12.dp)
                                                 )
+                                                Spacer(modifier = Modifier.width(5.dp))
                                                 Text(
                                                     text = "1996",
                                                     fontWeight = FontWeight.Bold,
                                                     fontFamily = Fonts.jostFontFamily,
-                                                    fontSize = 12.sp
+                                                    fontSize = 12.sp,
+                                                    color = white
                                                 )
                                             }
                                         }

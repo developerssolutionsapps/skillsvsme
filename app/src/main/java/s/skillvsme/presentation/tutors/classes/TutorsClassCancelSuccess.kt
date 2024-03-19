@@ -31,7 +31,7 @@ fun TutorsClassCancelSuccess(
     SetStatusBarColor(color = white)
     Scaffold(
         topBar = {
-            SimpleAppBar(navController = navController, text = "Cancel Class")
+            SimpleAppBar(navController = navController, text = "Cancel class")
         },
         content = {
             Spacer(modifier = Modifier.height(80.dp))
@@ -41,8 +41,8 @@ fun TutorsClassCancelSuccess(
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 SkillvsmeSuccessScreen(
-                    successMessage = "Class cancel successfully",
-                    buttonText = "Add class",
+                    successMessage = "Class canceled",
+                    buttonText = "Add a class",
                     backButtonText = "Back to home",
                     buttonOnclickAction = {
                         navController.navigate(Route.Tutor.Classes.AddClass)

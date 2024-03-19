@@ -25,7 +25,8 @@ import s.skillvsme.ui.theme.white
 fun SimpleAppBar(
     navController: NavController,
     text: String,
-    canNavigateBack: Boolean = true
+    canNavigateBack: Boolean = true,
+    backNavigation: (() -> Unit)? = null
 )
 {
     androidx.compose.material3.Surface(
@@ -53,7 +54,13 @@ fun SimpleAppBar(
                     contentDescription = "right arrow",
                     modifier = Modifier
                         .clickable {
-                            if (canNavigateBack) navController.popBackStack()
+                            if (canNavigateBack) {
+                                if (backNavigation != null){
+                                    backNavigation()
+                                } else {
+                                    navController.popBackStack()
+                                }
+                            }
                         }
                 )
             },

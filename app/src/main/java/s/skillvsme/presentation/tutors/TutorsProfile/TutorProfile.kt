@@ -111,7 +111,17 @@ fun TutorProfile(navController: NavController) {
                         bottomSheetScaffoldState = bottomSheetScaffoldState,
                         contentSize = 151.dp,
                         bottomCornerRadius = 30.dp,
-
+                        backNavigationAction = {
+                            navController.navigate(Route.Tutor.Home.Home) {
+                                navController.graph.startDestinationRoute?.let { screen_route ->
+                                    popUpTo(screen_route) {
+                                        saveState = true
+                                    }
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
                         )
                     Spacer(modifier = Modifier.weight(1f))
                     Column(
@@ -134,7 +144,7 @@ fun TutorProfile(navController: NavController) {
                                 .noRippleClickable {
                                     navController.navigate(Route.Tutor.Profile.EditProfile)
                                 },
-                            value = "Edit Profile",
+                            value = "Edit profile",
                             iconBeforeSize = 23.dp,
                             iconAfterSize = 20.dp,
                             fontSize = 20,

@@ -33,7 +33,7 @@ fun DateCard(
     Box(
         modifier = Modifier
             .width(75.dp)
-            .padding(end = 12.dp)
+            .padding(top = 10.dp, end = 12.dp)
             .background(
                 color = lightGrey,
                 shape = RoundedCornerShape(12.dp)

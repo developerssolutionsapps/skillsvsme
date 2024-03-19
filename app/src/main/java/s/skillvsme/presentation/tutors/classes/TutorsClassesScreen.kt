@@ -5,7 +5,6 @@ import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -42,6 +41,7 @@ import androidx.navigation.NavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import s.skillvsme.common.Fonts
+import s.skillvsme.common.Route
 import s.skillvsme.common.SetStatusBarColor
 import s.skillvsme.presentation.components.BookedClassesListItem
 import s.skillvsme.presentation.components.SimpleAppBar
@@ -102,7 +102,17 @@ fun TutorsClassesScreen(
     ) {
         Scaffold(
             topBar = {
-                SimpleAppBar(navController = navController, text = "Your Classes", canNavigateBack = false)
+                SimpleAppBar(navController = navController, text = "Your classes", backNavigation = {
+                    navController.navigate(Route.Tutor.Home.Home) {
+                        navController.graph.startDestinationRoute?.let { screen_route ->
+                            popUpTo(screen_route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                })
             },
             content = {
                 Column(
@@ -132,7 +142,7 @@ fun TutorsClassesScreen(
                                     modifier = Modifier
                                         .padding(12.dp)
                                         .fillMaxWidth(),
-                                    text = "Upcoming",
+                                    text = "Booked",
                                     textAlign = TextAlign.Center,
                                     fontFamily = Fonts.jostFontFamily,
                                     color = if (upcomingSelected) white else black
@@ -153,7 +163,7 @@ fun TutorsClassesScreen(
                                     modifier = Modifier
                                         .padding(12.dp)
                                         .fillMaxWidth(),
-                                    text = "Past",
+                                    text = "Unbooked",
                                     textAlign = TextAlign.Center,
                                     fontFamily = Fonts.jostFontFamily,
                                     color = if (upcomingSelected) black else lightGrey
