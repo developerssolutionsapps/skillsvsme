@@ -1,6 +1,7 @@
 package s.skillvsme.presentation.student.streaming
 
 import ReportOverlay
+import android.annotation.SuppressLint
 import android.os.Build
 import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
@@ -67,6 +68,7 @@ import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
 import kotlin.random.Random
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @RequiresApi(Build.VERSION_CODES.Q)
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
@@ -141,7 +143,7 @@ fun LiveStreaming(
         modifier = Modifier.background(Color.Gray.copy(alpha = 0.5f))
     ) {
         Scaffold(
-            content = { paddingValues ->
+            content = {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
@@ -155,8 +157,7 @@ fun LiveStreaming(
                     )
                     Column(
                         modifier = Modifier
-                            .padding(paddingValues)
-                            .padding(start = 20.dp, end = 20.dp, bottom = 20.dp, top = 20.dp)
+                            .padding(start = 20.dp, end = 20.dp, top = 30.dp, bottom = 20.dp)
                             .fillMaxSize(),
                         verticalArrangement = Arrangement.SpaceBetween
                     ) {
@@ -282,7 +283,15 @@ fun LiveStreaming(
                                     contentDescription = null,
                                     modifier = Modifier
                                         .clickable {
-                                            navController.popBackStack()
+                                            navController.navigate(Route.Student.Home.Home) {
+                                                navController.graph.startDestinationRoute?.let { screen_route ->
+                                                    popUpTo(screen_route) {
+                                                        saveState = true
+                                                    }
+                                                }
+                                                launchSingleTop = true
+                                                restoreState = true
+                                            }
                                         }
                                         .size(24.dp)
                                         .padding(4.dp)
@@ -699,7 +708,6 @@ fun GiftOverlay(navController: NavController, cancelClicked: () -> Unit) {
                         textDecoration = TextDecoration.Underline
                     )
                 }
-                Spacer(modifier = Modifier.height(51.dp))
             }
         }
     }

@@ -70,8 +70,7 @@ fun SkillvsmeRadioPrice(
                         fontFamily = Fonts.jostFontFamily,
                         text = label,
                         fontSize = 20.sp,
-                        color = if (primary) black else white,
-                        modifier = Modifier.padding(horizontal = 8.dp)
+                        color = if (primary) black else white
                     )
                     if (discount != null) Card(
                         shape = RoundedCornerShape(8.dp),
@@ -90,9 +89,10 @@ fun SkillvsmeRadioPrice(
                     }
                 }
             }
+            Spacer(modifier = Modifier.weight(1f))
             Row(
                 horizontalArrangement = Arrangement.Start,
-                modifier = Modifier.padding(end = 24.dp)
+                modifier = Modifier.padding(end = 16.dp)
             ) {
                 Text(
                     fontFamily = Fonts.jostFontFamily,

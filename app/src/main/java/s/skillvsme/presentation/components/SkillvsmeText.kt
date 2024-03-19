@@ -31,7 +31,7 @@ import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
 
 @Composable
-fun     SkillvsmeText(
+fun SkillvsmeText(
     value: String,
     value1: String?=null,
     modifier: Modifier = Modifier,
@@ -49,6 +49,7 @@ fun     SkillvsmeText(
     iconBeforeSpacer: Dp =16.dp,
     iconAfterSize: Dp =16.dp,
     iconBefore: Painter? = null,
+    iconBeforeColor: Color = Color.Unspecified,
     valueFont:FontWeight=FontWeight.Normal,
     iconAfter: Painter? = null,
     valueColor: Color? = null,
@@ -75,6 +76,7 @@ fun     SkillvsmeText(
                 ) {
                     Icon(
                         iconBefore,
+                        tint = iconBeforeColor,
                         contentDescription = "icon"
                     )
                 }

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -66,6 +67,7 @@ fun TutorsVideo(
                             painter = painterResource(id = R.drawable.play_circle_filled_white),
                             contentDescription = "play icon",
                             modifier = Modifier
+                                .size(24.dp)
                                 .align(Alignment.Center)
                         )
                     }
@@ -81,18 +83,11 @@ fun TutorsVideo(
                         horizontalArrangement = Arrangement.SpaceAround,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .height(40.dp)
-                                .width(40.dp)
-                        ){
-                            Image(
-                                modifier = Modifier.fillMaxSize(),
-                                painter = painterResource(id = R.drawable.person_add_black),
-                                contentDescription = "add contact"
-                            )
-                        }
-                        Spacer(modifier = Modifier.width(16.dp))
+                        Image(
+                            painter = painterResource(id = R.drawable.contact_add),
+                            contentDescription = "add contact"
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
                         SkillvsmeButton(
                             modifier = Modifier
                                 .fillMaxWidth(),
@@ -103,7 +98,7 @@ fun TutorsVideo(
                             }
                         )
                     }
-                    Spacer(modifier = Modifier.height(16.dp))
+                    Spacer(modifier = Modifier.height(45.dp))
                     // Bio
                     SkillvsmeText(
                         label = "Bio",

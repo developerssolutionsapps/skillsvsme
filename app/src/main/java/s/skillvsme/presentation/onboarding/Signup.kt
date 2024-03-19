@@ -156,14 +156,14 @@ fun Signup(
                                 otpCodeValue = it
                             },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone ),
-                            hint = "Enter Your Phone Number",
+                            hint = "Enter your phone number",
                             fieldDescription = ""
                         )
                     }
-                    Spacer(modifier = Modifier.height(23.dp))
+                    Spacer(modifier = Modifier.height(17.dp))
                     SkillvsmeButton(
                         enabled = otpCodeValue != "",
-                        label = "Send Code",
+                        label = "Send code",
                         modifier = Modifier
                             .padding(horizontal = 20.dp)
                             .fillMaxWidth(),
@@ -195,8 +195,9 @@ fun Signup(
                                 .align(alignment = CenterHorizontally)
                                 .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.apple_icon),
-                            value = "Sign Up With Apple",
+                            value = "Signup with apple",
                             valueSize = 20,
+                            iconBeforeSpacer = 8.dp,
                             boldValue = true,
                             valueFontWeignt = FontWeight.Medium
                         )
@@ -218,7 +219,8 @@ fun Signup(
                                 .align(alignment = CenterHorizontally)
                                 .padding(start = 8.dp, end = 8.dp, top = 13.5.dp, bottom = 13.5.dp),
                             iconBefore = painterResource(R.drawable.google_icon),
-                            value = "Sign Up With Google",
+                            value = "Signup with google",
+                            iconBeforeSpacer = 8.dp,
                             valueSize = 20,
                             boldValue = true,
                             valueFontWeignt = FontWeight.Bold

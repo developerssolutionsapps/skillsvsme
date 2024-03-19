@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import s.skillvsme.R
 import s.skillvsme.common.Fonts
+import s.skillvsme.ui.theme.black
 import s.skillvsme.ui.theme.black60
 import s.skillvsme.ui.theme.darkGrey
 import s.skillvsme.ui.theme.white
@@ -76,6 +77,7 @@ fun PastClassesItem(
                     Column {
                         SkillvsmeText(
                             value = name,
+                            boldValue = true,
                             valueSize = 20
                         )
                         Row(
@@ -99,23 +101,32 @@ fun PastClassesItem(
                 Spacer(modifier = Modifier.height(8.dp))
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Image(painter = painterResource(R.drawable.rate_star), contentDescription = "rate star")
+                        Image(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(R.drawable.rate_star),
+                            contentDescription = "rate star"
+                        )
                         SkillvsmeText(
                             value = "$rating",
-                            valueSize = 16
+                            valueSize = 14,
+                            valueColor = black.copy(0.5f)
                         )
                     }
                     SkillvsmeText(
                         value = time,
+                        boldValue = true,
+                        valueColor = black,
+                        valueFontWeignt = FontWeight.Medium,
                         valueSize = 16
                     )
                 }
-                Spacer(modifier = Modifier.height(20.dp))
+                Spacer(modifier = Modifier.height(32.dp))
                 Row(
                     modifier = Modifier
                         .fillMaxWidth(),

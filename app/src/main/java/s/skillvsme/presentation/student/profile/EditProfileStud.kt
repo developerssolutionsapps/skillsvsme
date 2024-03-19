@@ -79,15 +79,15 @@ fun EditProfileStud(
                                 modifier = Modifier.align(Alignment.CenterHorizontally)
                             )
                             Spacer(modifier = Modifier.height(15.dp))
-                            EditTextLabel(value = "Kamal Tyagi", text = "User Name")
+                            EditTextLabel(value = "Kamal Tyagi", text = "User name")
                             Spacer(modifier = Modifier.height(15.dp))
-                            EditTextLabel(value = "+999 45821365479", text = "Phone Number")
+                            EditTextLabel(value = "+999 45821365479", text = "Phone number")
                             Spacer(modifier = Modifier.height(15.dp))
                             EditTextLabel(value = "Califonia, USA", text = "Location")
                         }
                         Column {
                             SkillvsmeButton(
-                                label = "Save Changes",
+                                label = "Save changes",
                                 modifier = Modifier.fillMaxWidth()
                             )
                             Spacer(modifier = Modifier.height(20.dp))

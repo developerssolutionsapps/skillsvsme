@@ -134,7 +134,7 @@ fun StudentProfile(navController: NavController) {
                                 .noRippleClickable {
                                     navController.navigate(Route.Student.Profile.EditProfile)
                                 },
-                            value = "Edit Profile",
+                            value = "Edit profile",
                             iconBeforeSize = 23.dp,
                             iconAfterSize = 20.dp,
                             fontSize = 20,

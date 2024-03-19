@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import s.skillvsme.common.Route
@@ -62,24 +63,28 @@ fun PaymentPlan(
                 SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
+                    fontWeight = FontWeight.Medium,
                     label = "30 mins/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
+                    fontWeight = FontWeight.Medium,
                     label = "1 hr/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
+                    fontWeight = FontWeight.Medium,
                     label = "1.5 hr/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 SkillvsmeBorderRadioBtn(
                     modifier = Modifier.fillMaxWidth(),
                     selectedValue = selectedValue,
+                    fontWeight = FontWeight.Medium,
                     label = "2.5 hr/week"
                 )
                 Spacer(modifier = Modifier.height(8.dp))

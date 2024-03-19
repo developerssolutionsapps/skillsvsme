@@ -127,6 +127,8 @@ fun TutorsDetailsAppBar(
             SkillvsmeText(
                 value = "${location} | ${time}",
                 iconBefore = painterResource(id = R.drawable.location),
+                iconBeforeColor = white,
+                iconBeforeSpacer = 0.dp,
                 boldValue = true,
                 valueSize = 16,
                 valueColor = white
@@ -136,6 +138,7 @@ fun TutorsDetailsAppBar(
                 modifier = Modifier
                     .fillMaxWidth(),
                 label = "Schedule a class",
+                fontWeight = FontWeight.Bold,
                 primary = false,
                 onClick = { onClick() }
             )

@@ -234,7 +234,7 @@ fun HomePage(
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = "Learning Plans",
+                    text = "Learning plans",
                     fontFamily = Fonts.jostFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     color = black,
@@ -283,7 +283,7 @@ fun HomePage(
                                 )
                             }
                             Text(
-                                text = "Book a Trial session", fontFamily = Fonts.jostFontFamily,
+                                text = "Book a trial session", fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
                                 color = black,
                                 fontSize = 18.sp,
@@ -345,7 +345,7 @@ fun HomePage(
                                 )
                             }
                             Text(
-                                text = "Choose A subscription plan", fontFamily = Fonts.jostFontFamily,
+                                text = "Choose a subscription plan", fontFamily = Fonts.jostFontFamily,
                                 fontWeight = FontWeight.Normal,
                                 color = black,
                                 fontSize = 18.sp,
